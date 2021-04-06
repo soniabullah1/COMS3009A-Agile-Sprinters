@@ -1,0 +1,44 @@
+mysql> CREATE DATABASE AGILE_SPRINTERS;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| AGILE_SPRINTERS    |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use AGILE_SPRINTERS;
+Database changed
+
+mysql> CREATE TABLE USER (USER_ID INT AUTO_INCREMENT PRIMARY KEY, USERNAME VARCHAR(20) UNIQUE NOT NULL, PASSWORD VARCHAR(255) NOT NULL);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> CREATE TABLE USER_INFO (USER_ID INT, FNAME VARCHAR(20) NOT NULL, LNAME VARCHAR(20) NOT NULL, CONTACT_NO VARCHAR(11) NOT NULL);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> DESC USER;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| USER_ID  | int          | NO   | PRI | NULL    | auto_increment |
+| USERNAME | varchar(20)  | NO   | UNI | NULL    |                |
+| PASSWORD | varchar(255) | NO   |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> DESC USER_INFO;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| USER_ID    | int         | YES  |     | NULL    |       |
+| FNAME      | varchar(20) | NO   |     | NULL    |       |
+| LNAME      | varchar(20) | NO   |     | NULL    |       |
+| CONTACT_NO | varchar(11) | NO   |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
