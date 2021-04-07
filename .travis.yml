@@ -4,6 +4,7 @@ jdk:
  
 components:
  - tools
+ - tools
  - platform-tools
  - build-tools-30.0.0
  - android-26
