@@ -7,40 +7,39 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Chatpage extends AppCompatActivity {
+public class UserProfile extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chatpage);
+        setContentView(R.layout.activity_user_profile);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav2);
 
-        bottomNavigationView.setSelectedItemId(R.id.Chats);
+        bottomNavigationView.setSelectedItemId(R.id.menu);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.Chats:
-//                        startActivity(new Intent(getApplicationContext(), ChatWindow.class));
-//                        overridePendingTransition(0,0);
+                        startActivity(new Intent(getApplicationContext(), ChatWindow.class));
+                        overridePendingTransition(0,0);
                         return true;
                     case R.id.Home:
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.menu:
-                        startActivity(new Intent(getApplicationContext(), Settings.class));
-                        overridePendingTransition(0,0);
+//                        startActivity(new Intent(getApplicationContext(), Settings.class));
+//                        overridePendingTransition(0,0);
                         return true;
                     case R.id.contacts:
                         startActivity(new Intent(getApplicationContext(), ContactList.class));
                         overridePendingTransition(0,0);
-                     return true;
+                        return true;
 
                 }
                 return false;

@@ -7,15 +7,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Chatpage extends AppCompatActivity {
+public class ChatWindow extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chatpage);
+        setContentView(R.layout.activity_chat_window);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav2);
 
@@ -40,7 +39,7 @@ public class Chatpage extends AppCompatActivity {
                     case R.id.contacts:
                         startActivity(new Intent(getApplicationContext(), ContactList.class));
                         overridePendingTransition(0,0);
-                     return true;
+                        return true;
 
                 }
                 return false;
@@ -48,3 +47,4 @@ public class Chatpage extends AppCompatActivity {
         });
     }
 }
+
