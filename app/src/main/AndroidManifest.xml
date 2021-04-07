@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AgileSprintersApp">
-        <activity android:name=".Chatpage"></activity>
+        <activity android:name=".Settings"></activity>
+        <activity android:name=".UserProfile" />
+        <activity android:name=".ChatWindow" />
+        <activity android:name=".ContactList" />
+        <activity android:name=".Chatpage" />
         <activity android:name=".SignUp" />
         <activity android:name=".SignIn" />
         <activity android:name=".MainActivity">

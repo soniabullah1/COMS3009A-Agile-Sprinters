@@ -9,23 +9,40 @@ import android.widget.Button;
 
 public class SignUp extends AppCompatActivity {
 
-    private Button Login;
+    private Button Signin;
+    private Button Return;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        Login = (Button) findViewById(R.id.buttonLogin);
 
-        Login.setOnClickListener(new View.OnClickListener() {
+
+        Signin = (Button) findViewById(R.id.button2);
+        Return = (Button) findViewById(R.id.button4);
+
+//
+
+        Signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent RegisterIntent = new Intent(SignUp.this, Chatpage.class);
-                RegisterIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(RegisterIntent);
+                Intent LoginIntent = new Intent(SignUp.this, Chatpage.class);
+                LoginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(LoginIntent);
                 finish();
             }
         });
+
+        Return.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ReturnIntent = new Intent(SignUp.this, MainActivity.class);
+                ReturnIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(ReturnIntent);
+                finish();
+            }
+        });
+
     }
 }

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AgileSprintersApp</string>
+
+    <string name="write_a_message">Write a message</string>
 </resources>

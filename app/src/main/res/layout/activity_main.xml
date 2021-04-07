@@ -1,51 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Salmon"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/tSignIn"
+        android:layout_width="323dp"
+        android:layout_height="52dp"
+        android:background="@drawable/buttoncolor"
+        android:text="LOGIN"
+        android:textStyle="bold"
+        android:paddingBottom="10dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.751" />
+
+    <Button
+        android:id="@+id/tRegister"
+        android:layout_width="323dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="92dp"
+        android:background="@drawable/buttoncolor"
+        android:textStyle="bold"
+        android:text="New user? Sign up!"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="310dp"
-        android:layout_height="100dp"
-        android:text="Welcome to Talk Time. Lets get chatting!"
+        android:id="@+id/textView14"
+        android:layout_width="323dp"
+        android:layout_height="52dp"
         android:gravity="center"
-        android:textSize="30sp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Welcome to TalkTime!"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.464"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.41"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.251" />
+        app:layout_constraintVertical_bias="0.101" />
 
-    <Button
-        android:id="@+id/SignIn"
-        android:layout_width="310dp"
-        android:layout_height="100dp"
-        android:gravity="center"
-        android:text="Already have an account? click here to sign in"
-        android:textSize="20sp"
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="269dp"
+        android:layout_height="249dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.465"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.557" />
-
-    <Button
-        android:id="@+id/SignUp"
-        android:layout_width="310dp"
-        android:layout_height="100dp"
-        android:gravity="center"
-        android:text="New to Talk-Time? Click here to sign up"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.465"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.781" />
+        app:layout_constraintVertical_bias="0.404"
+        app:srcCompat="@drawable/talktime" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
