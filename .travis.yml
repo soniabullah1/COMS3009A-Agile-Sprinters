@@ -1,46 +1,27 @@
 language: android
+jdk: oraclejdk8
 
 android:
   components:
-    - tools
     - platform-tools
-    - build-tools-29.0.6
-    - android-29
-  licenses:
-    - 'android-sdk-preview-license-52d11cd2'
-    - 'android-sdk-license-.+'
-    - 'google-gdk-license-.+'
+    - tools
+    - tools
 
-jdk:
-  - openjdk8
+    - build-tools-29.0.6
+
+    - android-29
+
+    - extra-google-google_play_services
+    - extra-google-m2repository
+    - extra-android-m2repository
+    - addon-google_apis-google-19
+
 
 before_install:
-  - yes | sdkmanager "platforms;android-28"
+  - yes | sdkmanager "platforms;android-27"
 
-install: true
-
-before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
-
-cache:
-  directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
-    - $HOME/.android/build-cache
-
-stages:
-  - name: lint_and_test
-
-jobs:
-  include:
-    # Make sure we're not being sloppy
-    - stage: lint_and_test
-      name: "Lint"
-      script: ./gradlew clean lint
-    # Make sure we're not breaking things
-    - name: "Test"
-      script: ./gradlew clean test
-
+script:
+    - ./gradlew assembleDebug
+    
 after_success:
-    - ./gradlew jacocoTestReport coveralls
+    - ./gradlew connectedAndroidTest coveralls
