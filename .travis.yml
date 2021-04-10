@@ -22,6 +22,4 @@ before_install:
 
 script:
     - ./gradlew assembleDebug
-    - "sbt clean coverage test"
-
-after_success: "sbt coveralls"
+    - npm run coveralls
