@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,16 +30,17 @@ import java.util.Arrays;
 public class Chatpage extends AppCompatActivity {
     //final String url_Register = "https://lamp.ms.wits.ac.za/home/s2141916/test_WHATSAPP.php";
     ListView ls;
+    TextView t ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {   getJSON("https://lamp.ms.wits.ac.za/home/s2141916/test_WHATSAPP.php");
 
-        
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatpage);
         ls = (ListView)findViewById(R.id.listView);
+        t = (TextView)findViewById(R.id.testTxt);
+
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav2);
 
@@ -131,6 +133,9 @@ public class Chatpage extends AppCompatActivity {
         //creating a string array for listview
         String[] heroes = new String[jsonArray.length()];
         String[] heroes2 = new String[jsonArray.length()];
+        String[] heroes3 = new String[jsonArray.length()];
+        ArrayList<Chats_list> list = new ArrayList<>();
+        Chats_list one = new Chats_list("","","");
 
         //looping through all the elements in json array
         for (int i = 0; i < jsonArray.length(); i++) {
@@ -140,15 +145,24 @@ public class Chatpage extends AppCompatActivity {
 
             //getting the name from the json object and putting it inside string array
             heroes[i] = obj.getString("TEXTMESSAGE");
-            heroes2[i] = obj.getString("USERNAME");
+            heroes2[i] = obj.getString("SENDER_NAME");
+            heroes3[i] = obj.getString("TIMESTAMP");
+
+            one = new Chats_list(heroes2[i], heroes[i], heroes3[i]);
+            list.add(one);
         }
+
+        chatListAdapter adapter = new chatListAdapter(this,R.layout.listview_adapter,list);
+
+
 
         //the array adapter to load data into list
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, heroes);
 
 
         //attaching adapter to listview
-        ls.setAdapter(arrayAdapter);
+        ls.setAdapter(adapter);
+        t.setText("Hi");
     }
 
 
