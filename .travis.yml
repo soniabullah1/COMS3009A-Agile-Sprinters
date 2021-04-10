@@ -23,5 +23,5 @@ before_install:
 script:
     - ./gradlew assembleDebug
     
-after_script:
-  - coveralls
+after_success:
+    - ./gradlew jacocoTestReport coveralls
