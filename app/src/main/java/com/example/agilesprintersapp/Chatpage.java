@@ -145,11 +145,10 @@ public class Chatpage extends AppCompatActivity {
 
         //the array adapter to load data into list
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, heroes);
-        ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, heroes2);
+
 
         //attaching adapter to listview
         ls.setAdapter(arrayAdapter);
-        ls.setAdapter(arrayAdapter2);
     }
 
 
