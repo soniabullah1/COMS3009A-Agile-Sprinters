@@ -27,17 +27,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Chatpage extends AppCompatActivity {
-    final String url_Register = "https://lamp.ms.wits.ac.za/home/s2141916/test_WHATSAPP.php";
+    //final String url_Register = "https://lamp.ms.wits.ac.za/home/s2141916/test_WHATSAPP.php";
     ListView ls;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {   getJSON("https://lamp.ms.wits.ac.za/home/s2141916/test_WHATSAPP.php");
-        ls = findViewById(R.id.listView);
+
+        
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatpage);
+        ls = (ListView)findViewById(R.id.listView);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav2);
 
@@ -129,6 +130,7 @@ public class Chatpage extends AppCompatActivity {
 
         //creating a string array for listview
         String[] heroes = new String[jsonArray.length()];
+        String[] heroes2 = new String[jsonArray.length()];
 
         //looping through all the elements in json array
         for (int i = 0; i < jsonArray.length(); i++) {
@@ -138,14 +140,16 @@ public class Chatpage extends AppCompatActivity {
 
             //getting the name from the json object and putting it inside string array
             heroes[i] = obj.getString("TEXTMESSAGE");
-
+            heroes2[i] = obj.getString("USERNAME");
         }
 
         //the array adapter to load data into list
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, heroes);
+        ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, heroes2);
 
         //attaching adapter to listview
         ls.setAdapter(arrayAdapter);
+        ls.setAdapter(arrayAdapter2);
     }
 
 
