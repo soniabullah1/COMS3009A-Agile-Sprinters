@@ -24,4 +24,4 @@ script:
     - ./gradlew assembleDebug
     
 after_success:
-    - ./gradlew connectedAndroidTest coveralls
+    - bash <(curl -s https://codecov.io/bash)
