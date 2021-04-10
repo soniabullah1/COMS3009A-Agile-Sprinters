@@ -5,6 +5,7 @@ android:
   components:
     - platform-tools
     - tools
+    - tools
 
     - build-tools-29.0.6
 
