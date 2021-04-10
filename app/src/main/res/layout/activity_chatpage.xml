@@ -24,7 +24,7 @@
         app:menu="@menu/navigation" />
 
     <ListView
-        android:id="@+id/lst_contact_list"
+        android:id="@+id/listView"
         android:layout_width="303dp"
         android:layout_height="499dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,7 +42,7 @@
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/lst_contact_list"
+        app:layout_constraintBottom_toTopOf="@+id/listView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

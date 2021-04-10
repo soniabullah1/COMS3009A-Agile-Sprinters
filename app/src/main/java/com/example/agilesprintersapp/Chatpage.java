@@ -15,6 +15,10 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -24,12 +28,14 @@ import java.util.Arrays;
 
 public class Chatpage extends AppCompatActivity {
     final String url_Register = "https://lamp.ms.wits.ac.za/home/s2141916/test_WHATSAPP.php";
-
+    ListView ls;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {   getJSON("https://lamp.ms.wits.ac.za/home/s2141916/test_WHATSAPP.php");
+        ls = findViewById(R.id.listView);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatpage);
 
@@ -79,6 +85,12 @@ public class Chatpage extends AppCompatActivity {
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+
+                try {
+                    loadIntoListView(s);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
@@ -109,6 +121,31 @@ public class Chatpage extends AppCompatActivity {
         }
         GetJSON getJSON = new GetJSON();
         getJSON.execute();
+    }
+
+    private void loadIntoListView(String json) throws JSONException {
+        //creating a json array from the json string
+        JSONArray jsonArray = new JSONArray(json);
+
+        //creating a string array for listview
+        String[] heroes = new String[jsonArray.length()];
+
+        //looping through all the elements in json array
+        for (int i = 0; i < jsonArray.length(); i++) {
+
+            //getting json object from the json array
+            JSONObject obj = jsonArray.getJSONObject(i);
+
+            //getting the name from the json object and putting it inside string array
+            heroes[i] = obj.getString("TEXTMESSAGE");
+
+        }
+
+        //the array adapter to load data into list
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, heroes);
+
+        //attaching adapter to listview
+        ls.setAdapter(arrayAdapter);
     }
 
 

@@ -24,7 +24,7 @@
         app:menu="@menu/navigation" />
 
     <ListView
-        android:id="@+id/lst_contact_list"
+        android:id="@+id/listView"
         android:layout_width="303dp"
         android:layout_height="499dp"
         app:layout_constraintBottom_toBottomOf="parent"
