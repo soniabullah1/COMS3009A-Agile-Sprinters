@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class chatListAdapter extends ArrayAdapter<Chats_list> {
-    private static final String TAG = "PersonListAdapter";
+    private static final String TAG = "ChatListAdapter";
 
     private Context mContext;
     private int mResource;
@@ -32,7 +32,7 @@ public class chatListAdapter extends ArrayAdapter<Chats_list> {
     }
 
     /**
-     * Default constructor for the PersonListAdapter
+     * Default constructor for the ChatListAdapter
      * @param context
      * @param resource
      * @param objects

@@ -9,11 +9,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
@@ -25,7 +23,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Chatpage extends AppCompatActivity {
     //final String url_Register = "https://lamp.ms.wits.ac.za/home/s2141916/test_WHATSAPP.php";
@@ -38,9 +35,7 @@ public class Chatpage extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatpage);
-        ls = (ListView)findViewById(R.id.listView);
-        t = (TextView)findViewById(R.id.testTxt);
-
+        ls = (ListView)findViewById(R.id.contactList);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav2);
 
@@ -65,7 +60,7 @@ public class Chatpage extends AppCompatActivity {
                     case R.id.contacts:
                         startActivity(new Intent(getApplicationContext(), ContactList.class));
                         overridePendingTransition(0,0);
-                     return true;
+                        return true;
 
                 }
                 return false;
@@ -162,7 +157,7 @@ public class Chatpage extends AppCompatActivity {
 
         //attaching adapter to listview
         ls.setAdapter(adapter);
-        t.setText("Hi");
+
     }
 
 

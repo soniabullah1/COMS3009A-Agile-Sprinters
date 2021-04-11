@@ -24,15 +24,29 @@
         app:menu="@menu/navigation" />
 
     <ListView
-        android:id="@+id/listView"
-        android:layout_width="303dp"
-        android:layout_height="499dp"
+        android:id="@+id/contactList"
+        android:layout_width="411dp"
+        android:layout_height="485dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.727"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/headingtxt"
+        android:layout_width="224dp"
+        android:layout_height="40dp"
+        android:text="Contacts"
+        android:gravity="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomNav2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.572"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.048" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
