@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     //added:
     id 'com.github.kt3k.coveralls'
+    //hi
 }
 
 android {
