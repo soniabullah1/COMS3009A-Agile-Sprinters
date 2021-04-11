@@ -20,5 +20,5 @@ android:
 before_install:
   - yes | sdkmanager "platforms;android-27"
 
-after_success:
-- ./gradlew jacocoTestReport coveralls
+script:
+    - ./gradlew assembleDebug
