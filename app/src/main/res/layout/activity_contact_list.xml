@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Salmon"
+    android:background="@color/LightGrey"
     tools:context=".ContactList">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -12,35 +12,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:itemIconTint="@drawable/selector"
-        app:itemTextColor="@drawable/selector"
+        app:itemIconTint="@color/Blue"
+        app:itemTextColor="@color/Blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        android:background="@color/PeachPuff"
+        android:background="@color/Yellow"
         app:menu="@menu/navigation" />
 
     <ListView
         android:id="@+id/contactList"
-        android:layout_width="411dp"
-        android:layout_height="485dp"
+        android:layout_width="375dp"
+        android:layout_height="582dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.727"
+        app:layout_constraintVertical_bias="0.575"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/headingtxt"
         android:layout_width="224dp"
         android:layout_height="40dp"
-        android:text="Contacts"
         android:gravity="center"
+        android:text="Contacts"
+        android:textColor="@color/Blue"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/bottomNav2"
         app:layout_constraintEnd_toEndOf="parent"

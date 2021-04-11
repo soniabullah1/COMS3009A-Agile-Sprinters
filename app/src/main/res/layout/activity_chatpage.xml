@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Salmon"
+    android:background="@color/LightGrey"
     tools:context=".ContactList">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -12,16 +12,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:itemIconTint="@drawable/selector"
-        app:itemTextColor="@drawable/selector"
+        android:background="@color/Yellow"
+        app:itemIconTint="@color/Blue"
+        app:itemTextColor="@color/Blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        android:background="@color/PeachPuff"
-        app:menu="@menu/navigation" >
+        app:menu="@menu/navigation">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
@@ -45,8 +45,8 @@
         android:layout_height="62dp"
         android:gravity="center"
         android:text="Chats"
-        android:textColor="@color/white"
-        android:textSize="40dp"
+        android:textColor="@color/Blue"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/contactList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -102,6 +102,7 @@ public class ContactList extends AppCompatActivity {
             }
         }
     }
+
     private ArrayList getAllContacts() {
         ArrayList<String> nameList = new ArrayList<>();
         ContentResolver cr = getContentResolver();

@@ -24,6 +24,7 @@ public class SignIn extends AppCompatActivity {
     Button Return, Login;
     EditText UsernameLogin, PasswordLogin;
     final String url_loginUser = "https://lamp.ms.wits.ac.za/home/s2141916/SignIn_WhatsApp.php";
+    String st;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +49,15 @@ public class SignIn extends AppCompatActivity {
                     UsernameLogin.setError("Input Username");
                 } else if (TextUtils.isEmpty(Password)) {
                     PasswordLogin.setError("Input Password");
-                } else if (TextUtils.isEmpty(Username) && TextUtils.isEmpty(Password)){
-                    UsernameLogin.setError("Input Username");
-                    PasswordLogin.setError("Input Password");
                 } else{
                     new loginUser().execute(Username, Password);
                 }
+
+               Intent sendUsername = new Intent(SignIn.this, Chatpage.class);
+                sendUsername.putExtra("key", Username);
+                startActivity(sendUsername);
+                //finish();
+
             }
         });
 
@@ -102,6 +106,7 @@ public class SignIn extends AppCompatActivity {
                     if (result.equalsIgnoreCase("login")) {
                         showToast("Login Successful");
                         Intent i = new Intent(SignIn.this, Chatpage.class);
+                        i.putExtra(Intent.EXTRA_TEXT,Username);
                         startActivity(i);
                         finish();
                     } else {

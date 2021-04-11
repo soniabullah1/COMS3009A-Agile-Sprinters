@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,14 +29,23 @@ public class Chatpage extends AppCompatActivity {
     //final String url_Register = "https://lamp.ms.wits.ac.za/home/s2141916/test_WHATSAPP.php";
     ListView ls;
     TextView t ;
+    String one = "https://lamp.ms.wits.ac.za/home/s2141916/test_WHATSAPP.php";
+    String Username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
-    {   getJSON("https://lamp.ms.wits.ac.za/home/s2141916/test_WHATSAPP.php");
-
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatpage);
         ls = (ListView)findViewById(R.id.contactList);
+        //t = (TextView)findViewById(R.id.testxt);
+
+        //Intent intent = getIntent();
+        //Username = intent.getStringExtra (Intent.EXTRA_TEXT );
+
+        //t.setText(Username);
+
+        getJSON(one);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav2);
 
@@ -82,7 +92,7 @@ public class Chatpage extends AppCompatActivity {
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
 
                 try {
                     loadIntoListView(s);
@@ -95,7 +105,7 @@ public class Chatpage extends AppCompatActivity {
             protected String doInBackground(Void... voids) {
 
                 try {
-                    URL url = new URL("https://lamp.ms.wits.ac.za/home/s2141916/test_WHATSAPP.php");
+                    URL url = new URL(one);
 
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
 

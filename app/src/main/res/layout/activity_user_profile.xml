@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Salmon"
+    android:background="@color/LightGrey"
     tools:context=".ContactList">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
