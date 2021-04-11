@@ -7,8 +7,12 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -20,11 +24,10 @@ import okhttp3.Response;
 
 public class SignIn extends AppCompatActivity {
 
-    AlertDialog alertDialog;
     Button Return, Login;
     EditText UsernameLogin, PasswordLogin;
     final String url_loginUser = "https://lamp.ms.wits.ac.za/home/s2141916/SignIn_WhatsApp.php";
-    String st;
+    CheckBox chkPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,21 @@ public class SignIn extends AppCompatActivity {
         Login = findViewById(R.id.bSignIn);
         UsernameLogin = findViewById(R.id.editTextTextPersonName);
         PasswordLogin = findViewById(R.id.editTextTextPassword);
+
+        chkPass = (CheckBox)findViewById(R.id.checkBoxPassword);
+        chkPass.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    // Show Password
+                    PasswordLogin.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                }
+                else {
+                    // Hide Password
+                    PasswordLogin.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+            }
+        });
 
 
         Login.setOnClickListener(new View.OnClickListener() {
@@ -52,11 +70,6 @@ public class SignIn extends AppCompatActivity {
                 } else{
                     new loginUser().execute(Username, Password);
                 }
-
-               Intent sendUsername = new Intent(SignIn.this, Chatpage.class);
-                sendUsername.putExtra("key", Username);
-                startActivity(sendUsername);
-                //finish();
 
             }
         });
