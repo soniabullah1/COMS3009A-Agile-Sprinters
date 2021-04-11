@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Salmon"
+    android:background="@color/LightGrey"
     tools:context=".ContactList">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -12,37 +12,42 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:itemIconTint="@drawable/selector"
-        app:itemTextColor="@drawable/selector"
+        android:background="@color/Yellow"
+        app:itemIconTint="@color/Blue"
+        app:itemTextColor="@color/Blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        android:background="@color/PeachPuff"
-        app:menu="@menu/navigation" />
+        app:menu="@menu/navigation">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     <ListView
-        android:id="@+id/lst_contact_list"
-        android:layout_width="303dp"
-        android:layout_height="499dp"
+        android:id="@+id/contactList"
+        android:layout_width="400dp"
+        android:layout_height="593dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.572"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.553"
+        tools:ignore="MissingConstraints">
+
+    </ListView>
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="300dp"
-        android:layout_height="53dp"
-        android:text="Chats"
+        android:layout_width="232dp"
+        android:layout_height="62dp"
         android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/lst_contact_list"
+        android:text="Chats"
+        android:textColor="@color/Blue"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/contactList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

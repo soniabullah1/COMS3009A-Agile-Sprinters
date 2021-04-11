@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Salmon"
+    android:background="@color/LightGrey"
     tools:context=".SignIn">
 
 
@@ -13,9 +13,9 @@
         android:id="@+id/bReturn"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/buttoncolor"
+        android:background="@color/Yellow"
         android:text="Return to home page"
-        android:textColor="@color/white"
+        android:textColor="@color/Blue"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +31,7 @@
         android:drawableLeft="@drawable/ic_baseline_lock_24"
         android:gravity="center"
         android:text="Password:"
-        android:textColor="@color/white"
+        android:textColor="@color/LightBlue"
         android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -48,7 +48,7 @@
         android:drawableLeft="@drawable/ic_baseline_person_24"
         android:gravity="center"
         android:text="Username:"
-        android:textColor="@color/white"
+        android:textColor="@color/LightBlue"
         android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -66,7 +66,7 @@
         android:textSize="25dp"
         android:textStyle="bold"
         android:gravity="center"
-        android:textColor="@color/white"
+        android:textColor="@color/Blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.551"
@@ -106,9 +106,9 @@
         android:id="@+id/bSignIn"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/buttoncolor"
+        android:background="@color/Yellow"
         android:text="Sign In"
-        android:textColor="@color/white"
+        android:textColor="@color/Blue"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -116,5 +116,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.816" />
+
+    <CheckBox
+        android:id="@+id/checkBoxPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="show password"
+        android:textColor="@color/LightBlue"
+        app:layout_constraintBottom_toTopOf="@+id/bSignIn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.694"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        app:layout_constraintVertical_bias="0.111" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
