@@ -26,7 +26,7 @@ public class SignIn extends AppCompatActivity {
 
     Button Return, Login;
     EditText UsernameLogin, PasswordLogin;
-    final String url_loginUser = "https://lamp.ms.wits.ac.za/home/s2141916/SignIn_WhatsApp.php";
+    final String url_loginUser = "https://lamp.ms.wits.ac.za/home/s2141916/L2.php";
     CheckBox chkPass;
 
     @Override

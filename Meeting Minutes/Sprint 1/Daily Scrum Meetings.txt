@@ -1,0 +1,1073 @@
+[2021/03/30, 09:09:55] Sonia: 
+Hi everyone! We’ll have our Daily Scrum Meeting on this group everyday (starting today after our Sprint Planning Meeting) for approximately 15 minutes. 
+
+Please can everyone just send the following points daily: 
+1. What did you do yesterday?
+2. What will you do today? 
+3. Are there any impediments in your way (anything that blocks your progress, reduces your effectiveness etc...)? 
+
+Thank you.
+
+[2021/03/30, 10:31:01] Sonia: 
+1. What I did yesterday: 
+Ensured that all our environments for the project were set up correctly and that all the necessary badges were displaying correctly. 
+2. What I will do today:
+Colin and I will look into setting up an online database and start creating the necessary tables if we have enough time. I will also create and upload the user stories. 
+3. Any impediments? 
+No impediments at the moment.
+
+[2021/03/30, 10:31:56] Colin Hugo: 
+Tuesday 30 March
+
+1. What I did yesterday: 
+Made sure my intial commit worked on github
+ 
+2. What I will do today:
+I’ll create the discord server and send you all the invitation to join
+I’ll also do some research into the best database to use for this. And what works best. 
+
+3. Any impediments? 
+No impediments at the moment.
+
+[2021/03/30, 10:32:55] Tristen Haverly: 
+Daily scrum: 
+1. Yesterday 
+- read sprint rubrics
+- made sure I had the respective sprint Software and environments  (git, taiga, Travis.Ci... ) and it was all set up and working correctly 
+2. Today 
+- create android studio project, discuss and plan the way forward with Jemma. Who will create what forms and pages. Discuss design and use cases for what is required 
+3. No impediments as of yet
+
+[2021/03/30, 10:33:01] Jemma Sundelson: 
+1. What I did yesterday: 
+Set up my GitHub account
+2. What I did today
+Made sure my commit was working and start working on the front end sign in, signup and user page with Tris
+3. Any impediment?
+No impediments at the moment
+
+[2021/03/30, 10:33:53] Abdullah Haffejee: 
+1. What I did yesterday :
+Joined the Github and Taiga groups and did a simple push and pull on Github
+
+2. What I will do today :
+Read up on which is the best environment to use for cross platform development
+
+3. Any impediment :
+Nothing at the moment
+
+[2021/03/30, 10:35:13] Kayla Levy: 
+1. What I did yesterday:
+Researched a bit into gitHub and the other environments we will be using
+2. What I will do today:
+Set up my GitHub account and ensured my initial commit worked. Will speak to Abdullah and plan our way forward. 
+3. Any impediments:
+No impediments so far
+
+[2021/03/30, 10:38:44] Rushil Patel: 
+1. What I did yesterday:
+Resarched the different social media apps and some useful frameworks
+
+2. What I will do today:
+Sign up with discord.
+Look into customizing the Readme further
+Research on the backend side of chat apps relating to the chatting system
+
+3. Any impediments:
+No impediments so far
+
+[2021/03/30, 10:52:40] Bhavik Govan: 
+1. What I did yesterday:
+Set up github, taiga 
+
+2. What I will do today:
+Work with Rushil on the chatting system.
+
+3. Impediments: none
+
+[2021/03/31, 09:00:52] Sonia: 
+*Wednesday, 31 March 2021*
+
+What I did yesterday: 
+1. I uploaded the meeting minutes taken during the Sprint Planning Meeting to GitHub. 
+
+2. I created the 5 user stories in Taiga and made sure to keep the extra user stories discussed for Sprint 2 in the Backlog. 
+
+3. I created our Taiga and GitHub wiki pages. 
+
+4. I researched some possible online databases that we could use for the app. 
+
+What I will do today: 
+I will work on setting up the databases correctly today and keep everyone updated on the progress made since a lot of the other tasks are dependent on our database. 
+
+Any Impediments: 
+No impediments at the moment.
+
+[2021/03/31, 09:01:22] Kayla Levy: 
+Wednesday 31 March 
+
+1. What I did yesterday:
+Set up my gitHub and tested an initial commit to ensure everything is working. I also spoke to Abdullah about out part of Sprint 1. I also joined our discord group where we will be having some of our meetings.
+2. What I will do today:
+My android studio is giving an error when trying to create a new project, ill fix that and if necessary reinstall it.
+3. Any impediments:
+No impediments so far
+
+[2021/03/31, 09:15:23] Bhavik Govan: 
+1. What I did yesterday:
+I was researching React Native, and then it was decided that we would use Android Studio. I also spoke with Rushil about the chats part of the project, we agreed that for now while we wait for the database to be set up we should focus on general research around the chats system.
+
+3. What I will do today:
+I will continue researching how to store chats in a database and also look into how the back end of messaging apps work.
+
+4. Impediments:
+None
+
+[2021/03/31, 09:18:46] Colin Hugo: 
+*Wednesday, 31 March 2021*
+
+What I did yesterday: 
+1. I made the discord channel and made sure everyone was joined.
+
+2. I researched a bit into the database which we should use and what’s the best one that works with android studio
+
+What I will do today: 
+I’m first going to attempt to see if I can get Ms sql server to work on my MacBook. That seems to be the best database but it isn’t the easiest to get to work with Apple. But it works with Android studio. 
+I also want to begin the data base design with Sonia because regardless of the database we use the design can be done (number of tables normal form ect) 
+
+Any Impediments: 
+No impediments at the moment.
+
+[2021/03/31, 09:25:15] Jemma Sundelson: 
+What I did yesterday: 
+1. Set up my discord account and Android studio in order to start coding and implementing the front end. Tristen and I discussed our plan going forward. 
+
+What I will do today: 
+Start designing and coding the sign in page on Android studio. 
+
+Any impediments: 
+None as of yet.
+
+[2021/03/31, 09:48:56] Tristen Haverly: 
+What I did yesterday: 
+1. Set up and created a project on Android studio in order to start coding and implementing the front end. Jemma and I discussed our plan going forward. 
+
+What I will do today: 
+Start designing and coding the sign up page on Android studio. And collaborate with Jemma to ensure coherent work 
+
+Any impediments: 
+None as of yet.
+
+[2021/03/31, 09:52:39] Abdullah Haffejee: 
+1. What I did yesterday:
+Spoke to Kayla about our part for sprint 1
+I also joined our discord group that will be used for meetings
+
+2. What I will do today :
+Set up a new project on Android studio to make sure all is working properly
+
+3. Any impediments:
+Noting as of yet
+
+[2021/03/31, 09:55:30] Rushil Patel: 
+What I did yesterday: 
+Spoke with Bhavik regarding the chats user story
+Got familiar with Taiga
+Researched a little bit on unit testing
+
+What I will do today: 
+Set up and install Android studio
+Fix an issue I was having with git
+Do further research into unit testing and code coverage
+
+Any impediments: 
+None
+
+[2021/04/01, 09:02:58] Sonia: 
+*Thursday, 1 April 2021*
+What I did yesterday: 
+1. Colin and I had a meeting over Discord to discuss the best online database server to use. We agreed that Microsoft SQL would be the best given that we are familiar with the language. We also roughly planned the tables that we thought were needed for now. 
+
+2. I set up the online database. I downloaded Docker and linked Microsoft SQL to the app. I then also downloaded Azure Data Studio, which is a database tool that will help us write queries and create tables. 
+
+What I will do today: 
+I will experiment with creating the tables on Azure Data Studio since I’m a little unfamiliar with this tool given that it’s my first time using it. I wrote a simple query last night and it ran perfectly fine but I just couldn’t get the actual table to show so I really want to get that working today. 
+
+Any Impediments: 
+I have quite a bit of lecture material to get through as well as a live lecture to attend so I may not have as much time to work on my task as I would have liked to have but I am still hoping to make some progress.
+
+[2021/04/01, 09:07:49] Kayla Levy: 
+1. What I did yesterday 
+Tried to fix my android studio but its still giving some issues
+2. What I will do today?
+Continue trying to fix android studio. My task is dependent on other peoples parts so will do some research into my part in the meantime 
+3. Any impediments
+None yet
+
+[2021/04/01, 09:10:07] Jemma Sundelson: 
+1. What I did yesterday?
+Got my Android studio setup and pulled the project from GitHub. I assigned points to each user stories in order to rank them on taiga. 
+
+2. What I will do today? 
+Continue working with Tristen on the front end sign up page on Android studio.
+
+3. Any impediments ?
+None as of yet
+
+[2021/04/01, 09:10:40] Colin Hugo: 
+*Thursday, 1 April 2021*
+What I did yesterday: 
+1. Sonia and I had a meeting over Discord to discuss the best online database server to use. We agreed that Microsoft SQL would be the best given that we are familiar with the language. We also roughly planned the tables that we thought were needed for now. 
+
+2. I pushed the first project through to GitHub 
+
+What I will do today: 
+I am going to download ms sql and begin working with it. I should be able to set up the tables and maybe connect it up today 
+
+Any Impediments: 
+None in terms in the project. Balancing all the other things is a bit tough
+
+[2021/04/01, 09:11:40] Tristen Haverly: 
+1. What I did yesterday 
+Got my android studios to word , made sure I was familiar with what is needed for the signup and login page to begin with that today. 
+2. What I will do today?
+Begin to design and create the pages for the front end of the system 
+3. Any impediments
+I am currently away with no WiFi and other lecture material and projects are making it difficult for me to fully focus on this project
+
+[2021/04/01, 09:19:25] Sonia: 
+Please let us know if we can do anything on our end that might help because I know it will be really difficult to work on the project without having any WiFi.
+
+[2021/04/01, 09:41:19] Bhavik Govan: 
+1. What I did yesterday:
+I was researching possible ways to implement the chat system.
+
+2. What I will do today:
+I'd like to get Azure Data Studio set up so that I can familiarize myself with the environment.
+
+3. Impediments:
+I wanted to rate each user story on taiga, but I was a bit confused as to what to rate each story out of.
+
+[2021/04/01, 10:03:26] Abdullah Haffejee: 
+1. What I did yesterday :
+Set up my android studio and updated it so that I'll be ready once my part of the project starts
+
+2. What I will do today :
+Start familiarizing myself on what exactly needs to be done for my part coding wise
+
+3. Any impediments :
+Couldn't get my android studio to link up to github
+
+[2021/04/01, 11:41:43] Rushil Patel: 
+1. What I did yesterday?
+Set up my Android studio
+Fixed my git issues
+Did some research on unit testing
+Rated the user stories just need to send them to Sonia
+
+2. What I will do today? 
+Nothing
+
+3. Any impediments ?
+None
+
+[2021/04/02, 09:12:01] Sonia: 
+*Friday, 2 April 2021*
+
+What I did yesterday: 
+1. I managed to get the tables to show on the online database and added some sample data. Everything seems to be working fine. 
+
+2. I managed to push our Android Studio project to the main branch on GitHub so that everyone would be able to pull the project and collaborate on it. 
+
+What I will do today: 
+I will try to link the online database to GitHub so that everyone can pull and push as required. I will also do some editing on Taiga so that our tasks and points per user story are correct. 
+
+Any Impediments: 
+None at the moment
+
+[2021/04/02, 09:13:28] Kayla Levy: 
+What i did yesterday:
+Finally got my android studio up and running 
+
+What i will do today:
+Nothing
+
+Any impediments:
+None so far
+
+[2021/04/02, 09:19:33] Tristen Haverly: 
+1. What I did yesterday?
+Created a Rough draft of what would be needed for the home, signup , sign in, chat pages and future pages to be completed a bit later on. Forwarded that onto Jemma for her to start with sign up and sign in pages. Completed lectures for week 4 which contained information about user requirements and user stories etc which provided me with a good understanding of the project and what is required. 
+I also made a plan to resolve my WiFi situation and my previous impediment is now fixed 
+
+2. What I will do today? 
+Continue from where Jemma left off. 
+
+3. Any impediments ?
+None
+
+[2021/04/02, 09:41:17] Bhavik Govan: 
+1. What I did yesterday:
+I found and went through some tutorials on how to create a real time messaging app. 
+
+2. What I will do today:
+I still need to install Azure Data Studio.
+
+3. Impediments:
+None.
+
+[2021/04/02, 10:19:16] Abdullah Haffejee: 
+1. What I did yesterday :
+Finally Managed to link my android studio to github 
+
+2. What I will do today :
+Assign points to each user story on taiga
+
+3. Any impediments ?
+None
+
+[2021/04/02, 10:23:25] Rushil Patel: 
+1. What I did yesterday?
+Nothing
+
+2. What I will do today? 
+Link my android studio with GitHub and push and pull from my branch
+Going to look into making Travis CI work
+
+3. Any impediments ?
+None
+
+[2021/04/02, 10:35:26] Colin Hugo: 
+*Friday, 2 April 2021*
+What I did yesterday: 
+I downloaded MsSQL onto my computer and got it working. I also attempted to get the project working on GitHub and then sent a video explaining how to push to GitHub 
+
+What I will do today: 
+Nothing because it’s Good Friday which is a religious day for me
+
+Any Impediments: 
+None in terms in the project.
+
+[2021/04/02, 12:08:46] Jemma Sundelson: 
+1. What I did yesterday?
+Started working on The signin and signup page. Manages to pull the project from GitHub and push it back when I finished for Tristen to carry on working with. 
+
+2. What I will do today? 
+Carry on with what I was doing yesterday. 
+
+3. Any impediments ?
+None as of yet
+
+[2021/04/03, 09:05:17] Sonia: 
+*Saturday, 3 April 2021*
+
+What I did yesterday: 
+1. I updated the user tasks on Taiga. Please can everyone just visit the page whenever you get a chance to confirm that the correct tasks have been allocated. Please also add any outstanding tasks to the relevant user story if you don’t see it already on the list. 
+
+What I will do today: 
+I will continue trying to link the online database to GitHub as I didn’t have much luck yesterday. 
+
+Any Impediments: 
+None at the moment
+
+[2021/04/03, 09:44:37] Abdullah Haffejee: 
+What I did yesterday :
+Assigned points to each user stories
+
+What I will do today :
+Review all the user stories
+
+Any impediments :
+None
+
+[2021/04/03, 09:56:56] Bhavik Govan: 
+1. What I did yesterday:
+I downloaded Azure Data Studio, and reviewed user stories on taiga.
+
+2. What will I do today:
+I will start planning the structure of the database side of the chat system 
+
+Impediments:
+None
+
+[2021/04/03, 10:08:05] Colin Hugo: 
+What I did yesterday :
+Nothing as it was Good Friday a religious day for me 
+
+What I will do today :
+I’ll review the user stories on taiga 
+
+Any impediments :
+None
+
+[2021/04/03, 18:27:21] Rushil Patel: 
+1. What I did yesterday?
+Looked into travis ci a little bit
+Updated my branch with main on GitHub
+
+2. What I will do today? 
+Review the tasks for the user stories in Taiga
+
+3. Any impediments ?
+None
+
+[2021/04/04, 07:55:39] Abdullah Haffejee: 
+What I did yesterday :
+Reviewed all the user stories
+
+What I will do today :
+Nothing
+
+Any impediments :
+None
+
+[2021/04/04, 08:54:37] Jemma Sundelson: 
+What I did yesterday:
+Nothing 
+
+What I will do today: 
+Carry on working on the signin and signup page
+
+Any impediments: 
+None
+
+[2021/04/04, 09:01:28] Colin Hugo: 
+Sunday 4 April 
+1. What I did yesterday?
+I looked at taiga but I didn’t quite understand what was going on. 
+
+2. What I will do today? 
+Nothing. I have family coming over for Easter. 
+
+3. Any impediments ?
+Need some help with taiga possibly tomorrow
+
+[2021/04/04, 09:06:16] Sonia: 
+*Sunday, 4 April 2021*
+
+What I did yesterday: 
+1. I tried to link Azure Data Studio and GitHub but didn’t manage so I think it will be best if we just upload the final scripts towards to the end of the sprint. 
+
+What I will do today: 
+I don’t think I’ll manage to do anything today as I have a lot of work to catch up on. 
+
+Any Impediments: 
+None at the moment
+
+[2021/04/04, 09:06:54] Sonia:
+Hi, just send me a message whenever you have time and I’ll explain how it all works.
+
+[2021/04/04, 09:34:35] Rushil Patel: 
+1. What I did yesterday?
+Reviewed the user stories
+
+2. What I will do today? 
+Nothing as im still working 
+
+3. Any impediments ?
+None
+
+[2021/04/04, 12:48:18] Bhavik Govan: 
+1. What I did yesterday:
+Played around with Azure Data Studio and came up with rough ERDs for the Chat  database tables
+
+2. What I will do today:
+Nothing.
+
+3. Impediments:
+None
+
+[2021/04/04, 19:56:50] Tristen Haverly: 
+What I did Friday : 
+Designed and fixed some things up from the signin and signup pages created a hone page and chat page , designed a logo and design elements of the application. 
+
+What I did Saturday and Sunday : 
+Nothing as it was much sabbath and religious holiday .
+
+[2021/04/05, 09:42:44] Sonia: 
+*Monday, 5 April 2021*
+
+What I did yesterday: 
+1. I didn’t do anything yesterday. 
+
+What I will do today: 
+I will speak to Colin about sharing the database because I’m not sure how we’re all going to be able to use the same database for the project. 
+
+Any Impediments: 
+None at the moment
+
+[2021/04/05, 10:12:17] Bhavik Govan: 
+What I did yesterday:
+Nothing 
+
+What I will do today:
+Continue working on my ERD and planning of the database.
+
+Impediments:
+None
+
+[2021/04/05, 10:19:34] Kayla Levy:
+What i did yesterday:
+I did nothing yesterday 
+
+What I will do today:
+Continue looking into the backend of the sign in and sign up pages
+
+Any impediments:
+None so far
+
+[2021/04/05, 10:21:52] Tristen Haverly: 
+What I did yesterday: 
+1. Fixed some errors with the front end 
+
+What I will do today: 
+Continue to work with Jemma and work out a game plan for the chat page and other necessary pages 
+
+Any Impediments: 
+None at the moment
+
+[2021/04/05, 11:13:46] Colin Hugo: 
+What I did yesterday: 
+1. Nothing. As it was Easter Sunday 
+
+What I will do today: 
+Attempt to get azure studio working. We have completed the tables and happy how the database looks but can’t upload it to GitHub which we are trying to implement 
+
+Any Impediments: 
+None
+
+[2021/04/05, 11:15:37] Jemma Sundelson: 
+What I did yesterday:
+Figured out how to get my emulator running from Android studio on my computer
+
+What I will do today:
+Start looking at how to implement the chat page 
+
+Any impediments: 
+None as of yet
+
+[2021/04/05, 16:47:26] Abdullah Haffejee: 
+What I did yesterday :
+Noting
+
+What I will do today :
+Speak to Kayla about the coding of the sign up and login pages
+
+Any impediments :
+None
+
+[2021/04/06, 08:56:28] Colin Hugo: 
+Tuesday 6 April
+What I did yesterday :
+Spent around and Hour and a half to get the database to link to GitHub so we can push our tables and that. Eventually we got it working 
+
+What I will do today :
+We are having a meeting on Discord to discuss with the group the database elements and the issues we’ve had with GitHub and the database 
+
+Any impediments :
+None
+
+[2021/04/06, 08:56:52] Tristen Haverly: 
+What I did yesterday: 
+1. Created a navigation bar, got started with the chat page and contacts page , researched how to best go about creating the front end and design. 
+
+What I will do today: 
+Continue to work with Jemma and work on the pages 
+
+Any Impediments: 
+None at the moment
+
+[2021/04/06, 09:03:04] Kayla Levy: 
+What i did yesterday:
+Looked into the backend of sign in and sign up
+
+What I will do today:
+Soeak to Abdullah about how we should go about it and hopefully start coding it a bit.
+
+Any impediments:
+None so far
+
+[2021/04/06, 09:21:55] Sonia: 
+Tuesday, 6 April 2021
+
+What I did yesterday: 
+1. I managed to push a query to GitHub 
+2. I created a new student account on Microsoft Azure but was unable to create a new server for us to use. 
+
+What I will do today: 
+I will set set up a completely new online database because Microsoft isn’t working for us. 
+
+Any Impediments: 
+None at the moment
+
+[2021/04/06, 09:22:53] Jemma Sundelson: 
+What I did yesterday: 
+Got an idea of how to implement the chat page for this sprint 
+
+What I will do today: 
+Continue working on this chat page with Tris 
+
+Any impediments: 
+None as of yet
+
+[2021/04/06, 09:22:58] Bhavik Govan: 
+What I did yesterday:
+I was working on the back end design of the chat part of the app.
+
+What I will do today:
+Continue working on the design by refining my erd drawing.
+
+Impediments:
+None.
+
+[2021/04/06, 10:10:34] Abdullah Haffejee: 
+What I did yesterday :
+Spoke to Kayla a bit
+
+What I will do today :
+Maybe start coding a bit if all goes well
+
+Any impediments :
+None
+
+[2021/04/06, 10:15:47] Rushil Patel: 
+1. What I did yesterday?
+Sorted out my emulator issue
+
+
+2. What I will do today? 
+Look into Azure
+Start doing some rough walk regarding the database regarding the chat system with Bhavik
+
+
+3. Any impediments ?
+None
+
+[2021/04/07, 09:43:18] Kayla Levy: 
+*7 April 2021*
+
+1. What I did yesterday?
+Helped try sort out the database and set up a database that we can all access.
+
+2. What I will do today? 
+Start the sign in and sign up pages
+
+3. Any impediments ?
+None
+
+[2021/04/07, 09:45:07] Sonia: 
+*Wednesday, 7 April 2021*
+
+What I did yesterday: 
+1. I installed MySQL on my laptop, created a database and the 2 main user table. 
+
+2. I emailed Rylan and asked for recommendations on how we could possibly share 1 database as a group. He provided a few solutions so hopefully we can discuss them in the meeting today. 
+
+What I will do today: 
+I am available to help anyone with any of the front-end or back-end code. I will edit our Travis.yml file and work on the high level sections needed. 
+
+Any Impediments: 
+None at the moment
+
+[2021/04/07, 09:49:41] Abdullah Haffejee: 
+What I did yesterday :
+Spoke to Kayla and pulled the project from github
+
+What I will do today :
+Download MySQL and maybe start with the sign in and sign up pages
+
+Any impediments :
+None
+
+[2021/04/07, 09:53:19] Jemma Sundelson: 
+What I did yesterday:
+Carried on working on the signin, signup and chat page with Tristen
+
+What I will do today: 
+Carry on with what I was doing yesterday 
+
+Any impediments:
+None as of yet
+
+[2021/04/07, 09:55:39] Colin Hugo: 
+What I did yesterday:
+Downloaded MySQL and got it working. Built the tables on my end. 
+What I will do today: 
+Have a look into travis ci and help anyone who needs help. Also look at how to connect android studio to MySQL 
+Any impediments:
+None as of yet
+
+[2021/04/07, 09:59:28] Bhavik Govan: 
+What I did yesterday:
+Worked on the design of the chat part of the database. Rushil and I were deciding the best way to do it.
+
+What I will do today:
+I will continue working on the chat system with Rushil. Hopefully we can get some of the coding started today.
+
+Impediments:
+None
+
+[2021/04/07, 09:59:33] 
+Rushil Patel: 1. What I did yesterday?
+Looked into Firebase as an alternative for our database issues
+
+2. What I will do today? 
+Download MYSQL 
+Further brainstorm with Bhavik as to how we going to make the chat lists work with the database
+
+3. Any impediments ?
+None
+
+[2021/04/07, 10:26:54] Tristen Haverly: 
+What I did yesterday: 
+1. Created a navigation bar, made good progress with the chat page and contacts page , started creating the chat bubbles and implementing the necessary designs for the app
+
+What I will do today: 
+Continue to work with Jemma and work on the pages 
+
+Any Impediments: 
+None at the moment
+
+[2021/04/08, 08:59:29] Sonia: 
+*Thursday, 8 April 2021*
+
+What I did yesterday: 
+1. I edited our .travis.yml file. I followed the instruction document that Tristan sent during our meeting yesterday but build is still failing. 
+
+2. I edited the database table attributes. 
+
+3. I created new pages on our GitHub and Taiga wikis. Some of the descriptions are blank as we don’t have the correct information yet (e.g. how we will test our code) 
+
+4. I uploaded the Backlog Refinement Meeting minutes to GitHub 
+
+5. I edited out README file so that each contributor’s badge is on display. 
+
+What I will do today: 
+I will email Shun regarding the virtual machine and I will start on encrypting the passwords for the project if I have time. 
+
+Any Impediments: 
+None at the moment
+
+[2021/04/08, 09:05:05] Jemma Sundelson: 
+What I did yesterday: 
+Finished working on the sign in, sign up and chat pages. Pushed the project to GitHub 
+
+What I will do today:
+Continue on with that and help anyone who needs it 
+
+Any impediments: 
+None as of yet
+
+[2021/04/08, 09:08:19] Tristen Haverly: 
+What I did yesterday: 
+Handed the project over to Jemma to continue with and showed her a few things and what was going on so we could work coherently .
+
+What I will do today:
+Continue working on the front end with Jemma 
+
+Any impediments: 
+None as of yet
+
+[2021/04/08, 09:16:30] Kayla Levy: 
+What I did yesterday:
+Helped Jemma a but with the nav bar and the chat windows.
+
+ Spoke to Bhavik and Sonia about the ERD and tables that would be required for storing the user details as well as the messages.
+
+Planned with Abdullah how we will go about doing our part in the best way possible. 
+
+What I will do today:
+Work on the backend of the sign in and sign up pages with Abdullah and hopefully complete them
+
+Any impediments: 
+None as of yet
+
+[2021/04/08, 09:18:17] Colin Hugo: 
+What I did yesterday: 
+Looked at the php needed to connect but I had a lot of other work yesterday that I needed to complete. 
+What I will do today:
+I’ll have a look at the travis.ci as the android testing and see what needs to be done there
+Any impediments: 
+None as of yet
+
+[2021/04/08, 09:50:34] Abdullah Haffejee: 
+What I did yesterday :
+Downloaded and setup MySQL on my laptop and created the necessary tables
+
+What I will do today :
+Get started on coding the backend with Kayla
+
+Any impediments :
+None
+
+[2021/04/08, 10:33:43] Bhavik Govan: 
+What I did yesterday:
+Downloaded and setup MySQL, added the user tables.
+I got some help with my ERD diagram from Kayla, and we spoke about other back end requirements. 
+I tried to create the messages table but ran into some issues.
+
+What I will do today:
+Finalize and create tables. Work on php files as well.
+
+Any impediments:
+I'm a bit worried with time, but I think everything will be fine
+
+[2021/04/08, 15:02:17] Rushil Patel: 
+1. What I did yesterday?
+Downloaded sql work bench
+Further brainstorm with Bhavik as to how we going to make the chat lists work with the database
+
+2. What I will do today? 
+Catch up with Bhavik on the work he did yesterday
+Start working on the backend for the chats and aim to finish it
+
+3. Any impediments ?
+None
+
+[2021/04/09, 09:07:38] Sonia: 
+*Friday, 9 April 2021*
+
+What I did yesterday: 
+1. I emailed Shun regarding setting up the virtual machine - I’m still waiting for a response. 
+
+2. I did some revision on salting and hashing passwords but Kayla and Abdullah implemented this while doing the sign-up and sign-in pages, which was very helpful. 
+
+What I will do today: 
+I will look into getting the build to pass as I have no idea why it’s coming up with errors. 
+
+Any Impediments: 
+None at the moment
+
+[2021/04/09, 09:10:49] Kayla Levy: 
+*Friday, 9 April 2021*
+
+What I did yesterday: 
+1. I met with Abdullah and we started to sign in and sign up. We finish the sign up page however the sign in page is still giving a few problems.
+
+What I will do today: 
+Try and see why login is not working and the hopefully get it all fix and up and running by the end of today
+
+Any Impediments: 
+None at the moment
+
+[2021/04/09, 09:29:10] Rushil Patel: 
+What I did yesterday?
+Caught up with Bhavik on the work he did on Wednesday
+Started working on the backend for the chats. 
+Created the necessary tables for chat side.
+Started working on the php files
+
+What i will do today?
+Continue working on the php files and try to connect android studio to the lamp server
+
+3. Any impediments ?
+None
+
+[2021/04/09, 09:33:55] Abdullah Haffejee: 
+What I did yesterday :
+Met with Kayla and we started coding the sign up and sign in pages. Sign up page is up and running but we having some trouble with the sign in page
+
+What I will do today :
+Try to get the sign in page to work as soon as possible
+
+Any impediments :
+None
+
+[2021/04/09, 09:41:28] Bhavik Govan: 
+What I did yesterday:
+Came up with a new design for the Tables for the chat list and created it. Shared it with Rushil so he could get started with the php.
+
+What I will do today:
+Help Rushil with the chat list.
+
+Impediments:
+None.
+
+[2021/04/09, 09:51:14] Tristen Haverly: 
+What I did yesterday :
+Front end was complete and handed over for back end and database to be implemented so nothing from my side 
+
+What I will do today:
+Help anyone wherever they need any help 
+
+Any impediments: 
+None as of yet
+
+[2021/04/09, 10:26:50] Colin Hugo: 
+What I did yesterday :
+Ended up doing nothing as the power went out early yesterday afternoon. 
+
+What I will do today:
+Help anyone wherever they need any help as soon as the power comes back 
+
+Any impediments: 
+Eskom
+
+[2021/04/09, 11:21:09] Jemma Sundelson: 
+What I did yesterday: 
+Nothing as I completed the front end already
+
+What I will do today:
+Help anyone who needs
+
+Any impediments: 
+None as of yet
+
+[2021/04/10, 11:03:58] Sonia: 
+*Saturday, 10 April 2021*
+
+What I did yesterday: 
+1. I tried helping Kayla and Abdullah a bit with the login page. 
+
+2. I manage to get our Travis CI build passing. 
+
+What I will do today: 
+I will get our coverage to show and if I have time, I would also like to add a splash screen to the app. 
+
+Any Impediments: 
+I have a test on Monday that I have to study for as well.
+
+[2021/04/10, 11:30:34] Abdullah Haffejee: 
+What I did yesterday :
+1. Got the login page to finally work
+
+2. Added some extra validation on both the login and sign up pages
+
+What I will do today :
+See where else I can try and help
+
+Any impediments :
+None
+
+[2021/04/10, 12:50:05] Bhavik Govan: 
+What I did yesterday:
+I was looking into the travis ci.
+
+What I will do today:
+I've helped Rushil get the php file ready to display messages. Now it's just left  to display the messages on the chat list.
+
+Any impediments:
+I have a test on Monday that I have to study for as well.
+
+[2021/04/10, 12:53:56] Rushil Patel: 
+What I did yesterday?
+Connected Android app to the database with regards to the chat
+
+Retrieve the necessary chat data from the database and display it in the app
+
+What i will do today?
+Display the chat data into the list view appropriately
+
+Try and get to display user contacts that are saved on ones own phone into the app directly
+
+Slightly modify the chat front end to accommodate viewing of contacts
+
+If i finish with all the above then move onto testing the chat backend and frontend sides
+
+3. Any impediments ?
+None
+
+[2021/04/10, 23:26:21] Jemma Sundelson: 
+What I did yesterday:
+Helped those who needed it. 
+
+What I did today: 
+Read about coveralls and what they are.
+
+Any impediments?
+None as of yet
+
+[2021/04/10, 23:26:55] Tristen Haverly:
+What I did yesterday : 
+Went through taiga and GitHub to make sure I was up to date with our progress. Went through coveralls and Travis Ci to become more familiar with how it all works 
+
+What I did today :
+Nothing as it was my sabbath 
+
+Any impediments :
+None
+
+[2021/04/11, 09:27:46] Sonia: 
+*Sunday, 11 April 2021*
+
+What I did yesterday: 
+1. I tried getting our coverage status to display correctly but unfortunately couldn’t get it working. 
+
+What I will do today: 
+I will continue working on getting our coverage to show.  I will also upload our Daily Scum Meeting chats as well as finalize our wikis. 
+
+Any Impediments: 
+I have a test on tomorrow that I have to study for as well.
+
+[2021/04/11, 09:29:28] Kayla Levy: 
+*Sunday, 11 April 2021*
+
+What I did yesterday: 
+Nothing because it was the Sabbath
+
+What I will do today: 
+I will help put everyone who needs help and also join the meeting later to do a run through 
+
+Any Impediments: 
+None
+
+[2021/04/11, 10:20:34] Rushil Patel:
+What I did yesterday?
+Finished the chat side of the backend 
+
+Combined the sign in and sign up functionality and pushed it to github
+
+What i will do today?
+Fix up a a few minor issues on the backend of the chats
+
+Get the contacts displaying
+
+Try and fix a few bugs in the frontend 
+
+Write a few unit tests and help with the coverall after im done with the above
+
+Update main with the polished work
+
+3. Any impediments ?
+None
+
+[2021/04/11, 10:57:32] Abdullah Haffejee: 
+What I did yesterday :
+Added a checkbox to the login page to give the user the choice to make their password visible or not
+
+What I will do today :
+Join the meeting later in preparation for tomorrow
+
+Any impediments :
+None
+
+[2021/04/11, 10:59:08] Jemma Sundelson: 
+What I did yesterday:
+Nothing as I had finished the signin, signup and chat page last week
+
+What I will do today:
+Join the meeting later to go through our project in order to prepare for tomorrow’s sprint review 
+
+Any impediments:
+None as of yet
+
+[2021/04/11, 11:00:23] Tristen Haverly: 
+What I did yesterday:
+Nothing as it was my sabbath 
+
+What I will do today:
+Updated and redid the design element of our project , I will Join the meeting later to go through our project in order to prepare for tomorrow’s sprint review 
+
+Any impediments:
+None as of yet
+
+[2021/04/11, 11:09:07] Bhavik Govan: 
+What I did yesterday:
+Worked on the back end for the chats, and tried to assist with the coveralls. 
+
+What I will do today:
+-Join the meeting later today. 
+- try help with the coverage status badge.
+
+Impediments:
+I have a test tomorrow that I have to study for.
