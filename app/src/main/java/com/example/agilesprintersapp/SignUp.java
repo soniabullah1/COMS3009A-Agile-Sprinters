@@ -6,8 +6,12 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -18,6 +22,7 @@ import okhttp3.Response;
 public class SignUp extends AppCompatActivity {
 
     EditText Name1,Name2,Username,Email,Phone,Pwd, ConfirmPwd;
+    CheckBox chkPwd;
     final String url_Register = "https://lamp.ms.wits.ac.za/home/s2141916/R2.php";
 
     @Override
@@ -32,6 +37,23 @@ public class SignUp extends AppCompatActivity {
         Phone = (EditText) findViewById(R.id.editTextPhone);
         Pwd = (EditText) findViewById(R.id.editTextTextPassword2);
         ConfirmPwd = (EditText) findViewById(R.id.editTextTextPassword3);
+        chkPwd = (CheckBox)findViewById(R.id.checkBoxPwd);
+
+        chkPwd.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    // Show Password
+                    Pwd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    ConfirmPwd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                }
+                else {
+                    // Hide Password
+                    Pwd.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    ConfirmPwd.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+            }
+        });
 
         Button Return = (Button) findViewById(R.id.button4);
         Return.setOnClickListener(new View.OnClickListener() {
