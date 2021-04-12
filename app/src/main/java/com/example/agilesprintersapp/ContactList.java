@@ -41,7 +41,7 @@ public class ContactList extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.Chats:
-                        startActivity(new Intent(getApplicationContext(), ChatWindow.class));
+                        startActivity(new Intent(getApplicationContext(), Chatpage.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.Home:
