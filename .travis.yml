@@ -22,4 +22,4 @@ before_install:
 
 script:
     - ./gradlew assembleDebug
-    - ./gradlew connectedAndroidTest coveralls
+    - ./gradlew coveralls
