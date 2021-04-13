@@ -19,7 +19,11 @@ android:
 
 before_install:
   - yes | sdkmanager "platforms;android-27"
+  - pip install --user codecov
 
 script:
     - ./gradlew assembleDebug
     - ./gradlew coveralls
+
+after_success:
+  - codecov
