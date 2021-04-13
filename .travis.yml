@@ -28,5 +28,4 @@ script:
   - ./gradlew assembleDebug
 
 after_success:
-  - ./gradlew createDebugCoverageReport
   - ./gradlew connectedAndroidTest coveralls
