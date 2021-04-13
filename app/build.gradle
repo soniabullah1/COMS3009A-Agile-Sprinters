@@ -1,9 +1,19 @@
 plugins {
     id 'com.android.application'
-    //added:
-    //id 'com.github.kt3k.coveralls'
-    //hi
 }
+
+//added:
+apply plugin: 'com.github.kt3k.coveralls'
+coveralls {
+    jacocoReportPath = "${buildDir}/reports/coverage/debug/report.xml"
+}
+
+tasks.coveralls {
+    dependsOn 'connectedAndroidTest'
+    onlyIf { System.env.'CI' }
+}
+
+//
 
 android {
     compileSdkVersion 29
@@ -24,15 +34,15 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+        //added:
+        debug {
+            testCoverageEnabled true
+        }
+
+        //
     }
     
-    //added:
-//    jacocoTestReport {
-//    reports {
-//        xml.enabled = true // coveralls plugin depends on xml format report
-//        html.enabled = true
-//        }
-//    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

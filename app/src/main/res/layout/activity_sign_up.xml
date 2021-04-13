@@ -174,7 +174,7 @@
         android:layout_width="300dp"
         android:layout_height="80dp"
         android:gravity="center"
-        android:text="Lets get you connected!"
+        android:text="Let's get you connected!"
         android:textColor="@color/Blue"
         android:textSize="25dp"
         android:textStyle="bold"
