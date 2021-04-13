@@ -23,7 +23,7 @@ before_install:
 
 script:
     - ./gradlew assembleDebug
-    - ./gradlew coveralls
 
 after_success:
   - codecov
+  - ./gradlew coveralls
