@@ -39,14 +39,15 @@
         android:layout_width="224dp"
         android:layout_height="40dp"
         android:gravity="center"
-        android:text="Contacts"
+        android:text="My Contacts"
         android:textColor="@color/Blue"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/bottomNav2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.048" />
+        app:layout_constraintVertical_bias="0.044" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
