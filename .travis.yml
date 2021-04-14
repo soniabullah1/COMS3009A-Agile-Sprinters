@@ -19,8 +19,10 @@ android:
     
 before_install:
   - yes | sdkmanager "platforms;android-27"
+  - pip install --user codecov
 
-# script:
+script:
+    - ./gradlew connectedAndroidTest coveralls
 #   - ./gradlew build jacocoTestReport
 #   - ./gradlew connectedCheck
 
