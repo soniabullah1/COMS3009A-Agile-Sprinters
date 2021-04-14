@@ -1,6 +1,10 @@
 language: android
 jdk: oraclejdk8
 
+env:
+  matrix:
+    - ANDROID_TARGET=android-22 ANDROID_ABI=armeabi-v7a
+
 android:
   components:
     - platform-tools
@@ -10,20 +14,27 @@ android:
     - build-tools-29.0.6
 
     - android-29
-    - sys-img-armeabi-v7a-android-29
+    - sys-img-armeabi-v7a-android-22
 
     - extra-google-google_play_services
     - extra-google-m2repository
     - extra-android-m2repository
-    - addon-google_apis-google-19
+#    - addon-google_apis-google-19
+
     
-before_install:
-  - yes | sdkmanager "platforms;android-27"
+before_script:
+  - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
+  - emulator -avd test -no-skin -no-audio -no-window &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
 
 script:
-  - ./gradlew build jacocoTestReport
-  - ./gradlew connectedCheck
+  - echo "Travis branch is $TRAVIS_BRANCH"
+  - echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"
   - ./gradlew connectedAndroidTest coveralls
 
+before_install:
+  - pip install --user codecov
+
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - codecov
