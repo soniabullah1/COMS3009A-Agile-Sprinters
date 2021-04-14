@@ -1,19 +1,8 @@
 plugins {
     id 'com.android.application'
+    id 'jacoco'
 }
 
-//added:
-apply plugin: 'com.github.kt3k.coveralls'
-coveralls {
-    jacocoReportPath = "${buildDir}/reports/coverage/debug/report.xml"
-}
-
-tasks.coveralls {
-    dependsOn 'connectedAndroidTest'
-    onlyIf { System.env.'CI' }
-}
-
-//
 
 android {
     compileSdkVersion 29
@@ -61,6 +50,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.2.2'
     implementation 'androidx.navigation:navigation-ui:2.2.2'
     implementation'com.squareup.okhttp3:okhttp:4.3.1'
+
 }
 
 //added:
