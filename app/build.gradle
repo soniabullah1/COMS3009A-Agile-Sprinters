@@ -1,9 +1,7 @@
 plugins {
     id 'com.android.application'
-    id 'jacoco'
-    apply plugin: 'com.github.kt3k.coveralls' //added b.g
+    id 'com.github.kt3k.coveralls'
 }
-
 
 android {
     compileSdkVersion 29
@@ -18,37 +16,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-//added:
-    task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'createDebugCoverageReport']) {
 
-        reports {
-            xml.enabled = true
-            html.enabled = true
-        }
-
-        def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', 'android/**/*.*']
-        def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/debug", excludes: fileFilter)
-        def mainSrc = "${project.projectDir}/src/main/java"
-
-        sourceDirectories.setFrom(files([mainSrc]))
-        classDirectories.setFrom(files([debugTree]))
-        executionData.setFrom(fileTree(dir: "$buildDir", includes: [
-                "jacoco/testDebugUnitTest.exec",
-                "outputs/code-coverage/connected/*coverage.ec"
-        ]))
-    }
-
-
-    testOptions {
-        unitTests.all {
-            jacoco {
-                includeNoLocationClasses = true
-            }
-        }
-        unitTests.returnDefaultValues = true
-    }
-
-    //
     buildTypes {
         release {
             minifyEnabled false
@@ -82,9 +50,17 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui:2.2.2'
     implementation'com.squareup.okhttp3:okhttp:4.3.1'
 
+    //added:
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation 'org.mockito:mockito-android:2.6.3'
+    androidTestImplementation 'org.assertj:assertj-core:1.7.1'
+
 }
-//added b.g
+
+//added:
 coveralls {
+    sourceDirs = files('library/src/main/java').flatten()
     jacocoReportPath = "${buildDir}/reports/coverage/debug/report.xml"
 }
 
@@ -92,8 +68,3 @@ tasks.coveralls {
     dependsOn 'connectedAndroidTest'
     onlyIf { System.env.'CI' }
 }
-
-//added:
-//coveralls {
-//    jacocoReportPath 'build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml'
-//}
