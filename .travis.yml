@@ -34,8 +34,8 @@ script:
   - echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"
   - ./gradlew connectedAndroidTest 
 
-before_install:
-  - pip install --user codecov
+# before_install:
+#   - pip install --user codecov
 
 after_success:
-  - codecov
+  - bash <(curl -s https://codecov.io/bash)
