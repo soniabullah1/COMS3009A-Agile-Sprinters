@@ -1,0 +1,32 @@
+Agile Sprinters (Group 8)
+
+Minutes of the Second Backlog Refinement Meeting
+
+Monday, 12 April 2021 (15:35 – 16:00):
+The Second Backlog Refinement Meeting with the Development Team and Scrum Master was held online on 12 April 2021 at 15:35 p.m.
+
+Attendance:
+o Scrum Development Team: Abdullah Haffejee, Bhavik Govan, Colin Hugo, Jemma Sundelson, Kayla Levy, Rushil Patel, Tristen Haverly
+o Scrum Master: Sonia Bullah
+
+Final User Stories:
+1. As a user, I want to be able to view my message history to keep track of my conversation with other users. 
+2. As a user, I want to be able to send text to other users so that I can communicate with them. 
+3. As a user, I want to be able to send images to other users so that I can communicate with them.  
+4. As a user, I want to be able to view text received from other users so that I can reply to the message.  
+5. As a user, I want to be able to view images received from other users so that I can reply to the message.  
+
+Responsibilities:
+It was decided that the group would pair program on the following aspects:
+o User Story 1: To be worked on by whoever has the time to work on this aspect. 
+o User Story 2: Jemma and Tristen
+o User Story 3: Bhavik and Rushil
+o User Story 4: Sonia and Colin
+o User Story 5: Kayla and Abdullah
+
+Other Important Aspects:
+o User Story 1 has the highest priority. 
+o The group will assign points to each user story on Taiga and the five user stories will be split into various tasks for the group to work on. 
+
+Adjournment:
+With there being no further discussion points regarding the product backlog items, the meeting was adjourned at 16:00 p.m.

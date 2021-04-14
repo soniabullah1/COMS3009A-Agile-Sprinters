@@ -1,0 +1,36 @@
+Agile Sprinters (Group 8)
+
+Minutes of the Second Sprint Planning Meeting
+
+Monday, 12 April 2021 (10:18 – 10:30):
+The Second Sprint Planning Meeting with the Client, Development Team and Scrum Master was held online on 12 April 2021 at 10:18 a.m.
+
+Attendance:
+o Client: Mr Rylan Perumal
+o Scrum Development Team: Abdullah Haffejee, Bhavik Govan, Colin Hugo, Jemma Sundelson, Kayla Levy, Rushil Patel, Tristen Haverly
+o Scrum Master: Sonia Bullah
+
+Decision Regarding The Project Topic:
+Mr Perumal requested that chat page be edited so that part of the screen displays the relevant chats while the other part (perhaps the bottom) displays an input box, which will allow users to send multiple messages. The application should also be able to capture text, images and images with text. 
+
+User Stories:
+1. As a user, I want to be able to view my message history to keep track of my conversation with other users. 
+2. As a user, I want to be able to send text to other users so that I can communicate with them. 
+3. As a user, I want to be able to send images to other users so that I can communicate with them.  
+4. As a user, I want to be able to view text received from other users so that I can reply to the message.  
+5. As a user, I want to be able to view images received from other users so that I can reply to the message.  
+
+Other Important Aspects:
+o Add a camera icon (which allows the user to take a picture) and an attachment icon (which will open the user’s gallery and allow them to select an image) to the search bar. 
+o Make sure to ask the user for permission to access their storage and camera if these functions are used. 
+o Store images as base 64 and then when transferring them between the app and the server convert them to PNG or JPEG. 
+
+User Stories for The Backlog (to be completed during the next sprint):
+1. As a user, I want to be able to send image and text together (be able to caption the image) so that I can elaborate on the image I am sending to the person in my contact list. 
+
+User Stories for The Backlog (to be completed during the next sprint):
+None mentioned during the meeting. 
+
+Adjournment:
+With there being no further questions, the meeting was adjourned at 10:30 a.m.
+

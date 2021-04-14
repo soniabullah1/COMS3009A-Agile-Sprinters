@@ -1,8 +1,6 @@
 plugins {
     id 'com.android.application'
-    //added:
-    //id 'com.github.kt3k.coveralls'
-    //hi
+    id 'com.github.kt3k.coveralls'
 }
 
 android {
@@ -24,15 +22,15 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+        //added:
+        debug {
+            testCoverageEnabled true
+        }
+
+        //
     }
     
-    //added:
-//    jacocoTestReport {
-//    reports {
-//        xml.enabled = true // coveralls plugin depends on xml format report
-//        html.enabled = true
-//        }
-//    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -51,9 +49,22 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.2.2'
     implementation 'androidx.navigation:navigation-ui:2.2.2'
     implementation'com.squareup.okhttp3:okhttp:4.3.1'
+
+    //added:
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation 'org.mockito:mockito-android:2.6.3'
+    androidTestImplementation 'org.assertj:assertj-core:1.7.1'
+
 }
 
 //added:
-//coveralls {
-//    jacocoReportPath 'build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml'
-//}
+coveralls {
+    sourceDirs = files('library/src/main/java').flatten()
+    jacocoReportPath = "${buildDir}/reports/coverage/debug/report.xml"
+}
+
+tasks.coveralls {
+    dependsOn 'connectedAndroidTest'
+    onlyIf { System.env.'CI' }
+}
