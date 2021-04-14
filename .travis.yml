@@ -25,7 +25,7 @@ before_install:
   - yes | sdkmanager "platforms;android-27"
 
 script:
-  - ./gradlew build jacocoTestReport 
+  - ./gradlew build 
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
