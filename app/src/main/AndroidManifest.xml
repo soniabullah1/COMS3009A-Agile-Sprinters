@@ -9,13 +9,14 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-
-
-
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AgileSprintersApp">
-        <activity android:name=".Settings"></activity>
+        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".ContactsActivity" />
+        <activity android:name=".CallsActivity" />
+        <activity android:name=".Settings" />
         <activity android:name=".UserProfile" />
         <activity android:name=".ChatWindow" />
         <activity android:name=".ContactList" />
