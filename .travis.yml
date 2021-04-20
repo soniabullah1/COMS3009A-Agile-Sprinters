@@ -11,9 +11,10 @@ android:
     - tools
     - tools
 
-    - build-tools-29.0.3
+    - build-tools-30.0.3
 
     - android-29
+    - android-28
     - android-22
     - sys-img-armeabi-v7a-android-22
 
@@ -33,9 +34,6 @@ script:
   - echo "Travis branch is $TRAVIS_BRANCH"
   - echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"
   - ./gradlew connectedAndroidTest 
-
-# before_install:
-#   - pip install --user codecov
-
+  
 after_success:
   - bash <(curl -s https://codecov.io/bash)
