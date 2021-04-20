@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "26827690567",
+    "project_id": "whatsappclone-7b7b9",
+    "storage_bucket": "whatsappclone-7b7b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26827690567:android:f2af1235fa513a0f8f9762",
+        "android_client_info": {
+          "package_name": "com.example.agilesprintersapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "26827690567-dvmbd3889a75cap8evf2dc2lvh8k7bbo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFsdwbYdOA99jl04YWL9aovaP-DxEOBQ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "26827690567-dvmbd3889a75cap8evf2dc2lvh8k7bbo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
