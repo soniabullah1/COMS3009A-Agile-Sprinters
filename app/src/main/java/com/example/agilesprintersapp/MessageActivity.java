@@ -1,14 +1,20 @@
 package com.example.agilesprintersapp;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Message;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -28,6 +34,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -51,7 +58,16 @@ public class MessageActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
 
+
     Intent intent;
+
+    private ImageButton btn_attach_pic;
+    private String checker = "";
+    private final String myUrl = "";
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,10 +96,54 @@ public class MessageActivity extends AppCompatActivity {
         username = findViewById(R.id.username);
         btn_send = findViewById(R.id.btn_send);
         text_send = findViewById(R.id.text_send);
-
+        btn_attach_pic = findViewById(R.id.btn_attach_pic);
 
         intent = getIntent();
         String userid = intent.getStringExtra("userid");
+
+
+
+        btn_attach_pic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CharSequence[] options = new CharSequence[]
+                        {
+                                "Images",
+                                "PDF Files",
+                                "Ms Word Files"
+                        };
+                AlertDialog.Builder builder = new AlertDialog.Builder(MessageActivity.this);
+                builder.setTitle("Select the File");
+
+                builder.setItems(options, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        if(i == 0){
+                            checker = "image";
+                            Intent intent1 = new Intent();
+                            intent1.setAction(Intent.ACTION_GET_CONTENT);
+                            intent1.setType("image/*");
+                            startActivityForResult(Intent.createChooser(intent1, "Select Image"), 438);
+
+                        }
+
+                        if(i == 1){
+                            checker = "pdf";
+
+                        }
+
+                        if(i == 2){
+                            checker = "docx";
+
+                        }
+                    }
+                });
+                builder.show();
+
+            }
+        });
+
+
 
         btn_send.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -122,6 +182,24 @@ public class MessageActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 438) {
+            if (resultCode == RESULT_OK) {
+                if (data != null) {
+                    try {
+                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(MessageActivity.this.getContentResolver(), data.getData());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } else if (resultCode == Activity.RESULT_CANCELED)  {
+                Toast.makeText(MessageActivity.this, "Canceled", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     private void sendMessage(String sender, String receiver, String message){

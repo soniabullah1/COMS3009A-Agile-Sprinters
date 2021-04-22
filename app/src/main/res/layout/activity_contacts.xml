@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/LightGrey"
+    android:background="@color/white"
     tools:context=".ContactsActivity">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -25,11 +24,11 @@
         android:id="@+id/recycler_view2"
         android:layout_width="361dp"
         android:layout_height="562dp"
+        android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/bottomNav2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 
 </RelativeLayout>
