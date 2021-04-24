@@ -5,11 +5,15 @@ public class Chat {
     private String sender;
     private String receiver;
     private String message;
+    private String type;
 
-    public Chat(String sender, String receiver, String message){
+
+
+    public Chat(String sender, String receiver, String message, String type){
         this.sender = sender;
         this.receiver = receiver;
         this.message = message;
+        this.type = type;
     }
 
     public Chat() {
@@ -38,6 +42,14 @@ public class Chat {
 
     public void setMessage(String message){
         this.message = message;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
 

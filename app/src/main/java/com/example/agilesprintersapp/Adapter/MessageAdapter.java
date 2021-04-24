@@ -2,6 +2,7 @@ package com.example.agilesprintersapp.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,11 +45,14 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     public static class ViewHolder extends RecyclerView.ViewHolder{
         public TextView show_message;
         public ImageView profile_image;
+        public ImageView messagePicture;
+
 
         public ViewHolder(View itemView){
             super(itemView);
             show_message = itemView.findViewById(R.id.show_message);
             profile_image = itemView.findViewById(R.id.profile_image);
+            messagePicture = itemView.findViewById(R.id.message_image_view);
 
         }
     }
@@ -70,17 +74,35 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        Chat chat = mChat.get(position);
-        holder.show_message.setText(chat.getMessage());
-
         if (imageurl.equals("default")) {
 
             holder.profile_image.setImageResource(R.mipmap.ic_launcher);
         }else{
+
             Glide.with(mContext).load(imageurl).into(holder.profile_image);
         }
 
+        holder.show_message.setVisibility(View.GONE);
+        holder.messagePicture.setVisibility(View.GONE);
+
+        Chat chat = mChat.get(position);
+        if(chat.getType().equals("text")){
+           holder.show_message.setVisibility(View.VISIBLE);
+            holder.show_message.setText(chat.getMessage());
+
+        }
+
+        else if (chat.getType().equals("image")){
+            holder.messagePicture.setVisibility(View.VISIBLE);
+
+            Glide.with(mContext).load(chat.getMessage()).into(holder.messagePicture);
+
+        }
+
+
     }
+
+
 
     @Override
     public int getItemCount() {
@@ -96,5 +118,6 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
             return MSG_TYPE_LEFT;
         }
     }
+
 
 }
