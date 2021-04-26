@@ -11,19 +11,18 @@ android:
     - tools
     - tools
 
-    - build-tools-30.0.3
+    - build-tools-29.0.3
 
     - android-29
-    - android-28
     - android-22
     - sys-img-armeabi-v7a-android-22
 
     - extra-google-google_play_services
     - extra-google-m2repository
     - extra-android-m2repository
-#    - addon-google_apis-google-19
+    #    - addon-google_apis-google-19
 
-    
+
 before_script:
   - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
   - emulator -avd test -no-skin -no-audio -no-window &
@@ -33,7 +32,10 @@ before_script:
 script:
   - echo "Travis branch is $TRAVIS_BRANCH"
   - echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"
-  - ./gradlew connectedAndroidTest 
-  
+  - ./gradlew connectedAndroidTest
+
+# before_install:
+#   - pip install --user codecov
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
