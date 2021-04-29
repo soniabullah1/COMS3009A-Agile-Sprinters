@@ -15,6 +15,7 @@ import com.example.agilesprintersapp.Adapter.UserAdapter;
 import com.example.agilesprintersapp.Model.Chat;
 import com.example.agilesprintersapp.Model.User;
 import com.example.agilesprintersapp.R;
+import com.example.agilesprintersapp.Model.UserInfo;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -23,12 +24,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ChatsFragment extends Fragment {
 
-
+    SimpleDateFormat date = new SimpleDateFormat("HH:mm dd/mm/yyyy");
 
     private RecyclerView recyclerView;
     private UserAdapter userAdapter;
@@ -38,6 +40,7 @@ public class ChatsFragment extends Fragment {
     DatabaseReference reference;
 
     private List<String> userList;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -96,8 +99,8 @@ public class ChatsFragment extends Fragment {
                     User user = snapshot.getValue(User.class);
 
                     for (String id : userList){
-                        if(user.getId().equals(id)){
-                            if (mUsers.size() != 1) {
+                        if(user!=null && user.getId() != null && user.getId().equals(id)){
+                            if (mUsers.size() != 0) {
                                 for(User user1 : mUsers){
                                     if(!user.getId().equals(user1.getId())) {
                                         mUsers.add(user);
@@ -110,7 +113,7 @@ public class ChatsFragment extends Fragment {
                     }
                 }
 
-                userAdapter = new UserAdapter(getContext(), mUsers);
+                userAdapter = new UserAdapter(getContext(), mUsers, false);
                 recyclerView.setAdapter(userAdapter);
             }
 

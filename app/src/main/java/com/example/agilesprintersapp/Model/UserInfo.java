@@ -1,7 +1,9 @@
-package com.example.agilesprintersapp;
+package com.example.agilesprintersapp.Model;
 
 public class UserInfo {
 
+    private String id;
+    private String imageURL;
     private String firstName;
     private String lastName;
     private String username;
@@ -15,10 +17,35 @@ public class UserInfo {
 
     }
 
-    public UserInfo(String fName, String lName, String username, String email, String phone) {
+    public UserInfo(String id, String imageURL, String fName, String lName, String username, String email, String phone) {
+
+        this.id = id;
+        this.imageURL = imageURL;
+        this.firstName = fName;
+        this.lastName = lName;
+        this.username = username;
+        this.email = email;
+        this.phoneNumber = phone;
     }
 
     //getter and setter methods
+
+    public String getId(){
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
     public String getFirstName() {
         return firstName;
     }

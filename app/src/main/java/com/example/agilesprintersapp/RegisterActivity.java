@@ -2,7 +2,6 @@ package com.example.agilesprintersapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +16,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.agilesprintersapp.Model.User;
+import com.example.agilesprintersapp.Model.UserInfo;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -34,9 +35,10 @@ public class RegisterActivity extends AppCompatActivity {
     Button btn_Register, btn_return;
     ProgressBar progressBar;
 
-    UserInfo user;
+    User user;
 
     private FirebaseAuth mAuth;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,17 +152,36 @@ public class RegisterActivity extends AppCompatActivity {
 
                         if (task.isSuccessful()) {
 
-                            user = new UserInfo(fName, lName, username, email, phone);
+                            FirebaseUser firebaseUser = mAuth.getCurrentUser();
+                            String userid = firebaseUser.getUid();
 
-                            user.setFirstName(fName);
-                            user.setLastName(lName);
-                            user.setUsername(username);
-                            user.setEmail(email);
-                            user.setPhoneNumber(phone);
+//                            user = new UserInfo(userID, imageURL, fName, lName, username, email, phone);
+//
+//                            user.setId(userID);
+//                            user.setImageURL(imageURL);
+//                            user.setFirstName(fName);
+//                            user.setLastName(lName);
+//                            user.setUsername(username);
+//                            user.setEmail(email);
+//                            user.setPhoneNumber(phone);
 
-                            FirebaseDatabase.getInstance().getReference("UserInfo")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            reference = FirebaseDatabase.getInstance().getReference("User").child(userid);
+
+                            HashMap<String,String> hashMap = new HashMap<>();
+                            hashMap.put("id", userid);
+                            hashMap.put("imageURL", "default");
+                            hashMap.put("firstName", fName);
+                            hashMap.put("lastName", lName);
+                            hashMap.put("username", username);
+                            hashMap.put("email", email);
+                            hashMap.put("contactNumber", phone);
+
+
+                            reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>(){
+
+//                                    FirebaseDatabase.getInstance().getReference("UserInfo")
+//                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+//                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     progressBar.setVisibility(View.GONE);

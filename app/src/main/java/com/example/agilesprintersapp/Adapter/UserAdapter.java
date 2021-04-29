@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.agilesprintersapp.MessageActivity;
-import com.example.agilesprintersapp.Model.User;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,7 +25,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
     private final Context mContext;
     private final List<User> mUsers;
 
-    public UserAdapter (Context mContext, List<User> mUsers){
+    public UserAdapter (Context mContext, List<User> mUsers, boolean b){
         this.mUsers = mUsers;
         this.mContext = mContext;
     }
