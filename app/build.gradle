@@ -6,7 +6,7 @@ plugins {
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "30.0.3"
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.example.agilesprintersapp"
@@ -63,8 +63,6 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.firebase:firebase-storage:19.2.2'
     testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.2.0'
-    androidTestImplementation 'com.android.support.test:rules:1.0.2'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.google.android.material:material:1.4.0-alpha02'
@@ -89,6 +87,8 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:27.0.0')
     implementation 'com.google.firebase:firebase-analytics'
 
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.2.0'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
 
 }
 
