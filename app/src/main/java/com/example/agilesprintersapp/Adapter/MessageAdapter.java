@@ -2,6 +2,7 @@ package com.example.agilesprintersapp.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,12 +45,17 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     public static class ViewHolder extends RecyclerView.ViewHolder{
         public TextView show_message;
         public ImageView profile_image;
+        public ImageView messagePicture;
+
+        public  TextView txt_seen;
 
         public ViewHolder(View itemView){
             super(itemView);
             show_message = itemView.findViewById(R.id.show_message);
             profile_image = itemView.findViewById(R.id.profile_image);
+            messagePicture = itemView.findViewById(R.id.message_image_view);
 
+            txt_seen = itemView.findViewById(R.id.txt_seen);
         }
     }
 
@@ -77,10 +83,40 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 
             holder.profile_image.setImageResource(R.mipmap.ic_launcher);
         }else{
+
             Glide.with(mContext).load(imageurl).into(holder.profile_image);
         }
 
+        if(position == mChat.size()-1){
+            if(chat.isIsseen()){
+                holder.txt_seen.setText("Seen");
+            }else{
+                holder.txt_seen.setText("Delivered");
+            }
+        }else{
+            holder.txt_seen.setVisibility(View.GONE);
+        }
+
+        holder.show_message.setVisibility(View.GONE);
+        holder.messagePicture.setVisibility(View.GONE);
+
+        if(chat.getType().equals("text")){
+           holder.show_message.setVisibility(View.VISIBLE);
+            holder.show_message.setText(chat.getMessage());
+
+        }
+
+        else if (chat.getType().equals("image")){
+            holder.messagePicture.setVisibility(View.VISIBLE);
+
+            Glide.with(mContext).load(chat.getMessage()).into(holder.messagePicture);
+
+        }
+
+
     }
+
+
 
     @Override
     public int getItemCount() {
@@ -96,5 +132,6 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
             return MSG_TYPE_LEFT;
         }
     }
+
 
 }

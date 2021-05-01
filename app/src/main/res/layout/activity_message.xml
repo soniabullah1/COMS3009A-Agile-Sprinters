@@ -72,7 +72,10 @@
             android:hint="Type a message..."
             android:inputType="text"
             android:paddingHorizontal="10dp"
-            android:text="" />
+            android:text=""
+            android:textColor="#070707"
+            android:textColorHint="#7E7A7A"
+            android:textColorLink="#121111" />
 
         <ImageButton
             android:id="@+id/btn_send"
@@ -82,6 +85,15 @@
             android:layout_alignParentRight="true"
             android:background="@drawable/send"
             android:padding="20dp" />
+
+        <ImageButton
+            android:id="@+id/btn_attach_pic"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_toLeftOf="@id/btn_send"
+            android:background="@drawable/ic_picture"
+            android:padding="30dp"
+            android:clickable="true"/>
 
     </RelativeLayout>
 

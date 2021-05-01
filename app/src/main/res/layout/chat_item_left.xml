@@ -23,4 +23,22 @@
         android:text="Hello"
         android:padding="8dp"/>
 
+    <ImageView
+        android:id="@+id/message_image_view"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/profile_image"
+        android:background="@drawable/background_left"
+        android:padding="8dp"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_seen"
+        android:visibility="gone"
+        android:layout_below="@id/show_message" />
+
+
 </RelativeLayout>

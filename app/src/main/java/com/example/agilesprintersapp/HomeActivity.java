@@ -9,8 +9,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
-import android.widget.TabWidget;
 import android.widget.TextView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -21,19 +19,16 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.agilesprintersapp.Fragments.ChatsFragment;
 import com.example.agilesprintersapp.Fragments.ContactsFragment;
-import com.example.agilesprintersapp.Model.User;
+import com.example.agilesprintersapp.Fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -55,10 +50,14 @@ public class HomeActivity extends AppCompatActivity {
         //setSupportActionBar(toolbar);
         //getSupportActionBar().setTitle("");
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        profile_image = findViewById(R.id.profile_image);
+        username = findViewById(R.id.username);
+
         toolbar.setNavigationOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                finish();
+                    finish();
             }
         });
 
@@ -98,12 +97,12 @@ public class HomeActivity extends AppCompatActivity {
         });
 
 
+        profile_image = findViewById(R.id.profile_image);
+        username  = findViewById(R.id.username);
 
-        //profile_Image = findViewById(R.id.profile_image);
-        //username  = findViewById(R.id.username);
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        reference = FirebaseDatabase.getInstance().getReference("User").child(firebaseUser.getUid());
 
-        //firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        //reference = FirebaseDatabase.getInstance().getReference("User" ).child(firebaseUser.getUid());
 
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         ViewPager viewPager = findViewById(R.id.view_pager);
@@ -112,6 +111,7 @@ public class HomeActivity extends AppCompatActivity {
 
         viewPagerAdapter.addFragment(new ChatsFragment(), "Chats");
         viewPagerAdapter.addFragment(new ContactsFragment(), "Contacts");
+        viewPagerAdapter.addFragment(new ProfileFragment(), "Profile");
 
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
@@ -169,4 +169,29 @@ public class HomeActivity extends AppCompatActivity {
             return titles.get(position);
         }
     }
+    private void status(String status) {
+        if (firebaseUser != null) {
+
+            reference = FirebaseDatabase.getInstance().getReference("User").child(firebaseUser.getUid());
+
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put("status", status);
+
+            reference.updateChildren(hashMap);
+        }
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        status("online");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        status("offline");
+    }
+
 }
