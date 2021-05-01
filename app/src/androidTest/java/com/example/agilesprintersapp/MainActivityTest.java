@@ -21,10 +21,10 @@ public class MainActivityTest {
 
     @Rule
     public ActivityTestRule<MainActivity> mainActivityActivityTestRule = new ActivityTestRule<MainActivity>(MainActivity.class);
-
     private MainActivity mainActivity = null;
 
-    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(RegisterActivity.class.getName(),null ,false);
+    Instrumentation.ActivityMonitor monitor1 = getInstrumentation().addMonitor(RegisterActivity.class.getName(),null ,false);
+    Instrumentation.ActivityMonitor monitor2 = getInstrumentation().addMonitor(LoginActivity.class.getName(),null ,false);
 
     @Before
     public void setUp() throws Exception {
@@ -41,10 +41,19 @@ public class MainActivityTest {
     @Test
     public void testButtonClickRegister(){
         onView(withId(R.id.tRegister)).perform(click());
-        Activity registerActivity = getInstrumentation().waitForMonitorWithTimeout(monitor,5000);
+        Activity registerActivity = getInstrumentation().waitForMonitorWithTimeout(monitor1,5000);
         assertNotNull(registerActivity);
 
         registerActivity.finish();
+    }
+
+    @Test
+    public void testButtonClickSignIn(){
+        onView(withId(R.id.tSignIn)).perform(click());
+        Activity signInActivity = getInstrumentation().waitForMonitorWithTimeout(monitor2,5000);
+        assertNotNull(signInActivity);
+
+        signInActivity.finish();
     }
 
 
