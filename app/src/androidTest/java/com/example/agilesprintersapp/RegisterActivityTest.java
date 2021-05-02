@@ -1,6 +1,9 @@
 package com.example.agilesprintersapp;
 
+import android.app.Activity;
+import android.app.Instrumentation;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.test.rule.ActivityTestRule;
 
@@ -16,6 +19,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
+import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 import static org.junit.Assert.*;
 
 import static org.hamcrest.Matchers.allOf;
@@ -23,11 +27,10 @@ import static org.hamcrest.Matchers.allOf;
 public class RegisterActivityTest {
 
     @Rule
-    public ActivityTestRule<RegisterActivity> registerActivityTestRule = new ActivityTestRule<>(
-            RegisterActivity.class);
-
-
+    public ActivityTestRule<RegisterActivity> registerActivityTestRule = new ActivityTestRule<>(RegisterActivity.class);
     private RegisterActivity registerActivity = null;
+
+    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(MainActivity.class.getName(),null ,false);
 
     @Before
     public void setUp() throws Exception {
@@ -37,67 +40,93 @@ public class RegisterActivityTest {
 
     @Test
     public void testLaunchTextView7(){
-        //View view = registerActivity.findViewById(R.id.textView7);
-        onView(withId(R.id.textView7)).check(matches((isDisplayed())));
-        //assertNotNull(view);
+        TextView textViewTest = (TextView) registerActivity.findViewById(R.id.textView7);
+        String actual = (String) textViewTest.getText();
+        String expected = "Please fill out your details below:";
+
+        assertEquals(actual,expected);
     }
 
     @Test
     public void testLaunchTextView11(){
-        View view = registerActivity.findViewById(R.id.textView11);
-        assertNotNull(view);
+        TextView textViewTest = (TextView) registerActivity.findViewById(R.id.textView11);
+        String actual = (String) textViewTest.getText();
+        String expected = "First Name:";
+
+        assertEquals(actual,expected);
     }
 
     @Test
     public void testLaunchTextView16(){
-        View view = registerActivity.findViewById(R.id.textView16);
-        assertNotNull(view);
+        TextView textViewTest = (TextView) registerActivity.findViewById(R.id.textView16);
+        String actual = (String) textViewTest.getText();
+        String expected = "Last Name:";
+
+        assertEquals(actual,expected);
     }
 
     @Test
     public void testLaunchTextView9(){
-        View view = registerActivity.findViewById(R.id.textView9);
-        assertNotNull(view);
+        TextView textViewTest = (TextView) registerActivity.findViewById(R.id.textView9);
+        String actual = (String) textViewTest.getText();
+        String expected = "Username:";
+
+        assertEquals(actual,expected);
     }
 
     @Test
     public void testLaunchTextView8(){
-        View view = registerActivity.findViewById(R.id.textView8);
-        assertNotNull(view);
+        TextView textViewTest = (TextView) registerActivity.findViewById(R.id.textView8);
+        String actual = (String) textViewTest.getText();
+        String expected = "Email:";
+
+        assertEquals(actual,expected);
     }
 
     @Test
     public void testLaunchTextView10(){
-        View view = registerActivity.findViewById(R.id.textView10);
-        assertNotNull(view);
+        TextView textViewTest = (TextView) registerActivity.findViewById(R.id.textView10);
+        String actual = (String) textViewTest.getText();
+        String expected = "Phone Number:";
+
+        assertEquals(actual,expected);
     }
 
     @Test
     public void testLaunchTextView12(){
-        View view = registerActivity.findViewById(R.id.textView12);
-        assertNotNull(view);
+        TextView textViewTest = (TextView) registerActivity.findViewById(R.id.textView12);
+        String actual = (String) textViewTest.getText();
+        String expected = "Password:";
+
+        assertEquals(actual,expected);
     }
 
     @Test
     public void testLaunchTextView13(){
-        View view = registerActivity.findViewById(R.id.textView13);
-        assertNotNull(view);
+        TextView textViewTest = (TextView) registerActivity.findViewById(R.id.textView13);
+        String actual = (String) textViewTest.getText();
+        String expected = "Confirm Password:";
+
+        assertEquals(actual,expected);
     }
 
     @Test
     public void testLaunchTextView6(){
-        View view = registerActivity.findViewById(R.id.textView6);
-        assertNotNull(view);
+        TextView textViewTest = (TextView) registerActivity.findViewById(R.id.textView6);
+        String actual = (String) textViewTest.getText();
+        String expected = "Let's get you connected!";
+
+        assertEquals(actual,expected);
     }
 
     @Test
-    public void testLaunchFirstNameTextView(){
+    public void testLaunchEditTextFirstName(){
         View view = registerActivity.findViewById(R.id.FName);
         assertNotNull(view);
     }
 
     @Test
-    public void testLaunchLastNameTextView(){
+    public void testLaunchEditTextLastName(){
         View view = registerActivity.findViewById(R.id.LName);
         assertNotNull(view);
     }
@@ -148,6 +177,15 @@ public class RegisterActivityTest {
     public void testLaunchButton4(){
         View view = registerActivity.findViewById(R.id.button4);
         assertNotNull(view);
+    }
+
+    @Test
+    public void testReturnToHomePageButton(){
+        onView(withId(R.id.button4)).perform(click());
+        Activity registerActivity = getInstrumentation().waitForMonitorWithTimeout(monitor,5000);
+        assertNotNull(registerActivity);
+
+        registerActivity.finish();
     }
 
 
