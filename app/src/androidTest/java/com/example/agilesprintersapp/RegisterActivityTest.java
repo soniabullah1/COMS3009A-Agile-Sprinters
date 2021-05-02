@@ -11,8 +11,14 @@ import org.junit.Test;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
+
 import static org.junit.Assert.*;
+
+import static org.hamcrest.Matchers.allOf;
 
 public class RegisterActivityTest {
 
@@ -31,8 +37,9 @@ public class RegisterActivityTest {
 
     @Test
     public void testLaunchTextView7(){
-        View view = registerActivity.findViewById(R.id.textView7);
-        assertNotNull(view);
+        //View view = registerActivity.findViewById(R.id.textView7);
+        onView(withId(R.id.textView7)).check(matches((isDisplayed())));
+        //assertNotNull(view);
     }
 
     @Test
