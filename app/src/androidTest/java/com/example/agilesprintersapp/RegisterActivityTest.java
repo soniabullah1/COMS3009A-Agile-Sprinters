@@ -146,6 +146,6 @@ public class RegisterActivityTest {
 
     @After
     public void tearDown() throws Exception {
-        //registerActivity = null;
+        registerActivity = null;
     }
 }
