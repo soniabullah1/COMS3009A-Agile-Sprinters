@@ -43,6 +43,7 @@ import com.google.firebase.storage.StorageTask;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -299,6 +300,9 @@ public class MessageActivity extends AppCompatActivity {
 
         reference.child("Chat").push().setValue(hashMap);
 
+        String mydate = java.text.DateFormat.getTimeInstance().format(Calendar.getInstance().getTime());
+        TextView textView=  (TextView)findViewById(R.id.time);
+        textView.setText("              Last message was sent at: " + mydate);
     }
 
     private void readMessages(String myid, String userid, String imageurl){
