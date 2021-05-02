@@ -17,7 +17,7 @@ public class SplashScreen extends AppCompatActivity {
                 .withFullScreen()
                 .withTargetActivity(MainActivity.class)
                 .withSplashTimeOut(5000)
-                .withBackgroundColor(R.drawable.background)
+                .withBackgroundColor(Color.parseColor("#CDD4CA"))
                 .withHeaderText("Welcome To . . .")
                 .withFooterText("Loading . . .")
                 .withLogo(R.drawable.talktime); //all attributes for splash screen
