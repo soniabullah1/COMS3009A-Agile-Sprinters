@@ -20,6 +20,7 @@ public class RegisterActivityTest {
     public ActivityTestRule<RegisterActivity> registerActivityTestRule = new ActivityTestRule<>(
             RegisterActivity.class);
 
+
     private RegisterActivity registerActivity = null;
 
     @Before
@@ -27,9 +28,52 @@ public class RegisterActivityTest {
         registerActivity = registerActivityTestRule.getActivity();
     }
 
+
     @Test
     public void testLaunchTextView7(){
         View view = registerActivity.findViewById(R.id.textView7);
+        assertNotNull(view);
+    }
+
+    @Test
+    public void testLaunchTextView11(){
+        View view = registerActivity.findViewById(R.id.textView11);
+        assertNotNull(view);
+    }
+
+    @Test
+    public void testLaunchTextView16(){
+        View view = registerActivity.findViewById(R.id.textView16);
+        assertNotNull(view);
+    }
+
+    @Test
+    public void testLaunchTextView9(){
+        View view = registerActivity.findViewById(R.id.textView9);
+        assertNotNull(view);
+    }
+
+    @Test
+    public void testLaunchTextView8(){
+        View view = registerActivity.findViewById(R.id.textView8);
+        assertNotNull(view);
+    }
+
+    @Test
+    public void testLaunchTextView10(){
+        View view = registerActivity.findViewById(R.id.textView10);
+        assertNotNull(view);
+    }
+
+    @Test
+    public void testLaunchTextView12(){
+        View view = registerActivity.findViewById(R.id.textView12);
+        assertNotNull(view);
+    }
+
+    @Test
+    public void testLaunchTextView13(){
+        View view = registerActivity.findViewById(R.id.textView13);
         assertNotNull(view);
     }
 
@@ -98,6 +142,7 @@ public class RegisterActivityTest {
         View view = registerActivity.findViewById(R.id.button4);
         assertNotNull(view);
     }
+
 
     @After
     public void tearDown() throws Exception {
