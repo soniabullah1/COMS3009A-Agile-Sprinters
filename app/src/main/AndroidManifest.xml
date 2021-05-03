@@ -21,7 +21,8 @@
         <activity android:name=".CallsActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".ContactsActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
