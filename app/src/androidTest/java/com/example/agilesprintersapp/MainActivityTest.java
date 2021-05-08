@@ -40,7 +40,7 @@ public class MainActivityTest {
     }
 
     @Test
-    public void testButtonClickRegister(){
+    /*public void testButtonClickRegister(){
         onView(withId(R.id.tRegister)).perform(click());
         Activity registerActivity = getInstrumentation().waitForMonitorWithTimeout(monitor1,5000);
         assertNotNull(registerActivity);
@@ -56,7 +56,7 @@ public class MainActivityTest {
         assertNotNull(signInActivity);
 
         signInActivity.finish();
-    }
+    }*/
 
 
     @After
