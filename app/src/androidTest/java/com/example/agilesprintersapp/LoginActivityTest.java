@@ -14,6 +14,8 @@ import org.junit.Test;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 import static org.junit.Assert.*;
@@ -24,7 +26,11 @@ public class LoginActivityTest {
     private LoginActivity loginActivity = null;
 
     Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(MainActivity.class.getName(),null ,false);
+    Instrumentation.ActivityMonitor monitor2 = getInstrumentation().addMonitor(HomeActivity.class.getName(),null ,false);
 
+    //String a = loginActivity.email.getText().toString();
+    public static final String STRING_TO_BE_TYPED_EMAIL = "rushilpatel0703@gmail.com";
+    public static final String STRING_TO_BE_TYPED_PASSWORD = "cakeface42";
 
     @Before
     public void setUp() throws Exception {
@@ -59,6 +65,19 @@ public class LoginActivityTest {
         assertNotNull(registerActivity);
 
         registerActivity.finish();
+    }
+
+    @Test
+    public void testLoginButton(){
+        onView(withId(R.id.email)).perform(typeText(STRING_TO_BE_TYPED_EMAIL), closeSoftKeyboard());
+        onView(withId(R.id.password)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD), closeSoftKeyboard());
+        onView(withId(R.id.btn_Login)).perform(click());
+
+        Activity loginActivity = getInstrumentation().waitForMonitorWithTimeout(monitor2,5000);
+        assertNotNull(loginActivity);
+
+        loginActivity.finish();
+
     }
 
 
