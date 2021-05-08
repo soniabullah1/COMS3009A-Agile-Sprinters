@@ -40,6 +40,8 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     DatabaseReference reference;
 
+    public String unitTest = "True";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -193,6 +195,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     else {
                                         //display a failure message
                                         Toast.makeText(RegisterActivity.this, "Registration Unsuccessful - Please try again.", Toast.LENGTH_LONG).show();
+                                        unitTest ="False";
                                     }
                                 }
                             });
