@@ -2,6 +2,7 @@ package com.example.agilesprintersapp;
 
 import android.app.Activity;
 import android.app.Instrumentation;
+import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
@@ -25,6 +26,7 @@ public class LoginActivityTest {
     public ActivityTestRule<LoginActivity> loginActivityTestRule = new ActivityTestRule<>(LoginActivity.class);
     private LoginActivity loginActivity = null;
 
+
     Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(MainActivity.class.getName(),null ,false);
     Instrumentation.ActivityMonitor monitor2 = getInstrumentation().addMonitor(HomeActivity.class.getName(),null ,false);
 
@@ -35,6 +37,7 @@ public class LoginActivityTest {
     @Before
     public void setUp() throws Exception {
         loginActivity = loginActivityTestRule.getActivity();
+        loginActivity.sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
     }
 
     @Test

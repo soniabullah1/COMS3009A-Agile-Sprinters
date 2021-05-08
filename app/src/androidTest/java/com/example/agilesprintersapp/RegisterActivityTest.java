@@ -2,6 +2,7 @@ package com.example.agilesprintersapp;
 
 import android.app.Activity;
 import android.app.Instrumentation;
+import android.content.Intent;
 import android.os.IBinder;
 import android.view.View;
 import android.view.WindowManager;
@@ -52,6 +53,8 @@ public class RegisterActivityTest {
     @Before
     public void setUp() throws Exception {
         registerActivity = registerActivityTestRule.getActivity();
+        registerActivity.sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
+
     }
 
 
