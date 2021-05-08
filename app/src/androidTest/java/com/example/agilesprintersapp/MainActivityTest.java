@@ -38,7 +38,7 @@ public class MainActivityTest {
         View view = mainActivity.findViewById(R.id.tSignIn);
         assertNotNull(view);
     }
-/*
+
     @Test
     public void testButtonClickRegister(){
         onView(withId(R.id.tRegister)).perform(click());
@@ -56,7 +56,7 @@ public class MainActivityTest {
         assertNotNull(signInActivity);
 
         signInActivity.finish();
-    }*/
+    }
 
 
     @After
