@@ -34,11 +34,11 @@ public class HomeActivityTest {
         assertNotNull(view);
     }
 
-    @Test
+    /*@Test
     public void testNavBarContacts(){
         View view = homeActivity.findViewById(R.id.contacts);
         assertNotNull(view);
-    }
+    }*/
 
     @Test
     public void testNavBarSettings(){
