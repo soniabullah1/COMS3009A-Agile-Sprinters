@@ -1,0 +1,1682 @@
+[2021/04/12, 09:05:56] Sonia: 
+Monday, 12 April 2021
+
+What I did yesterday: 
+1. I tried getting our coverage status to display correctly but unfortunately couldn’t get it working. 
+
+2. I finalized the necessary documentation for this sprint. 
+
+3. We did a practice meet for today. 
+
+What I will do today: 
+We will present everything we have done for Sprint 1. We will have our Sprint 1 Review Meeting, Sprint 1 Retrospective Meeting, Sprint 2 Planning Meeting and Sprint 2 Backlog Meeting. 
+
+Any Impediments: 
+None.
+
+[2021/04/12, 09:24:13] Rushil Patel: 
+What i did yesterday:
+I integrated everyone's changes into one project file
+
+I completed the chat backend with Bhavik
+
+I merged and updated the main branch and got the build to pass
+
+I spent time trying to get some sort of code coverage but got no where
+
+Attended the practice meeting
+
+What i will do today:
+Try again to get the coverage working
+
+Attend the Sprint Meetings mentioned by Sonia
+
+Go over the Project and make sure everything is working as it should
+
+Any Impediments:
+None
+
+[2021/04/12, 09:27:08] Tristen Haverly: 
+What I did yesterday:
+Updated and redid the design element of our project. Handed over to Rushil to integrate and add to the project before he pushed the final project 
+
+What I will do today:
+I will joking the meeting with Rylan before I Join the meeting later with tristan for sprint 1 review  
+
+
+Any impediments:
+None as of yet
+
+[2021/04/12, 09:27:54] Kayla Levy: 
+What i did yesterday:
+
+I tried to help with code coveralls but wasn't able to get it working 
+
+Joined the meeting to run through the project
+
+Had a meeting with sonia and some other members about how we are going to present 
+
+What i will do today:
+Continue trying to get the coverage working 
+
+Attend the sprint meeting with Rylan for sprint 2 as well as the Sprint meeting with Tristan for sprint 1 review
+
+Any Impediments:
+None
+
+[2021/04/12, 09:28:57] Abdullah Haffejee: 
+What I did yesterday :
+
+- Had a look at coveralls and how to do it but did not get anywhere
+
+- Cleaned the database and added proper info to the table
+
+What I will do today :
+
+Attend the meeting with Rylan as well as the meeting with Tristan
+
+Any impediments :
+
+None
+
+[2021/04/12, 10:54:34] Jemma Sundelson: 
+What I did yesterday: 
+Joined the meeting of the run through of our project to make sure we had finalized everything for today
+
+What I will do today:
+Join the meeting with Tristen and rylan as well as figure out what we will each do for the next sprint 
+
+Any impediments:
+None as of yet
+
+[2021/04/12, 11:16:05] Bhavik Govan: 
+What I did yesterday:
+Worked on coveralls, didnt really win with that. 
+
+What I will do today:
+-Attend the meetings.
+-continue searching for a solution for coveralls
+
+Impediments:
+None
+
+[2021/04/13, 09:02:10] Sonia: 
+Tuesday, 13 April 2021
+
+What I did yesterday: 
+1. I attended the Sprint 1 Review, Sprint 1 Retrospective, Sprint 2 Planning and Backlog Refinement Meetings. 
+2. I uploaded our Sprint 1 Review, Sprint 2 Planning and Backlog Refinement meeting minutes onto GitHub 
+3. I created Sprint 2 on Taiga and added our user stories and tasks as well as our backlog items. 
+
+What I will do today: 
+I will continue working on getting our coverage status to show. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/04/13, 09:03:24] Colin Hugo: 
+Tuesday, 13 April 2021
+
+What I did yesterday: 
+1. I attended the Sprint 1 Review, Sprint 1 Retrospective, Sprint 2 Planning and Backlog Refinement Meetings. 
+
+What I will do today: 
+Nothing as I have a test this afternoon 
+
+Any Impediments: 
+None at the moment.
+
+[2021/04/13, 09:10:38] Kayla Levy: 
+Tuesday, 13 April 2021
+
+What I did yesterday: 
+ I went to the Sprint 1 Review, Sprint 1 Retrospective, Sprint 2 Planning and Backlog Refinement Meetings. 
+
+What I will do today: 
+Nothing as I have a lot to catch up on for other subjects
+
+Any Impediments: 
+None at the moment.
+
+[2021/04/13, 09:47:22] Abdullah Haffejee: 
+What I did yesterday :
+Attended the sprint 1 review, sprint 1 retrospective, sprint 2 planning and backlog refinement meetings
+
+What I will do today :
+Catch up with my other work
+
+Any impediments :
+None
+
+[2021/04/13, 09:48:46] Tristen Haverly: 
+What I did yesterday: 
+1. I attended the Sprint 1 Review, Sprint 1 Retrospective, Sprint 2 Planning and Backlog Refinement Meetings. 
+
+What I will do today: 
+Research and discuss with Jemma a plan for how to start the message sending task 
+
+Any Impediments: 
+None at the moment.
+
+[2021/04/13, 10:21:25] Bhavik Govan: 
+Tuesday, 13 April 2021
+
+What I did yesterday: 
+ I went to the Sprint 1 Review, Sprint 1 Retrospective, Sprint 2 Planning and Backlog Refinement Meetings. 
+I also worked on the coveralls. 
+
+What I will do today: 
+Nothing as I have a lot to catch up on for other subjects. I may continue working on the coveralls should I find some time
+
+Any Impediments: 
+None at the moment.
+
+[2021/04/13, 12:33:57] Jemma Sundelson: 
+What I did yesterday:
+Attended the sprint review review, sprint 1 retrospective meeting and sprint 2 planning meeting.
+Figured out what is required of Tristen and  myself for the next sprint 
+
+What I will do today:
+Discuss with Tristen the way in which we will tackle the sending of messaging tasks and get familiar with the database.
+
+Any impediments:
+None as of yet
+
+[2021/04/13, 17:13:39] Rushil Patel: 
+What i did yesterday:
+Attended sprint review, sprint 1 retrospective, and spring 2 planning meeting
+Tried to get coverage for our project
+
+What i will do today:
+Nothing as i need to catch up on work in other subjects
+
+Any Impediments:
+None
+
+[2021/04/14, 09:02:42] Sonia: 
+Wednesday, 14 April 2021
+
+What I did yesterday: 
+1. I worked on our coverage status - I edited our gradle files and managed to get Android Studio to generate an html coverage report but nothing changed on the Coveralls website after I pushed the updated code to GitHub. The badge still says ‘unknown’.
+
+What I will do today: 
+I will look into setting up our virtual machine. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/04/14, 09:13:53] Tristen Haverly: 
+What i did yesterday:
+Worked out how to do the next task and get the app to send messages 
+
+What i will do today:
+Continue from yesterday 
+
+Any Impediments:
+Struggling to access the database side as I’m not 100% clear on what’s going on with the database and how to link the chats and messages front end with the database
+
+[2021/04/14, 09:22:51] Kayla Levy: 
+What i did yesterday:
+Nothing
+
+What i will do today:
+Try work a bit on display chats for the specific user
+
+Any impediments:
+None
+
+[2021/04/14, 09:59:31] Colin Hugo: 
+Wednesday, 14 April 2021
+
+What I did yesterday: 
+1. Nothing as I had a test 
+
+What I will do today: 
+I will speak to Sonia but unfortunately I won’t be able to do much as I have a test on Friday again. 
+
+Any Impediments: 
+Tests for my other courses
+
+[2021/04/14, 10:11:07] Abdullah Haffejee: 
+What I did yesterday :
+Nothing as I had other work to do
+
+What I will do today :
+Start planning on how to go about doing my part for this sprint
+
+Any impediments :
+None
+
+[2021/04/14, 12:40:26] Bhavik Govan: 
+What i did yesterday:
+Nothing
+
+What i will do today:
+-work on the coveralls 
+- try get access to the virtual machine on my PC
+
+Any impediments:
+None
+
+[2021/04/14, 13:00:52] Jemma Sundelson: 
+What I did yesterday:
+Figured out the way forward in the tasks that I have to complete
+
+What I will do today:
+Carry on trying to code the messages and get access to the virtual machine
+
+Any impediments:
+None as of yet
+
+[2021/04/15, 09:07:05] Sonia: 
+Thursday, 15 April 2021
+
+What I did yesterday: 
+1. I worked on our coverage status - I finally managed to get our badge to display our status using Codecov.I’m instead of Coveralls. 
+
+2. I tried to log into our server created by MSS but it wouldn’t let me.  The request kept timing out, which denied me permission to get into the server and create our LAMP server. 
+
+What I will do today: 
+I will continue to look into setting up our virtual machine and I will also start doing some research on how to implement the code for allowing users to view text messages received from other users.  
+
+Any Impediments: 
+None at the moment.
+
+[2021/04/15, 09:08:14] Tristen Haverly: 
+What I did yesterday:
+Basic research into best approach but no actual coding 
+
+What I will do today:
+Continue to work on the message sending and working out how the VM works and getting access to it 
+
+Any impediments:
+None as of yet
+
+[2021/04/15, 09:13:01] Kayla Levy: 
+What i did yesterday:
+Started working on  displaying chats for each specific user
+
+What I will do today:
+Continue working on this 
+
+Any impediments:
+None
+
+[2021/04/15, 10:33:35] Colin Hugo: 
+What i did yesterday:
+tried to get access to the virtual machine on my PC
+
+What i will do today:
+Study for another test 
+
+Any impediments:
+None
+
+[2021/04/15, 11:14:06] Abdullah Haffejee: 
+What I did yesterday :
+Watched a video to better understand how to retrieve images from a server
+
+What I will do today :
+Find more useful information regarding sending and receiving images
+
+Any impediments :
+None
+
+[2021/04/15, 11:21:32] Jemma Sundelson: 
+What I did yesterday:
+Watched YouTube videos to try understand what is required of me for this sprint
+
+What I will do today:
+Nothing as I have a test tomorrow
+
+Any impediments:
+None as of yet
+
+[2021/04/15, 11:25:33] Rushil Patel: 
+What i did yesterday:
+Watched YouTube vids sent by Kayla
+Looked into systems with their backend having Firebase
+
+What i will do today:
+Get a better understanding of Firebase as we might migrate from Mysql
+Try and get a working system with Firebase
+
+Any impediments:
+None
+
+[2021/04/15, 11:44:10] Bhavik Govan: 
+What i did yesterday:
+Tried to get the coveralls working, but failed!
+I also tried to set up the VM.
+
+What i will do today:
+Learn more about firebase.
+
+Any impediments:
+None
+
+[2021/04/16, 09:31:43] Jemma Sundelson: 
+What I did yesterday:
+Nothing as I have a test today
+
+What I will do today:
+Start learning how firebase works and continue working on the project
+
+Any impediments:
+None as of yet
+
+[2021/04/16, 09:33:06] Sonia: 
+Friday, 16 April 2021
+
+What I did yesterday: 
+1. I did some research on how to implement the code for allowing users to view text messages received from other users.  
+
+What I will do today: 
+I will look into how Firebase works and set up everything that’s needed. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/04/16, 09:35:11] Tristen Haverly: 
+What i did yesterday:
+Looked into the readability of changing databases to use firebase and started with a new project using firebase , finished the login and registration with email and password - that’s all working well . 
+
+What I will do today:
+Add phone number and other registration details to the database and continue on from yesterday working with the chat page 
+
+Any impediments:
+None so far
+
+[2021/04/16, 09:41:49] Kayla Levy: 
+What i did yesterday:
+Nothing
+
+What i will do today:
+Get familiar with firbase
+
+Any impediments:
+None so far
+
+[2021/04/16, 09:57:50] Abdullah Haffejee: 
+What I did yesterday :
+Watched a few videos to do with firebase database
+
+What I will do today :
+Watch a few more videos to get completely familiar with firebase
+
+Any impediments :
+None
+
+[2021/04/16, 10:09:54] Bhavik Govan: 
+What I did yesterday:
+Read up on firebase and watched a few tutorials on YouTube.
+
+What I will do today:
+Continue learning about firebase.
+
+Impediment:
+None
+
+[2021/04/17, 10:46:32] Sonia: 
+Saturday, 17 April 2021
+
+What I did yesterday: 
+1. I did some research on how Firebase works as well as how to store messages received in Firebase. 
+
+What I will do today: 
+I will speak to Colin about how we can roughly implement our task of storing text messages received by the user. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/04/17, 11:49:37] Abdullah Haffejee:
+ What I did yesterday :
+Watched a few videos to do with firebase database
+
+What I will do today :
+Watch a few more videos to get completely familiar with firebase 
+
+Any impediments :
+None
+
+[2021/04/17, 13:02:00] Colin Hugo: 
+What i did yesterday:
+Nothing as I had another test
+
+What i will do today:
+Get familiar with firebase
+
+Any impediments:
+None so far
+
+[2021/04/17, 13:38:29] Bhavik Govan: 
+What I did yesterday:
+Watched a few firebase videos. 
+
+What I will do today:
+Try and figure out how to start storing images in a firebase database.
+
+Any impediments:
+None
+
+[2021/04/17, 16:46:28] Jemma Sundelson: 
+What I did yesterday:
+Nothing as I wrote a test
+
+What I will do today:
+Figure out how firebase works
+
+Any impediments:
+None as of yet
+
+[2021/04/17, 19:41:10] Rushil Patel: 
+What i did yesterday:
+Nothing
+
+What i will do today
+Watch more videos involving firebase and a chat application
+
+Any Impediments:
+None
+
+[2021/04/18, 11:27:11] Sonia: 
+Sunday, 18 April 2021
+
+What I did yesterday: 
+1. I spoke to Colin about how we can roughly implement our task of storing text messages received by the user. I found some useful websites as well so hopefully we can start coding on Monday/Tuesday. 
+
+What I will do today: 
+I  won’t manage to do anything today as I have a test tomorrow that I need to study for. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/04/18, 14:31:43] Rushil Patel: 
+What i did yesterday:
+Got more familiar with Firebase
+
+What i will do today
+Run and interpret Tris's project. 
+Push the new project to Github
+
+Any Impediments:
+None
+
+[2021/04/18, 15:34:52] Kayla Levy: 
+What i did yesterday:
+Looked into firebase
+
+What I will do today:
+Run the project and get familiar with what's happening 
+
+Any impediments 
+Nonw
+
+[2021/04/18, 16:26:11] Abdullah Haffejee: 
+What I did yesterday :
+Got familiar with firebase
+
+What I will do today :
+Pull the project from github once it's pushed 
+
+Any impediments :
+None
+
+[2021/04/18, 18:48:37] Bhavik Govan: 
+What i did yesterday:
+Looked into firebase, watched more videos on it.
+
+What I will do today:
+Run the project and get familiar with what's happening. 
+
+Any impediments 
+I have a test tomorrow.
+
+[2021/04/18, 18:55:06] Tristen Haverly: 
+What i did yesterday:
+Nothing 
+
+What I will do today:
+Implemented the chats viewing and contacts list pages using firebase 
+
+Any impediments 
+None
+
+[2021/04/18, 23:08:19] Jemma Sundelson: 
+What I did yesterday: 
+Looked into how firebase worked
+
+What I did today:
+Carried on watching videos about how to implement the sending of messages
+
+Any impediments:
+None as of yet
+
+[2021/04/19, 07:15:35] Tristen Haverly: 
+*Monday 19/04*
+
+What i did yesterday:
+Got the project up to date with scrum 1 tasks and Implemented message sending task backend and front end 
+
+What I will do today : 
+Continue cleaning up the project and adding the necessary back buttons and cleaning up the UID
+
+Any impediments 
+None
+
+[2021/04/19, 08:51:25] Kayla Levy: 
+What i did yesterday:
+Nothing
+
+What i will do today:
+Run the project and get familiar with what's happened and then start researching my part like how to store an image and then we retrieving it how to convert it back to an image
+
+Any impediments:
+None so far
+
+[2021/04/19, 10:07:12] Sonia: 
+Monday, 19 April 2021
+
+What I did yesterday: 
+1. I downloaded and ran the updated files that Tristen sent. 
+
+What I will do today: 
+I will get everything in order for the receiving messages end of the app after my test this afternoon so that I begin coding tomorrow. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/04/19, 11:44:24] Bhavik Govan: 
+What i did yesterday:
+Did more research on firebase.
+
+What i will do today:
+Run the project and get familiar with the new backend. I want to try get familiar with coding the firebase part of the app
+
+Any impediments:
+None
+
+[2021/04/19, 19:14:12] Jemma Sundelson: 
+What I did yesterday: 
+Got up to date with how firebase works
+
+What I did today:
+Watched videos on YouTube on how to code the project and made sure I understood what was done up till now
+
+Any impediments:
+None as of yet
+
+[2021/04/19, 21:09:53] Rushil Patel: 
+What i did yesterday:
+Ran the new project 
+
+What i did today:
+Nothing
+
+Any Impediments:
+None
+
+[2021/04/19, 22:06:04] Abdullah Haffejee: 
+What I did yesterday :
+Nothing
+
+What I did today :
+Had a look at what's been done up to this point and spoke to Kayla a bit about our part 
+
+Any impediments :
+None
+
+[2021/04/20, 09:27:10] Kayla Levy: 
+What I did yesterday :
+Had a look at where the project is so far
+
+What I did today :
+Research a bit more and chat to rushil and bhavik because our parts are quite closely linked
+
+Any impediments :
+None
+
+[2021/04/20, 09:27:46] Tristen Haverly: 
+What I did yesterday :
+Got chats and sending messages working 
+
+What I did today :
+Help where I’m needed but my part is done 
+
+Any impediments :
+Error in line 100 of chats fragment code not sure how to fix it
+
+[2021/04/20, 09:31:53] Sonia: Tuesday, 20 April 2021
+
+What I did yesterday: 
+1. Nothing as I had a test. 
+
+What I will do today: 
+I will download and start running the new files and I will get started on coding my part of the project. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/04/20, 11:01:45] Colin Hugo: 
+What I did yesterday :
+Fixed my android studio and did some research into how we can send images with text. 
+
+What I will do today :
+Nothing unfortunately as I have an exam on Thursday that I need to study for but can help if someone needs something 
+Any impediments :
+Other subjects tests
+
+[2021/04/20, 11:07:14] Jemma Sundelson: 
+What I did yesterday:
+Watch videos to help me code some of the project later. Implemented user profile and status
+
+What I did today: 
+Nothing 
+
+Any impediments: 
+None as of yet
+
+[2021/04/20, 12:04:37] Bhavik Govan: 
+What I did yesterday :
+Continued watching videos on firebase and android.
+
+What I did today :
+Research a bit more with regards to storing images on firebase
+
+Any impediments :
+None
+
+[2021/04/20, 22:43:20] Rushil Patel: 
+What i did yesterday:
+Nothing
+
+What im still doing today:
+Integrating the new project so it can be pushed to github for everyone and also get the build to run after it has been pushed
+
+Any Impediments:
+None
+
+[2021/04/20, 22:48:16] Abdullah Haffejee: 
+What I did yesterday :
+Spoke to Kayla a bit 
+
+What I did today :
+Looked for videos on how to send and receive images 
+
+Any impediments :
+None
+
+[2021/04/21, 09:10:18] Sonia: 
+Wednesday, 21 April 2021
+
+What I did yesterday: 
+1. I tried writing some unit tests but didn’t have much luck getting them to work. 
+
+2. I downloaded and ran the new project files and played around a bit to get a sense of what was happening 
+
+What I will do today: 
+I will look into how we can get each user’s account to be unique so that they only have access to chats with users from their contacts. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/04/21, 13:15:31] Kayla Levy: 
+What I did yesterday:
+Started looking at how to receive messages
+
+What I will do today:
+Nothing as waiting for Rushil and bhavik to finish there parts as mine and Abdullahs is dependent on theres
+
+Any impediments:
+None so far
+
+[2021/04/21, 13:29:37] Tristen Haverly: 
+What I did yesterday:
+Nothing 
+
+What I will do today:
+Nothing unless someone needs my assistance 
+
+Any impediments:
+None so far
+
+[2021/04/21, 14:34:32] Bhavik Govan: 
+What I did yesterday:
+Started going through the code of the new project, and started working on getting permission to access to the gallery.
+
+What I will do today: 
+I'll continue with getting access to the gallery.
+
+Impediments:
+None
+
+[2021/04/21, 14:56:45] Colin Hugo: 
+What I did yesterday:
+Nothing I studied for my test
+
+What I will do today:
+Nothing as I’m studying for my test 
+
+Any impediments:
+None so far
+
+[2021/04/21, 14:57:32] Jemma Sundelson: 
+What I did yesterday:
+Continued working on user status and profile
+
+What I will do today: 
+Nothing as I have a test tomorrow
+
+Any impediments:
+None as of yet
+
+[2021/04/22, 08:46:12] Sonia: 
+Thursday, 22 April 2021
+
+What I did yesterday: 
+1. I did some research and watched some videos on how to implement the code for getting each user’s accounts I be unique. 
+
+What I will do today: 
+I will try to start coding the necessary parts of getting a user’s account to be unique once I’m able to login to Firebase. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/04/22, 09:20:00] Kayla Levy: 
+What i did yesterday:
+Nothing, not my part yet
+
+What I will do today:
+Research retrieving images and get everything set up on my pc
+
+Any impediments:
+None so far
+
+[2021/04/22, 10:18:57] Abdullah Haffejee: 
+What I did yesterday:
+Nothing
+
+What I will do today:
+Get everything setup on my laptop
+
+Any impediments:
+None
+
+[2021/04/22, 13:04:59] Jemma Sundelson: 
+What I did yesterday:
+Nothing as I had a test today
+
+What I will do today:
+Make sure my tasks are running
+
+Any impediments:
+None as of yet
+
+[2021/04/22, 13:34:34] Bhavik Govan: 
+What I did yesterday:
+I continued working on accessing the gallery, and added the feature of being able to access other file types.
+
+What I will do today:
+Continue with attaching files, and hopefully be able to start working on the firebase part of the app
+
+Any impediments:
+None as of yet
+
+[2021/04/22, 23:08:14] Rushil Patel: 
+What I did yesterday:
+Nothing as i was working on another assignment
+
+What I did today:
+Started with my part of the chats side and followed up with Bhavik
+
+Any impediments:
+None as of yet
+
+[2021/04/23, 09:23:56] Sonia: 
+Friday, 23 April 2021
+
+What I did yesterday: 
+1. I linked the emulator’s contact list to the app so that the users personal contacts could be displayed. 
+
+What I will do today: 
+I will work on linking the user’s contacts to users in the database but in order to do this, I think I might have to add a contact number field to the registration page so I’ll need to access Firebase first. 
+
+Any Impediments: 
+Couldn’t access Firebase.
+
+[2021/04/23, 09:43:32] Kayla Levy:
+What I did yesterday:
+Tried to figure out what the best way to approach receive images is
+
+What I will do today:
+Continue researching but can't do much yet
+
+Any impediments:
+None
+
+[2021/04/23, 10:11:16] Tristen Haverly: 
+What I did yesterday:
+Nothing 
+
+What I will do today:
+Make everyone members so we can all access the firebase database 
+
+Any impediments:
+None
+
+[2021/04/23, 12:43:50] Colin Hugo: 
+What I did yesterday:
+Nothing as I had a test and then spent the day catching up 
+
+What I did today:
+Get the project working on my side sign in to fire base and begin working with Sonia on our part 
+Any impediments:
+None as of yet
+
+[2021/04/23, 18:08:54] Bhavik Govan: 
+What I did yesterday:
+I was having trouble with the app, the chats and contacts wouldn't display. I managed to get the contacts to display. 
+
+I also enabled the user to access their gallery.
+
+What I did today:
+I will work on firebase and hopefully get the images to store in the database. 
+
+Impediments:
+Couldn't access firebase yesterday
+
+[2021/04/23, 18:20:41] Jemma Sundelson: 
+What I did yesterday:
+Made sure that the code I had previously implemented was working
+
+What I will do today:
+Make sure that i get ‘delivered’ and ‘seen’ working as well as implement status and search for contacts
+
+Any impediments:
+None as of yet
+
+[2021/04/23, 22:16:00] Abdullah Haffejee: 
+What I did yesterday:
+Nothing
+
+What I will do today:
+Can't do much as it's not my part yet 
+
+Any impediments:
+None
+
+[2021/04/24, 09:17:44] Sonia: 
+Saturday, 24 April 2021
+
+What I did yesterday: 
+1. I edited the registration page to include more details  about the user and created a new table on Firebase for the new information. 
+
+What I will do today: 
+I will fix the rest of the classes so that a user can login with details from the new table. I will also fix a small bug on the registration activity and try hash all the passwords. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/04/25, 10:08:40] Bhavik Govan: 
+Sunday 25 April 2021
+
+What I did yesterday:
+Finished the sending and receiving images part of the project.
+
+What I will do today:
+Take a break.
+
+Impediments:
+None
+
+[2021/04/25, 10:21:38] Kayla Levy: 
+Sunday 25 April 2021
+
+What I did yesterday:
+Nothing
+
+What I will do today:
+Start the sending images with text with abdullah
+
+Impediments:
+None
+
+[2021/04/25, 10:38:14] Sonia: 
+Sunday, 25 April 2021
+
+What I did yesterday: 
+1. I edited the code to ensure that the user could sign up and login to their account with information from the new table created. I also fixed the bug in the registration page. 
+
+What I will do today: 
+Nothing as I won’t be home today. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/04/25, 10:45:03] Jemma Sundelson: 
+What I did yesterday:
+Nothing as I have completed my part of this sprint 
+
+What I will do today: 
+Help if anyone needs me
+
+Any impediments:
+None as of yet
+
+[2021/04/25, 10:51:21] Abdullah Haffejee: 
+Sunday 25 April 2021
+
+What I did yesterday:
+Nothing
+
+What I will do today:
+Start the sending images with text with Kayla 
+
+Impediments:
+None
+
+[2021/04/25, 13:25:51] Rushil Patel: 
+What i did yesterday:
+Worked on the sending and receiving images parts with Bhavik
+
+What i will do today:
+Look for any bugs to fix.
+Start looking into unit testing
+
+Impediments:
+None
+
+[2021/04/25, 23:00:58] Tristen Haverly: 
+What I did yesterday:
+Nothing as I have completed my part of this sprint 
+
+What I will do today: 
+Nothing 
+
+Any impediments:
+None as of yet
+
+[2021/04/26, 13:01:04] Kayla Levy: 
+What I did yesterday:
+Nothing 
+
+What I will do today:
+Try figure out why the app is crashing then hopefully fix it 
+
+Start sending and receiving voice notes and implement timestamps for the messages
+
+Any impediments:
+The App just randomly crashed and has set us back a bit
+
+[2021/04/26, 14:47:11] Jemma Sundelson: 
+What I did yesterday:
+Nothing
+
+What I will do today:
+Help anyone who needs
+[2021/04/26, 14:47:21] Jemma Sundelson: Any impediments: 
+None as of yet
+
+[2021/04/26, 15:03:58] Sonia: 
+Monday, 26 April 2021
+
+What I did yesterday: 
+1. I managed to get the code that I was on to fully work. I consolidated my code with Bhavik and Rushil’s part and pushed it to GitHub. 
+
+What I will do today: 
+The code seems to have a lot of issues so I will work on it and try get everything to work smoothly. 
+
+Any Impediments: 
+The code started crashing randomly and things that were working perfectly aren’t anymore so it’s taking some time for us to figure out what’s happening and why it’s happening.
+
+[2021/04/26, 23:57:25] Abdullah Haffejee: 
+What I did yesterday :
+Nothing
+
+What I did today: 
+Got started with voice notes 
+
+Any impediments:
+None
+
+[2021/04/26, 23:58:43] Bhavik Govan: 
+What I did yesterday :
+Nothing
+
+What I did today: 
+Tried to figure out why the app was crashing 
+
+Any impediments:
+The app is crashing
+
+[2021/04/27, 10:08:11] Sonia: T
+uesday, 27 April 2021
+
+What I did yesterday: 
+1. I worked on getting the code to run. I managed to get the contacts back but the chat history isn’t displaying site to the ‘File Not Found’ error. 
+
+What I will do today: 
+I will try to fix the File Not Found Error and hopefully het the chat history page working again. 
+
+Any Impediments: 
+‘File Not Found’ Error is taking a lot of time to fix.
+
+[2021/04/27, 12:57:40] Rushil Patel: 
+What i did yesterday:
+Tried to fix the issue of the app crashing
+
+What i will do today:
+Try to get the chats showing in the chat window
+If that goes well, till try to start with unit testing
+
+Any Impediments:
+None
+
+[2021/04/27, 13:03:22] Kayla Levy: 
+What i did yesterday:
+Worked on fixing the bugs in the app
+
+What I will do today:
+Try implement voice notes and maybe notifications 
+
+Any impediments:
+None
+
+[2021/04/28, 17:03:52] Jemma Sundelson: 
+What I did yesterday: 
+Sent Kayla my code to add into the uodated project
+
+What I did today: 
+Joined discord to try see if we could figure out why our project keeps crashing. 
+
+Any impediments:
+None as of yet
+
+[2021/04/28, 17:07:47] Sonia: 
+Wednesday, 28 April 2021
+
+What I did yesterday: 
+1. I tried linking the users in the database to the user’s contact list but got a lot of errors. 
+
+What I did today: 
+I tried debugging the code but didn’t get very far. I might need to try an alternative method. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/04/29, 09:22:46] Sonia: 
+Thursday, 29 April 2021
+
+What I did yesterday: 
+1. I tried implementing a friend request method but didn’t want to overload the database with too much information so decided to rather leave it out for now. 
+
+What I will do today: 
+Nothing for now. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/04/29, 09:23:53] Kayla Levy: 
+What I did yesterday:
+Joined discord meeting to try get the app to stop crashing 
+
+What i will do today:
+Nothing for now
+
+Any impediments:
+None
+
+[2021/04/29, 09:33:53] Tristen Haverly: 
+What I did yesterday:
+Trued to get the chats to show , managed to get them to show up but it’s still not 100% correct  
+
+What I will do today:
+Continue with the chats windows  
+
+Any impediments:
+
+[2021/04/29, 19:53:22] Rushil Patel: 
+What i did yesterday:
+Attempted to solve the problem of the app crashing
+Read more into unit testing
+
+What i will do today: 
+Nothing 
+
+Any Impediments:
+None
+
+[2021/04/29, 19:56:46] Jemma Sundelson: 
+What I did yesterday:
+Joined discord meeting to solve some problems
+
+What I did today: 
+Added all my parts to the updated version of the app, made sure it was working and pushed it to GitHub 
+
+Any impediments:
+None as of yet
+
+[2021/04/30, 10:45:12] Kayla Levy: 3
+0 April 2021
+
+What I did yesterday:
+Tried to help Jemma with why the app was crashing when she added her part
+
+What I will do today:
+Pull what Jemma pushed to github and add my part
+
+Any impediments 
+None at the moment
+
+[2021/04/30, 11:11:36] Jemma Sundelson: 
+What I did yesterday: 
+Updated my side of the project to get it all working 
+
+What I will do today:
+Push it to GitHub again because it didn’t push properly yesterday 
+
+Any impediments:
+None as of yet
+
+[2021/04/30, 12:50:38] Sonia: 
+Friday, 30 April 2021
+
+What I did yesterday: 
+1. Nothing. 
+
+What I will do today: 
+Start fixing the build once the final project has been pushed. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/04/30, 16:05:27] Colin Hugo: 
+Friday, 30 April 2021
+
+What I did yesterday: 
+1. Nothing
+
+What I will do today: 
+Start working on the unit tests researching ect
+
+Any Impediments: 
+None at the moment.
+
+[2021/04/30, 16:42:42] Bhavik Govan: 
+Friday, 30 April 2021
+
+What I did yesterday: 
+1. Nothing
+
+What I will do today: 
+Start working on research for the app, find new features to add
+
+Any Impediments: 
+None.
+
+[2021/04/30, 23:59:13] Rushil Patel: 
+What i did yesterday:
+Nothing
+
+What i did today:
+Started with unit testing
+
+Any Impediments:
+None
+
+[2021/05/01, 13:01:35] Jemma Sundelson: 
+What I did yesterday: 
+Sent the code through to Sonia. And ensured it was working properly
+
+What I did today:
+Nothing
+
+Any impediments:
+None as of yet
+
+[2021/05/01, 17:39:19] Sonia: 
+Saturday, 1 May 2021
+
+What I did yesterday: 
+Helped push the new files to GitHub. 
+
+What I did today: 
+Nothing. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/01, 23:13:49] Rushil Patel: 
+What i did yesterday:
+Started with unit testing
+
+What i did today:
+Wrote a testing unit test to see if the coverage was picking up
+
+Got the build to pass on Travis Ci
+
+Got the code coverage to show from codecov and on GitHub
+
+Any Impediments:
+None
+
+[2021/05/02, 17:25:21] Sonia: 
+Sunday, 2 May 2021
+
+What I did yesterday: 
+Nothing. 
+
+What I did today: 
+1. Created a splash screen and pushed the changes to GitHub. 
+
+2. Added the Use Case Diagram that Kayla did to Taiga. 
+
+3. Finally fixed all errors in the code to display common users only but the code isn’t working as planned. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/02, 22:27:27] Rushil Patel: 
+What i did yesterday:
+Wrote a testing unit test to see if the coverage was picking up
+
+Got the build to pass on Travis Ci
+
+Got the code coverage to show from codecov and on GitHub
+
+What i did today:
+Completed unit tests for the UI for Main Activity and Register Activity
+
+Got the build to pass again as it was failing on Travis CI
+
+Any Impediments:
+None
+
+[2021/05/02, 22:27:37] Tristen Haverly: 
+What i did yesterday:
+Nothing as it was my sabbath 
+
+What i did today:
+Continued to see why the chats windows won’t work 
+
+Any Impediments:
+None
+
+[2021/05/02, 22:49:17] Kayla Levy: 
+What I did yesterday:
+Nothing 
+
+What I did today:
+Ran jemmas version to test everything,  added my stuff and pushed it to github
+
+Any impediments:
+None
+
+[2021/05/03, 07:42:08] Sonia: 
+Monday, 3 May 2021
+
+What I did yesterday: 
+Tried getting the contact list and database users to link. 
+
+What I will do today: 
+Nothing as I need to get work for other courses done and study for upcoming tests. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/03, 09:52:49] Kayla Levy: 
+What I did yesterday:
+Ran the last version then added my stuff in and pushed to github
+
+What I will do today:
+Nothing as have to learn for tests 
+
+Any impediments:
+None
+
+[2021/05/03, 10:42:09] Bhavik Govan: 
+What I did yesterday:
+Studied for upcoming tests
+
+What I will do today:
+Update my files with the latest version of the project.
+
+Impediments:
+None
+
+[2021/05/03, 10:43:39] Colin Hugo: 
+What I did yesterday:
+Studied for upcoming tests
+
+What I will do today:
+Run the new version and look at the unit tests 
+
+Impediments:
+None
+
+[2021/05/03, 23:10:45] Rushil Patel: 
+What i did yesterday:
+Completed unit tests for the UI for Main Activity and Register Activity
+
+Got the build to pass again as it was failing on Travis CI
+
+What i did today:
+Completed the UI testing for the Login Activity
+
+Discussed with Collin about testing the raw Java
+
+Any Impediments:
+I have 2 tests and 1 presentation coming up back to back during this week
+
+[2021/05/03, 23:15:00] Jemma Sundelson: 
+What I did yesterday: 
+Studied for my
+Coms tests this week
+
+What I did today:
+Nothing 
+
+Any impediments:
+None as of yet
+
+[2021/05/04, 09:23:31] Colin Hugo: 
+What I did yesterday: 
+Discussed quite a bit with Rushil how to get jUnit tests working. I succeeded somewhat but didn’t manage to get any working for now. But I’ll try again on Thursday 
+
+What I did today:
+Study for tests this week 
+
+Any impediments:
+None as of yet
+
+[2021/05/04, 09:24:21] Tristen Haverly: 
+What I did yesterday:
+Studied for upcoming tests
+
+What I will do today:
+Continue to study for tests and help where needed 
+
+Impediments:
+None
+
+[2021/05/04, 09:27:28] Sonia: 
+Tuesday, 4 May 2021
+
+What I did yesterday: 
+Studied for my tests this week. 
+
+What I will do today: 
+Nothing as I need to study for the SD test. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/04, 10:16:42] Kayla Levy: 
+What I did yesterday:
+Study for tests
+
+What I will do today:
+Continue working for the tests
+
+Any impediments:
+None
+
+[2021/05/04, 11:13:30] Abdullah Haffejee: 
+What I did yesterday:
+Study for tests
+
+What I will do today:
+Continue with my studying for the tests
+
+Any impediments:
+None
+
+[2021/05/04, 12:13:44] Bhavik Govan: 
+What I did yesterday:
+Study for tests
+
+What I will do today:
+Continue studying for the tests
+
+Any impediments:
+None
+
+[2021/05/05, 16:13:17] Colin Hugo: 
+What I did yesterday:
+Study for tests
+
+What I will do today:
+Continue studying for the tests
+
+Any impediments:
+None
+
+[2021/05/05, 16:14:20] Kayla Levy: 
+What I did yesterday:
+Study for tests 
+
+What I will do today:
+Continue studying 
+
+Any impediments:
+None
+
+[2021/05/05, 16:16:57] Abdullah Haffejee: 
+What I did yesterday:
+Study for tests
+
+What I will do today:
+Continue studying for the tests
+
+Any impediments:
+None
+
+[2021/05/05, 17:17:31] Rushil Patel: 
+What i did yesterday:
+Nothing
+
+What i will do today:
+Nothing
+
+Any Impediments:
+I need to study for a test for tomorrow
+
+[2021/05/05, 17:17:50] Tristen Haverly: 
+What I did yesterday:
+Study for tests
+
+What I will do today:
+Continue studying for the tests
+
+Any impediments:
+None
+
+[2021/05/05, 17:17:59] Jemma Sundelson: 
+What I did yesterday:
+Nothing
+
+What I did today:
+Wrote a test and will continue to study for my next one
+
+Any impediments:
+None as of yet
+
+[2021/05/05, 17:24:21] Sonia: 
+Wednesday, 5 May 2021
+
+What I did yesterday: 
+Studied for my tests this week. 
+
+What I did today: 
+Nothing as we wrote the SD test. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/05, 19:27:14] Bhavik Govan: What I did yesterday: 
+Studied for my tests this week. 
+
+What I did today: 
+Nothing as we wrote the SD test. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/06, 22:31:00] Colin Hugo: What I did yesterday: 
+Studied for my tests this week. 
+
+What I did today: 
+Nothing as we wrote the FLA test. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/06, 22:31:45] Abdullah Haffejee: 
+What I did yesterday: 
+Studied for a test we wrote today 
+
+What I did today: 
+Nothing as we wrote FLA today 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/06, 22:47:25] Bhavik Govan: 
+What I did yesterday: 
+wrote a test
+
+What I did today: 
+wrote FLA today 
+
+Any Impediments: 
+None
+
+[2021/05/06, 23:52:44] Kayla Levy: 
+What I did yesterday: 
+Studied for my tests this week. 
+
+What I did today: 
+Nothing as we wrote the FLA test. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/06, 23:55:30] Sonia: 
+Thursday, 6 May 2021
+
+What I did yesterday: 
+Studied for my tests this week. 
+
+What I did today: 
+Nothing as we wrote the FLA test. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/07, 09:13:46] Colin Hugo: 
+Thursday, 6 May 2021
+
+What I did yesterday: 
+Studied for my tests this week. 
+
+What I did today: 
+Pull the latest version and then carry on my work of junit testing. Hopefully will be able to finish today 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/07, 09:14:17] Jemma Sundelson: 
+What I did yesterday:
+Wrote a test
+
+What I did today:
+Will help anyone in need
+
+Any impediments:
+None as of yet
+
+[2021/05/07, 09:17:49] Kayla Levy: 
+What I did yesterday:
+Wrote a test
+
+What I did today:
+Will help anyone in need and do some of the diagrams/models
+
+Any impediments:
+None as of yet
+
+[2021/05/07, 09:34:48] Sonia: 
+Friday, 7 May 2021
+
+What I did yesterday: 
+Nothing as we wrote a test. 
+
+What I will do today: 
+Draw the necessary diagrams and update our wikis on GitHub and Taiga. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/08, 09:49:57] Sonia: 
+Saturday, 8 May 2021
+
+What I did yesterday: 
+I did the process view diagram for this sprint and updated our wikis on GitHub and Taiga. I also pulled the project from GitHub but the users weren’t displaying. 
+
+What I will do today: 
+Fix the contacts fragment and possibly the chat fragment. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/08, 10:51:48] Rushil Patel: 
+What i did yesterday:
+Did some more unit testing and increased the code coverage
+
+What i will do today:
+Continue with the testing of all the code in the project
+
+Impediments:
+None
+
+[2021/05/08, 10:53:32] Bhavik Govan: 
+What i did yesterday:
+Tried to help get the app to work again
+
+What i will do today:
+Continue with helping getting the app to run
+
+Impediments:
+None
+
+[2021/05/09, 09:51:09] Sonia: 
+Sunday, 9 May 2021
+
+What I did yesterday: 
+I tried fixing the contacts fragment. 
+
+What I will do today: 
+Upload the Daily Scrum meetings to GitHub and have a trial meeting. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/09, 10:03:18] Kayla Levy: 
+What I did yesterday:
+Nothing
+
+What I will do today:
+The logical view diagram and the development diagram for our system
+
+Any impediments:
+None so far
+
+[2021/05/09, 15:53:49] Rushil Patel:
+What i did yesterday:
+Worked on more unit testing
+
+What i will do today:
+Try and finish testing MessageActivity
+
+Impediments:
+I am unable to run builds on Travis anymore due to something saying "negative credit balance" on travis so i am unable to track my progress regarding the coverage
