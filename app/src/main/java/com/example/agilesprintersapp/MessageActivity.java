@@ -76,7 +76,7 @@ public class MessageActivity extends AppCompatActivity {
     private String myUrl = "";
     private StorageTask uploadTask;
     private Uri fileUri;
-    private String userid;
+    public String userid;
     private String messageSenderID;
     private String messageReceiverID;
 
@@ -172,7 +172,9 @@ public class MessageActivity extends AppCompatActivity {
         });
 
         fuser = FirebaseAuth.getInstance().getCurrentUser();
+        if (userid != null) {
         reference = FirebaseDatabase.getInstance().getReference("User").child(userid);
+
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -194,6 +196,7 @@ public class MessageActivity extends AppCompatActivity {
 
             }
         });
+        }
         seenMessage(userid);
         messageSenderID = fuser.getUid();
         messageReceiverID = userid;
