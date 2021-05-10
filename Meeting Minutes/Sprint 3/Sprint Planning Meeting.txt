@@ -1,0 +1,33 @@
+Agile Sprinters (Group 8)
+
+Minutes of the Third Sprint Planning Meeting
+
+Monday, 10 May 2021 (11:30 – 12:10):
+The Third Sprint Planning Meeting with the Client, Development Team and Scrum Master was held online on 10 May 2021 at 11:30 a.m.
+
+Attendance:
+o Client: Mr Rylan Perumal
+o Scrum Development Team: Abdullah Haffejee, Bhavik Govan, Colin Hugo, Jemma Sundelson, Kayla Levy, Rushil Patel, Tristen Haverly
+o Scrum Master: Sonia Bullah
+
+Decision Regarding The Project Topic:
+Mr Perumal requested that we display the users' profile images on all screens applicable. He also suggested that we edit the process of sending images so that the user has the ability to click the send button before the images send as opposed to the way it is as of now where the image sends automatically after being selected 
+
+User Stories:
+1. As a user, I want to be able to edit my profile page and change my profile picture so that other users will be able to see my profile picture next to my username when they message me. 
+2. As a user, I want to be able to see that other users have received and seen my messages so that I know the message has been delivered successfully. 
+3. As a user, I want to be able to select the image I wish to send to another user and be taken to a new screen so that I have the option to view the image that I will be sending before I actually click the 'send' button.  
+4. As a user, I want to be able to send and receive messages with a text caption so that I can add a description to the image and understand what other users are trying to message me about. 
+5. As a user, I want to be able to select and send multiple images with or without captions so that I can send images at one go without having to repeat the process, which may become a bit time consuming. 
+6. As a user, I want to be able to see the correct time that a message was sent or received so that I know how long ago I sent a message to another user or received a certain message from a user. 
+
+Other Important Aspects:
+o Resize the profile images so that there will be no trouble displaying them correctly. 
+o Filter messages by a group so that a user's chat list only displays one chat window with another user. The chat windows should not multiply as messages are exchanged.   
+
+User Stories for The Backlog (to be completed during the next sprint):
+1. As a user, I want to be able to upload and view an image status for a specific time period so that I can communicate with other users at once. 
+
+Adjournment:
+With there being no further questions, the meeting was adjourned at 12:10 p.m.
+
