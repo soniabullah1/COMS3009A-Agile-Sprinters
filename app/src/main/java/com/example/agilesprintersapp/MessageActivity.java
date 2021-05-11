@@ -79,6 +79,7 @@ public class MessageActivity extends AppCompatActivity {
     public String userid;
     private String messageSenderID;
     private String messageReceiverID;
+    private String time;
 
 
 
@@ -162,8 +163,9 @@ public class MessageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String msg = text_send.getText().toString();
+                time = String.valueOf(System.currentTimeMillis());
                 if(!msg.equals("")){
-                    sendMessage(fuser.getUid(), userid, msg, "text");
+                    sendMessage(fuser.getUid(), userid, msg, "text", time);
                 }else{
                     Toast.makeText(MessageActivity.this, "Error: Empty message", Toast.LENGTH_SHORT).show();
                 }
@@ -242,7 +244,7 @@ public class MessageActivity extends AppCompatActivity {
                             Uri downloadUrl = task.getResult();
                             myUrl =  downloadUrl.toString();
 
-                            sendMessage(fuser.getUid(), userid, myUrl, checker);
+                            sendMessage(fuser.getUid(), userid, myUrl, checker, time);
                         }
                     }
                 });
@@ -290,7 +292,7 @@ public class MessageActivity extends AppCompatActivity {
         });
     }
 
-    private void sendMessage(String sender, String receiver, String message, String type){
+    private void sendMessage(String sender, String receiver, String message, String type, String time){
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
         HashMap<String,Object>hashMap = new HashMap<>();
@@ -298,6 +300,7 @@ public class MessageActivity extends AppCompatActivity {
         hashMap.put("receiver", receiver);
         hashMap.put("message", message);
         hashMap.put("type", type);
+        hashMap.put("time", time);
 
         hashMap.put("isseen", false);
 

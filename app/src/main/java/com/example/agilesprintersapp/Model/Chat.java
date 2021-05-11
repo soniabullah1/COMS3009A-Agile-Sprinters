@@ -6,15 +6,17 @@ public class Chat {
     private String receiver;
     private String message;
     private String type;
+    private String time;
 
     private boolean isseen;
 
-    public Chat(String sender, String receiver, String message, String type){
+    public Chat(String sender, String receiver, String message, String type, String time){
         this.sender = sender;
         this.receiver = receiver;
         this.message = message;
         this.type = type;
         this.isseen = isseen;
+        this.time = time;
     }
 
     public Chat() {
@@ -62,5 +64,12 @@ public class Chat {
         this.type = type;
     }
 
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
 
 }

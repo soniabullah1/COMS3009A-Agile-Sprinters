@@ -18,6 +18,17 @@
             android:visibility="gone"/>
 
         <TextView
+            android:id="@+id/time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/show_message"
+            android:text=""
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12sp" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"

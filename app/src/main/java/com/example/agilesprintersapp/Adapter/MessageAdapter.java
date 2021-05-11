@@ -17,12 +17,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.agilesprintersapp.Model.User;
+import com.example.agilesprintersapp.Model.Chat;
 import com.example.agilesprintersapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHolder>{
@@ -46,6 +48,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
         public TextView show_message;
         public ImageView profile_image;
         public ImageView messagePicture;
+        public TextView time_tv;
 
         public  TextView txt_seen;
 
@@ -54,8 +57,16 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
             show_message = itemView.findViewById(R.id.show_message);
             profile_image = itemView.findViewById(R.id.profile_image);
             messagePicture = itemView.findViewById(R.id.message_image_view);
+            time_tv = itemView.findViewById(R.id.time_tv);
 
             txt_seen = itemView.findViewById(R.id.txt_seen);
+
+        }
+
+        public String convertTime(String time){
+            SimpleDateFormat formatter = new SimpleDateFormat("h:mm a");
+            String dateString = formatter.format(new Date(Long.parseLong(time)));
+            return dateString;
         }
     }
 
@@ -78,6 +89,10 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 
         Chat chat = mChat.get(position);
         holder.show_message.setText(chat.getMessage());
+
+        if(chat.getTime()!=null && !chat.getTime().trim().equals("")) {
+            holder.time_tv.setText(holder.convertTime(chat.getTime()));
+        }
 
         if (imageurl.equals("default")) {
 
