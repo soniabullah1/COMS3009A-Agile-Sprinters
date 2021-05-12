@@ -78,7 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
         btn_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                Intent intent = new Intent(RegisterActivity.this, LandingActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
@@ -181,7 +181,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                             reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>(){
 
-//                                    FirebaseDatabase.getInstance().getReference("UserInfo")
+                                //                                    FirebaseDatabase.getInstance().getReference("UserInfo")
 //                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
 //                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override

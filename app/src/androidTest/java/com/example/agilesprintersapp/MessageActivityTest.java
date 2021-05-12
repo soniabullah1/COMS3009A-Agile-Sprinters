@@ -29,7 +29,7 @@ public class MessageActivityTest {
 
     @Test
     public void testNavBarCalls(){
-        View view = messageActivity.findViewById(R.id.recycler_view);
+        View view = messageActivity.findViewById(R.id.recycler_view12);
         assertNotNull(view);
     }
 

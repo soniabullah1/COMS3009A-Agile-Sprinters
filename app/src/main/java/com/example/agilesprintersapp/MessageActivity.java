@@ -8,17 +8,15 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Message;
-import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,9 +39,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -68,7 +64,7 @@ public class MessageActivity extends AppCompatActivity {
 
 
     Intent intent;
-
+ImageView Image;
     ValueEventListener seenListener;
 
     private ImageButton btn_attach_pic;
@@ -99,7 +95,7 @@ public class MessageActivity extends AppCompatActivity {
             }
         });
 
-        recyclerView = findViewById(R.id.recycler_view);
+        recyclerView = findViewById(R.id.recycler_view12);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         linearLayoutManager.setStackFromEnd(true);
@@ -111,11 +107,11 @@ public class MessageActivity extends AppCompatActivity {
         btn_send = findViewById(R.id.btn_send);
         text_send = findViewById(R.id.text_send);
         btn_attach_pic = findViewById(R.id.btn_attach_pic);
-
+Image = findViewById(R.id.Attempt);
         intent = getIntent();
         userid = intent.getStringExtra("userid");
 
-
+//        ImageView d = findViewById(R.id.imageView);
 
         btn_attach_pic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,7 +120,8 @@ public class MessageActivity extends AppCompatActivity {
                         {
                                 "Images",
                                 "PDF Files",
-                                "Ms Word Files"
+                                "Ms Word Files",
+                                "Images with a caption",
                         };
                 AlertDialog.Builder builder = new AlertDialog.Builder(MessageActivity.this);
                 builder.setTitle("Select the File");
@@ -139,6 +136,11 @@ public class MessageActivity extends AppCompatActivity {
                             intent1.setType("image/*");
                             startActivityForResult(Intent.createChooser(intent1, "Select Image"), 438);
 
+
+                        /*   String a = imageurl;
+                            Intent intent = new Intent(MessageActivity.this, Preview.class);
+                            intent.putExtra("resId",image);
+                            startActivity(intent);*/
                         }
 
                         if(i == 1){
@@ -149,6 +151,19 @@ public class MessageActivity extends AppCompatActivity {
                         if(i == 2){
                             checker = "docx";
 
+                        }
+                        if(i == 3){
+                            checker = "image";
+                            Intent intent1 = new Intent();
+                            intent1.setAction(Intent.ACTION_GET_CONTENT);
+                            intent1.setType("image/*");
+                            startActivityForResult(Intent.createChooser(intent1, "Select Image"), 438);
+                       //     Image =
+
+                        /*   String a = imageurl;
+                            Intent intent = new Intent(MessageActivity.this, Preview.class);
+                            intent.putExtra("resId",image);
+                            startActivity(intent);*/
                         }
                     }
                 });
@@ -175,29 +190,29 @@ public class MessageActivity extends AppCompatActivity {
 
         fuser = FirebaseAuth.getInstance().getCurrentUser();
         if (userid != null) {
-        reference = FirebaseDatabase.getInstance().getReference("User").child(userid);
+            reference = FirebaseDatabase.getInstance().getReference("User").child(userid);
 
 
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                User user = snapshot.getValue(User.class);
-                username.setText(user.getUsername());
-                if(user.getImageURL().equals("default")){
-                    profile_image.setImageResource(R.mipmap.ic_launcher);
+            reference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    User user = snapshot.getValue(User.class);
+                    username.setText(user.getUsername());
+                    if(user.getImageURL().equals("default")){
+                        profile_image.setImageResource(R.mipmap.ic_launcher);
 
-                }else{
-                    Glide.with(getApplicationContext()).load(user.getImageURL()).into(profile_image);
+                    }else{
+                        Glide.with(getApplicationContext()).load(user.getImageURL()).into(profile_image);
+                    }
+
+                    readMessages(fuser.getUid(), userid, user.getImageURL());
                 }
 
-                readMessages(fuser.getUid(), userid, user.getImageURL());
-            }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+                }
+            });
         }
         seenMessage(userid);
         messageSenderID = fuser.getUid();
@@ -213,12 +228,8 @@ public class MessageActivity extends AppCompatActivity {
 
             }
 
-            else if(checker.equals("image")){
-
-                StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Image Files");
-
-//                String messageSenderRef = "Messages/" + messageSenderID + "/" + messageReceiverID;
-//                String messageReceiverRef = "Messages/"+ messageReceiverID + "/" + messageSenderID;
+            else if(checker.equals("image")) {
+               StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Image Files");
 
                 DatabaseReference userMessageKeyRef = reference.child("messages")
                         .child(messageSenderID).child(messageReceiverID).push();
@@ -244,7 +255,9 @@ public class MessageActivity extends AppCompatActivity {
                             Uri downloadUrl = task.getResult();
                             myUrl =  downloadUrl.toString();
 
+
                             sendMessage(fuser.getUid(), userid, myUrl, checker, time);
+
                         }
                     }
                 });
@@ -254,18 +267,7 @@ public class MessageActivity extends AppCompatActivity {
             else{
                 Toast.makeText(this, " Error: nothing selected", Toast.LENGTH_SHORT).show();
             }
-//        if (requestCode == 438) {
-//            if (resultCode == RESULT_OK) {
-//                if (data != null) {
-//                    try {
-//                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(MessageActivity.this.getContentResolver(), data.getData());
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            } else if (resultCode == Activity.RESULT_CANCELED)  {
-//                Toast.makeText(MessageActivity.this, "Canceled", Toast.LENGTH_SHORT).show();
-//            }
+
         }
     }
 
@@ -282,12 +284,10 @@ public class MessageActivity extends AppCompatActivity {
                         snapshot.getRef().updateChildren(hashMap);
                     }
                 }
-
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
     }
@@ -301,19 +301,13 @@ public class MessageActivity extends AppCompatActivity {
         hashMap.put("message", message);
         hashMap.put("type", type);
         hashMap.put("time", time);
-
         hashMap.put("isseen", false);
 
         reference.child("Chat").push().setValue(hashMap);
-
-        String mydate = java.text.DateFormat.getTimeInstance().format(Calendar.getInstance().getTime());
-        TextView textView=  (TextView)findViewById(R.id.time);
-        textView.setText("              Last message was sent at: " + mydate);
     }
 
     private void readMessages(String myid, String userid, String imageurl){
         mChat = new ArrayList<>();
-
         reference = FirebaseDatabase.getInstance().getReference("Chat");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -326,7 +320,14 @@ public class MessageActivity extends AppCompatActivity {
                     }
 
                     messageAdapter = new MessageAdapter(MessageActivity.this, mChat, imageurl);
+                    RecyclerView recyclerView= findViewById(R.id.recycler_view12);
                     recyclerView.setAdapter(messageAdapter);
+
+                  /*String a = imageurl;
+                    Intent intent = new Intent(MessageActivity.this, Preview.class);
+                    intent.putExtra("resId", a);
+                    startActivity(intent);
+*/
                 }
             }
 
@@ -359,9 +360,11 @@ public class MessageActivity extends AppCompatActivity {
     @Override
     protected void onPause () {
         super.onPause();
-        //reference.removeEventListener(seenListener);
+        reference.removeEventListener(seenListener);
         status("offline");
     }
+
+
 
 }
 

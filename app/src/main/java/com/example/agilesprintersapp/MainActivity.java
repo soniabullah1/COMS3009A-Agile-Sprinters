@@ -4,62 +4,49 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainActivity extends AppCompatActivity {
 
-    TextView Login;
-    TextView Register;
 
-    FirebaseUser firebaseUser;
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-
-        if(firebaseUser != null){
-            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-            startActivity(intent);
-            finish();
-        }
-
-    }
-
+    int count = 0;
+    private static int SPLASH_TIME_OUT = 8000; //8000
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Login = (TextView) findViewById(R.id.tSignIn);
-        Register = (TextView) findViewById(R.id.tRegister);
-
-        Login.setOnClickListener(new View.OnClickListener() {
+        final ProgressBar prg = (ProgressBar) findViewById(R.id.progresswelcome);
+        final Timer timer = new Timer();
+        TimerTask timerTask = new TimerTask() {
             @Override
-            public void onClick(View v) {
-                Intent LoginIntent = new Intent(MainActivity.this, LoginActivity.class);
-                LoginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(LoginIntent);
+            public void run() {
+
+                count ++;
+                prg.setProgress(count);
+                if (count == 50)
+                {
+                    timer.cancel();
+                }
+
+            }
+        }; timer.schedule(timerTask,0,50);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run(){
+                Intent welcomeIntent = new Intent(MainActivity.this, LandingActivity.class);
+                startActivity(welcomeIntent);
                 finish();
             }
-        });
+        },SPLASH_TIME_OUT);
 
-        Register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent RegisterIntent = new Intent(MainActivity.this, RegisterActivity.class);
-                RegisterIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(RegisterIntent);
-                finish();
-            }
-        });
     }
 }
-
-
-

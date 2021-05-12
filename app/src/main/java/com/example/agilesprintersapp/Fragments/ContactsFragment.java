@@ -42,7 +42,7 @@ public class ContactsFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_contacts, container, false);
 
-        recyclerView = view.findViewById(R.id.recycler_view);
+        recyclerView = view.findViewById(R.id.recycler_view12);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 

@@ -124,7 +124,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
         holder.messagePicture.setVisibility(View.GONE);
 
         if(chat.getType().equals("text")){
-           holder.show_message.setVisibility(View.VISIBLE);
+            holder.show_message.setVisibility(View.VISIBLE);
             holder.show_message.setText(chat.getMessage());
 
         }
