@@ -61,14 +61,14 @@ public class LoginActivityTest {
         assertEquals(actual,expected);
     }
 
-    @Test
+    /*@Test
     public void testReturnToHomePageButton(){
         onView(withId(R.id.btn_Return)).perform(click());
         Activity registerActivity = getInstrumentation().waitForMonitorWithTimeout(monitor,5000);
         assertNotNull(registerActivity);
 
         registerActivity.finish();
-    }
+    }*/
 
     @Test
     public void testLoginButton(){
