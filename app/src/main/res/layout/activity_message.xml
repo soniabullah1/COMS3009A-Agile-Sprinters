@@ -53,10 +53,10 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view12"
         android:layout_width="match_parent"
-        android:layout_height="454dp"
+        android:layout_height="618dp"
         android:layout_above="@id/Bottom"
         android:layout_below="@id/bar_layout"
-        android:layout_marginBottom="167dp" />
+        android:layout_marginBottom="3dp" />
 
 
     <RelativeLayout
@@ -97,18 +97,6 @@
             android:clickable="true"/>
 
     </RelativeLayout>
-
-    <ImageView
-        android:id="@+id/Attempt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="27dp"
-        android:layout_marginLeft="27dp"
-        android:layout_marginBottom="89dp"
-        tools:srcCompat="@tools:sample/avatars" />
 
 
 </RelativeLayout>

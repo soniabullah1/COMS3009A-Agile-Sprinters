@@ -107,7 +107,7 @@ ImageView Image;
         btn_send = findViewById(R.id.btn_send);
         text_send = findViewById(R.id.text_send);
         btn_attach_pic = findViewById(R.id.btn_attach_pic);
-Image = findViewById(R.id.Attempt);
+//Image = findViewById(R.id.Attempt);
         intent = getIntent();
         userid = intent.getStringExtra("userid");
 
@@ -121,7 +121,6 @@ Image = findViewById(R.id.Attempt);
                                 "Images",
                                 "PDF Files",
                                 "Ms Word Files",
-                                "Images with a caption",
                         };
                 AlertDialog.Builder builder = new AlertDialog.Builder(MessageActivity.this);
                 builder.setTitle("Select the File");
@@ -135,12 +134,6 @@ Image = findViewById(R.id.Attempt);
                             intent1.setAction(Intent.ACTION_GET_CONTENT);
                             intent1.setType("image/*");
                             startActivityForResult(Intent.createChooser(intent1, "Select Image"), 438);
-
-
-                        /*   String a = imageurl;
-                            Intent intent = new Intent(MessageActivity.this, Preview.class);
-                            intent.putExtra("resId",image);
-                            startActivity(intent);*/
                         }
 
                         if(i == 1){
@@ -152,19 +145,8 @@ Image = findViewById(R.id.Attempt);
                             checker = "docx";
 
                         }
-                        if(i == 3){
-                            checker = "image";
-                            Intent intent1 = new Intent();
-                            intent1.setAction(Intent.ACTION_GET_CONTENT);
-                            intent1.setType("image/*");
-                            startActivityForResult(Intent.createChooser(intent1, "Select Image"), 438);
-                       //     Image =
 
-                        /*   String a = imageurl;
-                            Intent intent = new Intent(MessageActivity.this, Preview.class);
-                            intent.putExtra("resId",image);
-                            startActivity(intent);*/
-                        }
+
                     }
                 });
                 builder.show();
@@ -223,7 +205,7 @@ Image = findViewById(R.id.Attempt);
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if( requestCode == 438 && resultCode == RESULT_OK && data != null && data.getData() != null){
-            fileUri = data.getData();
+            fileUri = data.getData();   //image selected
             if(!checker.equals("image")){
 
             }
@@ -255,8 +237,13 @@ Image = findViewById(R.id.Attempt);
                             Uri downloadUrl = task.getResult();
                             myUrl =  downloadUrl.toString();
 
+                            Uri a = fileUri;
+                            Intent i = new Intent(MessageActivity.this, Preview.class);
+                            i.putExtra("imagePath", a.toString());
+                            startActivity(i);
 
                             sendMessage(fuser.getUid(), userid, myUrl, checker, time);
+
 
                         }
                     }
@@ -323,11 +310,6 @@ Image = findViewById(R.id.Attempt);
                     RecyclerView recyclerView= findViewById(R.id.recycler_view12);
                     recyclerView.setAdapter(messageAdapter);
 
-                  /*String a = imageurl;
-                    Intent intent = new Intent(MessageActivity.this, Preview.class);
-                    intent.putExtra("resId", a);
-                    startActivity(intent);
-*/
                 }
             }
 
@@ -365,6 +347,11 @@ Image = findViewById(R.id.Attempt);
     }
 
 
+    public void Image () {
+        super.onPause();
+        reference.removeEventListener(seenListener);
+        status("offline");
+    }
 
 }
 

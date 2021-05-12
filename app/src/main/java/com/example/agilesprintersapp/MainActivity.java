@@ -32,13 +32,13 @@ public class MainActivity extends AppCompatActivity {
 
                 count ++;
                 prg.setProgress(count);
-                if (count == 50)
+                if (count == 100)
                 {
                     timer.cancel();
                 }
 
             }
-        }; timer.schedule(timerTask,0,50);
+        }; timer.schedule(timerTask,0,20);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run(){
