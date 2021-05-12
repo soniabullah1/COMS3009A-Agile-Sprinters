@@ -33,14 +33,14 @@ public class MainActivityTest {
 
     }
 
-    @Test
+    /*@Test
     public void testLaunch(){
         View view = mainActivity.findViewById(R.id.tSignIn);
         assertNotNull(view);
-    }
+    }*/
 
-    @Test
-    /*public void testButtonClickRegister(){
+    /*@Test
+    public void testButtonClickRegister(){
         onView(withId(R.id.tRegister)).perform(click());
         Activity registerActivity = getInstrumentation().waitForMonitorWithTimeout(monitor1,5000);
         assertNotNull(registerActivity);
