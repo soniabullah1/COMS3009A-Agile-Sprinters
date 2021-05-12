@@ -199,14 +199,14 @@ public class RegisterActivityTest {
         assertNotNull(view);
     }
 
-    @Test
+    /*@Test
     public void testReturnToHomePageButton(){
         onView(withId(R.id.button4)).perform(click());
         Activity registerActivity = getInstrumentation().waitForMonitorWithTimeout(monitor,5000);
         assertNotNull(registerActivity);
 
         registerActivity.finish();
-    }
+    }*/
 
     @Test
     public void testCheckBoxPwd(){
