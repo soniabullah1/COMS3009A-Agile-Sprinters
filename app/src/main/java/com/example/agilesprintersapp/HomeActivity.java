@@ -117,7 +117,9 @@ public class HomeActivity extends AppCompatActivity {
         username  = findViewById(R.id.username);
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        reference = FirebaseDatabase.getInstance().getReference("User").child(firebaseUser.getUid());
+        if(firebaseUser != null){
+            reference = FirebaseDatabase.getInstance().getReference("User").child(firebaseUser.getUid());
+        }
 
 
         TabLayout tabLayout = findViewById(R.id.tab_layout);
