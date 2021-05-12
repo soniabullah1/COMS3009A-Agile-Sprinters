@@ -23,9 +23,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHolder>{
 
@@ -35,6 +38,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     private final Context mContext;
     private final List<Chat> mChat;
     private final String imageurl;
+
 
     FirebaseUser fuser;
 
@@ -64,10 +68,14 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
         }
 
         public String convertTime(String time){
-            SimpleDateFormat formatter = new SimpleDateFormat("h:mm a");
+            DateFormat formatter = new SimpleDateFormat("d MMM, HH:mm a");
+            //DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
+            String date = formatter.format(Calendar.getInstance().getTime());String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+            //SimpleDateFormat formatter = new SimpleDateFormat("h:mm a");
             String dateString = formatter.format(new Date(Long.parseLong(time)));
             return dateString;
         }
+
     }
 
     @NonNull
