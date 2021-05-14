@@ -8,6 +8,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -42,6 +43,7 @@ import com.google.firebase.storage.StorageTask;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -64,7 +66,7 @@ public class MessageActivity extends AppCompatActivity {
 
 
     Intent intent;
-ImageView Image;
+    ImageView Image;
     ValueEventListener seenListener;
 
     private ImageButton btn_attach_pic;
@@ -76,6 +78,7 @@ ImageView Image;
     private String messageSenderID;
     private String messageReceiverID;
     private String time;
+    private ProgressDialog progressDialog;
 
 
 
@@ -211,7 +214,7 @@ ImageView Image;
             }
 
             else if(checker.equals("image")) {
-               StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Image Files");
+                StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Image Files");
 
                 DatabaseReference userMessageKeyRef = reference.child("messages")
                         .child(messageSenderID).child(messageReceiverID).push();
@@ -239,13 +242,17 @@ ImageView Image;
 
                             Uri a = fileUri;
                             Intent i = new Intent(MessageActivity.this, Preview.class);
+
+                            i.putExtra("sender", fuser.getUid());
+                            i.putExtra("receiver", userid);
+                            i.putExtra("message", myUrl);
+                            i.putExtra("checker", checker);
+                            i.putExtra("time", time);
                             i.putExtra("imagePath", a.toString());
                             startActivity(i);
 
-                            sendMessage(fuser.getUid(), userid, myUrl, checker, time);
-
-
                         }
+                        //sendMessage(fuser.getUid(), userid, myUrl, checker, time);
                     }
                 });
             }
@@ -265,7 +272,9 @@ ImageView Image;
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
                 for (DataSnapshot snapshot : datasnapshot.getChildren()) {
                     Chat chat = snapshot.getValue(Chat.class);
-                    if (chat.getReceiver().equals(fuser.getUid()) && chat.getSender().equals(userid)) {
+                    User user = snapshot.getValue(User.class);
+
+                    if (user.getId()!=null && user.getId().equals(fuser.getUid()) && chat.getReceiver().equals(fuser.getUid()) && chat.getSender().equals(userid)) {
                         HashMap<String, Object> hashMap = new HashMap<>();
                         hashMap.put("isseen", true);
                         snapshot.getRef().updateChildren(hashMap);
@@ -300,24 +309,25 @@ ImageView Image;
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 mChat.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                for (DataSnapshot snapshot: dataSnapshot.getChildren())
+                {
                     Chat chat = snapshot.getValue(Chat.class);
-                    if (chat.getReceiver().equals(myid) && chat.getSender().equals(userid) || chat.getReceiver().equals(userid) && chat.getSender().equals(myid)){
+                    if(myid.equals(chat.getReceiver()) && userid.equals(chat.getSender())||
+                            userid.equals(chat.getReceiver()) && myid.equals(chat.getSender()))
+                    {
                         mChat.add(chat);
                     }
-
                     messageAdapter = new MessageAdapter(MessageActivity.this, mChat, imageurl);
-                    RecyclerView recyclerView= findViewById(R.id.recycler_view12);
                     recyclerView.setAdapter(messageAdapter);
-
                 }
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
+        seenMessage(userid);
     }
 
     private void status (String status){
@@ -354,4 +364,3 @@ ImageView Image;
     }
 
 }
-

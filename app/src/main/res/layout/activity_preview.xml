@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/LightGrey"
-    tools:context=".ImageView">
+    tools:context=".Preview">
 
     <ImageView
         android:id="@+id/imageView56"
@@ -25,7 +25,7 @@
         android:layout_height="56dp"
         android:ems="10"
         android:inputType="textMultiLine"
-        android:text="Add a caption here..."
+        android:hint="Add a caption here..."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.19"

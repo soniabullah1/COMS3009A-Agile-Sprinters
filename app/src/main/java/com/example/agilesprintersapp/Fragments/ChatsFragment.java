@@ -63,12 +63,14 @@ public class ChatsFragment extends Fragment {
 
                 for (DataSnapshot snapshot : datasnapshot.getChildren()) {
                     Chat chat = snapshot.getValue(Chat.class);
+                    User user = snapshot.getValue(User.class);
+
                     if (fuser != null) {
 
                         if (chat.getSender().equals(fuser.getUid())) {
                             userList.add(chat.getReceiver());
                         }
-                        if (chat.getReceiver().equals(fuser.getUid())) {
+                        if (user.getId() != null && fuser.getUid().equals(fuser.getUid())&& chat.getReceiver().equals(fuser.getUid())) {
                             userList.add(chat.getSender());
                         }
                     }
@@ -103,7 +105,7 @@ public class ChatsFragment extends Fragment {
                         if(user!=null && user.getId() != null && user.getId().equals(id)){
                             if (mUsers.size() != 0) {
                                 for(User user1: new ArrayList<User>(mUsers)){
-                                //for(User user1 : mUsers){
+                                    //for(User user1 : mUsers){
                                     if(!user.getId().equals(user1.getId())) {
                                         mUsers.add(user);
                                     }

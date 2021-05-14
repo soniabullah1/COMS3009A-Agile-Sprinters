@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white"
+    android:background="@android:color/holo_orange_dark"
+    android:theme="@style/AppTheme"
     tools:context=".Fragments.ContactsFragment">
 
 
@@ -12,9 +13,10 @@
         android:id="@+id/search_users"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Search..."
         android:paddingTop="120dp"
 
-        android:hint="Search..." />
+        android:textColor="@color/black" />
 
     <androidx.recyclerview.widget.RecyclerView
 
@@ -24,6 +26,8 @@
         android:layout_height="479dp"
         android:layout_below="@+id/search_users"
         android:layout_marginTop="-5dp"
+        android:background="@android:color/holo_orange_light"
+        android:theme="@style/Theme.AgileSprintersApp"
         app:layout_constraintBottom_toBottomOf="@+id/bottomNav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/search_users"

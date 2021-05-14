@@ -13,5 +13,9 @@
     <color name="DarkBlue">#191A1D</color>
     <color name="LightGrey">#CDD4CA</color>
 
+    <color name="text_color_primary">#111111</color>
+    <color name="text_color_secondary">#222222</color>
+    <color name="text_color_tertiary">#333333</color>
+
 
 </resources>
