@@ -104,8 +104,16 @@ public class Preview extends AppCompatActivity {
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                sendMessage(sender, receiver, message, checker, time);
+                String msg = caption.getText().toString();
+                if(!msg.equals("")){                                        //Caption
+                    sendMessage(sender, receiver, msg, checker, time);
+                }
+                else {                                                       //No Caption
+                    sendMessage(sender, receiver, message, checker, time);
+                }
+                //You need to call readMessages here i cant seem to get it to work, if you don't
+                //call it here the task finishes and goes back to MessageActivity
+                //sendMessage(sender, receiver, message, checker, time);
                 finish();
             }
         });
@@ -134,29 +142,31 @@ public class Preview extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 mChat.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                for (DataSnapshot snapshot: dataSnapshot.getChildren())
+                {
                     Chat chat = snapshot.getValue(Chat.class);
-                    User user = snapshot.getValue(User.class);
-
-                    // Here its crashing  added the 2 conditions when i remove the if statement
-
-                    // if ( (user != null && user.getId() != null) && (chat.getReceiver().equals(myid) && chat.getSender().equals(userid) ||  chat.getReceiver().equals(userid) && chat.getSender().equals(myid))){
-                    mChat.add(chat);
-                    //   }
-
+                    String myid=fuser.getUid();
+                    String imageurl = "";
+                    if(myid.equals(chat.getReceiver()) && userid.equals(chat.getSender())||
+                            userid.equals(chat.getReceiver()) && myid.equals(chat.getSender()))
+                    {
+                        mChat.add(chat);
+                    }
                     messageAdapter = new MessageAdapter(Preview.this, mChat, imageurl);
                     RecyclerView recyclerView = findViewById(R.id.recycler_view12);
                     recyclerView.setAdapter(messageAdapter);
-
                 }
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
+
     }
+
+
     private void seenMessage(String userid) {
         reference = FirebaseDatabase.getInstance().getReference("Chat");
         seenListener = reference.addValueEventListener(new ValueEventListener() {
