@@ -112,7 +112,7 @@ public class Preview extends AppCompatActivity {
                     sendMessage(sender, receiver, message, checker, time);
                 }
                 //You need to call readMessages here i cant seem to get it to work, if you don't
-                //call it here the task finishes and goes back to MessageActivity
+                //call it here the task finishes and goes back to MessageActivity.
                 //sendMessage(sender, receiver, message, checker, time);
                 finish();
             }
