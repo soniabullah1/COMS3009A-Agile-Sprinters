@@ -29,3 +29,6 @@ jobs:
         with:
           api-level: 24
           script: ./gradlew connectedCheck
+          
+      - name: Upload coverage to Codecov
+        run: bash <(curl -s https://codecov.io/bash)
