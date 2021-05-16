@@ -57,7 +57,7 @@ public class HomeActivityTest {
         //mMenuStringContent.put(R.id.settings, res.getString(R.string.navigate_settings));
     }
 
-    /*@UiThreadTest
+    @UiThreadTest
     @Test
     public void testAddItemsWithoutMenuInflation() {
         BottomNavigationView navigation = new BottomNavigationView(homeActivityTestRule.getActivity());
@@ -111,7 +111,7 @@ public class HomeActivityTest {
     public void testNavBarCalls(){
         View view = homeActivity.findViewById(R.id.calls);
         assertNotNull(view);
-    }*/
+    }
 
     @After
     public void tearDown() throws Exception {
