@@ -200,7 +200,9 @@ public class MessageActivity extends AppCompatActivity {
             });
         }
         seenMessage(userid);
-        messageSenderID = fuser.getUid();
+        if(fuser != null) {
+            messageSenderID = fuser.getUid();
+        }
         messageReceiverID = userid;
     }
 
