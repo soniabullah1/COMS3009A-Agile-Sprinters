@@ -38,6 +38,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     private final Context mContext;
     private final List<Chat> mChat;
     private final String imageurl;
+    private String caption = "";
 
 
     FirebaseUser fuser;
@@ -46,6 +47,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
         this.mChat = mChat;
         this.mContext = mContext;
         this.imageurl = imageurl;
+        this.caption = caption;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
@@ -53,6 +55,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
         public ImageView profile_image;
         public ImageView messagePicture;
         public TextView time_tv;
+        public TextView caption;
 
         public  TextView txt_seen;
 
@@ -62,6 +65,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
             profile_image = itemView.findViewById(R.id.profile_image);
             messagePicture = itemView.findViewById(R.id.message_image_view);
             time_tv = itemView.findViewById(R.id.time_tv);
+            caption = itemView.findViewById(R.id.caption);
 
             txt_seen = itemView.findViewById(R.id.txt_seen);
 
@@ -97,6 +101,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 
         Chat chat = mChat.get(position);
         holder.show_message.setText(chat.getMessage());
+        holder.caption.setText(chat.getMsg());
 
         if(chat.getTime()!=null && !chat.getTime().trim().equals("")) {
             holder.time_tv.setText(holder.convertTime(chat.getTime()));
@@ -130,9 +135,21 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
         }
 
         else if (chat.getType().equals("image")){
-            holder.messagePicture.setVisibility(View.VISIBLE);
 
-            Glide.with(mContext).load(chat.getMessage()).into(holder.messagePicture);
+            if(caption.equals("")) {
+
+                holder.messagePicture.setVisibility(View.VISIBLE);
+
+                Glide.with(mContext).load(chat.getMessage()).into(holder.messagePicture);
+                holder.caption.setText(chat.getMessage());
+
+            }
+
+            else{
+                holder.messagePicture.setVisibility(View.VISIBLE);
+
+                Glide.with(mContext).load(chat.getMessage()).into(holder.messagePicture);
+            }
 
         }
 

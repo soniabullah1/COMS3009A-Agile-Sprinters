@@ -52,6 +52,23 @@
             />
 
         <TextView
+            android:id="@+id/caption"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/message_image_view"
+            android:layout_alignBaseline="@id/message_image_view"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="false"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-18dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/background_right"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginRight="5dp" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txt_seen"
