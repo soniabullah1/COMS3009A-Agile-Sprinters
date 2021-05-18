@@ -68,14 +68,14 @@ public class Preview extends AppCompatActivity {
         Uri fileUri = Uri.parse(image_path);
         imageview.setImageURI(fileUri);
 
+        String msg = caption.getText().toString();
 
         userid = intent.getStringExtra("userid");
         sender = intent.getStringExtra("sender");
         receiver = intent.getStringExtra("receiver");
         message = intent.getStringExtra("message");
         checker = intent.getStringExtra("checker");
-
-
+        msg = intent.getStringExtra("caption");
 
         Exit.setOnClickListener(new View.OnClickListener() {
 
@@ -90,15 +90,8 @@ public class Preview extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String msg = caption.getText().toString();
-                //if(msg.equals("")){                                        //Caption
                     sendMessage(sender, receiver, message, checker, time, msg);
-//                }
-//                else {                                                       //No Caption
-//                    sendMessage(sender, receiver, message, checker, time, msg);
-//                }
-                //You need to call readMessages here i cant seem to get it to work, if you don't
-                //call it here the task finishes and goes back to MessageActivity.
-                //sendMessage(sender, receiver, message, checker, time);
+
                 finish();
             }
         });
@@ -106,7 +99,7 @@ public class Preview extends AppCompatActivity {
 
 
 
-    public static void sendMessage(String sender, String receiver, String message, String type, String time, String caption) {
+    public static void sendMessage(String sender, String receiver, String message, String type, String time, String msg) {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
         HashMap<String, Object> hashMap = new HashMap<>();
@@ -116,9 +109,10 @@ public class Preview extends AppCompatActivity {
         hashMap.put("type", type);
         hashMap.put("time", time);
         hashMap.put("isseen", false);
-        hashMap.put("caption", caption);
+        hashMap.put("caption", msg);
 
         reference.child("Chat").push().setValue(hashMap);
+
     }
 
     private void readMessages(String myid, String userid, String imageurl) {

@@ -38,8 +38,6 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     private final Context mContext;
     private final List<Chat> mChat;
     private final String imageurl;
-    private String caption = "";
-
 
     FirebaseUser fuser;
 
@@ -47,7 +45,6 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
         this.mChat = mChat;
         this.mContext = mContext;
         this.imageurl = imageurl;
-        this.caption = caption;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
@@ -101,7 +98,6 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 
         Chat chat = mChat.get(position);
         holder.show_message.setText(chat.getMessage());
-        holder.caption.setText(chat.getMsg());
 
         if(chat.getTime()!=null && !chat.getTime().trim().equals("")) {
             holder.time_tv.setText(holder.convertTime(chat.getTime()));
@@ -127,6 +123,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 
         holder.show_message.setVisibility(View.GONE);
         holder.messagePicture.setVisibility(View.GONE);
+        holder.caption.setVisibility(View.GONE);
 
         if(chat.getType().equals("text")){
             holder.show_message.setVisibility(View.VISIBLE);
@@ -136,20 +133,11 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 
         else if (chat.getType().equals("image")){
 
-            if(caption.equals("")) {
-
                 holder.messagePicture.setVisibility(View.VISIBLE);
+                holder.caption.setVisibility(View.VISIBLE);
 
                 Glide.with(mContext).load(chat.getMessage()).into(holder.messagePicture);
-                holder.caption.setText(chat.getMessage());
-
-            }
-
-            else{
-                holder.messagePicture.setVisibility(View.VISIBLE);
-
-                Glide.with(mContext).load(chat.getMessage()).into(holder.messagePicture);
-            }
+                holder.caption.setText(chat.getCaption());
 
         }
 

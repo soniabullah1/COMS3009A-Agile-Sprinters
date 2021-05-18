@@ -74,11 +74,11 @@ public class Chat {
         this.time = time;
     }
 
-    public String getMsg() {
+    public String getCaption() {
         return caption;
     }
 
-    public void setMsg(String time) {
+    public void setCaption(String caption) {
         this.caption = caption;
     }
 
