@@ -37,7 +37,10 @@ public class RegisterActivityTest {
 
     @Rule
     public ActivityTestRule<RegisterActivity> registerActivityTestRule = new ActivityTestRule<>(RegisterActivity.class);
+    public ActivityTestRule<LandingActivity> landingActivityTestRule = new ActivityTestRule<>(LandingActivity.class);
+
     private RegisterActivity registerActivity = null;
+    private LandingActivity landingActivity = null;
 
     Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(MainActivity.class.getName(),null ,false);
 
@@ -54,7 +57,8 @@ public class RegisterActivityTest {
     public void setUp() throws Exception {
         registerActivity = registerActivityTestRule.getActivity();
         registerActivity.sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
-
+        landingActivity = landingActivityTestRule.getActivity();
+        //landingActivity.sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
     }
 
 
@@ -199,14 +203,14 @@ public class RegisterActivityTest {
         assertNotNull(view);
     }
 
-    /*@Test
+    @Test
     public void testReturnToHomePageButton(){
         onView(withId(R.id.button4)).perform(click());
-        Activity registerActivity = getInstrumentation().waitForMonitorWithTimeout(monitor,5000);
-        assertNotNull(registerActivity);
+        Activity landingActivity = getInstrumentation().waitForMonitorWithTimeout(monitor,5000);
+        assertNull(landingActivity);
 
-        registerActivity.finish();
-    }*/
+        //landingActivity.finish();
+    }
 
     @Test
     public void testCheckBoxPwd(){
@@ -233,5 +237,6 @@ public class RegisterActivityTest {
     @After
     public void tearDown() throws Exception {
         registerActivity = null;
+        landingActivity = null;
     }
 }
