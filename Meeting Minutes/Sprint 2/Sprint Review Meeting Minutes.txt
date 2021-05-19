@@ -1,0 +1,20 @@
+Agile Sprinters (Group 8)
+
+Minutes of the Second Sprint Review Meeting
+
+Monday, 10 May 2021 (11:30 - 12:10):
+The Second Sprint Review Meeting with the Client, Development Team and Scrum Master was held online on 10 May 2021 at 11:30 a.m.
+
+Attendance:
+o Client: Mr Rylan Perumal
+o Scrum Development Team: Abdullah Haffejee, Bhavik Govan, Colin Hugo, Jemma Sundelson, Kayla Levy, Rushil Patel, Tristen Haverly
+o Scrum Master: Sonia Bullah
+
+Review:
+The project was presented to Mr Perumal at the start of the meeting. The presentation included showing and describing the process of sending text messages as well as images to other users as well as how these text and image messages are received by those users. We also demonstrated how the chat history for a specific user can be viewed. 
+
+Feedback:
+Mr Perumal suggested that a timestamp be placed under each message sent and received as opposed to the single timestamp at the top of the screen. He also mentioned that the user's profile image be placed next to their username on both the chats and contacts fragments. 
+
+Adjournment:
+With there being no further questions, the meeting was adjourned at 12:10 p.m.

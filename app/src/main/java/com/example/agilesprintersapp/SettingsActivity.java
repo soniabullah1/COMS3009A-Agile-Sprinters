@@ -28,7 +28,7 @@ public class SettingsActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.logout:
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(SettingsActivity.this, MainActivity.class));
+                startActivity(new Intent(SettingsActivity.this, LandingActivity.class));
                 finish();
                 return true;
         }

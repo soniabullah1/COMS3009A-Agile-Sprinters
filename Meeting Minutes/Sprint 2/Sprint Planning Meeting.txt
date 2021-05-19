@@ -28,9 +28,6 @@ o Store images as base 64 and then when transferring them between the app and th
 User Stories for The Backlog (to be completed during the next sprint):
 1. As a user, I want to be able to send image and text together (be able to caption the image) so that I can elaborate on the image I am sending to the person in my contact list. 
 
-User Stories for The Backlog (to be completed during the next sprint):
-None mentioned during the meeting. 
-
 Adjournment:
 With there being no further questions, the meeting was adjourned at 10:30 a.m.
 

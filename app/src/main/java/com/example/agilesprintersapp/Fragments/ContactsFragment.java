@@ -42,7 +42,7 @@ public class ContactsFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_contacts, container, false);
 
-        recyclerView = view.findViewById(R.id.recycler_view);
+        recyclerView = view.findViewById(R.id.recycler_view12);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -119,15 +119,18 @@ public class ContactsFragment extends Fragment {
                     User user = snapshot.getValue(User.class);
                     //String id = user.getId();
 
-                    if (user != null && user.getId() != null && !user.getId().equals(firebaseUser.getUid())){
-                        mUsers.add(user);
-                    }
+                    if (firebaseUser != null) {
 
-//                    assert user != null;
-//                    assert firebaseUser != null;
-//                    if (!user.getId().equals(firebaseUser.getUid())){
-//                        mUsers.add(user);
-//                    }
+                        if (user != null && user.getId() != null && !user.getId().equals(firebaseUser.getUid())){
+                            mUsers.add(user);
+                        }
+
+    //                    assert user != null;
+    //                    assert firebaseUser != null;
+    //                    if (!user.getId().equals(firebaseUser.getUid())){
+    //                        mUsers.add(user);
+    //                    }
+                    }
                 }
 
                 userAdapter = new UserAdapter(getContext(), mUsers, false);

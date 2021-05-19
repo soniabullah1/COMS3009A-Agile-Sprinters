@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".MessageActivity"
     android:background="@color/white"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
 
     <com.google.android.material.appbar.AppBarLayout
@@ -47,22 +48,16 @@
 
         </androidx.appcompat.widget.Toolbar>
 
-        <TextView
-            android:id="@+id/time"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/Yellow"
-            android:text="Time the last message was sent will be displayed here" />
-
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/recycler_view12"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="618dp"
+        android:layout_above="@id/Bottom"
         android:layout_below="@id/bar_layout"
-        android:layout_above="@id/Bottom"/>
+        android:layout_marginBottom="3dp" />
 
 
     <RelativeLayout
@@ -103,8 +98,6 @@
             android:clickable="true"/>
 
     </RelativeLayout>
-
-
 
 
 </RelativeLayout>
