@@ -28,9 +28,17 @@ public class MessageActivityTest {
     }
 
     @Test
-    public void testNavBarCalls(){
+    public void testLaunch(){
         View view = messageActivity.findViewById(R.id.recycler_view12);
         assertNotNull(view);
+    }
+
+
+    @Test
+    public void testLaunchEditText_Send(){
+        View view = messageActivity.findViewById(R.id.text_send);
+        assertNotNull(view);
+
     }
 
     @After
