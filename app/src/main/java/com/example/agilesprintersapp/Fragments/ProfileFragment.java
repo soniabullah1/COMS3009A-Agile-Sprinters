@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,6 +50,8 @@ public class ProfileFragment extends Fragment {
 
     private static final int RESULT_OK = -1;
     CircleImageView image_profile;
+    EditText edit_profile_image;
+    EditText edit_username;
     TextView username;
 
     DatabaseReference reference;
@@ -111,7 +114,7 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        image_profile.setOnClickListener(new View.OnClickListener() {
+        edit_profile_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openImage();
