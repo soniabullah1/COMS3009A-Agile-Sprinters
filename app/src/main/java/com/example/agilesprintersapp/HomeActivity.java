@@ -52,11 +52,6 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        Toolbar toolbar = findViewById(R.id.toolbar2);
-        //setSupportActionBar(toolbar);
-        //getSupportActionBar().setTitle("");
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         profile_image = findViewById(R.id.profile_image);
         username = findViewById(R.id.username);
         // Test = findViewById(R.id.button) ;
@@ -70,12 +65,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 */
-        toolbar.setNavigationOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                finish();
-            }
-        });
 
         //navigation bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_orange_dark"
+    android:background="@color/white"
     android:theme="@style/AppTheme"
     tools:context=".Fragments.ContactsFragment">
 
@@ -14,21 +14,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Search..."
-        android:paddingTop="120dp"
-
-        android:textColor="@color/black" />
+        android:padding="15dp"
+        android:layout_above="@id/recycler_view12"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-
-
         android:id="@+id/recycler_view12"
         android:layout_width="match_parent"
-        android:layout_height="479dp"
-        android:layout_below="@+id/search_users"
-        android:layout_marginTop="-5dp"
-        android:background="@android:color/holo_orange_light"
+        android:layout_height="560dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="-0dp"
+        android:layout_marginBottom="1dp"
+        android:background="@color/white"
         android:theme="@style/Theme.AgileSprintersApp"
-        app:layout_constraintBottom_toBottomOf="@+id/bottomNav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/search_users"
         app:layout_constraintTop_toTopOf="parent" />

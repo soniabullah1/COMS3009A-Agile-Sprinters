@@ -7,24 +7,20 @@
     android:padding="8dp"
     tools:context=".Fragments.ProfileFragment">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </androidx.cardview.widget.CardView>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="560dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="347dp"
-        android:padding="8dp">
+        android:layout_marginBottom="0dp"
+        android:padding="0dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Profile"
+            android:text="Your Profile"
             android:textColor="@color/black"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -35,18 +31,41 @@
             android:layout_marginTop="50dp"
             android:src="@mipmap/ic_launcher" />
 
-
         <TextView
             android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_profile_image"
+            android:padding="10dp"
+            android:layout_centerHorizontal="true"
+            android:text="Username"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/edit_profile_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/profile_image"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
-            android:text="username"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:padding="10dp"
+            android:text="Edit Profile Image "
+            android:textColor="@color/LightBlue"
+            android:textSize="18dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/edit_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/username"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp"
+            android:text="Edit Username "
+            android:textColor="@color/LightBlue"
+            android:textSize="18dp"
+            android:textStyle="bold"/>
 
 
     </RelativeLayout>
