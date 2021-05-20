@@ -48,7 +48,6 @@ public class LandingActivityTest {
 
     @Test
     public void testButtonClickSignIn(){
-        //onView(withContentDescription(R.string.abc_action_bar_up_description)).perform(click());
         onView(withId((R.id.tSignIn))).perform(click());
         Activity signInActivity = getInstrumentation().waitForMonitorWithTimeout(monitor2,50000);
         assertNotNull(signInActivity);
