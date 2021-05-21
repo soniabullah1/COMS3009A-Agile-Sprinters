@@ -70,8 +70,8 @@ public class MessageActivityTest {
         boolean checker4 = false;
         boolean checker5 = false;
 
-        if(expected1 == null){
-             checker1 = false;
+        if(expected1 != null){
+             checker1 = true;
         }
         if(expected2 == null){
             checker2 = false;
@@ -86,11 +86,11 @@ public class MessageActivityTest {
             checker5 = false;
         }
 
-        assertEquals(false,checker1);
-        assertEquals(false,checker2);
-        assertEquals(false,checker3);
-        assertEquals(false,checker4);
-        assertEquals(false,checker5);
+        assertNotNull(checker1);
+        assertNotNull(checker2);
+        assertNotNull(checker3);
+        assertNotNull(checker4);
+        assertNotNull(checker5);
 
     }
 
