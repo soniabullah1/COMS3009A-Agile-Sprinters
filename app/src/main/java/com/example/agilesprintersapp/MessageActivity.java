@@ -80,6 +80,8 @@ public class MessageActivity extends AppCompatActivity {
     private String time;
     private ProgressDialog progressDialog;
 
+    public boolean toastMade = true;
+
 
 
     @Override
@@ -168,6 +170,7 @@ public class MessageActivity extends AppCompatActivity {
                     sendMessage(fuser.getUid(), userid, msg, "text", time);
                 }else{
                     Toast.makeText(MessageActivity.this, "Error: Empty message", Toast.LENGTH_SHORT).show();
+                    toastMade = true;
                 }
                 text_send.setText("");
             }

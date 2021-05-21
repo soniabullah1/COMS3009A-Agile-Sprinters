@@ -1,8 +1,5 @@
 package com.example.agilesprintersapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,8 +13,10 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.agilesprintersapp.Model.User;
-import com.example.agilesprintersapp.Model.UserInfo;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -145,7 +144,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
 
-    private void Register(String fName, String lName, String username, String email, String phone, String password) {
+    public void Register(String fName, String lName, String username, String email, String phone, String password) {
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
