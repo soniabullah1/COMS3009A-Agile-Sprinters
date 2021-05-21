@@ -1,20 +1,14 @@
 package com.example.agilesprintersapp;
 
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
+import androidx.test.annotation.UiThreadTest;
 import androidx.test.rule.ActivityTestRule;
-
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
@@ -56,42 +50,11 @@ public class MessageActivityTest {
         assertEquals(true, toastMade);
     }
 
+    @UiThreadTest
     @Test
-    public void testCheckVariables(){
-        CircleImageView expected1 = messageActivity.profile_image;
-        TextView expected2 = messageActivity.username;
-        FirebaseUser expected3 = messageActivity.fuser;
-        DatabaseReference expected4 = messageActivity.reference;
-        ImageButton expected5 = messageActivity.btn_send;
-
-        boolean checker1 = false;
-        boolean checker2 = false;
-        boolean checker3 = false;
-        boolean checker4 = false;
-        boolean checker5 = false;
-
-        if(expected1 != null){
-             checker1 = true;
-        }
-        if(expected2 == null){
-            checker2 = false;
-        }
-        if(expected3 == null){
-            checker3 = false;
-        }
-        if(expected4 == null){
-            checker4 = false;
-        }
-        if(expected5 == null){
-            checker5 = false;
-        }
-
-        assertNotNull(checker1);
-        assertNotNull(checker2);
-        assertNotNull(checker3);
-        assertNotNull(checker4);
-        assertNotNull(checker5);
-
+    public void testSendAMessage(){
+        String time = String.valueOf(System.currentTimeMillis());
+        messageActivity.sendMessage( "1HYeIejMyvhSemoNl2UbYXC9SvB3", "4WP1IvaihjYaB4fHmaMl413bsN62", "Unit testing is not fun", "text", time);
     }
 
     @After
