@@ -1,32 +1,32 @@
 package com.example.agilesprintersapp;
 
-import android.content.Intent;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.test.rule.ActivityTestRule;
+
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.assertion.ViewAssertions.matches;
-import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static androidx.test.espresso.matcher.ViewMatchers.withText;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class MessageActivityTest {
 
     @Rule
     public ActivityTestRule<MessageActivity> messageActivityTestRule = new ActivityTestRule<>(MessageActivity.class);
     private MessageActivity messageActivity = null;
-
-
-
 
     @Before
     public void setUp() throws Exception {
@@ -48,20 +48,50 @@ public class MessageActivityTest {
 
     }
 
-//    @Test
-////    public void testCheckDialogDisplayed() {
-////        // Click on the button that shows the dialog
-////        onView(withId(R.id.btn_attach_pic)).perform(click());
-////
-////        // Check the dialog title text is displayed
-////        onView(withText(R.string.)).check(matches(isDisplayed()));
-////    }
 
     @Test
     public void testMessageSendButton(){
         onView(withId(R.id.btn_send)).perform(click());
         boolean toastMade = messageActivity.toastMade;
         assertEquals(true, toastMade);
+    }
+
+    @Test
+    public void testCheckVariables(){
+        CircleImageView expected1 = messageActivity.profile_image;
+        TextView expected2 = messageActivity.username;
+        FirebaseUser expected3 = messageActivity.fuser;
+        DatabaseReference expected4 = messageActivity.reference;
+        ImageButton expected5 = messageActivity.btn_send;
+
+        boolean checker1 = false;
+        boolean checker2 = false;
+        boolean checker3 = false;
+        boolean checker4 = false;
+        boolean checker5 = false;
+
+        if(expected1 == null){
+             checker1 = false;
+        }
+        if(expected2 == null){
+            checker2 = false;
+        }
+        if(expected3 == null){
+            checker3 = false;
+        }
+        if(expected4 == null){
+            checker4 = false;
+        }
+        if(expected5 == null){
+            checker5 = false;
+        }
+
+        assertEquals(false,checker1);
+        assertEquals(false,checker2);
+        assertEquals(false,checker3);
+        assertEquals(false,checker4);
+        assertEquals(false,checker5);
+
     }
 
     @After
