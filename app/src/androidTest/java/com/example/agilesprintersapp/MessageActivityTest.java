@@ -2,7 +2,6 @@ package com.example.agilesprintersapp;
 
 import android.view.View;
 
-import androidx.test.annotation.UiThreadTest;
 import androidx.test.rule.ActivityTestRule;
 
 import org.junit.After;
@@ -50,11 +49,16 @@ public class MessageActivityTest {
         assertEquals(true, toastMade);
     }
 
-    @UiThreadTest
     @Test
     public void testSendAMessage(){
         String time = String.valueOf(System.currentTimeMillis());
         messageActivity.sendMessage( "1HYeIejMyvhSemoNl2UbYXC9SvB3", "4WP1IvaihjYaB4fHmaMl413bsN62", "Unit testing is not fun", "text", time);
+    }
+
+    @Test
+    public void testReadMessage(){
+        String pic_url = "unittest";
+        messageActivity.readMessages("1HYeIejMyvhSemoNl2UbYXC9SvB3","4WP1IvaihjYaB4fHmaMl413bsN62",pic_url);
     }
 
     @After
