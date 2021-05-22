@@ -120,7 +120,7 @@ public class Preview extends AppCompatActivity {
 
     }
 
-    private void readMessages(String myid, String userid, String imageurl) {
+    public void readMessages(String myid, String userid, String imageurl) {
         mChat = new ArrayList<>();
         reference = FirebaseDatabase.getInstance().getReference("Chat");
         reference.addValueEventListener(new ValueEventListener() {
@@ -152,7 +152,7 @@ public class Preview extends AppCompatActivity {
     }
 
 
-    private void seenMessage(String userid) {
+    public void seenMessage(String userid) {
         reference = FirebaseDatabase.getInstance().getReference("Chat");
         seenListener = reference.addValueEventListener(new ValueEventListener() {
             @Override
