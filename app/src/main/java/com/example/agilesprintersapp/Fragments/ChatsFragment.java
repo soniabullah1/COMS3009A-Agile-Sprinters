@@ -106,6 +106,7 @@ public class ChatsFragment extends Fragment {
                             if (mUsers.size() != 0) {
                                 for(User user1: new ArrayList<User>(mUsers)){
                                     //for(User user1 : mUsers){
+                                    //user.getId() != null &&  fuser.getUid().equals(fuser.getUid()) &&
                                     if(!user.getId().equals(user1.getId())) {
                                         mUsers.add(user);
                                     }

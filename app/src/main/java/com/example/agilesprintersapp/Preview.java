@@ -63,6 +63,7 @@ public class Preview extends AppCompatActivity {
         caption = findViewById(R.id.Caption);
         time = String.valueOf(System.currentTimeMillis());
         imageview = findViewById(R.id.imageView56);
+
         Intent intent = getIntent();
         String image_path = intent.getStringExtra("imagePath");
         Uri fileUri = Uri.parse(image_path);

@@ -17,6 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.267"
+
         tools:srcCompat="@tools:sample/avatars" />
 
     <EditText
@@ -35,8 +36,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView56"
-        android:layout_width="405dp"
-        android:layout_height="132dp"
+        android:layout_width="582dp"
+        android:layout_height="147dp"
         android:scrollbars="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
