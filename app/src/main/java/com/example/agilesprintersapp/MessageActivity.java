@@ -238,9 +238,9 @@ public class MessageActivity extends AppCompatActivity {
                 }).addOnCompleteListener(new OnCompleteListener<Uri>() {
                     @Override
                     public void onComplete(@NonNull Task<Uri> task) {
-                        if(task.isSuccessful()){
+                        if(task.isSuccessful()) {
                             Uri downloadUrl = task.getResult();
-                            myUrl =  downloadUrl.toString();
+                            myUrl = downloadUrl.toString();
 
                             Uri a = fileUri;
                             Intent i = new Intent(MessageActivity.this, Preview.class);
@@ -254,7 +254,6 @@ public class MessageActivity extends AppCompatActivity {
                             startActivity(i);
 
                         }
-                        //sendMessage(fuser.getUid(), userid, myUrl, checker, time);
                     }
                 });
             }
