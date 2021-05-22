@@ -11,7 +11,7 @@ public class Chat {
 
     private boolean isseen;
 
-    public Chat(String sender, String receiver, String message, String type, String time, String caption){
+    public Chat(String sender, String receiver, String message, String type, String time, String caption, boolean isseen){
         this.sender = sender;
         this.receiver = receiver;
         this.message = message;

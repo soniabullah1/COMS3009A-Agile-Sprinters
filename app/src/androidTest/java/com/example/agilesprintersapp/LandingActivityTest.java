@@ -40,6 +40,7 @@ public class LandingActivityTest {
     @Test
     public void testButtonClickRegister(){
         onView(withId(R.id.tRegister)).perform(click());
+
         Activity registerActivity = getInstrumentation().waitForMonitorWithTimeout(monitor1,50000);
         assertNotNull(registerActivity);
 
