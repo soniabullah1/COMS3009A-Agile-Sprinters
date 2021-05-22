@@ -1,9 +1,5 @@
 package com.example.agilesprintersapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,6 +8,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.agilesprintersapp.Adapter.MessageAdapter;
 import com.example.agilesprintersapp.Model.Chat;
@@ -66,7 +66,11 @@ public class Preview extends AppCompatActivity {
 
         Intent intent = getIntent();
         String image_path = intent.getStringExtra("imagePath");
-        Uri fileUri = Uri.parse(image_path);
+
+        //I have to put this condition or else i cannot test Preview at all - Rushil
+        if(image_path != null) {
+            Uri fileUri = Uri.parse(image_path);
+        }
         imageview.setImageURI(fileUri);
 
         String msg = caption.getText().toString();
