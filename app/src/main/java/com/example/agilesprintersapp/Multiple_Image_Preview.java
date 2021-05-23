@@ -1,22 +1,19 @@
 package com.example.agilesprintersapp;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewSwitcher;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.agilesprintersapp.Adapter.MessageAdapter;
 import com.example.agilesprintersapp.Model.Chat;
 import com.example.agilesprintersapp.Model.User;
@@ -26,7 +23,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.StorageTask;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -74,10 +71,12 @@ public class Multiple_Image_Preview extends AppCompatActivity {
         Intent intent = getIntent();
 
         Bundle args = intent.getBundleExtra("BUNDLE");
-        imageUris = (ArrayList<Uri>)args.getSerializable("IMAGES");
-        stringUris = (ArrayList<String>)args.getSerializable("STRING_IMAGES");
-        imageUris.size();
-        stringUris.size();
+        if(args != null) {
+            imageUris = (ArrayList<Uri>) args.getSerializable("IMAGES");
+            stringUris = (ArrayList<String>) args.getSerializable("STRING_IMAGES");
+            imageUris.size();
+            stringUris.size();
+        }
 
         captions = new ArrayList<>();
 
@@ -93,8 +92,10 @@ public class Multiple_Image_Preview extends AppCompatActivity {
             public View makeView() {
                 ImageView imageView = new ImageView(getApplicationContext());
                 //imageView.setImageURI(imageUris.get(0));
-                Uri fileUri = Uri.parse(stringUris.get(0));
-                imageView.setImageURI(fileUri);
+                if(stringUris != null) {
+                    Uri fileUri = Uri.parse(stringUris.get(0));
+                    imageView.setImageURI(fileUri);
+                }
                 return imageView;
             }
         });
@@ -122,9 +123,11 @@ public class Multiple_Image_Preview extends AppCompatActivity {
         NextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(position < imageUris.size() - 1){
-                    position++;
-                    imageSwitcher.setImageURI(imageUris.get(position));
+                if(imageUris != null) {
+                    if (position < imageUris.size() - 1) {
+                        position++;
+                        imageSwitcher.setImageURI(imageUris.get(position));
+                    }
                 }
                 else{
                     Toast.makeText(Multiple_Image_Preview.this, "No More Images ...", Toast.LENGTH_SHORT).show();
@@ -139,20 +142,23 @@ public class Multiple_Image_Preview extends AppCompatActivity {
             }
         });
 
-        imageUris.size();
+        if(imageUris != null) {
+            imageUris.size();
+        }
 
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(imageUris != null) {
+                    int a = imageUris.size();
 
-                int a = imageUris.size();
+                    String msg = caption.getText().toString().trim();
 
-                String msg = caption.getText().toString().trim();
-
-                for(int i=0; i<a; i++){
-                    sendMessage(sender, receiver, imageUris.get(i).toString(), checker, time, msg);
-                    //sendMessage(sender, receiver, imageUris.get(i).toString(), checker, time, captions.get(i));
-                    //readMessages(sender, userid, );
+                    for(int i=0; i<a; i++){
+                        sendMessage(sender, receiver, imageUris.get(i).toString(), checker, time, msg);
+                        //sendMessage(sender, receiver, imageUris.get(i).toString(), checker, time, captions.get(i));
+                        //readMessages(sender, userid, );
+                    }
                 }
 
                 finish();
@@ -173,7 +179,7 @@ public class Multiple_Image_Preview extends AppCompatActivity {
         reference.child("Chat").push().setValue(hashMap);
     }
 
-    private void readMessages(String myid, String userid, String imageurl) {
+    public void readMessages(String myid, String userid, String imageurl) {
         mChat = new ArrayList<>();
         reference = FirebaseDatabase.getInstance().getReference("Chat");
         reference.addValueEventListener(new ValueEventListener() {
