@@ -61,6 +61,12 @@ public class MessageActivityTest {
         messageActivity.readMessages("1HYeIejMyvhSemoNl2UbYXC9SvB3","4WP1IvaihjYaB4fHmaMl413bsN62",pic_url);
     }
 
+    @Test
+    public void testAttachImage(){
+
+        onView(withId(R.id.btn_attach_pic)).perform(click());
+    }
+
     @After
     public void tearDown() throws Exception {
         messageActivity = null;
