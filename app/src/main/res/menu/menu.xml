@@ -9,11 +9,6 @@
         app:showAsAction="never"/>
 
     <item
-        android:id="@+id/edit_profile"
-        android:title="Edit Profile"
-        app:showAsAction="never"/>
-
-    <item
         android:id="@+id/update_status"
         android:title="Update Status"
         app:showAsAction="never"/>

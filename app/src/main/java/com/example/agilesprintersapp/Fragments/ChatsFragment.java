@@ -67,7 +67,7 @@ public class ChatsFragment extends Fragment {
 
                     if (fuser != null) {
 
-                        if (chat.getSender().equals(fuser.getUid())) {
+                        if (user.getId() != null && fuser.getUid().equals(fuser.getUid())&& chat.getSender().equals(fuser.getUid())) {
                             userList.add(chat.getReceiver());
                         }
                         if (user.getId() != null && fuser.getUid().equals(fuser.getUid())&& chat.getReceiver().equals(fuser.getUid())) {

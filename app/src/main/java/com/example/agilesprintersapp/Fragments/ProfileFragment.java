@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.agilesprintersapp.Model.User;
+import com.example.agilesprintersapp.Model.UserInfo;
 import com.example.agilesprintersapp.R;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -50,8 +51,8 @@ public class ProfileFragment extends Fragment {
 
     private static final int RESULT_OK = -1;
     CircleImageView image_profile;
-    EditText edit_profile_image;
-    EditText edit_username;
+    TextView edit_profile_image;
+    TextView edit_username;
     TextView username;
 
     DatabaseReference reference;
@@ -74,6 +75,8 @@ public class ProfileFragment extends Fragment {
 
         image_profile = view.findViewById(R.id.profile_image);
         username = view.findViewById(R.id.username);
+        edit_profile_image = view.findViewById(R.id.edit_profile_image);
+        edit_username = view.findViewById(R.id.edit_username);
 
         storageReference = FirebaseStorage.getInstance().getReference("uploads");
 
@@ -91,19 +94,13 @@ public class ProfileFragment extends Fragment {
 
                 User user = snapshot.getValue(User.class);
                 username.setText(user.getUsername());
-                //username.setText(user.getUsername());
-
-
 
                 if (user != null && user.getId() != null) {
-                    ;
                     if (user.getImageURL().equals("default")) {
-
                         image_profile.setImageResource(R.mipmap.ic_launcher);
                     } else {
                         Glide.with(getContext()).load(user.getImageURL()).into(image_profile);
                     }
-
 
                 }
             }
@@ -120,7 +117,13 @@ public class ProfileFragment extends Fragment {
                 openImage();
             }
         });
-
+//edit username
+        /*edit_username.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openImage();
+            }
+        });*/
         return view;
     }
 
