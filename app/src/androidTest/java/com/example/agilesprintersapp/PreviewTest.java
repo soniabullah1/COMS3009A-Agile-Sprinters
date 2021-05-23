@@ -1,5 +1,6 @@
 package com.example.agilesprintersapp;
 
+import android.content.Intent;
 import android.view.View;
 
 import androidx.test.rule.ActivityTestRule;
@@ -22,6 +23,7 @@ public class PreviewTest {
     @Before
     public void setUp() throws Exception {
         preview = PreviewTestRule.getActivity();
+        preview.sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
     }
 
     @Test

@@ -1,6 +1,7 @@
 package com.example.agilesprintersapp;
 
 import android.app.Instrumentation;
+import android.content.Intent;
 import android.view.View;
 
 import androidx.test.rule.ActivityTestRule;
@@ -23,6 +24,8 @@ public class SettingsActivityTest {
     @Before
     public void setUp() throws Exception {
         settingsActivity = settingsActivityActivityTestRule.getActivity();
+        settingsActivity.sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
+
     }
 
     @Test

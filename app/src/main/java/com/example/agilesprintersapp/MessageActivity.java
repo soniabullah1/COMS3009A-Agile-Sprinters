@@ -1,13 +1,5 @@
 package com.example.agilesprintersapp;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -15,13 +7,19 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.agilesprintersapp.Adapter.MessageAdapter;
@@ -45,7 +43,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -85,6 +82,8 @@ public class MessageActivity extends AppCompatActivity {
     public ArrayList<String> stringUris;
 
     private ArrayList<String> captions;
+
+    boolean toastMade = true;
 
     //request code to pick images
     private static final int PICK_IMAGES_CODE = 0;
@@ -168,6 +167,7 @@ public class MessageActivity extends AppCompatActivity {
                     sendMessage(fuser.getUid(), userid, msg, "text", time);
                 }else{
                     Toast.makeText(MessageActivity.this, "Error: Empty message", Toast.LENGTH_SHORT).show();
+                    toastMade = true;
                 }
                 text_send.setText("");
             }
@@ -384,7 +384,7 @@ public class MessageActivity extends AppCompatActivity {
         });
     }
 
-    private void sendMessage(String sender, String receiver, String message, String type, String time){
+    public void sendMessage(String sender, String receiver, String message, String type, String time){
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
         HashMap<String,Object>hashMap = new HashMap<>();
@@ -417,7 +417,7 @@ public class MessageActivity extends AppCompatActivity {
 //        });
     }
 
-    private void readMessages(String myid, String userid, String imageurl){
+    public void readMessages(String myid, String userid, String imageurl){
         mChat = new ArrayList<>();
         reference = FirebaseDatabase.getInstance().getReference("Chat");
         reference.addValueEventListener(new ValueEventListener() {

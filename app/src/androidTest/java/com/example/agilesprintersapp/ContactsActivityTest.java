@@ -1,5 +1,6 @@
 package com.example.agilesprintersapp;
 
+import android.content.Intent;
 import android.view.View;
 
 import androidx.test.rule.ActivityTestRule;
@@ -9,7 +10,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 public class ContactsActivityTest {
     @Rule
@@ -19,6 +20,8 @@ public class ContactsActivityTest {
     @Before
     public void setUp() throws Exception {
         contactsActivity = contactsActivityTestRule.getActivity();
+        contactsActivity.sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
+
     }
 
     @Test

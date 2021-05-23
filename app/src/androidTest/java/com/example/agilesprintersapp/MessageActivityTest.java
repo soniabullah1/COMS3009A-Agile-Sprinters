@@ -1,5 +1,6 @@
 package com.example.agilesprintersapp;
 
+import android.content.Intent;
 import android.view.View;
 
 import androidx.test.rule.ActivityTestRule;
@@ -24,7 +25,7 @@ public class MessageActivityTest {
     @Before
     public void setUp() throws Exception {
         messageActivity = messageActivityTestRule.getActivity();
-        //messageActivity.sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
+        messageActivity.sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
 
     }
 
@@ -55,11 +56,11 @@ public class MessageActivityTest {
         messageActivity.sendMessage( "1HYeIejMyvhSemoNl2UbYXC9SvB3", "4WP1IvaihjYaB4fHmaMl413bsN62", "Unit testing is not fun", "text", time);
     }
 
-//     @Test
-//     public void testReadMessage(){
-//         String pic_url = "unittest";
-//         messageActivity.readMessages("1HYeIejMyvhSemoNl2UbYXC9SvB3","4WP1IvaihjYaB4fHmaMl413bsN62",pic_url);
-//     }
+//    @Test
+//    public void testReadMessage(){
+//        String pic_url = "unittest";
+//        messageActivity.readMessages("1HYeIejMyvhSemoNl2UbYXC9SvB3","4WP1IvaihjYaB4fHmaMl413bsN62",pic_url);
+//    }
 
     @Test
     public void testAttachImage(){
