@@ -12,7 +12,7 @@ Colin Hugo, Tristen haverly, Rushil Patel, Kayla Levy, Bhavik Govan 💯, Sonia 
 ### Build Status
 ![example workflow](https://github.com/soniabullah1/COMS3009A-Agile-Sprinters/actions/workflows/main.yml/badge.svg)
 
-See [Actions](https://github.com/soniabullah1/COMS3009A-Agile-Sprinters/actions) page for more build details. 
+<em> See [Actions](https://github.com/soniabullah1/COMS3009A-Agile-Sprinters/actions) page for more build details. </em>
 
 ### Coverage Status
 
