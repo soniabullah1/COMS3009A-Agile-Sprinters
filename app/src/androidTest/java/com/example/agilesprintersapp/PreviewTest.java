@@ -46,5 +46,6 @@ public class PreviewTest {
 
     @After
     public void tearDown() throws Exception {
+        preview = null;
     }
 }

@@ -130,7 +130,10 @@ public class Preview extends AppCompatActivity {
                 for (DataSnapshot snapshot: dataSnapshot.getChildren())
                 {
                     Chat chat = snapshot.getValue(Chat.class);
-                    String myid=fuser.getUid();
+                    // Have to do this or cannot test Preview at all and causes build to fail -Rushil
+                    if(fuser != null) {
+                        String myid = fuser.getUid();
+                    }
                     String imageurl = "";
                     if(myid.equals(chat.getReceiver()) && userid.equals(chat.getSender())||
                             userid.equals(chat.getReceiver()) && myid.equals(chat.getSender()))
@@ -139,7 +142,10 @@ public class Preview extends AppCompatActivity {
                     }
                     messageAdapter = new MessageAdapter(Preview.this, mChat, imageurl);
                     RecyclerView recyclerView = findViewById(R.id.recycler_view12);
-                    recyclerView.setAdapter(messageAdapter);
+                    // Have to do this or cannot test Preview at all and causes build to fail -Rushil
+                    if(recyclerView != null) {
+                        recyclerView.setAdapter(messageAdapter);
+                    }
                 }
             }
 
