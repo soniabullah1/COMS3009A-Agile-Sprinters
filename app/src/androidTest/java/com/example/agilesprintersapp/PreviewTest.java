@@ -9,6 +9,9 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.assertNotNull;
 
 public class PreviewTest {
@@ -43,6 +46,12 @@ public class PreviewTest {
     public void testSeenMessage(){
         preview.seenMessage("1HYeIejMyvhSemoNl2UbYXC9SvB3");
     }
+
+    @Test
+    public void testMessageSendButton(){
+        onView(withId(R.id.button3)).perform(click());
+    }
+
 
     @After
     public void tearDown() throws Exception {
