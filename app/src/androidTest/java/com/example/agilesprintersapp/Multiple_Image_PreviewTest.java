@@ -59,6 +59,24 @@ public class Multiple_Image_PreviewTest {
         onView(withId(R.id.button3)).perform(click());
     }
 
+    @Test
+    public void testSendAMessage(){
+        String time = String.valueOf(System.currentTimeMillis());
+        mipActivity.sendMessage( "1HYeIejMyvhSemoNl2UbYXC9SvB3", "4WP1IvaihjYaB4fHmaMl413bsN62", "Unit testing is not fun", "text", time, "UGHHHHHHH");
+    }
+
+    @Test
+     public void testReadMessage(){
+         String pic_url = "unittest";
+         mipActivity.readMessages("1HYeIejMyvhSemoNl2UbYXC9SvB3","4WP1IvaihjYaB4fHmaMl413bsN62",pic_url);
+     }
+
+    @Test
+    public void testSeenMessage(){
+        mipActivity.seenMessage("1HYeIejMyvhSemoNl2UbYXC9SvB3");
+    }
+
+
     @After
     public void tearDown() throws Exception {
         mipActivity = null;

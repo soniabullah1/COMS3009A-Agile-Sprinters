@@ -186,19 +186,20 @@ public class Multiple_Image_Preview extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 mChat.clear();
-                for (DataSnapshot snapshot: dataSnapshot.getChildren())
-                {
+                for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
                     Chat chat = snapshot.getValue(Chat.class);
-                    String myid=fuser.getUid();
-                    String imageurl = "";
-                    if(myid.equals(chat.getReceiver()) && userid.equals(chat.getSender())||
-                            userid.equals(chat.getReceiver()) && myid.equals(chat.getSender()))
-                    {
-                        mChat.add(chat);
+                    if (fuser != null) {
+                        String myid = fuser.getUid();
+
+                        String imageurl = "";
+                        if (myid.equals(chat.getReceiver()) && userid.equals(chat.getSender()) ||
+                                userid.equals(chat.getReceiver()) && myid.equals(chat.getSender())) {
+                            mChat.add(chat);
+                        }
+                        messageAdapter = new MessageAdapter(Multiple_Image_Preview.this, mChat, imageurl);
+                        RecyclerView recyclerView = findViewById(R.id.recycler_view12);
+                        recyclerView.setAdapter(messageAdapter);
                     }
-                    messageAdapter = new MessageAdapter(Multiple_Image_Preview.this, mChat, imageurl);
-                    RecyclerView recyclerView = findViewById(R.id.recycler_view12);
-                    recyclerView.setAdapter(messageAdapter);
                 }
             }
 
@@ -211,7 +212,7 @@ public class Multiple_Image_Preview extends AppCompatActivity {
     }
 
 
-    private void seenMessage(String userid) {
+    public void seenMessage(String userid) {
         reference = FirebaseDatabase.getInstance().getReference("Chat");
         seenListener = reference.addValueEventListener(new ValueEventListener() {
             @Override
