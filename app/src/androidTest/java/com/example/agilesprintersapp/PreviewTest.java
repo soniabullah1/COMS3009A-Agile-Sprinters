@@ -36,11 +36,11 @@ public class PreviewTest {
         preview.sendMessage( "1HYeIejMyvhSemoNl2UbYXC9SvB3", "4WP1IvaihjYaB4fHmaMl413bsN62", "Unit testing is not fun", "text", time, "UGHHHHHHH");
     }
 
-    @Test
-    public void testReadMessage(){
-        String pic_url = "unittest";
-        preview.readMessages("1HYeIejMyvhSemoNl2UbYXC9SvB3","4WP1IvaihjYaB4fHmaMl413bsN62",pic_url);
-    }
+//     @Test
+//     public void testReadMessage(){
+//         String pic_url = "unittest";
+//         preview.readMessages("1HYeIejMyvhSemoNl2UbYXC9SvB3","4WP1IvaihjYaB4fHmaMl413bsN62",pic_url);
+//     }
 
     @Test
     public void testSeenMessage(){
