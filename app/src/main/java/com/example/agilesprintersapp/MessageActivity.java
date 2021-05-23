@@ -86,6 +86,7 @@ public class MessageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Toolbar toolbar = findViewById(R.id.toolbar2);
         //setSupportActionBar(toolbar);
         //getSupportActionBar().setTitle("");
