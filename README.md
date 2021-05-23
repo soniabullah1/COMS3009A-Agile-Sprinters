@@ -5,6 +5,7 @@
 ### Members
 
 Colin Hugo, Tristen haverly, Rushil Patel, Kayla Levy, Bhavik Govan 💯, Sonia Bullah, Jemma Sundelson, Abdullah Haffejee
+
 <a href="https://github.com/soniabullah1/COMS3009A-Agile-Sprinters/graphs/contributors">
   <img src="https://contributors-img.web.app/image?repo=soniabullah1/COMS3009A-Agile-Sprinters">
 </a>
