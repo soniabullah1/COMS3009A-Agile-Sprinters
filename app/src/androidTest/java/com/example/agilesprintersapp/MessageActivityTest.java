@@ -2,7 +2,6 @@ package com.example.agilesprintersapp;
 
 import android.content.Intent;
 import android.view.View;
-
 import androidx.test.rule.ActivityTestRule;
 
 import org.junit.After;
@@ -16,7 +15,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class MessageActivityTest {
+public class MessageActivityTest{
 
     @Rule
     public ActivityTestRule<MessageActivity> messageActivityTestRule = new ActivityTestRule<>(MessageActivity.class);
@@ -64,6 +63,11 @@ public class MessageActivityTest {
     @Test
     public void testPickImagesIntent(){
         messageActivity.pickImagesIntent();
+    }
+
+    @Test
+    public void testOnActivityResult() {
+        messageActivity.onActivityResult(1,1,null);
     }
 
     @After
