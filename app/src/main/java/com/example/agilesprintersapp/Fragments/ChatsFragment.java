@@ -1,21 +1,19 @@
 package com.example.agilesprintersapp.Fragments;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.example.agilesprintersapp.Adapter.UserAdapter;
 import com.example.agilesprintersapp.Model.Chat;
 import com.example.agilesprintersapp.Model.User;
 import com.example.agilesprintersapp.R;
-import com.example.agilesprintersapp.Model.UserInfo;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -67,7 +65,7 @@ public class ChatsFragment extends Fragment {
 
                     if (fuser != null) {
 
-                        if (chat.getSender().equals(fuser.getUid())) {
+                        if (user.getId() != null && fuser.getUid().equals(fuser.getUid())&& chat.getSender().equals(fuser.getUid())) {
                             userList.add(chat.getReceiver());
                         }
                         if (user.getId() != null && fuser.getUid().equals(fuser.getUid())&& chat.getReceiver().equals(fuser.getUid())) {

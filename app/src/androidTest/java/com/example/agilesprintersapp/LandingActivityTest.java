@@ -2,6 +2,7 @@ package com.example.agilesprintersapp;
 
 import android.app.Activity;
 import android.app.Instrumentation;
+import android.content.Intent;
 import android.view.View;
 
 import androidx.test.rule.ActivityTestRule;
@@ -29,6 +30,8 @@ public class LandingActivityTest {
     @Before
     public void setUp() throws Exception {
         landingActivity = landingActivityActivityTestRule.getActivity();
+        landingActivity.sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
+
     }
 
     @Test

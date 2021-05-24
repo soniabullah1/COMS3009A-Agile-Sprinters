@@ -1,0 +1,614 @@
+[2021/05/10, 20:09:48] Rushil Patel: 
+What i did yesterday:
+Got tests working on the Message Activity
+Tried to get the build to work on Travis but no success
+
+What i did today:
+Nothing
+
+Impediments:
+None
+
+[2021/05/10, 23:43:54] Jemma Sundelson: 
+What I did yesterday:
+Nothing
+
+What I did today: 
+Joined the meeting with rylan and Tristan. Decided with Tristen what we will be doing for the next sprint 
+
+Any impediments:
+None as of yet
+
+[2021/05/10, 23:44:46] Abdullah Haffejee: 
+What I did yesterday:
+Nothing
+
+What I did today :
+Attended the meetings with Rylan and Tristan
+
+Any impediments:
+None
+
+[2021/05/10, 23:47:01] Kayla Levy: 
+What I did yesterday:
+Nothing
+
+What I did today: 
+Joined the meeting with rylan and Tristan. Met with our group to split up tasks
+
+Any impediments:
+None as of yet
+
+[2021/05/11, 00:32:59] Bhavik Govan: 
+What I did yesterday:
+Came up with the deployment view diagram. 
+
+What I did today: 
+Joined the meeting with rylan and Tristan. Met with our group to split up tasks
+
+Any impediments:
+None.
+
+[2021/05/11, 08:49:10] Sonia: 
+Tuesday, 11 May 2021
+
+What I did yesterday: 
+1. Attended the Sprint 3 Review and Retrospective Meetings. 
+
+2. Uploaded Sprint 2 Review Meeting Minutes. 
+
+3. Uploaded Sprint 3 Planning and Backlog Refinement Meeting Minutes. 
+
+4. Added the user stories and acceptance criteria to Taiga as well as split the user stories into tasks. 
+
+What I will do today: 
+Try and get the time stamp
+To show on individual messages. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/11, 08:57:36] Tristen Haverly: 
+What I did today  :
+Attended the meetings with Rylan and Tristan
+
+What I did yesterday:
+Started fixing some design flaws in our code and got started with the edit profile page
+
+Any impediments:
+Can’t upload to GitHub yet but working on it
+
+[2021/05/11, 08:57:44] Tristen Haverly: For yesterday ^
+
+[2021/05/11, 10:36:43] Kayla Levy: 
+What I did yesterday :
+Attended the meetings with Rylan and Tristan
+
+What I did today:
+Started looking at timestamps for messages and had a look at the duplication of chat windows
+
+Any impediments:
+None
+
+[2021/05/12, 09:37:21] Sonia: 
+Wednesday, 12 May 2021
+
+What I did yesterday: 
+1. Got the time stamps to show for each individual message. 
+
+What I will do today: 
+Work on allowing images to be sent to the new temporary screen. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/12, 16:18:23] Kayla Levy: 
+Wednesday, 12 May 2021
+
+What I did yesterday: 
+Tried to get timestamps to work but didn't manage and started to design the temporary screen 
+
+What I will do today: 
+Work on allowing images to be displayed on the temp screen and then sent to the contacts
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/12, 17:53:42] Tristen Haverly: 
+What I did today  :
+Figured out with Jemma the edit profile pages and how to implement them best 
+
+What I did yesterday:
+Started fixing some design flaws in our code and got started with the edit profile page
+
+Any impediments:
+None
+
+[2021/05/12, 18:12:29] Jemma Sundelson: 
+What I did yesterday:
+Tried to figure out how to get the user profile pictures displaying onto the chat screen
+
+What I did today:
+Implemented the profile picture and got it displaying on the chats page
+
+Any impediments:
+None as of yet
+
+[2021/05/12, 22:41:52] Rushil Patel: 
+What i did yesterday:
+Did research on alternate continuous integration platforms
+
+What i did today:
+decided to use Github Actions 
+got the build to pass
+Impediments:
+None
+
+[2021/05/13, 22:13:48] Sonia: 
+Thursday, 13 May 2021
+
+What I did yesterday: 
+1. Tried to get the send button on the preview page to work but the app started crashing. 
+
+What I did today: 
+Tried to fix the parts of the app that were crashing and tried making the chats unique. 
+
+Any Impediments: 
+The code started showing errors from parts that were working perfectly before so it’s a bit confusing and time-consuming trying to figure out why those parts of the code just won’t work anymore.
+
+[2021/05/13, 22:53:50] Rushil Patel: 
+What i did yesterday:
+Setup Github Actions as our new CI platform
+
+Got the build running and passing
+
+What i did today:
+Tried to get the code coverage to show correctly but no success
+
+Impediments:
+None
+
+[2021/05/13, 23:23:01] Kayla Levy: 
+What I did yesterday: 
+1. Tried to get the send button on the preview page to work but the app started crashing. 
+
+What I did today: 
+Tried to fix the parts of the app that were crashing and tried making the chats unique. Got the preview page working
+
+Any Impediments: 
+The code started showing errors from parts that were working perfectly before so it’s a bit confusing and time-consuming trying to figure out why those parts of the code just won’t work anymore.
+
+[2021/05/14, 07:47:55] Tristen Haverly:
+ What I did yesterday: 
+Tried to fix bugs and crash 
+
+What I did today: 
+Will continue to try fix the bugs and crashing and editing some design flaws (ie, back buttons and sizing and spacing issues ...) 
+
+Any Impediments: 
+The code started showing errors from parts that were working perfectly before so it’s a bit confusing and time-consuming trying to figure out why those parts of the code just won’t work anymore.
+
+[2021/05/14, 09:01:56] Kayla Levy: 
+What I did yesterday:
+Tried to fix the parts with bugs and got the preview page almost working
+
+What I will do today:
+Try finish the preview page and get the send button working 
+
+Any impediments:
+Random errors appearing where we didn't even touch that code
+
+[2021/05/14, 10:57:22] Bhavik Govan: 
+What I did yesterday:
+Researched potential features to add to the app
+
+What I will do today:
+Try help Kayla fix the app 
+
+Any impediments:
+None
+
+[2021/05/14, 11:25:09] Sonia: 
+Friday, 14 May 2021
+
+What I did yesterday: 
+1. Tried getting the messages to send to unique users but didn’t make much progress. 
+
+What I will do today: 
+Continue fixing the message activity to send messages to unique users only. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/15, 12:06:49] Sonia: 
+Saturday, 15 May 2021
+
+What I did yesterday: 
+Managed to get the messages to send to unique users.  
+
+What I will do today: 
+Nothing for now as I’ve finished my part. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/15, 18:40:54] Kayla Levy: 
+Saturday, 15 May 2021
+
+What I did yesterday: 
+Try to get the preview page working but it wasn't so bhavik took over
+
+What I will do today: 
+Nothing for now as I’ve finished my part. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/15, 23:59:30] Rushil Patel:
+ What i did yesterday:
+Worked on getting the coverage to show correctly
+
+What i did today:
+Keep working on the code coverage to show correctly
+
+Impediments:
+None
+
+[2021/05/17, 09:50:21] Sonia: 
+Monday, 17 May 2021
+
+What I did yesterday: 
+Nothing. 
+
+What I will do today: 
+Consolidate with everyone and find out what’s being done and what we still need to get started on. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/17, 10:07:15] Colin Hugo: 
+What I did yesterday:
+Worked hard on trying to get captions to work. I got them sending to the database but I can’t seem to get them to display. I tried multiple different things but they still won’t display
+What I will do today:
+Nothing work on my essay 
+
+Any impediments:
+None
+
+[2021/05/17, 10:08:46] Jemma Sundelson: 
+What I did yesterday: 
+Nothing
+
+What I will do today:
+Make sure read abs delivered is working
+
+Any impediments:
+None as of yet
+
+[2021/05/17, 14:01:06] Rushil Patel: 
+What i did yesterday:
+
+Got the coverage to show correctly on GitHub and made sure the build parameters were correct
+
+What i will do today:
+Start testing code that has no coverage 
+
+Impediments:
+None
+
+[2021/05/18, 09:18:42] Sonia: 
+What I did yesterday: 
+1. Tried to get the captions to show on the images sent. 
+
+What I will do today: 
+Continue working on the captions. 
+
+Any Impediments: 
+I have a test that I need to study for.
+
+[2021/05/18, 10:17:55] Colin Hugo: 
+What I did yesterday: 
+Working on another subject 
+
+What I will do today: 
+Continue with other work and then help with captions this afternoon 
+
+Any Impediments: 
+I have a test that I need to study for.
+
+[2021/05/18, 19:16:04] Tristen Haverly: 
+What I did yesterday: 
+Nothing as it was my religious holiday 
+
+What I will do today: 
+Nothing as today was also my religious holiday 
+
+Any Impediments: 
+My laptop is giving me some errors so I’m unable to upload to GitHub at the moment but I’m in the process of fixing this
+
+[2021/05/18, 19:17:10] Kayla Levy: 
+What I did yesterday: 
+Nothing as it was my religious holiday 
+
+What I will do today: 
+Nothing as today was also my religious holiday 
+
+Any Impediments: 
+None
+
+[2021/05/18, 22:45:12] Rushil Patel: 
+What i did yesterday:
+Started testing code that had no coverage
+
+What i did today:
+Continued with the testing of the code
+
+Impediments:
+None
+
+[2021/05/18, 23:33:11] Abdullah Haffejee: 
+What I did yesterday:
+Pulled the project 
+
+What I did today :
+Getting started with sending multiple images 
+
+Any impediments :
+None
+
+[2021/05/19, 07:33:07] Tristen Haverly: 
+*Wednesday 19/05*
+What I did yesterday: 
+Nothing as it was my religious holiday 
+
+What I will do today: 
+Continue to help and fix some laying inconsistencies and minor errors in the project 
+
+Continue to try sort out my laptop issue 
+
+Any Impediments: 
+None
+
+[2021/05/19, 08:48:53] Jemma Sundelson: 
+What I did yesterday:
+Nothing 
+
+What I will do today:
+Double check the parts that I had to do are working correctly 
+
+Any impediments:
+None as of. Yet
+
+[2021/05/19, 09:29:44] Sonia: 
+Wednesday, 19 May 2021
+
+What I did yesterday: 
+Got the captions to send to the database as well as to display correctly in the chats. 
+
+What I will do today: 
+Help anyone that needs help with their part. 
+
+Any Impediments: 
+I have a test tomorrow that I need to study for.
+
+[2021/05/19, 09:35:47] Kayla Levy: 
+Wednesday, 19 May 2021
+
+What I did yesterday: 
+Discussed with abdullah possible implementations of multiple messages with multiple captions
+
+What I will do today: 
+Help anyone that needs help with their part and help abdullah with sending multiple images
+
+Any Impediments: 
+There was jewish holidays monday and tuesday so quite behind
+
+[2021/05/20, 00:56:17] Rushil Patel: 
+What i did yesterday:
+Continued with the testing of the code
+
+What i did today:
+Completed testing the LandingActivity as well as the MainActivity
+
+Impediments:
+None
+
+[2021/05/20, 00:56:42] Rushil Patel: For yesterday yesterday
+
+[2021/05/20, 10:20:19] Sonia: 
+Thursday, 20 May 2021
+
+What I did yesterday: 
+Nothing as I was studying for my test. 
+
+What I will do today: 
+I won’t be able to do much today as I have a test. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/20, 10:22:44] Kayla Levy: 
+Thursday, 20 May 2021
+
+What I did yesterday: 
+Collaborated with Abdullah on possible implemtations of having multiple images placed on the preview page 
+
+What I will do today: 
+Update the use case diagram, deployment diagram and the state diagram and work with Abdullah on MS teams to try complete the app
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/20, 10:25:10] Tristen Haverly: 
+What I did yesterday: 
+Made sure i could pull and run the updated version of the app on my laptop and went through added code and features to gain understanding of what’s happening in our updated project 
+
+What I will do today: 
+Help where I am needed 
+
+Any Impediments: 
+None
+
+[2021/05/20, 14:10:27] Colin Hugo: 
+Thursday, 20 May 2021
+
+What I did yesterday 
+Finished my essay and did lectures 
+What I will do today: 
+Work on the class diagram
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/20, 15:20:47] Jemma Sundelson: 
+What I did yesterday:
+Nothing
+
+What I did today:
+Tried to get seen and delivered working 
+
+Any impediments:
+None as of yet
+
+[2021/05/20, 23:34:26] Abdullah Haffejee: 
+What I did yesterday:
+Worked on sending multiple images 
+
+What I did today:
+Worked on sending multiple images with Kayla and made some progress 
+
+Any impediments:
+None
+
+[2021/05/20, 23:54:49] Rushil Patel: 
+What i did yesterday:
+Completed testing the LandingActivity as well as the MainActivity
+
+What i did today:
+Helped Tristen with her build
+ Continued testing code and trying to increase coverage
+
+
+Impediments:
+None
+
+[2021/05/21, 11:12:37] Sonia: 
+Friday, 21 May 2021
+
+What I did yesterday: 
+I did the Activity, Sequence and Component diagrams. 
+
+What I will do today: 
+Adjust the diagrams and schedule a meeting for Monday with Ryan. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/21, 11:15:54] Kayla Levy: 
+Friday, 21 May 2021
+
+What I did yesterday: 
+I did the deployment, state and use case diagrams. 
+
+What I will do today: 
+Help whoever needs
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/22, 04:45:04] Abdullah Haffejee: 
+Friday 21 May 2021:
+
+What I did yesterday:
+Worked with Kayla on sending multiple images 
+
+What I did today:
+Continued working on sending multiple images and got it to work 
+
+Any impediments:
+None
+
+[2021/05/22, 11:06:19] Sonia: 
+Saturday, 22 May 2021
+
+What I did yesterday: 
+I uploaded the diagrams to GitHub and Taiga. I also scheduled the meeting with Rylan. 
+
+What I will do today: 
+Finish up odds and ends needed for Monday. I will also pull the project once everyone has pushed their changes and make sure it runs fine. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/22, 14:56:22] Jemma Sundelson: 
+What I did yesterday: 
+Tried to get delivered and seen working again
+
+What I will do today:
+Ensure that it’s working and push to GitHub 
+
+Any impediments:
+None as of yet
+
+[2021/05/22, 15:16:01] Abdullah Haffejee: 
+What I did yesterday:
+Worked on sending multiple images and got it to work 
+
+What I did today:
+Ensured that it's working and pushed to GitHub
+
+Any impediments:
+None
+
+[2021/05/22, 16:07:33] Rushil Patel: 
+What i did yesterday:
+Got the code coverage to 44%
+
+What i will do today:
+Try to get the code coverage to 65%
+
+Create the main.yml file for the build again since it was deleted by recent pushes to main
+
+Impediments:
+None
+
+[2021/05/23, 12:00:13] Tristen Haverly: 
+What i did yesterday:
+Nothing it was my sabbath 
+
+What i will do today:
+Try fix errors in the code and polish layout and other design elements 
+
+Impediments:
+None
+
+[2021/05/23, 12:00:58] Kayla Levy: 
+What i did yesterday:
+Nothing it was my sabbath 
+
+What i will do today:
+Help where I'm needed 
+
+Impediments:
+None
+
+[2021/05/23, 12:12:24] Sonia: 
+Sunday, 23 May 2021
+
+What I did yesterday: 
+I pulled the project from GitHub but we realized that some files were missing. 
+
+What I will do today: 
+Upload the Daily Srum Meetings to GitHub and Taiga, pull the new project and help with any final touches that still need to be done. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/23, 12:19:49] Colin Hugo: What i did yesterday:
+Finished the class diagram just checking it now. 
+
+What i will do today:
+Help if I can have a double birthday for my cousins this afternoon 
+
+Impediments:
+None

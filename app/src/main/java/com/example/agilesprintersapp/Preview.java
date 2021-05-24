@@ -1,9 +1,5 @@
 package com.example.agilesprintersapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,6 +8,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.agilesprintersapp.Adapter.MessageAdapter;
 import com.example.agilesprintersapp.Model.Chat;
@@ -66,7 +66,11 @@ public class Preview extends AppCompatActivity {
 
         Intent intent = getIntent();
         String image_path = intent.getStringExtra("imagePath");
-        Uri fileUri = Uri.parse(image_path);
+
+        //I have to put this condition or else i cannot test Preview at all - Rushil
+        if(image_path != null) {
+            Uri fileUri = Uri.parse(image_path);
+        }
         imageview.setImageURI(fileUri);
 
         String msg = caption.getText().toString();
@@ -116,7 +120,7 @@ public class Preview extends AppCompatActivity {
 
     }
 
-    private void readMessages(String myid, String userid, String imageurl) {
+    public void readMessages(String myid, String userid, String imageurl) {
         mChat = new ArrayList<>();
         reference = FirebaseDatabase.getInstance().getReference("Chat");
         reference.addValueEventListener(new ValueEventListener() {
@@ -126,7 +130,10 @@ public class Preview extends AppCompatActivity {
                 for (DataSnapshot snapshot: dataSnapshot.getChildren())
                 {
                     Chat chat = snapshot.getValue(Chat.class);
-                    String myid=fuser.getUid();
+                    // Have to do this or cannot test Preview at all and causes build to fail -Rushil
+                    if(fuser != null) {
+                        String myid = fuser.getUid();
+                    }
                     String imageurl = "";
                     if(myid.equals(chat.getReceiver()) && userid.equals(chat.getSender())||
                             userid.equals(chat.getReceiver()) && myid.equals(chat.getSender()))
@@ -135,7 +142,10 @@ public class Preview extends AppCompatActivity {
                     }
                     messageAdapter = new MessageAdapter(Preview.this, mChat, imageurl);
                     RecyclerView recyclerView = findViewById(R.id.recycler_view12);
-                    recyclerView.setAdapter(messageAdapter);
+                    // Have to do this or cannot test Preview at all and causes build to fail -Rushil
+                    if(recyclerView != null) {
+                        recyclerView.setAdapter(messageAdapter);
+                    }
                 }
             }
 
@@ -148,7 +158,7 @@ public class Preview extends AppCompatActivity {
     }
 
 
-    private void seenMessage(String userid) {
+    public void seenMessage(String userid) {
         reference = FirebaseDatabase.getInstance().getReference("Chat");
         seenListener = reference.addValueEventListener(new ValueEventListener() {
             @Override

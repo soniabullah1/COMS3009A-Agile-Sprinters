@@ -222,7 +222,12 @@ public class RegisterActivityTest {
         onView(withId(R.id.button2)).perform(click());
         String check = registerActivity.unitTest;
         assertEquals(check,"True");
+    }
 
+    @Test
+    public void testRegister(){
+        registerActivity.Register(STRING_TO_BE_TYPED_FNAME,STRING_TO_BE_TYPED_LNAME,STRING_TO_BE_TYPED_USERNAME,STRING_TO_BE_TYPED_MAIL,
+                STRING_TO_BE_TYPED_PHONE,STRING_TO_BE_TYPED_PASSWORD1);
     }
 
 

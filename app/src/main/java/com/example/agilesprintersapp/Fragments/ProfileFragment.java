@@ -5,19 +5,16 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
-import android.os.storage.StorageManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.example.agilesprintersapp.Model.User;
@@ -38,7 +35,6 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 
-import java.lang.ref.Reference;
 import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -49,10 +45,12 @@ public class ProfileFragment extends Fragment {
 
     private static final int RESULT_OK = -1;
     CircleImageView image_profile;
+    TextView edit_profile_image;
+    TextView edit_username;
     TextView username;
 
     DatabaseReference reference;
-    FirebaseUser fuser;
+    FirebaseUser fuser ;
     String j;
 
     StorageReference storageReference;
@@ -71,6 +69,8 @@ public class ProfileFragment extends Fragment {
 
         image_profile = view.findViewById(R.id.profile_image);
         username = view.findViewById(R.id.username);
+        edit_profile_image = view.findViewById(R.id.edit_profile_image);
+        edit_username = view.findViewById(R.id.edit_username);
 
         storageReference = FirebaseStorage.getInstance().getReference("uploads");
 
@@ -79,7 +79,7 @@ public class ProfileFragment extends Fragment {
         //reference = FirebaseDatabase.getInstance().getReference("User");
         if (fuser != null) {
             reference = FirebaseDatabase.getInstance().getReference("User").child(fuser.getUid());
-        }
+
 
 
         reference.addValueEventListener(new ValueEventListener() {
@@ -88,19 +88,13 @@ public class ProfileFragment extends Fragment {
 
                 User user = snapshot.getValue(User.class);
                 username.setText(user.getUsername());
-                //username.setText(user.getUsername());
-
-
 
                 if (user != null && user.getId() != null) {
-                    ;
                     if (user.getImageURL().equals("default")) {
-
                         image_profile.setImageResource(R.mipmap.ic_launcher);
                     } else {
                         Glide.with(getContext()).load(user.getImageURL()).into(image_profile);
                     }
-
 
                 }
             }
@@ -109,19 +103,25 @@ public class ProfileFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });
+        });}
 
-        image_profile.setOnClickListener(new View.OnClickListener() {
+        edit_profile_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openImage();
             }
         });
-
+//edit username
+        /*edit_username.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openImage();
+            }
+        });*/
         return view;
     }
 
-    private void openImage() {
+    public void openImage() {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -134,7 +134,7 @@ public class ProfileFragment extends Fragment {
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
     }
 
-    private void uploadImage(){
+    public void uploadImage(){
         final ProgressDialog pd = new ProgressDialog(getContext());
         pd.setMessage("Uploading");
         pd.show();
