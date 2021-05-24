@@ -61,12 +61,13 @@ public class MessageActivityTest{
     @Test
     public void testZAttachImage(){
         onView(withId(R.id.btn_attach_pic)).perform(click());
-    }
-
-    @Test
-    public void testPickImagesIntent(){
         messageActivity.pickImagesIntent();
     }
+
+//    @Test
+//    public void testPickImagesIntent(){
+//
+//    }
 
     @Test
     public void testOnActivityResult() {
