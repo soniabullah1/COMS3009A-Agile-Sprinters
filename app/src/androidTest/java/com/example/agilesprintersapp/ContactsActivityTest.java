@@ -28,31 +28,39 @@ public class ContactsActivityTest {
     public void testNavBarChat(){
         View view = contactsActivity.findViewById(R.id.chats);
         assertNotNull(view);
+        contactsActivity.finish();
     }
     @Test
     public void testNavBarContacts(){
         View view = contactsActivity.findViewById(R.id.contacts);
         assertNotNull(view);
+        contactsActivity.finish();
     }
     @Test
     public void testNavBarCamera(){
         View view = contactsActivity.findViewById(R.id.camera);
         assertNotNull(view);
+        contactsActivity.finish();
+        View view1 = contactsActivity.findViewById(R.id.settings);
+        assertNotNull(view1);
     }
-    @Test
-    public void testNavBarSettings(){
-        View view = contactsActivity.findViewById(R.id.settings);
-        assertNotNull(view);
-    }
+//    @Test
+//    public void testNavBarSettings(){
+//        View view = contactsActivity.findViewById(R.id.settings);
+//        assertNotNull(view);
+//        contactsActivity.finish();
+//    }
 
     @Test
     public void testRequestPermission(){
         contactsActivity.requestPermission();
+        contactsActivity.finish();
     }
 
     @Test
     public void testGetAllContacts(){
         contactsActivity.getAllContacts();
+        contactsActivity.finish();
     }
 
     @After

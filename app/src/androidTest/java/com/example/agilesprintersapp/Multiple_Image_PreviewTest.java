@@ -12,6 +12,7 @@ import org.junit.Test;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.*;
 
@@ -42,38 +43,46 @@ public class Multiple_Image_PreviewTest {
         assertNotNull(view4);
         assertNotNull(view5);
         assertNotNull(view6);
+        mipActivity.finish();
     }
 
     @Test
     public void testPreviousButton(){
-        onView(withId(R.id.PreviousBtn)).perform(click());
+        //onView(withId(R.id.PreviousBtn)).perform(click(), closeSoftKeyboard());
+        onView(withId(R.id.Nextbtn)).perform(click(), closeSoftKeyboard());
+        mipActivity.finish();
     }
 
-    @Test
-    public void testNextButton(){
-        onView(withId(R.id.Nextbtn)).perform(click());
-    }
+//    @Test
+//    public void testNextButton(){
+//        onView(withId(R.id.Nextbtn)).perform(click());
+//        mipActivity.finish();
+//    }
 
     @Test
     public void testSendButton(){
         onView(withId(R.id.button3)).perform(click());
+        mipActivity.finish();
     }
 
     @Test
     public void testSendAMessage(){
         String time = String.valueOf(System.currentTimeMillis());
         mipActivity.sendMessage( "1HYeIejMyvhSemoNl2UbYXC9SvB3", "4WP1IvaihjYaB4fHmaMl413bsN62", "Unit testing is not fun", "text", time, "UGHHHHHHH");
+        mipActivity.finish();
     }
 
     @Test
      public void testReadMessage(){
          String pic_url = "unittest";
          mipActivity.readMessages("1HYeIejMyvhSemoNl2UbYXC9SvB3","4WP1IvaihjYaB4fHmaMl413bsN62",pic_url);
-     }
+         mipActivity.finish();
+    }
 
     @Test
     public void testSeenMessage(){
         mipActivity.seenMessage("1HYeIejMyvhSemoNl2UbYXC9SvB3");
+        mipActivity.finish();
     }
 
 

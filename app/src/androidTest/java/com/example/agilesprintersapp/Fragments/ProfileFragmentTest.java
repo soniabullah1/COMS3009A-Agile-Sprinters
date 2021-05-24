@@ -30,6 +30,7 @@ public class ProfileFragmentTest {
     @Test
     public void testEditProfileImage() {
         onView(withId(R.id.edit_profile_image)).perform(click());
+
     }
 
     @Test()

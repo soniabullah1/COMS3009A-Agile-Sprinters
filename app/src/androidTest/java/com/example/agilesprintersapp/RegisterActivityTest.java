@@ -61,6 +61,7 @@ public class RegisterActivityTest {
         String expected = "Please fill out your details below:";
 
         assertEquals(actual,expected);
+        registerActivity.finish();
     }
 
     @Test
@@ -70,6 +71,7 @@ public class RegisterActivityTest {
         String expected = "First Name:";
 
         assertEquals(actual,expected);
+        registerActivity.finish();
     }
 
     @Test
@@ -79,6 +81,7 @@ public class RegisterActivityTest {
         String expected = "Last Name:";
 
         assertEquals(actual,expected);
+        registerActivity.finish();
     }
 
     @Test
@@ -88,6 +91,7 @@ public class RegisterActivityTest {
         String expected = "Username:";
 
         assertEquals(actual,expected);
+        registerActivity.finish();
     }
 
     @Test
@@ -97,6 +101,7 @@ public class RegisterActivityTest {
         String expected = "Email:";
 
         assertEquals(actual,expected);
+        registerActivity.finish();
     }
 
     @Test
@@ -106,6 +111,7 @@ public class RegisterActivityTest {
         String expected = "Phone Number:";
 
         assertEquals(actual,expected);
+        registerActivity.finish();
     }
 
     @Test
@@ -115,6 +121,7 @@ public class RegisterActivityTest {
         String expected = "Password:";
 
         assertEquals(actual,expected);
+        registerActivity.finish();
     }
 
     @Test
@@ -124,6 +131,7 @@ public class RegisterActivityTest {
         String expected = "Confirm Password:";
 
         assertEquals(actual,expected);
+        registerActivity.finish();
     }
 
     @Test
@@ -133,18 +141,21 @@ public class RegisterActivityTest {
         String expected = "Let's get you connected!";
 
         assertEquals(actual,expected);
+        registerActivity.finish();
     }
 
     @Test
     public void testLaunchEditTextFirstName(){
         View view = registerActivity.findViewById(R.id.FName);
         assertNotNull(view);
+        registerActivity.finish();
     }
 
     @Test
     public void testLaunchEditTextLastName(){
         View view = registerActivity.findViewById(R.id.LName);
         assertNotNull(view);
+        registerActivity.finish();
     }
 
     @Test
@@ -157,42 +168,49 @@ public class RegisterActivityTest {
     public void testLaunchEditTextEmailAddress(){
         View view = registerActivity.findViewById(R.id.editTextEmailAddress);
         assertNotNull(view);
+        registerActivity.finish();
     }
 
     @Test
     public void testLaunchEditTextPhone(){
         View view = registerActivity.findViewById(R.id.editTextPhone);
         assertNotNull(view);
+        registerActivity.finish();
     }
 
     @Test
     public void testLaunchEditTextTextPassword2(){
         View view = registerActivity.findViewById(R.id.editTextTextPassword2);
         assertNotNull(view);
+        registerActivity.finish();
     }
 
     @Test
     public void testLaunchEditTextTextPassword3(){
         View view = registerActivity.findViewById(R.id.editTextTextPassword3);
         assertNotNull(view);
+        registerActivity.finish();
     }
 
     @Test
     public void testLaunchCheckBoxPwd(){
         View view = registerActivity.findViewById(R.id.checkBoxPwd);
         assertNotNull(view);
+        registerActivity.finish();
     }
 
     @Test
     public void testLaunchButton2(){
         View view = registerActivity.findViewById(R.id.button2);
         assertNotNull(view);
+        registerActivity.finish();
     }
 
     @Test
     public void testLaunchButton4(){
         View view = registerActivity.findViewById(R.id.button4);
         assertNotNull(view);
+        registerActivity.finish();
     }
 
     @Test
@@ -202,11 +220,13 @@ public class RegisterActivityTest {
         assertNull(landingActivity);
 
         //landingActivity.finish();
+        registerActivity.finish();
     }
 
     @Test
     public void testCheckBoxPwd(){
         onView(withId(R.id.checkBoxPwd)).perform(click()).check(matches(ViewMatchers.isChecked()));
+        registerActivity.finish();
     }
 
     @Test
@@ -222,12 +242,15 @@ public class RegisterActivityTest {
         onView(withId(R.id.button2)).perform(click());
         String check = registerActivity.unitTest;
         assertEquals(check,"True");
+        registerActivity.finish();
     }
 
     @Test
     public void testRegister(){
         registerActivity.Register(STRING_TO_BE_TYPED_FNAME,STRING_TO_BE_TYPED_LNAME,STRING_TO_BE_TYPED_USERNAME,STRING_TO_BE_TYPED_MAIL,
                 STRING_TO_BE_TYPED_PHONE,STRING_TO_BE_TYPED_PASSWORD1);
+
+        registerActivity.finish();
     }
 
 

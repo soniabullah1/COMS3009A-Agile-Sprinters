@@ -32,12 +32,9 @@ public class SettingsActivityTest {
     public void testLaunch(){
         View view = settingsActivity.findViewById(R.id.btn_save);
         assertNotNull(view);
+        settingsActivity.finish();
     }
 
-    @Test
-    public void testLogoutMenu(){
-
-    }
 
     @After
     public void tearDown() throws Exception {

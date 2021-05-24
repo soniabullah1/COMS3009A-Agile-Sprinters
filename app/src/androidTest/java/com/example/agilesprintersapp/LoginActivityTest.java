@@ -27,7 +27,7 @@ public class LoginActivityTest {
     private LoginActivity loginActivity = null;
 
 
-    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(MainActivity.class.getName(),null ,false);
+    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(LandingActivity.class.getName(),null ,false);
     Instrumentation.ActivityMonitor monitor2 = getInstrumentation().addMonitor(HomeActivity.class.getName(),null ,false);
 
     //String a = loginActivity.email.getText().toString();
@@ -44,12 +44,14 @@ public class LoginActivityTest {
     public void testLaunchEditTextEmail(){
         View view = loginActivity.findViewById(R.id.email);
         assertNotNull(view);
+        loginActivity.finish();
     }
 
     @Test
     public void testLaunchEditTextPassword(){
         View view = loginActivity.findViewById(R.id.password);
         assertNotNull(view);
+        loginActivity.finish();
     }
 
     @Test
@@ -59,16 +61,18 @@ public class LoginActivityTest {
         String expected = "Welcome Back to TalkTime, You're almost ready to get chatty!";
 
         assertEquals(actual,expected);
+        loginActivity.finish();
     }
 
-    /*@Test
+    @Test
     public void testReturnToHomePageButton(){
         onView(withId(R.id.btn_Return)).perform(click());
         Activity registerActivity = getInstrumentation().waitForMonitorWithTimeout(monitor,5000);
         assertNotNull(registerActivity);
 
         registerActivity.finish();
-    }*/
+        loginActivity.finish();
+    }
 
     @Test
     public void testLoginButton(){
@@ -80,6 +84,7 @@ public class LoginActivityTest {
         assertNotNull(loginActivity);
 
         loginActivity.finish();
+
 
     }
 

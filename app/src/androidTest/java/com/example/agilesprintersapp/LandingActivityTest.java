@@ -38,6 +38,7 @@ public class LandingActivityTest {
     public void testLaunch(){
         View view = landingActivity.findViewById(R.id.tSignIn);
         assertNotNull(view);
+        landingActivity.finish();
     }
 
     @Test
@@ -48,6 +49,7 @@ public class LandingActivityTest {
         assertNotNull(registerActivity);
 
         registerActivity.finish();
+        landingActivity.finish();
     }
 
     @Test
@@ -57,6 +59,7 @@ public class LandingActivityTest {
         assertNotNull(signInActivity);
 
         signInActivity.finish();
+        landingActivity.finish();
     }
 
     @After

@@ -7,8 +7,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import androidx.test.annotation.UiThreadTest;
-import androidx.test.filters.LargeTest;
-import androidx.test.filters.SmallTest;
 import androidx.test.rule.ActivityTestRule;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -21,14 +19,10 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.matcher.ViewMatchers.isClickable;
-import static androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA;
-import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static androidx.test.espresso.matcher.ViewMatchers.withText;
-import static org.junit.Assert.*;
-import static org.hamcrest.core.AllOf.allOf;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 
 public class HomeActivityTest {
@@ -68,6 +62,7 @@ public class HomeActivityTest {
         navigation.getMenu().removeItem(0);
         navigation.getMenu().removeItem(0);
         assertEquals(0, navigation.getMenu().size());
+        homeActivity.finish();
     }
 
     @Test
@@ -76,6 +71,7 @@ public class HomeActivityTest {
         final Menu menu = mBottomNavigation.getMenu();
         assertNotNull("Menu should not be null", menu);
         assertEquals("Should have matching number of items", MENU_CONTENT_ITEM_IDS.length, menu.size());
+        homeActivity.finish();
     }
 
     @UiThreadTest
@@ -87,12 +83,14 @@ public class HomeActivityTest {
         checkAndVerifyExclusiveItem(menu, R.id.contacts);
         checkAndVerifyExclusiveItem(menu, R.id.settings);
         checkAndVerifyExclusiveItem(menu, R.id.calls);
+        homeActivity.finish();
     }
 
     @Test
     public void testNavBarChat(){
         View view = homeActivity.findViewById(R.id.chats);
         assertNotNull(view);
+        homeActivity.finish();
     }
 
     @Test
@@ -105,12 +103,14 @@ public class HomeActivityTest {
     public void testNavBarSettings(){
         View view = homeActivity.findViewById(R.id.settings);
         assertNotNull(view);
+        homeActivity.finish();
     }
 
     @Test
     public void testNavBarCalls(){
         View view = homeActivity.findViewById(R.id.calls);
         assertNotNull(view);
+        homeActivity.finish();
     }
 
     @After

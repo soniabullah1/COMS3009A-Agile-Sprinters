@@ -30,28 +30,33 @@ public class PreviewTest {
     public void testLaunch(){
         View view = preview.findViewById(R.id.textView);
         assertNotNull(view);
+        preview.finish();
     }
 
     @Test
     public void testSendAMessage(){
         String time = String.valueOf(System.currentTimeMillis());
         preview.sendMessage( "1HYeIejMyvhSemoNl2UbYXC9SvB3", "4WP1IvaihjYaB4fHmaMl413bsN62", "Unit testing is not fun", "text", time, "UGHHHHHHH");
+        preview.finish();
     }
 
-//     @Test
-//     public void testReadMessage(){
-//         String pic_url = "unittest";
-//         preview.readMessages("1HYeIejMyvhSemoNl2UbYXC9SvB3","4WP1IvaihjYaB4fHmaMl413bsN62",pic_url);
-//     }
+     @Test
+     public void testReadMessage(){
+         String pic_url = "unittest";
+         preview.readMessages("1HYeIejMyvhSemoNl2UbYXC9SvB3","4WP1IvaihjYaB4fHmaMl413bsN62",pic_url);
+         preview.finish();
+     }
 
     @Test
     public void testSeenMessage(){
         preview.seenMessage("1HYeIejMyvhSemoNl2UbYXC9SvB3");
+        preview.finish();
     }
 
     @Test
     public void testMessageSendButton(){
         onView(withId(R.id.button3)).perform(click());
+        preview.finish();
     }
 
 
