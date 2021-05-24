@@ -25,6 +25,7 @@ public class MainActivityTest {
     public void getId() {
         String expected = "01";
         assertEquals(expected,userInfo.getId());
+        mainActivity.finish();
     }
 
     @Test
@@ -32,12 +33,14 @@ public class MainActivityTest {
         userInfo.setId("02");
         String expected = "02";
         assertEquals(expected, userInfo.getId());
+        mainActivity.finish();
     }
 
     @Test
     public void getImageURL() {
         String expected = "imageurl";
         assertEquals(expected, userInfo.getImageURL());
+        mainActivity.finish();
     }
 
     @Test
@@ -45,12 +48,14 @@ public class MainActivityTest {
         userInfo.setImageURL("image");
         String expected = "image";
         assertEquals(expected, userInfo.getImageURL());
+        mainActivity.finish();
     }
 
     @Test
     public void getFirstName() {
         String expected = "unit";
         assertEquals(expected, userInfo.getFirstName());
+        mainActivity.finish();
     }
 
     @Test
@@ -58,12 +63,14 @@ public class MainActivityTest {
         userInfo.setFirstName("Junit");
         String expected = "Junit";
         assertEquals(expected, userInfo.getFirstName());
+        mainActivity.finish();
     }
 
     @Test
     public void getLastName() {
         String expected = "test";
         assertEquals(expected, userInfo.getLastName());
+        mainActivity.finish();
     }
 
     @Test
@@ -71,12 +78,14 @@ public class MainActivityTest {
         userInfo.setLastName("TNT");
         String expected = "TNT";
         assertEquals(expected, userInfo.getLastName());
+        mainActivity.finish();
     }
 
     @Test
     public void getUsername() {
         String expected = "unittest";
         assertEquals(expected, userInfo.getUsername());
+        mainActivity.finish();
     }
 
     @Test
@@ -84,12 +93,14 @@ public class MainActivityTest {
         userInfo.setUsername("bored");
         String expected = "bored";
         assertEquals(expected, userInfo.getUsername());
+        mainActivity.finish();
     }
 
     @Test
     public void getEmail() {
         String expected = "unittest@gmail";
         assertEquals(expected, userInfo.getEmail());
+        mainActivity.finish();
     }
 
     @Test
@@ -97,12 +108,14 @@ public class MainActivityTest {
         userInfo.setEmail("gmail");
         String expected = "gmail";
         assertEquals(expected, userInfo.getEmail());
+        mainActivity.finish();
     }
 
     @Test
     public void getPhoneNumber() {
         String expected = "12345";
         assertEquals(expected, userInfo.getPhoneNumber());
+        mainActivity.finish();
     }
 
     @Test
@@ -110,12 +123,14 @@ public class MainActivityTest {
         userInfo.setPhoneNumber("123456");
         String expected = "123456";
         assertEquals(expected, userInfo.getPhoneNumber());
+        mainActivity.finish();
     }
 
     @Test
     public void getPassword() {
         String expected = null;
         assertEquals(expected, userInfo.getPassword());
+        mainActivity.finish();
     }
 
     @Test
@@ -123,12 +138,14 @@ public class MainActivityTest {
         userInfo.setPassword("123456");
         String expected = "123456";
         assertEquals(expected, userInfo.getPassword());
+        mainActivity.finish();
     }
 
     @Test
     public void getConfirmPassword() {
         String expected = null;
         assertEquals(expected, userInfo.getConfirmPassword());
+        mainActivity.finish();
     }
 
     @Test
@@ -136,6 +153,7 @@ public class MainActivityTest {
         userInfo.setPassword("123456");
         String expected = null;
         assertEquals(expected, userInfo.getConfirmPassword());
+        mainActivity.finish();
     }
 
 
@@ -149,6 +167,7 @@ public class MainActivityTest {
     public void testLaunch(){
         View view = mainActivity.findViewById(R.id.imageView56);
         assertNotNull(view);
+        mainActivity.finish();
     }
 
     @After
