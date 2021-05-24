@@ -37,6 +37,7 @@ public class MessageActivityTest{
         View view2 = messageActivity.findViewById(R.id.text_send);
         assertNotNull(view);
         assertNotNull(view2);
+        messageActivity.finish();
     }
 
     @Test
@@ -44,23 +45,27 @@ public class MessageActivityTest{
         onView(withId(R.id.btn_send)).perform(click());
         boolean toastMade = messageActivity.toastMade;
         assertEquals(true, toastMade);
+        messageActivity.finish();
     }
 
     @Test
     public void testSendAMessage(){
         String time = String.valueOf(System.currentTimeMillis());
         messageActivity.sendMessage( "1HYeIejMyvhSemoNl2UbYXC9SvB3", "4WP1IvaihjYaB4fHmaMl413bsN62", "Unit testing is not fun", "text", time);
+        messageActivity.finish();
     }
 
     @Test
     public void testReadMessage(){
         String pic_url = "unittest";
         messageActivity.readMessages("1HYeIejMyvhSemoNl2UbYXC9SvB3","4WP1IvaihjYaB4fHmaMl413bsN62",pic_url);
+        messageActivity.finish();
     }
 
     @Test
-    public void testZAttachImage(){
+    public void testAttachImage(){
         onView(withId(R.id.btn_attach_pic)).perform(click());
+        messageActivity.finish();
         //messageActivity.pickImagesIntent();
     }
 
@@ -73,6 +78,7 @@ public class MessageActivityTest{
     public void testOnActivityResult() {
         Intent data = new Intent();
         messageActivity.onActivityResult(0,-1,data);
+        messageActivity.finish();
     }
 
     @After
