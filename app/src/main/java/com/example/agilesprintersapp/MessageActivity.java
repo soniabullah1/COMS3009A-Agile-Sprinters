@@ -205,7 +205,7 @@ public class MessageActivity extends AppCompatActivity {
         messageReceiverID = userid;
     }
 
-    private void pickImagesIntent(){
+    public void pickImagesIntent(){
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);

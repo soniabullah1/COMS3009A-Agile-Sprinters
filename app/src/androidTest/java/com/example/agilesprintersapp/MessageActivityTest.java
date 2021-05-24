@@ -39,9 +39,7 @@ public class MessageActivityTest {
     public void testLaunchEditText_Send(){
         View view = messageActivity.findViewById(R.id.text_send);
         assertNotNull(view);
-
     }
-
 
     @Test
     public void testMessageSendButton(){
@@ -64,8 +62,12 @@ public class MessageActivityTest {
 
     @Test
     public void testAttachImage(){
-
         onView(withId(R.id.btn_attach_pic)).perform(click());
+    }
+
+    @Test
+    public void testPickImagesIntent(){
+        messageActivity.pickImagesIntent();
     }
 
     @After

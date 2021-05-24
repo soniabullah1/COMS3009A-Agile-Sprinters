@@ -5,24 +5,19 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.MimeTypeMap;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.os.storage.StorageManager;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.MimeTypeMap;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
 import com.example.agilesprintersapp.Model.User;
-import com.example.agilesprintersapp.Model.UserInfo;
 import com.example.agilesprintersapp.R;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -40,7 +35,6 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 
-import java.lang.ref.Reference;
 import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -56,7 +50,7 @@ public class ProfileFragment extends Fragment {
     TextView username;
 
     DatabaseReference reference;
-    FirebaseUser fuser;
+    FirebaseUser fuser ;
     String j;
 
     StorageReference storageReference;
@@ -85,7 +79,7 @@ public class ProfileFragment extends Fragment {
         //reference = FirebaseDatabase.getInstance().getReference("User");
         if (fuser != null) {
             reference = FirebaseDatabase.getInstance().getReference("User").child(fuser.getUid());
-        }
+
 
 
         reference.addValueEventListener(new ValueEventListener() {
@@ -109,7 +103,7 @@ public class ProfileFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });
+        });}
 
         edit_profile_image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,7 +121,7 @@ public class ProfileFragment extends Fragment {
         return view;
     }
 
-    private void openImage() {
+    public void openImage() {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -140,7 +134,7 @@ public class ProfileFragment extends Fragment {
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
     }
 
-    private void uploadImage(){
+    public void uploadImage(){
         final ProgressDialog pd = new ProgressDialog(getContext());
         pd.setMessage("Uploading");
         pd.show();
