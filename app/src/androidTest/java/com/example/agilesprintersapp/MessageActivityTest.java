@@ -32,13 +32,9 @@ public class MessageActivityTest {
     @Test
     public void testLaunch(){
         View view = messageActivity.findViewById(R.id.recycler_view12);
+        View view2 = messageActivity.findViewById(R.id.text_send);
         assertNotNull(view);
-    }
-
-    @Test
-    public void testLaunchEditText_Send(){
-        View view = messageActivity.findViewById(R.id.text_send);
-        assertNotNull(view);
+        assertNotNull(view2);
     }
 
     @Test
