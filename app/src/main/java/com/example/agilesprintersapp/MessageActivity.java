@@ -67,7 +67,7 @@ public class MessageActivity extends AppCompatActivity {
     ValueEventListener seenListener;
 
     private ImageButton btn_attach_pic;
-    private String checker = "";
+    private String checker = "image";
     private String myUrl = "";
     private StorageTask uploadTask;
     private Uri fileUri;
@@ -80,8 +80,10 @@ public class MessageActivity extends AppCompatActivity {
     //store image uris in array list
     public ArrayList<Uri> imageUris;
     public ArrayList<String> stringUris;
-
     private ArrayList<String> captions;
+
+    StorageReference filePath;
+
 
     boolean toastMade = true;
 
@@ -234,7 +236,9 @@ public class MessageActivity extends AppCompatActivity {
                         for (int i = 0; i < count; i++){
                             fileUri = data.getClipData().getItemAt(i).getUri();
                             imageUris.add(fileUri);
-                            stringUris.add(fileUri.toString());
+                            if(stringUris != null) {
+                                stringUris.add(fileUri.toString());
+                            }
                         }
 
                         StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Image Files");
@@ -294,37 +298,42 @@ public class MessageActivity extends AppCompatActivity {
 
                         fileUri = data.getData();
                         imageUris.add(fileUri);
-                        stringUris.add(fileUri.toString());
+                        if(stringUris != null && fileUri != null) {
+                            stringUris.add(fileUri.toString());
+                        }
 
                         StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Image Files");
-                        DatabaseReference userMessageKeyRef = reference.child("messages")
-                                .child(messageSenderID).child(messageReceiverID).push();
-                        String messagePushID  = userMessageKeyRef.getKey();
-                        StorageReference filePath = storageReference.child(messagePushID + "." + "jpg");
-                        uploadTask = filePath.putFile(fileUri);
+                        if(messageSenderID != null && messageReceiverID != null) {
+                            DatabaseReference userMessageKeyRef = reference.child("messages")
+                                    .child(messageSenderID).child(messageReceiverID).push();
 
-                        uploadTask.continueWithTask(new Continuation() {
-                            @Override
-                            public Object then(@NonNull Task task) throws Exception {
-                                if (!task.isSuccessful()){
-                                    throw task.getException();
+                            String messagePushID = userMessageKeyRef.getKey();
+                            filePath = storageReference.child(messagePushID + "." + "jpg");
+                            uploadTask = filePath.putFile(fileUri);
+                        }
+                        if (uploadTask != null) {
+                            uploadTask.continueWithTask(new Continuation() {
+                                @Override
+                                public Object then(@NonNull Task task) throws Exception {
+                                    if (!task.isSuccessful()) {
+                                        throw task.getException();
+                                    }
+                                    return filePath.getDownloadUrl();
                                 }
-                                return filePath.getDownloadUrl();
-                            }
-                        }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Uri> task) {
-                                if(task.isSuccessful()){
-                                    Uri downloadUrl = task.getResult();
-                                    myUrl =  downloadUrl.toString();
-                                    //Uri a = fileUri;
+                            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Uri> task) {
+                                    if (task.isSuccessful()) {
+                                        Uri downloadUrl = task.getResult();
+                                        myUrl = downloadUrl.toString();
+                                        //Uri a = fileUri;
 
-                                    Intent i = new Intent(MessageActivity.this, Multiple_Image_Preview.class);
+                                        Intent i = new Intent(MessageActivity.this, Multiple_Image_Preview.class);
 
-                                    Bundle args = new Bundle();
+                                        Bundle args = new Bundle();
 
-                                    args.putSerializable("IMAGES",(Serializable)imageUris);
-                                    args.putSerializable("STRING_IMAGES",(Serializable)stringUris);
+                                        args.putSerializable("IMAGES", (Serializable) imageUris);
+                                        args.putSerializable("STRING_IMAGES", (Serializable) stringUris);
 
 //                                    args.putSerializable("sender", fuser.getUid());
 //                                    args.putSerializable("receiver", userid);
@@ -335,23 +344,24 @@ public class MessageActivity extends AppCompatActivity {
 //                                    args.putSerializable("images_strings", stringUris);
 //                                    i.putExtra("BUNDLE", args);
 
-                                    i.putExtra("sender", fuser.getUid());
-                                    i.putExtra("receiver", userid);
-                                    i.putExtra("message", myUrl);
-                                    i.putExtra("checker", checker);
-                                    i.putExtra("time", time);
-                                    i.putExtra("images", imageUris);
-                                    i.putExtra("images_strings", stringUris);
-                                    //i.putExtra("imagePath", a);
-                                    i.putExtra("BUNDLE", args);
+                                        i.putExtra("sender", fuser.getUid());
+                                        i.putExtra("receiver", userid);
+                                        i.putExtra("message", myUrl);
+                                        i.putExtra("checker", checker);
+                                        i.putExtra("time", time);
+                                        i.putExtra("images", imageUris);
+                                        i.putExtra("images_strings", stringUris);
+                                        //i.putExtra("imagePath", a);
+                                        i.putExtra("BUNDLE", args);
 
-                                    startActivity(i);
+                                        startActivity(i);
 
+                                    }
+                                    //sendMessage(fuser.getUid(), userid, myUrl, checker, time);
+                                    imageUris.clear();
                                 }
-                                //sendMessage(fuser.getUid(), userid, myUrl, checker, time);
-                                imageUris.clear();
-                            }
-                        });
+                            });
+                        }
                     }
                 }
                 /*else{

@@ -6,8 +6,10 @@ import androidx.test.rule.ActivityTestRule;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
@@ -15,6 +17,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class MessageActivityTest{
 
     @Rule
@@ -56,7 +59,7 @@ public class MessageActivityTest{
     }
 
     @Test
-    public void testAttachImage(){
+    public void testZAttachImage(){
         onView(withId(R.id.btn_attach_pic)).perform(click());
     }
 
@@ -67,7 +70,8 @@ public class MessageActivityTest{
 
     @Test
     public void testOnActivityResult() {
-        messageActivity.onActivityResult(1,1,null);
+        Intent data = new Intent();
+        messageActivity.onActivityResult(0,-1,data);
     }
 
     @After
