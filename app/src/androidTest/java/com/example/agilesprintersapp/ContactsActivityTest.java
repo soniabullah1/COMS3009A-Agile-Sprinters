@@ -10,6 +10,9 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.assertNotNull;
 
 public class ContactsActivityTest {
@@ -28,6 +31,7 @@ public class ContactsActivityTest {
     public void testNavBarChat(){
         View view = contactsActivity.findViewById(R.id.chats);
         assertNotNull(view);
+
         contactsActivity.finish();
     }
     @Test
@@ -44,12 +48,14 @@ public class ContactsActivityTest {
         View view1 = contactsActivity.findViewById(R.id.settings);
         assertNotNull(view1);
     }
-//    @Test
-//    public void testNavBarSettings(){
-//        View view = contactsActivity.findViewById(R.id.settings);
-//        assertNotNull(view);
-//        contactsActivity.finish();
-//    }
+    @Test
+    public void Z_testNavBarCLicks(){
+        onView(withId(R.id.chats)).perform(click());
+        onView(withId(R.id.contacts)).perform(click());
+        onView(withId(R.id.camera)).perform(click());
+        onView(withId(R.id.settings)).perform(click());
+        contactsActivity.finish();
+    }
 
     @Test
     public void testRequestPermission(){
