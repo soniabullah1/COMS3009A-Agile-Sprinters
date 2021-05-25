@@ -18,6 +18,9 @@ import org.junit.Test;
 
 import java.util.Map;
 
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -93,6 +96,15 @@ public class HomeActivityTest {
         assertNotNull(view2);
         assertNotNull(view3);
 
+        homeActivity.finish();
+    }
+
+    @Test
+    public void Z_testNavBarCLicks(){
+        onView(withId(R.id.chats)).perform(click());
+        onView(withId(R.id.contacts)).perform(click());
+        onView(withId(R.id.camera)).perform(click());
+        onView(withId(R.id.settings)).perform(click());
         homeActivity.finish();
     }
 
