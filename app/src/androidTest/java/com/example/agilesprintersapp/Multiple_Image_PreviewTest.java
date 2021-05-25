@@ -12,9 +12,8 @@ import org.junit.Test;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 public class Multiple_Image_PreviewTest {
     @Rule
@@ -48,8 +47,8 @@ public class Multiple_Image_PreviewTest {
 
     @Test
     public void testPreviousButton(){
-        //onView(withId(R.id.PreviousBtn)).perform(click(), closeSoftKeyboard());
-        onView(withId(R.id.Nextbtn)).perform(click(), closeSoftKeyboard());
+        onView(withId(R.id.PreviousBtn)).perform(click());
+        //onView(withId(R.id.Nextbtn)).perform(click());
         mipActivity.finish();
     }
 

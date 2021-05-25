@@ -11,9 +11,6 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
-import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 import static org.junit.Assert.assertNotNull;
 
@@ -38,15 +35,8 @@ public class SettingsActivityTest {
         settingsActivity.finish();
     }
 
-    @Test
-    public void Z_testNavBarCLicks(){
-        onView(withId(R.id.logout)).perform(click());
-
-        settingsActivity.finish();
-    }
-
-
     @After
     public void tearDown() throws Exception {
+        settingsActivity = null;
     }
 }
