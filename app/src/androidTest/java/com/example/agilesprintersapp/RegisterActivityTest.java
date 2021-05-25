@@ -145,71 +145,29 @@ public class RegisterActivityTest {
     }
 
     @Test
-    public void testLaunchEditTextFirstName(){
+    public void testLaunchItems(){
         View view = registerActivity.findViewById(R.id.FName);
-        assertNotNull(view);
-        registerActivity.finish();
-    }
+        View view1 = registerActivity.findViewById(R.id.LName);
+        View view2 = registerActivity.findViewById(R.id.editTextUsername);
+        View view3 = registerActivity.findViewById(R.id.editTextEmailAddress);
+        View view4 = registerActivity.findViewById(R.id.editTextPhone);
+        View view5 = registerActivity.findViewById(R.id.editTextTextPassword2);
+        View view6 = registerActivity.findViewById(R.id.editTextTextPassword3);
+        View view7 = registerActivity.findViewById(R.id.checkBoxPwd);
+        View view8 = registerActivity.findViewById(R.id.button2);
+        View view9 = registerActivity.findViewById(R.id.button4);
 
-    @Test
-    public void testLaunchEditTextLastName(){
-        View view = registerActivity.findViewById(R.id.LName);
         assertNotNull(view);
-        registerActivity.finish();
-    }
+        assertNotNull(view1);
+        assertNotNull(view2);
+        assertNotNull(view3);
+        assertNotNull(view4);
+        assertNotNull(view5);
+        assertNotNull(view6);
+        assertNotNull(view7);
+        assertNotNull(view8);
+        assertNotNull(view9);
 
-    @Test
-    public void testLaunchEditTextUsername(){
-        View view = registerActivity.findViewById(R.id.editTextUsername);
-        assertNotNull(view);
-    }
-
-    @Test
-    public void testLaunchEditTextEmailAddress(){
-        View view = registerActivity.findViewById(R.id.editTextEmailAddress);
-        assertNotNull(view);
-        registerActivity.finish();
-    }
-
-    @Test
-    public void testLaunchEditTextPhone(){
-        View view = registerActivity.findViewById(R.id.editTextPhone);
-        assertNotNull(view);
-        registerActivity.finish();
-    }
-
-    @Test
-    public void testLaunchEditTextTextPassword2(){
-        View view = registerActivity.findViewById(R.id.editTextTextPassword2);
-        assertNotNull(view);
-        registerActivity.finish();
-    }
-
-    @Test
-    public void testLaunchEditTextTextPassword3(){
-        View view = registerActivity.findViewById(R.id.editTextTextPassword3);
-        assertNotNull(view);
-        registerActivity.finish();
-    }
-
-    @Test
-    public void testLaunchCheckBoxPwd(){
-        View view = registerActivity.findViewById(R.id.checkBoxPwd);
-        assertNotNull(view);
-        registerActivity.finish();
-    }
-
-    @Test
-    public void testLaunchButton2(){
-        View view = registerActivity.findViewById(R.id.button2);
-        assertNotNull(view);
-        registerActivity.finish();
-    }
-
-    @Test
-    public void testLaunchButton4(){
-        View view = registerActivity.findViewById(R.id.button4);
-        assertNotNull(view);
         registerActivity.finish();
     }
 
@@ -252,7 +210,6 @@ public class RegisterActivityTest {
 
         registerActivity.finish();
     }
-
 
     @After
     public void tearDown() throws Exception {

@@ -21,10 +21,48 @@ public class MainActivityTest {
     private MainActivity mainActivity = null;
 
     UserInfo userInfo = new UserInfo("01","imageurl","unit","test", "unittest","unittest@gmail", "12345");
+
+    @Before
+    public void setUp() throws Exception {
+        mainActivity = mainActivityTestRule.getActivity();
+    }
+
     @Test
-    public void getId() {
+    public void testLaunch(){
+        View view = mainActivity.findViewById(R.id.imageView56);
+        assertNotNull(view);
+        mainActivity.finish();
+    }
+
+    @Test
+    public void testGetters() {
         String expected = "01";
         assertEquals(expected,userInfo.getId());
+
+        String expected1 = "imageurl";
+        assertEquals(expected1, userInfo.getImageURL());
+
+        String expected2 = "unit";
+        assertEquals(expected2, userInfo.getFirstName());
+
+        String expected3 = "test";
+        assertEquals(expected3, userInfo.getLastName());
+
+        String expected4 = "unittest";
+        assertEquals(expected4, userInfo.getUsername());
+
+        String expected5 = "unittest@gmail";
+        assertEquals(expected5, userInfo.getEmail());
+
+        String expected6 = "12345";
+        assertEquals(expected6, userInfo.getPhoneNumber());
+
+        String expected7 = null;
+        assertEquals(expected7, userInfo.getPassword());
+
+        String expected8 = null;
+        assertEquals(expected8, userInfo.getConfirmPassword());
+
         mainActivity.finish();
     }
 
@@ -37,24 +75,10 @@ public class MainActivityTest {
     }
 
     @Test
-    public void getImageURL() {
-        String expected = "imageurl";
-        assertEquals(expected, userInfo.getImageURL());
-        mainActivity.finish();
-    }
-
-    @Test
     public void setImageURL() {
         userInfo.setImageURL("image");
         String expected = "image";
         assertEquals(expected, userInfo.getImageURL());
-        mainActivity.finish();
-    }
-
-    @Test
-    public void getFirstName() {
-        String expected = "unit";
-        assertEquals(expected, userInfo.getFirstName());
         mainActivity.finish();
     }
 
@@ -67,24 +91,10 @@ public class MainActivityTest {
     }
 
     @Test
-    public void getLastName() {
-        String expected = "test";
-        assertEquals(expected, userInfo.getLastName());
-        mainActivity.finish();
-    }
-
-    @Test
     public void setLastName() {
         userInfo.setLastName("TNT");
         String expected = "TNT";
         assertEquals(expected, userInfo.getLastName());
-        mainActivity.finish();
-    }
-
-    @Test
-    public void getUsername() {
-        String expected = "unittest";
-        assertEquals(expected, userInfo.getUsername());
         mainActivity.finish();
     }
 
@@ -97,24 +107,10 @@ public class MainActivityTest {
     }
 
     @Test
-    public void getEmail() {
-        String expected = "unittest@gmail";
-        assertEquals(expected, userInfo.getEmail());
-        mainActivity.finish();
-    }
-
-    @Test
     public void setEmail() {
         userInfo.setEmail("gmail");
         String expected = "gmail";
         assertEquals(expected, userInfo.getEmail());
-        mainActivity.finish();
-    }
-
-    @Test
-    public void getPhoneNumber() {
-        String expected = "12345";
-        assertEquals(expected, userInfo.getPhoneNumber());
         mainActivity.finish();
     }
 
@@ -127,13 +123,6 @@ public class MainActivityTest {
     }
 
     @Test
-    public void getPassword() {
-        String expected = null;
-        assertEquals(expected, userInfo.getPassword());
-        mainActivity.finish();
-    }
-
-    @Test
     public void setPassword() {
         userInfo.setPassword("123456");
         String expected = "123456";
@@ -142,31 +131,10 @@ public class MainActivityTest {
     }
 
     @Test
-    public void getConfirmPassword() {
-        String expected = null;
-        assertEquals(expected, userInfo.getConfirmPassword());
-        mainActivity.finish();
-    }
-
-    @Test
     public void setConfirmPassword() {
         userInfo.setPassword("123456");
         String expected = null;
         assertEquals(expected, userInfo.getConfirmPassword());
-        mainActivity.finish();
-    }
-
-
-    @Before
-    public void setUp() throws Exception {
-        mainActivity = mainActivityTestRule.getActivity();
-
-    }
-
-    @Test
-    public void testLaunch(){
-        View view = mainActivity.findViewById(R.id.imageView56);
-        assertNotNull(view);
         mainActivity.finish();
     }
 

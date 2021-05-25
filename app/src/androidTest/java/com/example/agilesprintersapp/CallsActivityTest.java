@@ -25,27 +25,17 @@ public class CallsActivityTest {
         callsActivity.sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
     }
     @Test
-    public void testNavBarChat(){
+    public void testNavBarItems(){
         View view = callsActivity.findViewById(R.id.chats);
+        View view1 = callsActivity.findViewById(R.id.contacts);
+        View view2 = callsActivity.findViewById(R.id.camera);
+        View view3 = callsActivity.findViewById(R.id.settings);
+
         assertNotNull(view);
-        callsActivity.finish();
-    }
-    @Test
-    public void testNavBarContacts(){
-        View view = callsActivity.findViewById(R.id.contacts);
-        assertNotNull(view);
-        callsActivity.finish();
-    }
-    @Test
-    public void testNavBarCamera(){
-        View view = callsActivity.findViewById(R.id.camera);
-        assertNotNull(view);
-        callsActivity.finish();
-    }
-    @Test
-    public void testNavBarSettings(){
-        View view = callsActivity.findViewById(R.id.settings);
-        assertNotNull(view);
+        assertNotNull(view1);
+        assertNotNull(view2);
+        assertNotNull(view3);
+
         callsActivity.finish();
     }
 

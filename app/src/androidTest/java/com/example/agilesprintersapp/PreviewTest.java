@@ -59,7 +59,6 @@ public class PreviewTest {
         preview.finish();
     }
 
-
     @After
     public void tearDown() throws Exception {
         preview = null;

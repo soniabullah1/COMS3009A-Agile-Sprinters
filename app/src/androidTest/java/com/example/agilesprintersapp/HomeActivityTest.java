@@ -16,7 +16,6 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
@@ -45,10 +44,7 @@ public class HomeActivityTest {
         mBottomNavigation = (BottomNavigationView) homeActivity.findViewById(R.id.bottomNav);
 
         final Resources res = homeActivity.getResources();
-        mMenuStringContent = new HashMap<>(MENU_CONTENT_ITEM_IDS.length);
-        //mMenuStringContent.put(R.id.chats, res.getString(R.string.Contacts));
-        //mMenuStringContent.put(R.id.contacts, res.getString(R.string.));
-        //mMenuStringContent.put(R.id.settings, res.getString(R.string.navigate_settings));
+
     }
 
     @UiThreadTest
@@ -78,7 +74,6 @@ public class HomeActivityTest {
     @Test
     public void testNavBarItemChecking() throws Throwable {
         final Menu menu = mBottomNavigation.getMenu();
-        //assertTrue(menu.getItem(0).isChecked());
         checkAndVerifyExclusiveItem(menu, R.id.chats);
         checkAndVerifyExclusiveItem(menu, R.id.contacts);
         checkAndVerifyExclusiveItem(menu, R.id.settings);
@@ -87,31 +82,20 @@ public class HomeActivityTest {
     }
 
     @Test
-    public void testNavBarChat(){
-        View view = homeActivity.findViewById(R.id.chats);
+    public void testNavBarItems(){
+        View view = homeActivity.findViewById(R.id.camera);
+        View view1 = homeActivity.findViewById(R.id.settings);
+        View view2 = homeActivity.findViewById(R.id.contacts);
+        View view3 = homeActivity.findViewById(R.id.chats);
+
         assertNotNull(view);
+        assertNotNull(view1);
+        assertNotNull(view2);
+        assertNotNull(view3);
+
         homeActivity.finish();
     }
 
-    @Test
-    public void testNavBarContacts(){
-        View view = homeActivity.findViewById(R.id.contacts);
-        assertNotNull(view);
-    }
-
-    @Test
-    public void testNavBarSettings(){
-        View view = homeActivity.findViewById(R.id.settings);
-        assertNotNull(view);
-        homeActivity.finish();
-    }
-
-    @Test
-    public void testNavBarCalls(){
-        View view = homeActivity.findViewById(R.id.calls);
-        assertNotNull(view);
-        homeActivity.finish();
-    }
 
     @After
     public void tearDown() throws Exception {

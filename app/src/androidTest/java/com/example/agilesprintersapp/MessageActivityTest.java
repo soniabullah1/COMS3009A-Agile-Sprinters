@@ -35,8 +35,10 @@ public class MessageActivityTest{
     public void testLaunch(){
         View view = messageActivity.findViewById(R.id.recycler_view12);
         View view2 = messageActivity.findViewById(R.id.text_send);
+
         assertNotNull(view);
         assertNotNull(view2);
+
         messageActivity.finish();
     }
 
@@ -69,15 +71,11 @@ public class MessageActivityTest{
         //messageActivity.pickImagesIntent();
     }
 
-//    @Test
-//    public void testPickImagesIntent(){
-//
-//    }
-
     @Test
     public void testOnActivityResult() {
         Intent data = new Intent();
         messageActivity.onActivityResult(0,-1,data);
+
         messageActivity.finish();
     }
 

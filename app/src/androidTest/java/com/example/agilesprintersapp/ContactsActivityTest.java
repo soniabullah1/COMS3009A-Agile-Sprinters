@@ -24,29 +24,21 @@ public class ContactsActivityTest {
     public void setUp() throws Exception {
         contactsActivity = contactsActivityTestRule.getActivity();
         contactsActivity.sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
-
     }
 
     @Test
-    public void testNavBarChat(){
-        View view = contactsActivity.findViewById(R.id.chats);
-        assertNotNull(view);
-
-        contactsActivity.finish();
-    }
-    @Test
-    public void testNavBarContacts(){
-        View view = contactsActivity.findViewById(R.id.contacts);
-        assertNotNull(view);
-        contactsActivity.finish();
-    }
-    @Test
-    public void testNavBarCamera(){
+    public void testNavBarItems(){
         View view = contactsActivity.findViewById(R.id.camera);
-        assertNotNull(view);
-        contactsActivity.finish();
         View view1 = contactsActivity.findViewById(R.id.settings);
+        View view2 = contactsActivity.findViewById(R.id.contacts);
+        View view3 = contactsActivity.findViewById(R.id.chats);
+
+        assertNotNull(view);
         assertNotNull(view1);
+        assertNotNull(view2);
+        assertNotNull(view3);
+
+        contactsActivity.finish();
     }
     @Test
     public void Z_testNavBarCLicks(){

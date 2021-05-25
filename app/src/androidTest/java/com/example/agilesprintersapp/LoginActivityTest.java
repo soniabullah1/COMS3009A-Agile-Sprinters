@@ -26,11 +26,9 @@ public class LoginActivityTest {
     public ActivityTestRule<LoginActivity> loginActivityTestRule = new ActivityTestRule<>(LoginActivity.class);
     private LoginActivity loginActivity = null;
 
-
     Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(LandingActivity.class.getName(),null ,false);
     Instrumentation.ActivityMonitor monitor2 = getInstrumentation().addMonitor(HomeActivity.class.getName(),null ,false);
 
-    //String a = loginActivity.email.getText().toString();
     public static final String STRING_TO_BE_TYPED_EMAIL = "rushilpatel0703@gmail.com";
     public static final String STRING_TO_BE_TYPED_PASSWORD = "cakeface42";
 
@@ -41,16 +39,12 @@ public class LoginActivityTest {
     }
 
     @Test
-    public void testLaunchEditTextEmail(){
+    public void testLaunchItems(){
         View view = loginActivity.findViewById(R.id.email);
+        View view1 = loginActivity.findViewById(R.id.password);
         assertNotNull(view);
-        loginActivity.finish();
-    }
+        assertNotNull(view1);
 
-    @Test
-    public void testLaunchEditTextPassword(){
-        View view = loginActivity.findViewById(R.id.password);
-        assertNotNull(view);
         loginActivity.finish();
     }
 
@@ -87,7 +81,6 @@ public class LoginActivityTest {
 
 
     }
-
 
     @After
     public void tearDown() throws Exception {
