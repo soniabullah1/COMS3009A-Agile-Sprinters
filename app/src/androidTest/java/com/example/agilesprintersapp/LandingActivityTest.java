@@ -44,22 +44,35 @@ public class LandingActivityTest {
 
     @Test
     public void testButtonClickRegister(){
-        onView(withId(R.id.tRegister)).perform(click(),closeSoftKeyboard());
+        try {
+            Thread.sleep(4000);
+            onView(withId(R.id.tRegister)).perform(click(),closeSoftKeyboard());
 
-        Activity registerActivity = getInstrumentation().waitForMonitorWithTimeout(monitor1,50000);
-        assertNotNull(registerActivity);
+            Activity registerActivity = getInstrumentation().waitForMonitorWithTimeout(monitor1,50000);
+            assertNotNull(registerActivity);
 
-        registerActivity.finish();
+            registerActivity.finish();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         landingActivity.finish();
     }
 
     @Test
     public void testButtonClickSignIn(){
-        onView(withId((R.id.tSignIn))).perform(click(),closeSoftKeyboard());
-        Activity signInActivity = getInstrumentation().waitForMonitorWithTimeout(monitor2,50000);
-        assertNotNull(signInActivity);
+        try {
+            Thread.sleep(4000);
+            onView(withId((R.id.tSignIn))).perform(click(),closeSoftKeyboard());
+            Activity signInActivity = getInstrumentation().waitForMonitorWithTimeout(monitor2,50000);
+            assertNotNull(signInActivity);
+            signInActivity.finish();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-        signInActivity.finish();
+
+
         landingActivity.finish();
     }
 

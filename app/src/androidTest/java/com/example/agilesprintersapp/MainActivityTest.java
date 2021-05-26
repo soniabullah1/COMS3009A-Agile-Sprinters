@@ -95,6 +95,11 @@ public class MainActivityTest {
         userInfo.setLastName("TNT");
         String expected = "TNT";
         assertEquals(expected, userInfo.getLastName());
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         mainActivity.finish();
     }
 
@@ -111,14 +116,25 @@ public class MainActivityTest {
         userInfo.setEmail("gmail");
         String expected = "gmail";
         assertEquals(expected, userInfo.getEmail());
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         mainActivity.finish();
     }
 
     @Test
     public void setPhoneNumber() {
-        userInfo.setPhoneNumber("123456");
-        String expected = "123456";
-        assertEquals(expected, userInfo.getPhoneNumber());
+        try {
+            Thread.sleep(4500);
+            userInfo.setPhoneNumber("123456");
+            String expected = "123456";
+            assertEquals(expected, userInfo.getPhoneNumber());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         mainActivity.finish();
     }
 

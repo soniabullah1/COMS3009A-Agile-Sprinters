@@ -47,8 +47,14 @@ public class Multiple_Image_PreviewTest {
 
     @Test
     public void testPreviousButton(){
-        onView(withId(R.id.PreviousBtn)).perform(click());
-        //onView(withId(R.id.Nextbtn)).perform(click());
+        try {
+            Thread.sleep(4000);
+            onView(withId(R.id.Nextbtn)).perform(click());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //onView(withId(R.id.PreviousBtn)).perform(click());
+
         mipActivity.finish();
     }
 

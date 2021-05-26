@@ -42,6 +42,11 @@ public class ContactsActivityTest {
     }
     @Test
     public void Z_testNavBarCLicks(){
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         onView(withId(R.id.chats)).perform(click());
         onView(withId(R.id.contacts)).perform(click());
         onView(withId(R.id.camera)).perform(click());
