@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="300dp"
@@ -13,70 +14,65 @@
 
     <TextView
         android:id="@+id/time_tv"
-        android:layout_width="35dp"
-        android:layout_height="50dp"
+        android:layout_width="148dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/profile_image"
+        android:layout_alignTop="@id/profile_image"
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
-        android:text=""
-        android:textColor="@android:color/darker_gray"
-        android:textSize="10sp" />
-
-    <TextView
-        android:id="@+id/time_tv2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@id/message_image_view"
+        android:layout_toRightOf="@id/profile_image"
         android:text=""
         android:textColor="@android:color/darker_gray"
         android:textSize="12sp" />
 
-        <TextView
-            android:id="@+id/show_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_toRightOf="@+id/profile_image"
-            android:background="@drawable/background_left"
-            android:padding="8dp"
-            android:text="Hello"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
+    <TextView
+        android:id="@+id/show_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/profile_image"
+        android:background="@drawable/background_left"
+        android:padding="8dp"
+        android:text="Hello"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
 
-        <ImageView
-            android:id="@+id/message_image_view"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginLeft="2dp"
-            android:layout_toRightOf="@id/profile_image"
-            android:background="@drawable/background_left"
-            android:padding="8dp"
-            android:scaleType="centerCrop" />
+    <ImageView
+        android:id="@+id/message_image_view"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="2dp"
+        android:layout_toRightOf="@id/profile_image"
+        android:background="@drawable/background_left"
+        android:padding="8dp"
+        android:scaleType="centerCrop" />
 
-        <TextView
-            android:id="@+id/caption"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/message_image_view"
-            android:layout_alignBaseline="@id/message_image_view"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="-15dp"
-            android:layout_toRightOf="@id/profile_image"
-            android:background="@drawable/background_left"
-            android:padding="8dp"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
+    <TextView
+        android:id="@+id/caption"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/message_image_view"
+        android:layout_alignBaseline="@id/message_image_view"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="-15dp"
+        android:layout_toRightOf="@id/profile_image"
+        android:background="@drawable/background_left"
+        android:padding="8dp"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/txt_seen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/show_message"
-            android:visibility="gone" />
+    <TextView
+        android:id="@+id/txt_seen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/show_message"
+        android:visibility="gone" />
 
-    </RelativeLayout>
+</RelativeLayout>
+
+
