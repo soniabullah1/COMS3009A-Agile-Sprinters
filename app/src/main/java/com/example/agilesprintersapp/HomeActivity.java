@@ -21,7 +21,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.agilesprintersapp.Fragments.ChatsFragment;
 import com.example.agilesprintersapp.Fragments.ContactsFragment;
-import com.example.agilesprintersapp.Fragments.ProfileFragment;
+import com.example.agilesprintersapp.Fragments.StoryFragment;
+import com.example.agilesprintersapp.Fragments.StoryFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -118,7 +119,7 @@ public class HomeActivity extends AppCompatActivity {
 
         viewPagerAdapter.addFragment(new ChatsFragment(), "Chats");
         viewPagerAdapter.addFragment(new ContactsFragment(), "Contacts");
-        viewPagerAdapter.addFragment(new ProfileFragment(), "Profile");
+        viewPagerAdapter.addFragment(new StoryFragment(), "Story");
 
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);

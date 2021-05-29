@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="300dp"
     android:padding="8dp"
     android:layout_height="wrap_content">
 
-    <RelativeLayout
-        android:layout_width="314dp"
-        android:layout_height="179dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginLeft="3dp"
-        android:layout_marginEnd="89dp"
-        android:layout_marginRight="89dp">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@mipmap/ic_launcher" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@mipmap/ic_launcher" />
+    <TextView
+        android:id="@+id/time_tv"
+        android:layout_width="35dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/profile_image"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:text=""
+        android:textColor="@android:color/darker_gray"
+        android:textSize="10sp" />
 
-        <TextView
-            android:id="@+id/time_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignRight="@id/message_image_view"
-            android:layout_alignParentLeft="false"
-            android:layout_alignParentTop="false"
-            android:layout_alignParentBottom="false"
-            android:layout_centerInParent="true"
-            android:layout_centerVertical="false"
-            android:layout_toRightOf="@id/message_image_view"
-            android:text=""
-            android:textColor="@android:color/darker_gray"
-            android:textSize="12sp" />
+    <TextView
+        android:id="@+id/time_tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/message_image_view"
+        android:text=""
+        android:textColor="@android:color/darker_gray"
+        android:textSize="12sp" />
 
         <TextView
             android:id="@+id/show_message"
@@ -80,5 +80,3 @@
             android:visibility="gone" />
 
     </RelativeLayout>
-
-</RelativeLayout>

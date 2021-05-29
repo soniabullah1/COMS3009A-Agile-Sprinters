@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    tools:context=".Fragments.StoryFragment">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile"
+        android:layout_width="78dp"
+        android:layout_height="68dp"
+        android:layout_above="@id/stories"
+        android:layout_marginBottom="2dp"
+        android:padding="15dp"
+        android:src="@mipmap/ic_launcher"
+        android:text="My Story"
+        android:textColor="@color/Blue"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/myStory"
+        android:layout_width="223dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/stories"
+        android:layout_marginLeft="-1dp"
+        android:layout_marginBottom="26dp"
+        android:layout_toRightOf="@id/profile"
+        android:padding="15dp"
+        android:text="My Story"
+        android:textColor="@color/Blue"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/stories"
+        android:layout_width="373dp"
+        android:layout_height="352dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="173dp"
+        android:background="@color/white"
+        android:padding="20dp"
+        android:theme="@style/AppTheme" />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/stories"
+        android:layout_marginLeft="14dp"
+        android:layout_marginBottom="24dp"
+        android:layout_toRightOf="@id/profile" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/stories"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="-345dp"
+        android:layout_toRightOf="@id/myStory"
+        android:clickable="true"
+        android:src="@drawable/ic_picture" />
+
+</RelativeLayout>
+
