@@ -19,9 +19,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AgileSprintersApp">
 
-
-
-
         <activity android:name=".Preview">
         </activity>
         <activity android:name=".LandingActivity" />
@@ -37,10 +34,7 @@
             <category android:name="android.intent.category.LAUNCHER"/>
         </intent-filter>
         </activity>
-
-
-
-
+        
 
         <activity
             android:name=".RegisterActivity"

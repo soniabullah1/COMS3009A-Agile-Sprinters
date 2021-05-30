@@ -10,16 +10,16 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="560dp"
+        android:layout_height="570dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="0dp"
+        android:layout_marginBottom="-24dp"
         android:padding="0dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Your Profile"
             android:layout_centerHorizontal="true"
+            android:text="Your Profile"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -37,8 +37,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/edit_profile_image"
-            android:padding="10dp"
             android:layout_centerHorizontal="true"
+            android:padding="10dp"
             android:text="Username"
             android:textColor="@color/black"
             android:textSize="18dp"
@@ -54,7 +54,7 @@
             android:text="Edit Profile Image "
             android:textColor="@color/LightBlue"
             android:textSize="18dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/edit_username"
@@ -66,7 +66,7 @@
             android:text="Edit Username "
             android:textColor="@color/LightBlue"
             android:textSize="18dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
 
     </RelativeLayout>
