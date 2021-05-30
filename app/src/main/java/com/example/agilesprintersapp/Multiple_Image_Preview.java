@@ -1,19 +1,22 @@
 package com.example.agilesprintersapp;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewSwitcher;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.agilesprintersapp.Adapter.MessageAdapter;
 import com.example.agilesprintersapp.Model.Chat;
 import com.example.agilesprintersapp.Model.User;
@@ -23,7 +26,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
+import com.google.firebase.storage.StorageTask;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -37,6 +40,7 @@ public class Multiple_Image_Preview extends AppCompatActivity {
     private String time, message, msg;
     private String checker = "";
     private String sender, receiver;
+    TextView image_position;
 
     //private String checker = "";
     ValueEventListener seenListener;
@@ -49,9 +53,6 @@ public class Multiple_Image_Preview extends AppCompatActivity {
 
     private ArrayList<Uri> imageUris;
     private ArrayList<String> stringUris;
-    private ArrayList<String> captions;
-
-
 
     int position = 0;
 
@@ -67,18 +68,15 @@ public class Multiple_Image_Preview extends AppCompatActivity {
         btn_send = findViewById(R.id.button3);
         caption = findViewById(R.id.Caption);
         time = String.valueOf(System.currentTimeMillis());
+        image_position = findViewById(R.id.image_position);
 
         Intent intent = getIntent();
 
         Bundle args = intent.getBundleExtra("BUNDLE");
-        if(args != null) {
-            imageUris = (ArrayList<Uri>) args.getSerializable("IMAGES");
-            stringUris = (ArrayList<String>) args.getSerializable("STRING_IMAGES");
-            imageUris.size();
-            stringUris.size();
-        }
-
-        captions = new ArrayList<>();
+        imageUris = (ArrayList<Uri>)args.getSerializable("IMAGES");
+        stringUris = (ArrayList<String>)args.getSerializable("STRING_IMAGES");
+        imageUris.size();
+        stringUris.size();
 
         userid = intent.getStringExtra("userid");
         sender = intent.getStringExtra("sender");
@@ -90,28 +88,36 @@ public class Multiple_Image_Preview extends AppCompatActivity {
         imageSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
             @Override
             public View makeView() {
+
                 ImageView imageView = new ImageView(getApplicationContext());
-                //imageView.setImageURI(imageUris.get(0));
+
                 if(stringUris != null) {
                     Uri fileUri = Uri.parse(stringUris.get(0));
-                    imageView.setImageURI(fileUri);
+                    //imageView.setImageURI(fileUri);
+
+                    if(stringUris.size() == 1){
+                        imageView.setImageURI(fileUri);
+                        NextBtn.setVisibility(View.INVISIBLE);
+                        PreviousBtn.setVisibility(View.INVISIBLE);
+                    }
+                    else{
+                        imageView.setImageURI(fileUri);
+                        image_position.setText("Image 1 of " + imageUris.size());
+                    }
                 }
                 return imageView;
             }
         });
 
-//        userid = (String) args.getSerializable("userid");
-//        sender = (String) args.getSerializable("sender");
-//        receiver = (String) args.getSerializable("receiver");
-//        message = (String) args.getSerializable("message");
-//        checker = (String) args.getSerializable("checker");
-//        msg = (String) args.getSerializable("caption");
-
         PreviousBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                int positions = position;
+
                 if(position > 0){
                     position--;
+                    image_position.setText("Image " + positions + " of " + imageUris.size());
                     imageSwitcher.setImageURI(imageUris.get(position));
                 }
                 else{
@@ -124,13 +130,17 @@ public class Multiple_Image_Preview extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(imageUris != null) {
-                    if (position < imageUris.size() - 1) {
+
+                    int positions = position + 2;
+
+                    if (position < imageUris.size() -1) {
                         position++;
+                        image_position.setText("Image " + positions + " of " + imageUris.size());
                         imageSwitcher.setImageURI(imageUris.get(position));
                     }
-                }
-                else{
-                    Toast.makeText(Multiple_Image_Preview.this, "No More Images ...", Toast.LENGTH_SHORT).show();
+                    else{
+                        Toast.makeText(Multiple_Image_Preview.this, "No More Images ...", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -138,27 +148,23 @@ public class Multiple_Image_Preview extends AppCompatActivity {
         Exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                stringUris.clear();
+                imageUris.clear();
                 finish();
             }
         });
 
-        if(imageUris != null) {
-            imageUris.size();
-        }
-
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(imageUris != null) {
-                    int a = imageUris.size();
 
-                    String msg = caption.getText().toString().trim();
+                int a = imageUris.size();
 
-                    for(int i=0; i<a; i++){
-                        sendMessage(sender, receiver, imageUris.get(i).toString(), checker, time, msg);
-                        //sendMessage(sender, receiver, imageUris.get(i).toString(), checker, time, captions.get(i));
-                        //readMessages(sender, userid, );
-                    }
+                String msg = caption.getText().toString().trim();
+
+                for(int i = 0; i < a; i++){
+                    sendMessage(sender, receiver, imageUris.get(i).toString(), checker, time, msg);
+                    //readMessages(sender, userid, );
                 }
 
                 finish();
@@ -179,27 +185,26 @@ public class Multiple_Image_Preview extends AppCompatActivity {
         reference.child("Chat").push().setValue(hashMap);
     }
 
-    public void readMessages(String myid, String userid, String imageurl) {
+    private void readMessages(String myid, String userid, String imageurl) {
         mChat = new ArrayList<>();
         reference = FirebaseDatabase.getInstance().getReference("Chat");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 mChat.clear();
-                for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                for (DataSnapshot snapshot: dataSnapshot.getChildren())
+                {
                     Chat chat = snapshot.getValue(Chat.class);
-                    if (fuser != null) {
-                        String myid = fuser.getUid();
-
-                        String imageurl = "";
-                        if (myid.equals(chat.getReceiver()) && userid.equals(chat.getSender()) ||
-                                userid.equals(chat.getReceiver()) && myid.equals(chat.getSender())) {
-                            mChat.add(chat);
-                        }
-                        messageAdapter = new MessageAdapter(Multiple_Image_Preview.this, mChat, imageurl);
-                        RecyclerView recyclerView = findViewById(R.id.recycler_view12);
-                        recyclerView.setAdapter(messageAdapter);
+                    String myid=fuser.getUid();
+                    String imageurl = "";
+                    if(myid.equals(chat.getReceiver()) && userid.equals(chat.getSender())||
+                            userid.equals(chat.getReceiver()) && myid.equals(chat.getSender()))
+                    {
+                        mChat.add(chat);
                     }
+                    messageAdapter = new MessageAdapter(Multiple_Image_Preview.this, mChat, imageurl);
+                    RecyclerView recyclerView = findViewById(R.id.recycler_view12);
+                    recyclerView.setAdapter(messageAdapter);
                 }
             }
 
@@ -212,7 +217,7 @@ public class Multiple_Image_Preview extends AppCompatActivity {
     }
 
 
-    public void seenMessage(String userid) {
+    private void seenMessage(String userid) {
         reference = FirebaseDatabase.getInstance().getReference("Chat");
         seenListener = reference.addValueEventListener(new ValueEventListener() {
             @Override
