@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -36,16 +36,15 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNav"
-        android:layout_width="match_parent"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/Yellow"
-        app:itemIconTint="@color/Blue"
-        app:itemTextColor="@color/Blue"
-        app:menu="@menu/navigation">
+        android:id="@+id/Chat_Icon"
+        app:fabSize="normal"
+        android:layout_gravity="end|bottom"
+        android:backgroundTint="@color/Blue"
+        android:layout_margin="16dp"
+        app:elevation="6dp"
+        android:src="@drawable/chat_icon"/>
 
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

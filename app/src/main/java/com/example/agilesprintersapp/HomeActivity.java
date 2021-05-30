@@ -24,6 +24,7 @@ import com.example.agilesprintersapp.Fragments.ContactsFragment;
 import com.example.agilesprintersapp.Fragments.StoryFragment;
 import com.example.agilesprintersapp.Fragments.StoryFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -53,6 +54,16 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        FloatingActionButton Chat_Icon = findViewById(R.id.Chat_Icon);
+
+        Chat_Icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, ContactsList.class));
+                finish();
+            }
+        });
+
         profile_image = findViewById(R.id.profile_image);
         username = findViewById(R.id.username);
         // Test = findViewById(R.id.button) ;
@@ -68,7 +79,7 @@ public class HomeActivity extends AppCompatActivity {
 */
 
         //navigation bar
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
+       /* BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
 
         bottomNavigationView.setSelectedItemId(R.id.chats);
 
@@ -100,7 +111,7 @@ public class HomeActivity extends AppCompatActivity {
                 }
                 return false;
             }
-        });
+        });*/
 
 
         profile_image = findViewById(R.id.profile_image);
@@ -137,6 +148,14 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.logout:
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(HomeActivity.this, LandingActivity.class));
+                finish();
+                return true;
+            case R.id.edit_profile:
+                startActivity(new Intent(HomeActivity.this, Edit_Profile.class));
+                finish();
+                return true;
+            case R.id.contact_list:
+                startActivity(new Intent(HomeActivity.this, ContactsList.class));
                 finish();
                 return true;
         }
