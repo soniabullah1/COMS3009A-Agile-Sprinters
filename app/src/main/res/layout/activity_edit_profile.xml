@@ -9,87 +9,125 @@
 
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="560dp"
+        android:layout_width="728dp"
+        android:layout_height="586dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="0dp"
         android:padding="0dp">
 
         <TextView
-            android:id="@+id/edit_password"
+            android:id="@+id/yourprofile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Your Profile"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/yourprofile"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="77dp"
+            android:src="@mipmap/ic_launcher" />
+
+
+        <TextView
+            android:id="@+id/edit_profile_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/yourprofile"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:padding="10dp"
+            android:text="Edit Profile Image "
+            android:textColor="@color/LightBlue"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edit_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editdetails"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:background="?attr/colorButtonNormal"
+            android:ems="10"
+            android:hint="Edit Email Adress"
+            android:textColorHint="#FFFFFF" />
+
+        <EditText
+            android:id="@+id/edit_phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_email"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:background="?attr/colorButtonNormal"
+            android:ems="10"
+            android:hint="Edit phone number"
+            android:textColorHint="#FFFFFF" />
+
+        <EditText
+            android:id="@+id/edit_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_phone_number"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:background="?attr/colorButtonNormal"
+            android:ems="10"
+            android:hint="Edit username"
+            android:textColorHint="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_username"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:text="Save" />
+
+        <TextView
+            android:id="@+id/editdetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profile_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="56dp"
+            android:text="Edit your details"
+            android:textColor="@color/LightBlue"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/edit_password"
+            android:layout_width="wrap_content"
+            android:layout_height="57dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="125dp"
-            android:layout_marginLeft="125dp"
-            android:layout_marginTop="299dp"
-            android:layout_marginEnd="125dp"
-            android:layout_marginRight="125dp"
-            android:layout_marginBottom="217dp"
+            android:layout_marginStart="109dp"
+            android:layout_marginLeft="109dp"
+            android:layout_marginTop="211dp"
+            android:layout_marginEnd="98dp"
+            android:layout_marginRight="98dp"
+            android:layout_marginBottom="318dp"
             android:gravity="center_horizontal"
             android:padding="10dp"
             android:text="Edit Password"
             android:textColor="@color/LightBlue"
             android:textSize="18dp"
             android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Your Profile"
-            android:layout_centerHorizontal="true"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:src="@mipmap/ic_launcher" />
-
-        <TextView
-            android:id="@+id/username"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/edit_profile_image"
-            android:padding="10dp"
-            android:layout_centerHorizontal="true"
-            android:text="Username"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/edit_profile_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/profile_image"
-            android:layout_centerHorizontal="true"
-            android:padding="10dp"
-            android:text="Edit Profile Image "
-            android:textColor="@color/LightBlue"
-            android:textSize="18dp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/edit_username"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/username"
-            android:layout_centerHorizontal="true"
-            android:padding="10dp"
-            android:text="Edit Username "
-            android:textColor="@color/LightBlue"
-            android:textSize="18dp"
-            android:textStyle="bold"/>
 
 
     </RelativeLayout>

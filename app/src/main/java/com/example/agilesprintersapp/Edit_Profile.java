@@ -7,9 +7,13 @@ import android.net.Uri;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +28,7 @@ import com.example.agilesprintersapp.R;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -47,7 +52,6 @@ public class Edit_Profile extends AppCompatActivity {
     CircleImageView image_profile;
     TextView edit_profile_image;
     TextView edit_username;
-    TextView username;
     TextView edit_password;
 
     DatabaseReference reference;
@@ -60,16 +64,25 @@ public class Edit_Profile extends AppCompatActivity {
     private StorageTask uploadTask;
     //int RESULT_OK;
 
+    Button save_btn;
+
+    EditText username;
+    EditText email;
+    EditText contactNumber;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
 
         image_profile = findViewById(R.id.profile_image);
-        username = findViewById(R.id.username);
+        username = findViewById(R.id.edit_username);
         edit_profile_image = findViewById(R.id.edit_profile_image);
         edit_username = findViewById(R.id.edit_username);
         edit_password = findViewById(R.id.edit_password);
+        email = findViewById(R.id.edit_email);
+        contactNumber = findViewById(R.id.edit_phone_number);
+        save_btn = findViewById(R.id.btn_save);
 
 
         storageReference = FirebaseStorage.getInstance().getReference("uploads");
@@ -88,6 +101,8 @@ public class Edit_Profile extends AppCompatActivity {
 
                     User user = snapshot.getValue(User.class);
                     username.setText(user.getUsername());
+                    contactNumber.setText(user.getContactNumber());
+                    email.setText(user.getEmail());
 
                     if (user != null && user.getId() != null) {
                         if (user.getImageURL().equals("default")) {
@@ -122,14 +137,65 @@ public class Edit_Profile extends AppCompatActivity {
             }
         });
 
-//edit username
-        /*edit_username.setOnClickListener(new View.OnClickListener() {
+        save_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openImage();
+                if(username.getText().toString().isEmpty() || email.getText().toString().isEmpty() || contactNumber.getText().toString().isEmpty()){
+                    Toast.makeText(Edit_Profile.this, "one or many fields required", Toast.LENGTH_SHORT);
+                    return;
+                }
+
+                String profileemail = email.getText().toString();
+                fuser.updateEmail(profileemail).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+
+                        reference = FirebaseDatabase.getInstance().getReference("User").child(fuser.getUid());
+                        HashMap<String, Object> map = new HashMap<>();
+                        map.put("email", profileemail);
+                        map.put("contactNumber", contactNumber.getText().toString());
+                        map.put("username", username.getText().toString());
+                        reference.updateChildren(map);
+
+                        Toast.makeText(Edit_Profile.this, "your profile has been updated!", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(Edit_Profile.this, e.getMessage(), Toast.LENGTH_SHORT);
+                    }
+                });
             }
-        });*/
-       // return view;
+
+        });
+
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.logout:
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(Edit_Profile.this, LandingActivity.class));
+                finish();
+                return true;
+            case R.id.edit_profile:
+                startActivity(new Intent(Edit_Profile.this, Edit_Profile.class));
+                finish();
+                return true;
+            case R.id.contact_list:
+                startActivity(new Intent(Edit_Profile.this, ContactsList.class));
+                finish();
+                return true;
+        }
+        return false;
+
     }
     public void openImage() {
         Intent intent = new Intent();
