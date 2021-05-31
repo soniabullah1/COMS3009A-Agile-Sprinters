@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
+import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,6 +48,7 @@ public class Edit_Profile extends AppCompatActivity {
     TextView edit_profile_image;
     TextView edit_username;
     TextView username;
+    TextView edit_password;
 
     DatabaseReference reference;
     FirebaseUser fuser ;
@@ -67,6 +69,8 @@ public class Edit_Profile extends AppCompatActivity {
         username = findViewById(R.id.username);
         edit_profile_image = findViewById(R.id.edit_profile_image);
         edit_username = findViewById(R.id.edit_username);
+        edit_password = findViewById(R.id.edit_password);
+
 
         storageReference = FirebaseStorage.getInstance().getReference("uploads");
 
@@ -107,6 +111,17 @@ public class Edit_Profile extends AppCompatActivity {
                 openImage();
             }
         });
+
+        edit_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Edit_Profile.this, ChangePasswordActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
+
 //edit username
         /*edit_username.setOnClickListener(new View.OnClickListener() {
             @Override
