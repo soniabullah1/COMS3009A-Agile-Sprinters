@@ -75,44 +75,7 @@ public class HomeActivity extends AppCompatActivity {
                 overridePendingTransition(0,0);
 
             }
-        });
-*/
-
-        //navigation bar
-       /* BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
-
-        bottomNavigationView.setSelectedItemId(R.id.chats);
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.chats:
-                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.contacts:
-                        startActivity(new Intent(getApplicationContext(), ContactsActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.settings:
-                        startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    //case R.id.camera:
-                    //  startActivity(new Intent(getApplicationContext(), CameraActivity.class));
-                    //overridePendingTransition(0,0);
-                    //return true;
-                    case R.id.calls:
-                        startActivity(new Intent(getApplicationContext(), CallsActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-
-                }
-                return false;
-            }
         });*/
-
 
         profile_image = findViewById(R.id.profile_image);
         username  = findViewById(R.id.username);
@@ -129,7 +92,7 @@ public class HomeActivity extends AppCompatActivity {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         viewPagerAdapter.addFragment(new ChatsFragment(), "Chats");
-        viewPagerAdapter.addFragment(new ContactsFragment(), "Contacts");
+        //viewPagerAdapter.addFragment(new ContactsFragment(), "Contacts");
         viewPagerAdapter.addFragment(new StoryFragment(), "Story");
 
         viewPager.setAdapter(viewPagerAdapter);

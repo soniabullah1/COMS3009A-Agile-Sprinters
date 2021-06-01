@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.agilesprintersapp.ContactsList;
+import com.example.agilesprintersapp.HomeActivity;
 import com.example.agilesprintersapp.MessageActivity;
 
 import androidx.annotation.NonNull;
@@ -64,6 +66,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
             @Override
             public void onClick(View view){
                 Intent intent = new Intent(mContext, MessageActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 intent.putExtra("userid", user.getId());
                 mContext.startActivity(intent);
             }

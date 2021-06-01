@@ -56,10 +56,12 @@
             android:layout_below="@id/editdetails"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="35dp"
-            android:background="?attr/colorButtonNormal"
+            android:background="@color/LightBlue"
             android:ems="10"
-            android:hint="Edit Email Adress"
-            android:textColorHint="#FFFFFF" />
+            android:hint="Edit Email Address"
+            android:textAlignment="center"
+            android:textColorHint="@color/Blue"
+            android:gravity="center_horizontal" />
 
         <EditText
             android:id="@+id/edit_phone_number"
@@ -68,10 +70,12 @@
             android:layout_below="@id/edit_email"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="35dp"
-            android:background="?attr/colorButtonNormal"
+            android:background="@color/LightBlue"
             android:ems="10"
             android:hint="Edit phone number"
-            android:textColorHint="#FFFFFF" />
+            android:textAlignment="center"
+            android:textColorHint="@color/Blue"
+            android:gravity="center_horizontal"  />
 
         <EditText
             android:id="@+id/edit_username"
@@ -80,10 +84,12 @@
             android:layout_below="@id/edit_phone_number"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="35dp"
-            android:background="?attr/colorButtonNormal"
+            android:background="@color/LightBlue"
             android:ems="10"
             android:hint="Edit username"
-            android:textColorHint="#FFFFFF" />
+            android:textAlignment="center"
+            android:textColorHint="@color/Blue"
+            android:gravity="center_horizontal" />
 
         <Button
             android:id="@+id/btn_save"
@@ -92,6 +98,7 @@
             android:layout_below="@+id/edit_username"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
+            android:textColor="@color/Blue"
             android:text="Save" />
 
         <TextView

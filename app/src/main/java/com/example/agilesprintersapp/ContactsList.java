@@ -7,137 +7,148 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.agilesprintersapp.Adapter.UserAdapter;
+import com.example.agilesprintersapp.Model.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ContactsList extends AppCompatActivity {
 
-    public static final int REQUEST_READ_CONTACTS = 79;
-    ListView list;
-    ArrayList mobileArray;
+    private RecyclerView recyclerView;
+    private UserAdapter userAdapter;
+    private List<User> mUsers;
+
+    EditText search_users;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts_list);
 
-        //BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
-
-        //bottomNavigationView.setSelectedItemId(R.id.contacts);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        /*bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        recyclerView = findViewById(R.id.recycler_view12);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+        mUsers = new ArrayList<>();
+
+        readUsers();
+
+        search_users = findViewById(R.id.search_users);
+        search_users.addTextChangedListener(new TextWatcher() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.chats:
-                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    case R.id.contacts:
-                        startActivity(new Intent(getApplicationContext(), ContactsActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    case R.id.settings:
-                        startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    //case R.id.camera:
-                    //  startActivity(new Intent(getApplicationContext(), CameraActivity.class));
-                    //overridePendingTransition(0,0);
-                    //return true;
-                    case R.id.calls:
-                        startActivity(new Intent(getApplicationContext(), CallsActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-                }
-                return false;
             }
-        });*/
 
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.READ_CONTACTS)
-                == PackageManager.PERMISSION_GRANTED) {
-            mobileArray = getAllContacts();
-        } else {
-            requestPermission();
-        }
-        list = findViewById(R.id.contactList);
-        ArrayAdapter adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, mobileArray);
-        list.setAdapter(adapter);
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                searchUsers(s.toString());
 
-    }
-
-    public void requestPermission() {
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.READ_CONTACTS)) {
-            // show UI part if you want here to show some rationale !!!
-        } else {
-            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.READ_CONTACTS},
-                    REQUEST_READ_CONTACTS);
-        }
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.READ_CONTACTS)) {
-        } else {
-            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.READ_CONTACTS},
-                    REQUEST_READ_CONTACTS);
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-        switch (requestCode) {
-            case REQUEST_READ_CONTACTS: {
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    mobileArray = getAllContacts();
-                } else {
-                    // permission denied,Disable the
-                    // functionality that depends on this permission.
-                }
-                return;
             }
-        }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
     }
 
-    public ArrayList getAllContacts() {
-        ArrayList<String> nameList = new ArrayList<>();
-        ContentResolver cr = getContentResolver();
-        Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI,
-                null, null, null, null);
-        if ((cur != null ? ((Cursor) cur).getCount() : 0) > 0) {
-            while (cur != null && cur.moveToNext()) {
-                String id = cur.getString(
-                        cur.getColumnIndex(ContactsContract.Contacts._ID));
-                String name = cur.getString(cur.getColumnIndex(
-                        ContactsContract.Contacts.DISPLAY_NAME));
-                nameList.add(name);
-                if (cur.getInt(cur.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER)) > 0) {
-                    Cursor pCur = cr.query(
-                            ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
-                            null,
-                            ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ?",
-                            new String[]{id}, null);
-                    while (pCur.moveToNext()) {
-                        String phoneNo = pCur.getString(pCur.getColumnIndex(
-                                ContactsContract.CommonDataKinds.Phone.NUMBER));
+    private void searchUsers(String toString) {
+
+        FirebaseUser fuser = FirebaseAuth.getInstance().getCurrentUser();
+        Query query = FirebaseDatabase.getInstance().getReference("User").orderByChild("username")
+                .startAt(toString)
+                .endAt(toString+"\uf8ff");
+
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+                mUsers.clear();
+                for(DataSnapshot snapshot: datasnapshot.getChildren()){
+                    User user = snapshot.getValue(User.class);
+
+                    assert user!= null;
+                    assert fuser!= null;
+                    if(!user.getId().equals(fuser.getUid())){
+                        mUsers.add(user);
                     }
-                    pCur.close();
                 }
+
+                userAdapter = new UserAdapter(getApplicationContext(), mUsers, false);
+                recyclerView.setAdapter(userAdapter);
             }
-        }
-        if (cur != null) {
-            cur.close();
-        }
-        return nameList;
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+    private void readUsers(){
+
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User");
+
+        reference .addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+                mUsers.clear();
+
+                for(DataSnapshot snapshot : datasnapshot.getChildren()){
+                    User user = snapshot.getValue(User.class);
+                    //String id = user.getId();
+
+                    if (firebaseUser != null) {
+
+                        if (user != null && user.getId() != null && !user.getId().equals(firebaseUser.getUid())){
+                            mUsers.add(user);
+                        }
+                    }
+                }
+
+                userAdapter = new UserAdapter(getApplicationContext(), mUsers, false);
+                recyclerView.setAdapter(userAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

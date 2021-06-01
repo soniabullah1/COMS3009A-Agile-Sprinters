@@ -33,7 +33,8 @@
         <activity
             android:name=".SettingsActivity"
             android:parentActivityName=".HomeActivity" />
-        <activity android:name=".ContactsActivity" />
+        <activity android:name=".ContactsActivity"
+            android:parentActivityName=".HomeActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

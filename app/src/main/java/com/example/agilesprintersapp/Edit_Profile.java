@@ -20,6 +20,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
@@ -75,6 +76,9 @@ public class Edit_Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
         image_profile = findViewById(R.id.profile_image);
         username = findViewById(R.id.edit_username);
         edit_profile_image = findViewById(R.id.edit_profile_image);
@@ -87,11 +91,10 @@ public class Edit_Profile extends AppCompatActivity {
 
         storageReference = FirebaseStorage.getInstance().getReference("uploads");
 
-
         fuser = FirebaseAuth.getInstance().getCurrentUser();
-        //reference = FirebaseDatabase.getInstance().getReference("User");
+        reference = FirebaseDatabase.getInstance().getReference("User").child(fuser.getUid());;
         if (fuser != null) {
-            reference = FirebaseDatabase.getInstance().getReference("User").child(fuser.getUid());
+            //reference = FirebaseDatabase.getInstance().getReference("User").child(fuser.getUid());
 
 
 
@@ -171,6 +174,7 @@ public class Edit_Profile extends AppCompatActivity {
 
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
