@@ -21,6 +21,15 @@ public class Chat {
         this.caption = caption;
     }
 
+    public Chat(String caption, String message, String sender, String receiver, String type){
+        this.caption = caption;
+        this.message = message;
+        this.sender = sender;
+        this.receiver = receiver;
+        this.type = type;
+
+    }
+
     public Chat() {
 
     }

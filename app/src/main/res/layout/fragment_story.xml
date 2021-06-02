@@ -8,68 +8,74 @@
     android:padding="8dp"
     tools:context=".Fragments.StoryFragment">
 
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:id="@+id/my_status_box"
+    android:clickable="true">
+
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile"
-        android:layout_width="78dp"
-        android:layout_height="68dp"
-        android:layout_above="@id/stories"
-        android:layout_marginBottom="2dp"
-        android:padding="15dp"
-        android:src="@mipmap/ic_launcher"
-        android:text="My Story"
-        android:textColor="@color/Blue"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/profile_image"
+        android:src="@mipmap/ic_launcher"/>
 
     <TextView
         android:id="@+id/myStory"
-        android:layout_width="223dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/stories"
         android:layout_marginLeft="-1dp"
-        android:layout_marginBottom="26dp"
-        android:layout_toRightOf="@id/profile"
-        android:padding="15dp"
-        android:text="My Story"
+        android:layout_marginBottom="2dp"
+        android:layout_toRightOf="@id/profile_image"
+        android:padding="5dp"
+        android:text="My Status"
         android:textColor="@color/Blue"
-        android:textSize="24sp"
+        android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:layout_below="@id/myStory"
+        android:layout_toRightOf="@id/profile_image"
+        android:text="Today, 2.31 PM"
+        android:textColor="@color/Blue"
+        android:id="@+id/storyTimeStamp"/>
+
+
+</RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/stories"
-        android:layout_width="373dp"
-        android:layout_height="352dp"
-        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/my_status_box"
         android:layout_marginTop="0dp"
-        android:layout_marginBottom="173dp"
+        android:layout_marginBottom="0dp"
         android:background="@color/white"
-        android:padding="20dp"
-        android:theme="@style/AppTheme" />
+        android:padding="10dp"
+         >
 
-    <TextView
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/stories"
-        android:layout_marginLeft="14dp"
-        android:layout_marginBottom="24dp"
-        android:layout_toRightOf="@id/profile" />
+    </androidx.recyclerview.widget.RecyclerView>
+
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/stories"
-        android:layout_marginTop="7dp"
-        android:layout_marginBottom="-345dp"
-        android:layout_toRightOf="@id/myStory"
+        android:layout_alignRight="@id/stories"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="1dp"
         android:clickable="true"
-        android:src="@drawable/ic_picture" />
+        android:src="@drawable/ic_picture"
+        android:layout_marginBottom="100dp"/>
+
 
 </RelativeLayout>
 

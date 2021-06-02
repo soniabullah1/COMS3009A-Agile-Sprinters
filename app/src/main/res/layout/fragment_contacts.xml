@@ -28,7 +28,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="-0dp"
         android:layout_marginBottom="1dp"
-        android:background="@color/white"
+        android:background="@color/text_color_tertiary"
         android:theme="@style/Theme.AgileSprintersApp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/search_users"

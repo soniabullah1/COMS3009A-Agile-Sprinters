@@ -26,8 +26,8 @@
         android:layout_height="560dp"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="0dp"
-        android:background="@color/white"
+        android:background="?android:attr/textColorTertiary"
         android:padding="20dp"
-        android:theme="@style/AppTheme" />
+        android:theme="@style/TextAppearance.Compat.Notification.Info.Media" />
 
 </RelativeLayout>

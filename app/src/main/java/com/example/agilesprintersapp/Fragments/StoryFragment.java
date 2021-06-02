@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,7 +17,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.agilesprintersapp.Adapter.StoryAdapter;
+import com.example.agilesprintersapp.Adapter.UserAdapter;
 import com.example.agilesprintersapp.MessageActivity;
+import com.example.agilesprintersapp.Model.Chat;
 import com.example.agilesprintersapp.Model.User;
 import com.example.agilesprintersapp.Multiple_Image_Preview;
 import com.example.agilesprintersapp.Preview;
@@ -36,14 +40,24 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 
+
+
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import xute.storyview.StoryModel;
+import xute.storyview.StoryView;
+
 
 public class StoryFragment extends Fragment {
 
     private RecyclerView recyclerView;
+    private StoryAdapter storyAdapter;
+    private List<User> mUsers;
+    private List<Chat> mChat;
+
     private TextView myStory;
     private TextView username;
     private FloatingActionButton floatingButton;
@@ -60,20 +74,20 @@ public class StoryFragment extends Fragment {
     //store image uris in array list
     public ArrayList<Uri> imageUris;
     public ArrayList<String> stringUris;
-    //public  ArrayList<StoryModel> storyList;
 
     private static final int PICK_IMAGES_CODE = 0;
 
     DatabaseReference reference;
-    FirebaseUser fuser ;
+    FirebaseUser fuser;
     StorageReference storageReference;
+    RelativeLayout myStatus;
 
-    //StoryView storyView;
 
     Intent intent;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle SavedInstanceState) {
+
 
         View view = inflater.inflate(R.layout.fragment_story, container, false);
 
@@ -81,19 +95,22 @@ public class StoryFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        floatingButton = view.findViewById(R.id.floatingActionButton);
-        profile = view.findViewById(R.id.profile);
-        username = view.findViewById(R.id.username);
+        mUsers = new ArrayList<>();
+        mChat = new ArrayList<>();
 
-        //storyView = view.findViewById(R.id.story_view);
-        //storyView.resetStoryVisits(); // used to reset story if user already watched the story
+        displayContactsStatus();
+
+        floatingButton = view.findViewById(R.id.floatingActionButton);
+        profile = view.findViewById(R.id.profile_image);
+        username = view.findViewById(R.id.username);
+        myStatus = view.findViewById(R.id.my_status_box);
+
 
         intent = getActivity().getIntent();
         userid = intent.getStringExtra("userid");
 
         imageUris = new ArrayList<>();
         stringUris = new ArrayList<>();
-        //storyList = new ArrayList<>();
 
         storageReference = FirebaseStorage.getInstance().getReference("uploads");
 
@@ -107,7 +124,7 @@ public class StoryFragment extends Fragment {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                     User user = snapshot.getValue(User.class);
-                    username.setText(user.getUsername());
+                    //username.setText(user.getUsername());
 
                     if (user != null && user.getId() != null) {
                         if (user.getImageURL().equals("default")) {
@@ -123,7 +140,8 @@ public class StoryFragment extends Fragment {
                 public void onCancelled(@NonNull DatabaseError error) {
 
                 }
-            });}
+            });
+        }
 
 
         floatingButton.setOnClickListener(new View.OnClickListener() {
@@ -141,7 +159,7 @@ public class StoryFragment extends Fragment {
             }
         });
 
-        if(fuser != null) {
+        if (fuser != null) {
             messageSenderID = fuser.getUid();
         }
         //messageReceiverID = userid;
@@ -149,7 +167,7 @@ public class StoryFragment extends Fragment {
         return view;
     }
 
-    private void pickImagesIntent(){
+    private void pickImagesIntent() {
         Intent intent = new Intent();
         intent.setType("image/*");
         // intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
@@ -161,16 +179,16 @@ public class StoryFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         //super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == PICK_IMAGES_CODE){
+        if (requestCode == PICK_IMAGES_CODE) {
 
-            if (resultCode == Activity.RESULT_OK){
+            if (resultCode == Activity.RESULT_OK) {
 
-                if(data.getClipData() != null){
+                if (data.getClipData() != null) {
 
                 }
 
                 // This is only for 1 image selected
-                else{
+                else {
 
                     fileUri = data.getData();
                     imageUris.add(fileUri);
@@ -179,14 +197,14 @@ public class StoryFragment extends Fragment {
                     StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Image Files");
                     DatabaseReference userMessageKeyRef = reference.child("stories")
                             .child(messageSenderID).push();
-                    String messagePushID  = userMessageKeyRef.getKey();
+                    String messagePushID = userMessageKeyRef.getKey();
                     StorageReference filePath = storageReference.child(messagePushID + "." + "jpg");
                     uploadTask = filePath.putFile(fileUri);
 
                     uploadTask.continueWithTask(new Continuation() {
                         @Override
                         public Object then(@NonNull Task task) throws Exception {
-                            if (!task.isSuccessful()){
+                            if (!task.isSuccessful()) {
                                 throw task.getException();
                             }
                             return filePath.getDownloadUrl();
@@ -194,9 +212,10 @@ public class StoryFragment extends Fragment {
                     }).addOnCompleteListener(new OnCompleteListener<Uri>() {
                         @Override
                         public void onComplete(@NonNull Task<Uri> task) {
-                            if(task.isSuccessful()){
+                            if (task.isSuccessful()) {
+                                time = String.valueOf(System.currentTimeMillis());
                                 Uri downloadUrl = task.getResult();
-                                myUrl =  downloadUrl.toString();
+                                myUrl = downloadUrl.toString();
                                 Uri a = fileUri;
 
                                 Intent i = new Intent(getActivity(), Preview.class);
@@ -228,4 +247,45 @@ public class StoryFragment extends Fragment {
             }
         }
     }
+
+
+    public void displayContactsStatus() {
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User");
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+                mUsers.clear();
+
+                for(DataSnapshot snapshot : datasnapshot.getChildren()){
+                    User user = snapshot.getValue(User.class);
+                    //String id = user.getId();
+
+                    if (firebaseUser != null) {
+
+                        if (user != null && user.getId() != null && !user.getId().equals(firebaseUser.getUid())){
+                            mUsers.add(user);
+                        }
+
+                        //                    assert user != null;
+                        //                    assert firebaseUser != null;
+                        //                    if (!user.getId().equals(firebaseUser.getUid())){
+                        //                        mUsers.add(user);
+                        //                    }
+                    }
+                }
+                storyAdapter = new StoryAdapter(getContext(), mUsers, false);
+                recyclerView.setAdapter(storyAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
 }
+
+
