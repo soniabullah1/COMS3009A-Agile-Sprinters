@@ -49,6 +49,16 @@
         android:layout_toRightOf="@id/profile_image"
         android:layout_toEndOf="@id/profile_image"/>
 
+    <TextView
+        android:id="@+id/last_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/username"
+        android:layout_alignLeft="@id/username"
+        android:layout_marginLeft="0dp"
+        android:maxLines="1"
+        android:paddingTop="5dp"
+        android:textColor="#989898" />
 
 
 
