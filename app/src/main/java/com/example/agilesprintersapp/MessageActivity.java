@@ -292,7 +292,9 @@ public class MessageActivity extends AppCompatActivity {
 
                                 }
                                 //sendMessage(fuser.getUid(), userid, myUrl, checker, time);
+
                                 imageUris.clear();
+                                stringUris.clear();
                             }
                         });
                     }
@@ -368,6 +370,7 @@ public class MessageActivity extends AppCompatActivity {
                                     }
                                     //sendMessage(fuser.getUid(), userid, myUrl, checker, time);
                                     imageUris.clear();
+                                    stringUris.clear();
                                 }
                             });
                         }
