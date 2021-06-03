@@ -10,9 +10,6 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
-import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.assertNotNull;
 
 
@@ -42,14 +39,14 @@ public class CallsActivityTest {
         callsActivity.finish();
     }
 
-    @Test
-    public void Z_testNavBarCLicks(){
-        onView(withId(R.id.chats)).perform(click());
-        onView(withId(R.id.contacts)).perform(click());
-        onView(withId(R.id.camera)).perform(click());
-        onView(withId(R.id.settings)).perform(click());
-        callsActivity.finish();
-    }
+//    @Test
+//    public void Z_testNavBarCLicks(){
+//        onView(withId(R.id.chats)).perform(click());
+//        //onView(withId(R.id.contacts)).perform(click());
+//        onView(withId(R.id.camera)).perform(click());
+//        onView(withId(R.id.settings)).perform(click());
+//        callsActivity.finish();
+//    }
 
     @After
     public void tearDown() throws Exception {

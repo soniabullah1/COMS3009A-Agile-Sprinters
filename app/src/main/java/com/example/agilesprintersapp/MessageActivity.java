@@ -408,29 +408,32 @@ public class MessageActivity extends AppCompatActivity {
         reference.child("Chat").push().setValue(hashMap);
 
         // add user to chat fragment
-        final DatabaseReference chatRef = FirebaseDatabase.getInstance().getReference("Chatlist")
-                .child(fuser.getUid())
-                .child(userid);
+        if (fuser != null && userid != null) {
+            final DatabaseReference chatRef = FirebaseDatabase.getInstance().getReference("Chatlist")
+                    .child(fuser.getUid())
+                    .child(userid);
 
-        chatRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (!dataSnapshot.exists()) {
-                    chatRef.child("id").setValue(userid);
+
+            chatRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (!dataSnapshot.exists()) {
+                        chatRef.child("id").setValue(userid);
+                    }
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
 
-        //This part adds to the receiver's chat list
-        final DatabaseReference chatRefReceiver = FirebaseDatabase.getInstance().getReference("Chatlist")
-                .child(userid)
-                .child(fuser.getUid());
-        chatRefReceiver.child("id").setValue(fuser.getUid());
+            //This part adds to the receiver's chat list
+            final DatabaseReference chatRefReceiver = FirebaseDatabase.getInstance().getReference("Chatlist")
+                    .child(userid)
+                    .child(fuser.getUid());
+            chatRefReceiver.child("id").setValue(fuser.getUid());
+        }
 
     }
 

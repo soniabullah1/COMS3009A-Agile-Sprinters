@@ -4,7 +4,7 @@ import android.view.View;
 
 import androidx.test.rule.ActivityTestRule;
 
-import com.example.agilesprintersapp.Model.UserInfo;
+import com.example.agilesprintersapp.Model.User;
 
 import org.junit.After;
 import org.junit.Before;
@@ -20,8 +20,7 @@ public class MainActivityTest {
     public ActivityTestRule<MainActivity> mainActivityTestRule = new ActivityTestRule<MainActivity>(MainActivity.class);
     private MainActivity mainActivity = null;
 
-    UserInfo userInfo = new UserInfo("01","imageurl","unit","test", "unittest","unittest@gmail", "12345");
-
+    User userInfo = new User("01","unittest","imageurl");
     @Before
     public void setUp() throws Exception {
         mainActivity = mainActivityTestRule.getActivity();
@@ -42,26 +41,11 @@ public class MainActivityTest {
         String expected1 = "imageurl";
         assertEquals(expected1, userInfo.getImageURL());
 
-        String expected2 = "unit";
-        assertEquals(expected2, userInfo.getFirstName());
-
-        String expected3 = "test";
-        assertEquals(expected3, userInfo.getLastName());
-
         String expected4 = "unittest";
         assertEquals(expected4, userInfo.getUsername());
 
-        String expected5 = "unittest@gmail";
+        String expected5 = null;
         assertEquals(expected5, userInfo.getEmail());
-
-        String expected6 = "12345";
-        assertEquals(expected6, userInfo.getPhoneNumber());
-
-        String expected7 = null;
-        assertEquals(expected7, userInfo.getPassword());
-
-        String expected8 = null;
-        assertEquals(expected8, userInfo.getConfirmPassword());
 
         mainActivity.finish();
     }
@@ -83,27 +67,6 @@ public class MainActivityTest {
     }
 
     @Test
-    public void setFirstName() {
-        userInfo.setFirstName("Junit");
-        String expected = "Junit";
-        assertEquals(expected, userInfo.getFirstName());
-        mainActivity.finish();
-    }
-
-    @Test
-    public void setLastName() {
-        userInfo.setLastName("TNT");
-        String expected = "TNT";
-        assertEquals(expected, userInfo.getLastName());
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        mainActivity.finish();
-    }
-
-    @Test
     public void setUsername() {
         userInfo.setUsername("bored");
         String expected = "bored";
@@ -121,36 +84,6 @@ public class MainActivityTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        mainActivity.finish();
-    }
-
-    @Test
-    public void setPhoneNumber() {
-        try {
-            Thread.sleep(4500);
-            userInfo.setPhoneNumber("123456");
-            String expected = "123456";
-            assertEquals(expected, userInfo.getPhoneNumber());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        mainActivity.finish();
-    }
-
-    @Test
-    public void setPassword() {
-        userInfo.setPassword("123456");
-        String expected = "123456";
-        assertEquals(expected, userInfo.getPassword());
-        mainActivity.finish();
-    }
-
-    @Test
-    public void setConfirmPassword() {
-        userInfo.setPassword("123456");
-        String expected = null;
-        assertEquals(expected, userInfo.getConfirmPassword());
         mainActivity.finish();
     }
 

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import androidx.test.annotation.UiThreadTest;
 import androidx.test.rule.ActivityTestRule;
@@ -18,12 +17,8 @@ import org.junit.Test;
 
 import java.util.Map;
 
-import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 
@@ -64,49 +59,49 @@ public class HomeActivityTest {
         homeActivity.finish();
     }
 
-    @Test
-    public void testNavBarBasics() {
-        // Check the contents of the Menu object
-        final Menu menu = mBottomNavigation.getMenu();
-        assertNotNull("Menu should not be null", menu);
-        assertEquals("Should have matching number of items", MENU_CONTENT_ITEM_IDS.length, menu.size());
-        homeActivity.finish();
-    }
-
-    @UiThreadTest
-    @Test
-    public void testNavBarItemChecking() throws Throwable {
-        final Menu menu = mBottomNavigation.getMenu();
-        checkAndVerifyExclusiveItem(menu, R.id.chats);
-        checkAndVerifyExclusiveItem(menu, R.id.contacts);
-        checkAndVerifyExclusiveItem(menu, R.id.settings);
-        checkAndVerifyExclusiveItem(menu, R.id.calls);
-        homeActivity.finish();
-    }
-
-    @Test
-    public void testNavBarItems(){
-        View view = homeActivity.findViewById(R.id.camera);
-        View view1 = homeActivity.findViewById(R.id.settings);
-        View view2 = homeActivity.findViewById(R.id.contacts);
-        View view3 = homeActivity.findViewById(R.id.chats);
-
-        assertNotNull(view);
-        assertNotNull(view1);
-        assertNotNull(view2);
-        assertNotNull(view3);
-
-        homeActivity.finish();
-    }
-
-    @Test
-    public void Z_testNavBarCLicks(){
-        onView(withId(R.id.chats)).perform(click());
-        onView(withId(R.id.contacts)).perform(click());
-        onView(withId(R.id.camera)).perform(click());
-        onView(withId(R.id.settings)).perform(click());
-        homeActivity.finish();
-    }
+//    @Test
+//    public void testNavBarBasics() {
+//        // Check the contents of the Menu object
+//        final Menu menu = mBottomNavigation.getMenu();
+//        assertNotNull("Menu should not be null", menu);
+//        assertEquals("Should have matching number of items", MENU_CONTENT_ITEM_IDS.length, menu.size());
+//        homeActivity.finish();
+//    }
+//
+//    @UiThreadTest
+//    @Test
+//    public void testNavBarItemChecking() throws Throwable {
+//        final Menu menu = mBottomNavigation.getMenu();
+//        checkAndVerifyExclusiveItem(menu, R.id.chats);
+//        checkAndVerifyExclusiveItem(menu, R.id.contacts);
+//        checkAndVerifyExclusiveItem(menu, R.id.settings);
+//        checkAndVerifyExclusiveItem(menu, R.id.calls);
+//        homeActivity.finish();
+//    }
+//
+//    @Test
+//    public void testNavBarItems(){
+//        View view = homeActivity.findViewById(R.id.camera);
+//        View view1 = homeActivity.findViewById(R.id.settings);
+//        View view2 = homeActivity.findViewById(R.id.contacts);
+//        View view3 = homeActivity.findViewById(R.id.chats);
+//
+//        assertNotNull(view);
+//        assertNotNull(view1);
+//        assertNotNull(view2);
+//        assertNotNull(view3);
+//
+//        homeActivity.finish();
+//    }
+//
+//    @Test
+//    public void Z_testNavBarCLicks(){
+//        onView(withId(R.id.chats)).perform(click());
+//        onView(withId(R.id.contacts)).perform(click());
+//        onView(withId(R.id.camera)).perform(click());
+//        onView(withId(R.id.settings)).perform(click());
+//        homeActivity.finish();
+//    }
 
 
     @After

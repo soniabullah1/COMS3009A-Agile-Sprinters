@@ -33,12 +33,12 @@ public class PreviewTest {
         preview.finish();
     }
 
-    @Test
-    public void testSendAMessage(){
-        String time = String.valueOf(System.currentTimeMillis());
-        preview.sendMessage( "1HYeIejMyvhSemoNl2UbYXC9SvB3", "4WP1IvaihjYaB4fHmaMl413bsN62", "Unit testing is not fun", "text", time, "UGHHHHHHH");
-        preview.finish();
-    }
+//    @Test
+//    public void testSendAMessage(){
+//        String time = String.valueOf(System.currentTimeMillis());
+//        preview.sendMessage( "1HYeIejMyvhSemoNl2UbYXC9SvB3", "4WP1IvaihjYaB4fHmaMl413bsN62", "Unit testing is not fun", "text", time, "UGHHHHHHH");
+//        preview.finish();
+//    }
 
      @Test
      public void testReadMessage(){

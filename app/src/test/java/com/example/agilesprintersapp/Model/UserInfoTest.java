@@ -1,13 +1,15 @@
 package com.example.agilesprintersapp.Model;
 
+
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class UserInfoTest {
-    UserInfo userInfo = new UserInfo("01","imageurl","unit","test", "unittest","unittest@gmail", "12345");
+    User userInfo = new User("01","unittest","imageurl");
 
 
     @Before
@@ -46,32 +48,6 @@ public class UserInfoTest {
     }
 
     @Test
-    public void getFirstName() {
-        String expected = "unit";
-        assertEquals(expected, userInfo.getFirstName());
-    }
-
-    @Test
-    public void setFirstName() {
-        userInfo.setFirstName("Junit");
-        String expected = "Junit";
-        assertEquals(expected, userInfo.getFirstName());
-    }
-
-    @Test
-    public void getLastName() {
-        String expected = "test";
-        assertEquals(expected, userInfo.getLastName());
-    }
-
-    @Test
-    public void setLastName() {
-        userInfo.setLastName("TNT");
-        String expected = "TNT";
-        assertEquals(expected, userInfo.getLastName());
-    }
-
-    @Test
     public void getUsername() {
         String expected = "unittest";
         assertEquals(expected, userInfo.getUsername());
@@ -97,42 +73,5 @@ public class UserInfoTest {
         assertEquals(expected, userInfo.getEmail());
     }
 
-    @Test
-    public void getPhoneNumber() {
-        String expected = "12345";
-        assertEquals(expected, userInfo.getPhoneNumber());
-    }
 
-    @Test
-    public void setPhoneNumber() {
-        userInfo.setPhoneNumber("123456");
-        String expected = "123456";
-        assertEquals(expected, userInfo.getPhoneNumber());
-    }
-
-    @Test
-    public void getPassword() {
-        String expected = null;
-        assertEquals(expected, userInfo.getPassword());
-    }
-
-    @Test
-    public void setPassword() {
-        userInfo.setPassword("123456");
-        String expected = "123456";
-        assertEquals(expected, userInfo.getPassword());
-    }
-
-    @Test
-    public void getConfirmPassword() {
-        String expected = null;
-        assertEquals(expected, userInfo.getConfirmPassword());
-    }
-
-    @Test
-    public void setConfirmPassword() {
-        userInfo.setPassword("123456");
-        String expected = null;
-        assertEquals(expected, userInfo.getConfirmPassword());
-    }
 }
