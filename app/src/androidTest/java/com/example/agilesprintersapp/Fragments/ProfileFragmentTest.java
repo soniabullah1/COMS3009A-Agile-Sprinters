@@ -1,5 +1,7 @@
 package com.example.agilesprintersapp.Fragments;
 
+import androidx.annotation.UiThread;
+
 import com.android21buttons.fragmenttestrule.FragmentTestRule;
 import com.example.agilesprintersapp.R;
 
@@ -9,6 +11,8 @@ import org.junit.FixMethodOrder;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
@@ -24,24 +28,48 @@ public class ProfileFragmentTest {
 
     @Before
     public void setUp() throws Exception {
-
     }
 
+    @Test()
+    public void testLaunch() throws Exception {
+        onView(withId(R.id.yourprofile)).check(matches((isDisplayed())));
+        onView(withId(R.id.profile_image)).check(matches(isDisplayed()));
+        onView(withId(R.id.edit_profile_image)).check(matches(isDisplayed()));
+        onView(withId(R.id.edit_password)).check(matches(isDisplayed()));
+        onView(withId(R.id.editdetails)).check(matches(isDisplayed()));
+        onView(withId(R.id.edit_email)).check(matches(isDisplayed()));
+        onView(withId(R.id.edit_phone_number)).check(matches(isDisplayed()));
+        onView(withId(R.id.edit_username)).check(matches(isDisplayed()));
+        onView(withId(R.id.btn_save)).check(matches(isDisplayed()));
+    }
+
+    @UiThread
     @Test
     public void testEditProfileImage() {
         onView(withId(R.id.edit_profile_image)).perform(click());
 
+    }
+
+    @UiThread
+    @Test
+    public void testEditPassword() {
+        onView(withId(R.id.edit_password)).perform(click());
 
     }
 
-    @Test()
-    public void A_testLaunch() throws Exception {
-        onView(withId(R.id.profile_image)).check(matches(isDisplayed()));
-        onView(withId(R.id.edit_profile_image)).check(matches(isDisplayed()));
-        //onView(withId(R.id.username)).check(matches(isDisplayed()));
-        //onView(withId(R.id.edit_username)).check(matches(isDisplayed()));
+    @UiThread
+    @Test
+    public void testSaveButton() {
+        onView(withId(R.id.btn_save)).perform(click());
+        CircleImageView image_profile = profileFragment.image_profile;
+
     }
 
+    @Test
+    public void testUploadImage() {
+        profileFragment.uploadImage();
+
+    }
 
 
     @After
