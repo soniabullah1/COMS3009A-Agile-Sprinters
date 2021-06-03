@@ -1,7 +1,5 @@
 package com.example.agilesprintersapp.Model;
 
-
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -62,7 +60,7 @@ public class UserInfoTest {
 
     @Test
     public void getEmail() {
-        String expected = "unittest@gmail";
+        String expected = null;
         assertEquals(expected, userInfo.getEmail());
     }
 
