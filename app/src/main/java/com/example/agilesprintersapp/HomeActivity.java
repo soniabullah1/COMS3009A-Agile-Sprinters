@@ -55,31 +55,8 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
-      //  Removed
-
-    //    FloatingActionButton Chat_Icon = findViewById(R.id.Chat_Icon);
-
-     /*   Chat_Icon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this, ContactsList.class));
-                finish();
-            }
-        });*/
-
         profile_image = findViewById(R.id.profile_image);
         username = findViewById(R.id.username);
-        // Test = findViewById(R.id.button) ;
-
-       /* Test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Preview.class));
-                overridePendingTransition(0,0);
-
-            }
-        });*/
 
         profile_image = findViewById(R.id.profile_image);
         username  = findViewById(R.id.username);
@@ -96,15 +73,11 @@ public class HomeActivity extends AppCompatActivity {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         viewPagerAdapter.addFragment(new ChatsFragment(), "Chats");
-      //  viewPagerAdapter.addFragment(new ContactsFragment(), "Contacts");
-
-
 
         viewPagerAdapter.addFragment(new StoryFragment(), "Story");
 
-        //Add in 1
         viewPagerAdapter.addFragment(new ProfileFragment(), "Profile");
-        //End
+
 
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);

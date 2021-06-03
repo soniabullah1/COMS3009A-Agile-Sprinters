@@ -70,9 +70,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 
         public String convertTime(String time){
             DateFormat formatter = new SimpleDateFormat("d MMM, HH:mm a");
-            //DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
             String date = formatter.format(Calendar.getInstance().getTime());String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
-            //SimpleDateFormat formatter = new SimpleDateFormat("h:mm a");
             String dateString = formatter.format(new Date(Long.parseLong(time)));
             return dateString;
         }

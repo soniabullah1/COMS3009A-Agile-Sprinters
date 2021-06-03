@@ -23,8 +23,6 @@ public class ChangePasswordActivity extends AppCompatActivity {
     Button Btn_ReturnHome;
     FirebaseAuth auth;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +36,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         Btn_ReturnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ChangePasswordActivity.this, Edit_Profile.class);
+                Intent intent = new Intent(ChangePasswordActivity.this, HomeActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
@@ -70,7 +68,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 else{
                     ChangePassword(password, ConfirmPassword);
                 }
-                Intent intent = new Intent(ChangePasswordActivity.this, Edit_Profile.class);
+                Intent intent = new Intent(ChangePasswordActivity.this, HomeActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();

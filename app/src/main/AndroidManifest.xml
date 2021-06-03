@@ -21,7 +21,6 @@
         android:theme="@style/Theme.AgileSprintersApp">
         <activity android:name=".ForgotPasswordActivity"></activity>
         <activity android:name=".ChangePasswordActivity" />
-        <activity android:name=".Edit_Profile" />
         <activity android:name=".ContactsList" />
         <activity android:name=".Multiple_Image_Preview" />
         <activity android:name=".Preview" />
@@ -29,10 +28,6 @@
         <activity
             android:name=".MessageActivity"
           />
-        <activity android:name=".CallsActivity" />
-        <activity
-            android:name=".SettingsActivity"
-             />
         <activity android:name=".ContactsActivity"
          />
         <activity android:name=".MainActivity">
