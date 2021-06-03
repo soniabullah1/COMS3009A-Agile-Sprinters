@@ -59,7 +59,7 @@ public class MessageActivity extends AppCompatActivity {
 
     MessageAdapter messageAdapter;
     List<Chat> mChat;
-
+    ImageButton imageButton;
     RecyclerView recyclerView;
 
     Intent intent;
@@ -95,7 +95,7 @@ public class MessageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Toolbar toolbar = findViewById(R.id.toolbar2);
         //setSupportActionBar(toolbar);
         //getSupportActionBar().setTitle("");
@@ -112,7 +112,8 @@ public class MessageActivity extends AppCompatActivity {
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-
+//ADD
+        imageButton = findViewById(R.id.HomeButton1);
         profile_image = findViewById(R.id.profile_image);
         username = findViewById(R.id.username);
         btn_send = findViewById(R.id.btn_send);
@@ -126,7 +127,15 @@ public class MessageActivity extends AppCompatActivity {
         stringUris = new ArrayList<>();
 
 //        ImageView d = findViewById(R.id.imageView);
-
+        imageButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(MessageActivity.this, HomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
         btn_attach_pic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -380,7 +389,9 @@ public class MessageActivity extends AppCompatActivity {
                     Chat chat = snapshot.getValue(Chat.class);
                     User user = snapshot.getValue(User.class);
 
-                    if (user.getId()!=null && user.getId().equals(fuser.getUid()) && chat.getReceiver().equals(fuser.getUid()) && chat.getSender().equals(userid)) {
+                    if (//user.getId()!=null && user.getId().equals(fuser.getUid()) &&
+                           fuser.getUid().equals(chat.getReceiver()) && userid.equals(chat.getSender())){
+                        //chat.getReceiver().equals(fuser.getUid()) && chat.getSender().equals(userid)) {
                         HashMap<String, Object> hashMap = new HashMap<>();
                         hashMap.put("isseen", true);
                         snapshot.getRef().updateChildren(hashMap);

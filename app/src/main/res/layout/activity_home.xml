@@ -36,15 +36,4 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Chat_Icon"
-        app:fabSize="normal"
-        android:layout_gravity="end|bottom"
-        android:backgroundTint="@color/Blue"
-        android:layout_margin="16dp"
-        app:elevation="6dp"
-        android:src="@drawable/chat_icon"/>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

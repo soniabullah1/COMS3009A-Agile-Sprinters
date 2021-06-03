@@ -76,7 +76,7 @@ public class Edit_Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+     //   getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         image_profile = findViewById(R.id.profile_image);
@@ -189,10 +189,13 @@ public class Edit_Profile extends AppCompatActivity {
                 startActivity(new Intent(Edit_Profile.this, LandingActivity.class));
                 finish();
                 return true;
-            case R.id.edit_profile:
+
+                //ADD 6 - Take out
+        /*    case R.id.edit_profile:
                 startActivity(new Intent(Edit_Profile.this, Edit_Profile.class));
                 finish();
-                return true;
+                return true;*/
+
             case R.id.contact_list:
                 startActivity(new Intent(Edit_Profile.this, ContactsList.class));
                 finish();
@@ -217,7 +220,7 @@ public class Edit_Profile extends AppCompatActivity {
     public void uploadImage(){
         final ProgressDialog pd = new ProgressDialog(getApplicationContext());
         pd.setMessage("Uploading");
-        pd.show();
+      //  pd.show();
 
         if(imageUri != null){
             final StorageReference fileReference = storageReference.child(System.currentTimeMillis()

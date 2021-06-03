@@ -130,6 +130,13 @@ public class StoryFragment extends Fragment {
                         if (user.getImageURL().equals("default")) {
                             profile.setImageResource(R.mipmap.ic_launcher);
                         } else {
+
+                            //ADD IN
+                            if (getActivity() == null) {
+                                return;
+                            }
+
+                            //END
                             Glide.with(getContext()).load(user.getImageURL()).into(profile);
                         }
 
