@@ -1,20 +1,22 @@
 package com.example.agilesprintersapp;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewSwitcher;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.agilesprintersapp.Adapter.MessageAdapter;
 import com.example.agilesprintersapp.Model.Chat;
 import com.example.agilesprintersapp.Model.User;
@@ -24,7 +26,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
+import com.google.firebase.storage.StorageTask;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -71,11 +73,10 @@ public class Multiple_Image_Preview extends AppCompatActivity {
         Intent intent = getIntent();
 
         Bundle args = intent.getBundleExtra("BUNDLE");
-        if(imageUris != null){
         imageUris = (ArrayList<Uri>)args.getSerializable("IMAGES");
         stringUris = (ArrayList<String>)args.getSerializable("STRING_IMAGES");
         imageUris.size();
-        stringUris.size();}
+        stringUris.size();
 
         userid = intent.getStringExtra("userid");
         sender = intent.getStringExtra("sender");
@@ -184,7 +185,7 @@ public class Multiple_Image_Preview extends AppCompatActivity {
         reference.child("Chat").push().setValue(hashMap);
     }
 
-    public void readMessages(String myid, String userid, String imageurl) {
+    private void readMessages(String myid, String userid, String imageurl) {
         mChat = new ArrayList<>();
         reference = FirebaseDatabase.getInstance().getReference("Chat");
         reference.addValueEventListener(new ValueEventListener() {
@@ -216,7 +217,7 @@ public class Multiple_Image_Preview extends AppCompatActivity {
     }
 
 
-    public void seenMessage(String userid) {
+    private void seenMessage(String userid) {
         reference = FirebaseDatabase.getInstance().getReference("Chat");
         seenListener = reference.addValueEventListener(new ValueEventListener() {
             @Override
