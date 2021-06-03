@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.agilesprintersapp.Adapter.UserAdapter;
-import com.example.agilesprintersapp.Model.Chat;
 import com.example.agilesprintersapp.Model.Chatlist;
 import com.example.agilesprintersapp.Model.User;
 import com.example.agilesprintersapp.R;
@@ -55,7 +54,9 @@ private List<Chatlist> userList;
         fuser = FirebaseAuth.getInstance().getCurrentUser();
 
         userList = new ArrayList<>();
-        reference = FirebaseDatabase.getInstance().getReference("Chatlist").child(fuser.getUid());
+        if(fuser != null) {
+            reference = FirebaseDatabase.getInstance().getReference("Chatlist").child(fuser.getUid());
+        }
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
