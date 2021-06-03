@@ -5,11 +5,15 @@ public class User {
     private String id;
     private String username;
     private String imageURL;
+    private  String email;
+    private  String contactNumber;
 
     public User(String id, String username, String imageURL){
         this.id = id;
         this.username = username;
         this.imageURL = imageURL;
+        this.email = email;
+        this.contactNumber = contactNumber;
 
     }
 
@@ -39,6 +43,17 @@ public class User {
 
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
+    }
+    public String getEmail() { return email; }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getContactNumber() { return contactNumber; }
+
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
     }
 }
 

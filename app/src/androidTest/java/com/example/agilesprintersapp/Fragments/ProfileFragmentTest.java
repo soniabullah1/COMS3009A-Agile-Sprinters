@@ -30,6 +30,7 @@ public class ProfileFragmentTest {
     @Test
     public void testEditProfileImage() {
         onView(withId(R.id.edit_profile_image)).perform(click());
+
     }
 
     @Test()
@@ -39,6 +40,7 @@ public class ProfileFragmentTest {
         onView(withId(R.id.username)).check(matches(isDisplayed()));
         onView(withId(R.id.edit_username)).check(matches(isDisplayed()));
     }
+
 
 
     @After

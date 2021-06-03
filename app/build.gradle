@@ -18,7 +18,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.agilesprintersapp"
-        minSdkVersion 16
+        minSdkVersion 21 //changed from 16 to 21 for the user story
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -64,6 +64,8 @@ dependencies {
      androidTestImplementation 'org.mockito:mockito-android:2.6.3'
      androidTestImplementation 'org.assertj:assertj-core:1.7.1'*/
 
+    implementation 'com.github.bxute:StoryView:v1.0'  // add this line for the story
+
     implementation 'com.android.support:appcompat-v7:29.0.0'
     implementation 'com.android.support.constraint:constraint-layout:2.0.4'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
@@ -73,6 +75,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.google.android.material:material:1.4.0-alpha02'
+    implementation 'com.google.android.material:material:1.1.0-beta01'
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'androidx.recyclerview:recyclerview:1.2.0'
     implementation 'androidx.appcompat:appcompat:1.2.0'

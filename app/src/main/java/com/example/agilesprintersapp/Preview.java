@@ -14,8 +14,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.agilesprintersapp.Adapter.MessageAdapter;
+import com.example.agilesprintersapp.Adapter.UserAdapter;
 import com.example.agilesprintersapp.Model.Chat;
 import com.example.agilesprintersapp.Model.User;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -46,7 +48,10 @@ public class Preview extends AppCompatActivity {
     ImageView imageview;
     DataSnapshot snapshot;
     private String time, message;
-    private String sender, receiver;
+    private String sender, receiver, msg;
+
+    private UserAdapter userAdapter;
+    private List<User> mUsers;
 
     DatabaseReference reference;
 
@@ -57,6 +62,8 @@ public class Preview extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preview);
 
+        mUsers = new ArrayList<>();
+        readUsers();
 
         Exit = findViewById(R.id.close);
         btn_send = findViewById(R.id.button3);
@@ -70,17 +77,18 @@ public class Preview extends AppCompatActivity {
         //I have to put this condition or else i cannot test Preview at all - Rushil
         if(image_path != null) {
             Uri fileUri = Uri.parse(image_path);
+            imageview.setImageURI(fileUri);
         }
-        imageview.setImageURI(fileUri);
 
-        String msg = caption.getText().toString();
+        //msg = caption.getText().toString();
 
         userid = intent.getStringExtra("userid");
         sender = intent.getStringExtra("sender");
-        receiver = intent.getStringExtra("receiver");
+        //receiver = intent.getStringExtra("receiver");
         message = intent.getStringExtra("message");
+        time = intent.getStringExtra("time");
         checker = intent.getStringExtra("checker");
-        msg = intent.getStringExtra("caption");
+        //msg = intent.getStringExtra("caption");
 
         Exit.setOnClickListener(new View.OnClickListener() {
 
@@ -94,29 +102,28 @@ public class Preview extends AppCompatActivity {
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String msg = caption.getText().toString();
-                    sendMessage(sender, receiver, message, checker, time, msg);
+                String msg = caption.getText().toString().trim();
+
+                sendMessage(sender, mUsers, message, "image", time, msg);
 
                 finish();
             }
         });
     }
 
-
-
-    public static void sendMessage(String sender, String receiver, String message, String type, String time, String msg) {
+    public static void sendMessage(String sender, List<User> contacts, String message, String type, String time, String msg) {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("sender", sender);
-        hashMap.put("receiver", receiver);
+        hashMap.put("receiver", contacts);
         hashMap.put("message", message);
         hashMap.put("type", type);
         hashMap.put("time", time);
-        hashMap.put("isseen", false);
+        //hashMap.put("isseen", false);
         hashMap.put("caption", msg);
 
-        reference.child("Chat").push().setValue(hashMap);
+        reference.child("stories").push().setValue(hashMap);
 
     }
 
@@ -177,6 +184,39 @@ public class Preview extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+    }
+
+    private void readUsers(){
+
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User");
+
+        reference .addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+                //mUsers.clear();
+
+                for(DataSnapshot snapshot : datasnapshot.getChildren()){
+                    User user = snapshot.getValue(User.class);
+                    //String id = user.getId();
+
+                    if (firebaseUser != null) {
+
+                        if (user != null && user.getId() != null && !user.getId().equals(firebaseUser.getUid())){
+                            mUsers.add(user);
+                        }
+                    }
+                }
+
+                //userAdapter = new UserAdapter(getApplicationContext(), mUsers, false);
+                //recyclerView.setAdapter(userAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
     }

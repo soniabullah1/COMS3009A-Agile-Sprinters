@@ -21,8 +21,10 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.agilesprintersapp.Fragments.ChatsFragment;
 import com.example.agilesprintersapp.Fragments.ContactsFragment;
-import com.example.agilesprintersapp.Fragments.ProfileFragment;
+import com.example.agilesprintersapp.Fragments.StoryFragment;
+import com.example.agilesprintersapp.Fragments.StoryFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -52,6 +54,16 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        FloatingActionButton Chat_Icon = findViewById(R.id.Chat_Icon);
+
+        Chat_Icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, ContactsList.class));
+                finish();
+            }
+        });
+
         profile_image = findViewById(R.id.profile_image);
         username = findViewById(R.id.username);
         // Test = findViewById(R.id.button) ;
@@ -63,44 +75,7 @@ public class HomeActivity extends AppCompatActivity {
                 overridePendingTransition(0,0);
 
             }
-        });
-*/
-
-        //navigation bar
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
-
-        bottomNavigationView.setSelectedItemId(R.id.chats);
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.chats:
-                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.contacts:
-                        startActivity(new Intent(getApplicationContext(), ContactsActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.settings:
-                        startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    //case R.id.camera:
-                    //  startActivity(new Intent(getApplicationContext(), CameraActivity.class));
-                    //overridePendingTransition(0,0);
-                    //return true;
-                    case R.id.calls:
-                        startActivity(new Intent(getApplicationContext(), CallsActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-
-                }
-                return false;
-            }
-        });
-
+        });*/
 
         profile_image = findViewById(R.id.profile_image);
         username  = findViewById(R.id.username);
@@ -117,8 +92,8 @@ public class HomeActivity extends AppCompatActivity {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         viewPagerAdapter.addFragment(new ChatsFragment(), "Chats");
-        viewPagerAdapter.addFragment(new ContactsFragment(), "Contacts");
-        viewPagerAdapter.addFragment(new ProfileFragment(), "Profile");
+        //viewPagerAdapter.addFragment(new ContactsFragment(), "Contacts");
+        viewPagerAdapter.addFragment(new StoryFragment(), "Story");
 
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
@@ -138,6 +113,16 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(new Intent(HomeActivity.this, LandingActivity.class));
                 finish();
                 return true;
+            case R.id.edit_profile:
+                startActivity(new Intent(HomeActivity.this, Edit_Profile.class));
+                finish();
+                return true;
+            case R.id.contact_list:
+                startActivity(new Intent(HomeActivity.this, ContactsList.class));
+                finish();
+                return true;
+
+
         }
         return false;
     }

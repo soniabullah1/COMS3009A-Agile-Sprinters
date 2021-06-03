@@ -6,10 +6,11 @@
     android:layout_height="match_parent"
     android:background="@color/LightGrey"
     tools:context=".Preview">
+
     <ImageSwitcher
         android:id="@+id/imageSwitcher"
-        android:layout_width="321dp"
-        android:layout_height="288dp"
+        android:layout_width="380dp"
+        android:layout_height="380dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -27,10 +28,10 @@
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.305"
+        app:layout_constraintHorizontal_bias="0.168"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.78" />
+        app:layout_constraintVertical_bias="0.981" />
 
     <TextView
         android:id="@+id/textView"
@@ -70,7 +71,7 @@
         app:layout_constraintHorizontal_bias="0.957"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.772" />
+        app:layout_constraintVertical_bias="0.972" />
 
     <Button
         android:id="@+id/PreviousBtn"
@@ -80,10 +81,10 @@
         app:backgroundTint="#009688"
         app:layout_constraintBottom_toTopOf="@+id/Caption"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.092"
+        app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageSwitcher"
-        app:layout_constraintVertical_bias="0.509" />
+        app:layout_constraintVertical_bias="0.777" />
 
     <Button
         android:id="@+id/Nextbtn"
@@ -93,9 +94,24 @@
         app:backgroundTint="#009688"
         app:layout_constraintBottom_toTopOf="@+id/Caption"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.858"
+        app:layout_constraintHorizontal_bias="0.923"
         app:layout_constraintStart_toEndOf="@+id/PreviousBtn"
         app:layout_constraintTop_toBottomOf="@+id/imageSwitcher"
-        app:layout_constraintVertical_bias="0.509" />
+        app:layout_constraintVertical_bias="0.777" />
+
+    <TextView
+        android:id="@+id/image_position"
+        android:layout_width="127dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="17dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#009688"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/Caption"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.577"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageSwitcher"
+        app:layout_constraintVertical_bias="0.102" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

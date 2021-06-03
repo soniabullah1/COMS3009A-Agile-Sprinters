@@ -3,6 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.agilesprintersapp">
 
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="true"
@@ -13,15 +19,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AgileSprintersApp">
-        <activity android:name=".Multiple_Image_Preview"></activity>
+        <activity android:name=".ForgotPasswordActivity"></activity>
+        <activity android:name=".ChangePasswordActivity" />
+        <activity android:name=".Edit_Profile" />
+        <activity android:name=".ContactsList" />
+        <activity android:name=".Multiple_Image_Preview" />
         <activity android:name=".Preview" />
         <activity android:name=".LandingActivity" />
-        <activity android:name=".MessageActivity"
-            android:parentActivityName=".HomeActivity"/>
+        <activity
+            android:name=".MessageActivity"
+            android:parentActivityName=".HomeActivity" />
         <activity android:name=".CallsActivity" />
-        <activity android:name=".SettingsActivity"
+        <activity
+            android:name=".SettingsActivity"
+            android:parentActivityName=".HomeActivity" />
+        <activity android:name=".ContactsActivity"
             android:parentActivityName=".HomeActivity"/>
-        <activity android:name=".ContactsActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,11 +50,5 @@
             android:name=".LoginActivity"
             android:parentActivityName=".MainActivity" />
     </application>
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

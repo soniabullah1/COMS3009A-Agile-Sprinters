@@ -2,9 +2,9 @@ package com.example.agilesprintersapp;
 
 import android.app.Activity;
 import android.app.Instrumentation;
-import android.content.Intent;
 import android.view.View;
 
+import androidx.annotation.UiThread;
 import androidx.test.rule.ActivityTestRule;
 
 import org.junit.After;
@@ -16,7 +16,7 @@ import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 public class LandingActivityTest {
 
@@ -30,33 +30,38 @@ public class LandingActivityTest {
     @Before
     public void setUp() throws Exception {
         landingActivity = landingActivityActivityTestRule.getActivity();
-        landingActivity.sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
+        //landingActivity.sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
 
     }
 
     @Test
-    public void testLaunch(){
+    public void A_testLaunch(){
         View view = landingActivity.findViewById(R.id.tSignIn);
         assertNotNull(view);
+        landingActivity.finish();
     }
 
+    @UiThread
     @Test
     public void testButtonClickRegister(){
-        onView(withId(R.id.tRegister)).perform(click());
+            onView(withId(R.id.tRegister)).perform(click());
+            Activity registerActivity = getInstrumentation().waitForMonitorWithTimeout(monitor1,5000);
+            assertNotNull(registerActivity);
 
-        Activity registerActivity = getInstrumentation().waitForMonitorWithTimeout(monitor1,50000);
-        assertNotNull(registerActivity);
+            //registerActivity.finish();
 
-        registerActivity.finish();
+            //landingActivity.finish();
     }
 
+    @UiThread
     @Test
     public void testButtonClickSignIn(){
-        onView(withId((R.id.tSignIn))).perform(click());
-        Activity signInActivity = getInstrumentation().waitForMonitorWithTimeout(monitor2,50000);
-        assertNotNull(signInActivity);
+            onView(withId((R.id.tSignIn))).perform(click());
+            Activity signInActivity = getInstrumentation().waitForMonitorWithTimeout(monitor2,5000);
 
-        signInActivity.finish();
+            assertNotNull(signInActivity);
+            //signInActivity.finish();
+            //landingActivity.finish();
     }
 
     @After

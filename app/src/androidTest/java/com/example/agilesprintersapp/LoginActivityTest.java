@@ -26,11 +26,9 @@ public class LoginActivityTest {
     public ActivityTestRule<LoginActivity> loginActivityTestRule = new ActivityTestRule<>(LoginActivity.class);
     private LoginActivity loginActivity = null;
 
-
-    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(MainActivity.class.getName(),null ,false);
+    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(LandingActivity.class.getName(),null ,false);
     Instrumentation.ActivityMonitor monitor2 = getInstrumentation().addMonitor(HomeActivity.class.getName(),null ,false);
 
-    //String a = loginActivity.email.getText().toString();
     public static final String STRING_TO_BE_TYPED_EMAIL = "rushilpatel0703@gmail.com";
     public static final String STRING_TO_BE_TYPED_PASSWORD = "cakeface42";
 
@@ -41,15 +39,13 @@ public class LoginActivityTest {
     }
 
     @Test
-    public void testLaunchEditTextEmail(){
+    public void testLaunchItems(){
         View view = loginActivity.findViewById(R.id.email);
+        View view1 = loginActivity.findViewById(R.id.password);
         assertNotNull(view);
-    }
+        assertNotNull(view1);
 
-    @Test
-    public void testLaunchEditTextPassword(){
-        View view = loginActivity.findViewById(R.id.password);
-        assertNotNull(view);
+        loginActivity.finish();
     }
 
     @Test
@@ -59,16 +55,18 @@ public class LoginActivityTest {
         String expected = "Welcome Back to TalkTime, You're almost ready to get chatty!";
 
         assertEquals(actual,expected);
+        loginActivity.finish();
     }
 
-    /*@Test
+    @Test
     public void testReturnToHomePageButton(){
         onView(withId(R.id.btn_Return)).perform(click());
         Activity registerActivity = getInstrumentation().waitForMonitorWithTimeout(monitor,5000);
         assertNotNull(registerActivity);
 
         registerActivity.finish();
-    }*/
+        loginActivity.finish();
+    }
 
     @Test
     public void testLoginButton(){
@@ -81,8 +79,8 @@ public class LoginActivityTest {
 
         loginActivity.finish();
 
-    }
 
+    }
 
     @After
     public void tearDown() throws Exception {

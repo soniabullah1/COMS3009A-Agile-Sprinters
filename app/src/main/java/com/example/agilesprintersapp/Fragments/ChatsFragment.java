@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.agilesprintersapp.Adapter.UserAdapter;
-import com.example.agilesprintersapp.Model.Chat;
+import com.example.agilesprintersapp.Model.Chatlist;
 import com.example.agilesprintersapp.Model.User;
 import com.example.agilesprintersapp.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -37,7 +37,8 @@ public class ChatsFragment extends Fragment {
     FirebaseUser fuser;
     DatabaseReference reference;
 
-    private List<String> userList;
+//    private List<String> userList;
+private List<Chatlist> userList;
 
 
     @Override
@@ -53,77 +54,118 @@ public class ChatsFragment extends Fragment {
         fuser = FirebaseAuth.getInstance().getCurrentUser();
 
         userList = new ArrayList<>();
-        reference = FirebaseDatabase.getInstance().getReference("Chat");
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
-                userList.clear();
+        if(fuser != null) {
+            reference = FirebaseDatabase.getInstance().getReference("Chatlist").child(fuser.getUid());
 
-                for (DataSnapshot snapshot : datasnapshot.getChildren()) {
-                    Chat chat = snapshot.getValue(Chat.class);
-                    User user = snapshot.getValue(User.class);
+            reference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+                    userList.clear();
 
-                    if (fuser != null) {
+                    for (DataSnapshot snapshot : datasnapshot.getChildren()) {
 
-                        if (user.getId() != null && fuser.getUid().equals(fuser.getUid())&& chat.getSender().equals(fuser.getUid())) {
-                            userList.add(chat.getReceiver());
-                        }
-                        if (user.getId() != null && fuser.getUid().equals(fuser.getUid())&& chat.getReceiver().equals(fuser.getUid())) {
-                            userList.add(chat.getSender());
-                        }
+                        Chatlist chatlist = snapshot.getValue(Chatlist.class);
+                        userList.add(chatlist);
+
+//                    Chat chat = snapshot.getValue(Chat.class);
+//                    User user = snapshot.getValue(User.class);
+//
+//                    if (fuser != null) {
+//
+//                        if (user.getId() != null && fuser.getUid().equals(fuser.getUid())&& chat.getSender().equals(fuser.getUid())) {
+//                            userList.add(chat.getReceiver());
+//                        }
+//                        if (user.getId() != null && fuser.getUid().equals(fuser.getUid())&& chat.getReceiver().equals(fuser.getUid())) {
+//                            userList.add(chat.getSender());
+//                        }
+//                    }
                     }
+
+                    //readChats();
+
+                    chatList();
                 }
 
-                readChats();
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
+                }
+            });
+        }
 
         return view;
     }
 
-    private void readChats(){
-
+    private void chatList() {
         mUsers = new ArrayList<>();
         reference = FirebaseDatabase.getInstance().getReference("User");
-
-        reference .addValueEventListener(new ValueEventListener() {
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot datasnapshot){
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 mUsers.clear();
-
-                for(DataSnapshot snapshot : datasnapshot.getChildren()){
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     User user = snapshot.getValue(User.class);
-
-                    for (String id : userList){
-                        if(user!=null && user.getId() != null && user.getId().equals(id)){
-                            if (mUsers.size() != 0) {
-                                for(User user1: new ArrayList<User>(mUsers)){
-                                    //for(User user1 : mUsers){
-                                    //user.getId() != null &&  fuser.getUid().equals(fuser.getUid()) &&
-                                    if(!user.getId().equals(user1.getId())) {
-                                        mUsers.add(user);
-                                    }
-                                }
-                            }else{
-                                mUsers.add(user);
-                            }
+//                    for (Chatlist id : userList){
+//                        if (user != null && user.getId() != null && user.getId().equals(id)) {
+                    for (Chatlist chatlist : userList) {
+                        if (user.getId() != null && user.getId().equals(chatlist.getId())) {
+                            mUsers.add(user);
                         }
                     }
+//                        }
+//
+//                    }
                 }
-
-                userAdapter = new UserAdapter(getContext(), mUsers, false);
+                userAdapter = new UserAdapter(getContext(), mUsers, true);
                 recyclerView.setAdapter(userAdapter);
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
     }
+
+//    private void readChats(){
+//
+//        mUsers = new ArrayList<>();
+//        reference = FirebaseDatabase.getInstance().getReference("User");
+//
+//        reference .addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot datasnapshot){
+//                mUsers.clear();
+//
+//                for(DataSnapshot snapshot : datasnapshot.getChildren()){
+//                    User user = snapshot.getValue(User.class);
+//
+//                    for (String id : userList){
+//                        if(user!=null && user.getId() != null && user.getId().equals(id)){
+//                            if (mUsers.size() != 0) {
+//                                for(User user1: new ArrayList<User>(mUsers)){
+//                                    //for(User user1 : mUsers){
+//                                    //user.getId() != null &&  fuser.getUid().equals(fuser.getUid()) &&
+//                                    if(!user.getId().equals(user1.getId())) {
+//                                        mUsers.add(user);
+//                                    }
+//                                }
+//                            }else{
+//                                mUsers.add(user);
+//                            }
+//                        }
+//                    }
+//                }
+//
+//                userAdapter = new UserAdapter(getContext(), mUsers, false);
+//                recyclerView.setAdapter(userAdapter);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+//    }
 }

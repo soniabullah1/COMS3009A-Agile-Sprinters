@@ -1,0 +1,20 @@
+Agile Sprinters (Group 8)
+
+Minutes of the Third Sprint Review Meeting
+
+Monday, 24 May 2021 (12:00 - 12:15):
+The Third Sprint Review Meeting with the Client, Development Team and Scrum Master was held online on 24 May 2021 at 12:00 p.m.
+
+Attendance:
+o Client: Mr Rylan Perumal
+o Scrum Development Team: Abdullah Haffejee, Bhavik Govan, Colin Hugo, Jemma Sundelson, Kayla Levy, Rushil Patel, Tristen Haverly
+o Scrum Master: Sonia Bullah
+
+Review:
+The project was presented to Mr Perumal at the start of the meeting. The presentation included showing and describing the process of sending text messages as well as multiple image messages with captions to other users as well as indicating that each message displays accurate timestamps. We also demonstrated how users can change their profile picture to an image of their choice. 
+
+Feedback:
+Mr Perumal suggested that a counter be added to the multiple image preview so that a user could be able to see which image they are currently viewing as a fraction of the total number of images selected. 
+
+Adjournment:
+With there being no further questions, the meeting was adjourned at 12:15 p.m.

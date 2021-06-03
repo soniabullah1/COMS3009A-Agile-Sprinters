@@ -3,11 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="10dp">
+    android:padding="2dp"
+    android:layout_marginTop="0dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_margin="10dp"
         android:id="@+id/profile_image"
         android:src="@mipmap/ic_launcher"/>
 
@@ -15,12 +17,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="username"
+        android:textColor="@color/Blue"
         android:id="@+id/username"
+        android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/profile_image"
         android:layout_toEndOf="@+id/profile_image"
         android:layout_marginLeft="10dp"
-        android:layout_centerVertical="true"
-        android:textSize="18sp"/>
+        android:layout_centerVertical="false"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="timestamp"
+        android:textColor="@color/Blue"
+        android:id="@+id/storyTimeStamp"
+        android:layout_toRightOf="@+id/profile_image"
+        android:layout_toEndOf="@+id/profile_image"
+        android:layout_below="@id/username"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="false"
+        android:textSize="12sp"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="15dp"
@@ -49,17 +66,26 @@
         android:layout_toRightOf="@id/profile_image"
         android:layout_toEndOf="@id/profile_image"/>
 
-    <TextView
-        android:id="@+id/last_msg"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/username"
-        android:layout_alignLeft="@id/username"
-        android:layout_marginLeft="0dp"
-        android:maxLines="1"
-        android:paddingTop="5dp"
-        android:textColor="#989898" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
 
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="2dp"
+        android:layout_weight="1"
+        android:background="?android:attr/listDivider"
+        android:backgroundTint="#A39D9D"
+        android:visibility="visible" />
 
 
 </RelativeLayout>
