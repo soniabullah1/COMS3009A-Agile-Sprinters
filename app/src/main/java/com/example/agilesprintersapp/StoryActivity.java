@@ -3,6 +3,8 @@ package com.example.agilesprintersapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +24,12 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 public class StoryActivity extends AppCompatActivity {
 
     DatabaseReference reference;
@@ -29,8 +37,11 @@ public class StoryActivity extends AppCompatActivity {
     StorageReference storageReference;
 
     private ImageView story;
+    private ImageView profile_image;
     private Button exit;
-    private TextView caption;
+    private TextView caption, time, username;
+    private String ImageURL;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +51,37 @@ public class StoryActivity extends AppCompatActivity {
         story = findViewById(R.id.story);
         exit = findViewById(R.id.close);
         caption = findViewById(R.id.storyCap);
+        time = findViewById(R.id.storyTimeStamp);
+        username = findViewById(R.id.username);
+        profile_image = findViewById(R.id.profile_image);
+
+
+        Intent intent = getIntent();
+        String sender = intent.getStringExtra("sender");
+        String username1 = intent.getStringExtra("username");
+        String story1 = intent.getStringExtra("story");
+        String time1 = intent.getStringExtra("time");
+        String caption1 = intent.getStringExtra("caption");
+
+        Glide.with(StoryActivity.this).load(story1).into(story);
+        caption.setText(caption1);
+        time.setText(convertTime(time1));
+        username.setText(username1);
+
+        //display profile image in story activity
+        ImageURL = getCurrentUserPicture(sender);
+        //Glide.with(StoryActivity.this).load(ImageURL).into(profile_image);
+        if(ImageURL != null) {
+            if (ImageURL.equals("default")) {
+                profile_image.setImageResource(R.mipmap.ic_launcher);
+            } else {
+                Glide.with(getApplicationContext()).load(ImageURL).into(profile_image);
+            }
+        }
+
+
+
+
 
         exit.setOnClickListener(new View.OnClickListener() {
 
@@ -73,7 +115,7 @@ public class StoryActivity extends AppCompatActivity {
 //                        }
 
                         //else {
-                            Glide.with(getApplicationContext()).load(myStory.getStory()).into(story);
+                            //Glide.with(getApplicationContext()).load(myStory.getStory()).into(story);
                         //}
 
                     }
@@ -85,5 +127,41 @@ public class StoryActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    public String convertTime(String time){
+        DateFormat formatter = new SimpleDateFormat("d MMM, HH:mm a");
+        String date = formatter.format(Calendar.getInstance().getTime());String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+        String dateString = formatter.format(new Date(Long.parseLong(time)));
+        return dateString;
+    }
+
+    public String getCurrentUserPicture(String id){
+
+
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User");
+
+        reference .addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+                for(DataSnapshot snapshot : datasnapshot.getChildren()){
+                    User user = snapshot.getValue(User.class);
+                    if (firebaseUser != null) {
+
+                        if (user != null && user.getId() != null && user.getId().equals(id)){
+                            ImageURL = user.getImageURL();
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        return ImageURL;
     }
 }

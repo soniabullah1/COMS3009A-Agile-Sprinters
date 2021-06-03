@@ -21,6 +21,7 @@ import com.example.agilesprintersapp.Adapter.StoryAdapter;
 import com.example.agilesprintersapp.Adapter.UserAdapter;
 import com.example.agilesprintersapp.MessageActivity;
 import com.example.agilesprintersapp.Model.Chat;
+import com.example.agilesprintersapp.Model.Story;
 import com.example.agilesprintersapp.Model.User;
 import com.example.agilesprintersapp.Multiple_Image_Preview;
 import com.example.agilesprintersapp.Preview;
@@ -55,8 +56,9 @@ public class StoryFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private StoryAdapter storyAdapter;
-    private List<User> mUsers;
-    private List<Chat> mChat;
+    private List<Story> mUsers;
+    private List<Story> mStory;
+    
 
     private TextView myStory;
     private TextView username;
@@ -96,7 +98,7 @@ public class StoryFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         mUsers = new ArrayList<>();
-        mChat = new ArrayList<>();
+        mStory = new ArrayList<>();
 
         displayContactsStatus();
 
@@ -256,23 +258,25 @@ public class StoryFragment extends Fragment {
     }
 
 
+
     public void displayContactsStatus() {
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("stories");
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
-                mUsers.clear();
+                mStory.clear();
 
                 for(DataSnapshot snapshot : datasnapshot.getChildren()){
-                    User user = snapshot.getValue(User.class);
+                    //User user = snapshot.getValue(User.class);
+                    Story story = snapshot.getValue(Story.class);
                     //String id = user.getId();
 
                     if (firebaseUser != null) {
 
-                        if (user != null && user.getId() != null && !user.getId().equals(firebaseUser.getUid())){
-                            mUsers.add(user);
+                        if (story != null && story.getSender() != null){
+                            mStory.add(story);
                         }
 
                         //                    assert user != null;
@@ -282,7 +286,7 @@ public class StoryFragment extends Fragment {
                         //                    }
                     }
                 }
-                storyAdapter = new StoryAdapter(getContext(), mUsers, false);
+                storyAdapter = new StoryAdapter(getContext(), mStory, false);
                 recyclerView.setAdapter(storyAdapter);
             }
 

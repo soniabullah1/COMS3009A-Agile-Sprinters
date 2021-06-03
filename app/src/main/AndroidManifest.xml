@@ -44,6 +44,7 @@
         <activity
             android:name=".LoginActivity"
             android:parentActivityName=".MainActivity" />
+        <activity android:name=".StoryActivity"></activity>
     </application>
 
 </manifest>
