@@ -54,9 +54,6 @@ public class ContactsList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts_list);
 
-      //  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
         recyclerView = findViewById(R.id.recycler_view12);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));

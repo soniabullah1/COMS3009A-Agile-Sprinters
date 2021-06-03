@@ -29,41 +29,6 @@ public class ContactsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
-
-        bottomNavigationView.setSelectedItemId(R.id.contacts);
-
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.chats:
-                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    case R.id.contacts:
-                        startActivity(new Intent(getApplicationContext(), ContactsActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    case R.id.settings:
-                        startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    //case R.id.camera:
-                    //  startActivity(new Intent(getApplicationContext(), CameraActivity.class));
-                    //overridePendingTransition(0,0);
-                    //return true;
-                    case R.id.calls:
-                        startActivity(new Intent(getApplicationContext(), CallsActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-
-                }
-                return false;
-            }
-        });
-
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.READ_CONTACTS)
                 == PackageManager.PERMISSION_GRANTED) {
             mobileArray = getAllContacts();

@@ -7,8 +7,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
@@ -23,11 +21,7 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.example.agilesprintersapp.ChangePasswordActivity;
-import com.example.agilesprintersapp.ContactsList;
-import com.example.agilesprintersapp.Edit_Profile;
-import com.example.agilesprintersapp.LandingActivity;
 import com.example.agilesprintersapp.Model.User;
-import com.example.agilesprintersapp.Preview;
 import com.example.agilesprintersapp.R;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -56,23 +50,13 @@ public class ProfileFragment extends Fragment {
 
     private static final int RESULT_OK = -1;
     CircleImageView image_profile;
-
-    // ADD - take out
     TextView edit_profile_image;
     TextView edit_username;
-    //TextView username;
-
-    //ADD 5
     TextView edit_password;
     Button save_btn;
-
-    //ADD 3
     EditText email;
     EditText contactNumber;
-
-    //ADD
     EditText username;
-
     DatabaseReference reference;
     FirebaseUser fuser ;
     String j;
@@ -81,52 +65,32 @@ public class ProfileFragment extends Fragment {
     private static final int IMAGE_REQUEST = 1;
     private Uri imageUri;
     private StorageTask uploadTask;
-    //int RESULT_OK;
-
-
-
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container,false);
 
         image_profile = view.findViewById(R.id.profile_image);
-     //   username = view.findViewById(R.id.username);
-        //ADD
         username = view.findViewById(R.id.edit_username);
-
         edit_profile_image = view.findViewById(R.id.edit_profile_image);
         edit_username = view.findViewById(R.id.edit_username);
-
-        //ADD 4
         edit_password = view.findViewById(R.id.edit_password);
         email = view.findViewById(R.id.edit_email);
         contactNumber = view.findViewById(R.id.edit_phone_number);
         save_btn = view.findViewById(R.id.btn_save);
-
         storageReference = FirebaseStorage.getInstance().getReference("uploads");
 
 
         fuser = FirebaseAuth.getInstance().getCurrentUser();
-        //reference = FirebaseDatabase.getInstance().getReference("User");
         if (fuser != null) {
             reference = FirebaseDatabase.getInstance().getReference("User").child(fuser.getUid());
-
-
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 User user = snapshot.getValue(User.class);
-               // username.setText(user.getUsername());
-               // if(user!=null){
-                    username.setText(user.getUsername());
-              //  }
-
-                //Add in 2
+                username.setText(user.getUsername());
                 contactNumber.setText(user.getContactNumber());
                 email.setText(user.getEmail());
 
@@ -139,30 +103,14 @@ public class ProfileFragment extends Fragment {
                         }
                         Glide.with(getContext()).load(user.getImageURL()).into(image_profile);
                     }
-
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });}
-//ADD 7 Take out till 141
-      /*  edit_profile_image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openImage();
-            }
-        });*/
-//edit username
-        /*edit_username.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openImage();
-            }
-        });*/
-        //return view;
+
         edit_profile_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -173,10 +121,6 @@ public class ProfileFragment extends Fragment {
         edit_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Intent intent = new Intent(ProfileFragment.this, ChangePasswordActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-                finish();*/
                 Intent i = new Intent(getActivity(), ChangePasswordActivity.class);
                 startActivity(i);
                 ((Activity) getActivity()).overridePendingTransition(0, 0);
@@ -187,8 +131,6 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if(username.getText().toString().isEmpty() || email.getText().toString().isEmpty() || contactNumber.getText().toString().isEmpty()){
-                  //  Toast.makeText(ProfileFragment.this, "one or many fields required", Toast.LENGTH_SHORT);
-              //ADD
                     Toast.makeText(getActivity(),"One or many fields required!",Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -204,16 +146,11 @@ public class ProfileFragment extends Fragment {
                         map.put("contactNumber", contactNumber.getText().toString());
                         map.put("username", username.getText().toString());
                         reference.updateChildren(map);
-
-                        //Toast.makeText(Preview.this, "your profile has been updated!", Toast.LENGTH_SHORT).show();
-                //Add
                         Toast.makeText(getActivity(),"Your profile has been updated!",Toast.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                       // Toast.makeText(Edit_Profile.this, e.getMessage(), Toast.LENGTH_SHORT);
-                        //ADD
                         Toast.makeText(getActivity(),e.getMessage(),Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -223,14 +160,6 @@ public class ProfileFragment extends Fragment {
 
            return view;
     }
-
-
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }*/
-
 
     public void openImage() {
         Intent intent = new Intent();

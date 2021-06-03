@@ -45,32 +45,25 @@ public class ContactsFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recycler_view12);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
         mUsers = new ArrayList<>();
-
         readUsers();
-
         search_users = view.findViewById(R.id.search_users);
         search_users.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 searchUsers(s.toString());
-
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-
             }
         });
 
         return view;
-
     }
 
     private void searchUsers(String toString) {
@@ -117,19 +110,12 @@ public class ContactsFragment extends Fragment {
 
                 for(DataSnapshot snapshot : datasnapshot.getChildren()){
                     User user = snapshot.getValue(User.class);
-                    //String id = user.getId();
 
                     if (firebaseUser != null) {
 
                         if (user != null && user.getId() != null && !user.getId().equals(firebaseUser.getUid())){
                             mUsers.add(user);
                         }
-
-    //                    assert user != null;
-    //                    assert firebaseUser != null;
-    //                    if (!user.getId().equals(firebaseUser.getUid())){
-    //                        mUsers.add(user);
-    //                    }
                     }
                 }
 

@@ -42,7 +42,6 @@ public class Multiple_Image_Preview extends AppCompatActivity {
     private String sender, receiver;
     TextView image_position;
 
-    //private String checker = "";
     ValueEventListener seenListener;
     FirebaseUser fuser;
     MessageAdapter messageAdapter;
@@ -164,7 +163,6 @@ public class Multiple_Image_Preview extends AppCompatActivity {
 
                 for(int i = 0; i < a; i++){
                     sendMessage(sender, receiver, imageUris.get(i).toString(), checker, time, msg);
-                    //readMessages(sender, userid, );
                 }
 
                 finish();
