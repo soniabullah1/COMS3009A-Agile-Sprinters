@@ -2,9 +2,9 @@ package com.example.agilesprintersapp;
 
 import android.app.Activity;
 import android.app.Instrumentation;
-import android.content.Intent;
 import android.view.View;
 
+import androidx.annotation.UiThread;
 import androidx.test.rule.ActivityTestRule;
 
 import org.junit.After;
@@ -14,10 +14,9 @@ import org.junit.Test;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 public class LandingActivityTest {
 
@@ -31,49 +30,38 @@ public class LandingActivityTest {
     @Before
     public void setUp() throws Exception {
         landingActivity = landingActivityActivityTestRule.getActivity();
-        landingActivity.sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
+        //landingActivity.sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
 
     }
 
     @Test
-    public void testLaunch(){
+    public void A_testLaunch(){
         View view = landingActivity.findViewById(R.id.tSignIn);
         assertNotNull(view);
         landingActivity.finish();
     }
 
+    @UiThread
     @Test
     public void testButtonClickRegister(){
-        try {
-            Thread.sleep(4000);
-            onView(withId(R.id.tRegister)).perform(click(),closeSoftKeyboard());
-
-            Activity registerActivity = getInstrumentation().waitForMonitorWithTimeout(monitor1,50000);
+            onView(withId(R.id.tRegister)).perform(click());
+            Activity registerActivity = getInstrumentation().waitForMonitorWithTimeout(monitor1,5000);
             assertNotNull(registerActivity);
 
-            registerActivity.finish();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+            //registerActivity.finish();
 
-        landingActivity.finish();
+            //landingActivity.finish();
     }
 
+    @UiThread
     @Test
     public void testButtonClickSignIn(){
-        try {
-            Thread.sleep(4000);
-            onView(withId((R.id.tSignIn))).perform(click(),closeSoftKeyboard());
-            Activity signInActivity = getInstrumentation().waitForMonitorWithTimeout(monitor2,50000);
+            onView(withId((R.id.tSignIn))).perform(click());
+            Activity signInActivity = getInstrumentation().waitForMonitorWithTimeout(monitor2,5000);
+
             assertNotNull(signInActivity);
-            signInActivity.finish();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-
-
-        landingActivity.finish();
+            //signInActivity.finish();
+            //landingActivity.finish();
     }
 
     @After
