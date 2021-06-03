@@ -33,7 +33,10 @@ public class ContactsActivity extends AppCompatActivity {
         list = findViewById(R.id.contactList);
         ArrayAdapter adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, mobileArray);
-        list.setAdapter(adapter);
+
+        if(list!=null) {
+            list.setAdapter(adapter);
+        }
 
     }
 
