@@ -56,16 +56,16 @@ private List<Chatlist> userList;
         userList = new ArrayList<>();
         if(fuser != null) {
             reference = FirebaseDatabase.getInstance().getReference("Chatlist").child(fuser.getUid());
-        }
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
-                userList.clear();
 
-                for (DataSnapshot snapshot : datasnapshot.getChildren()) {
+            reference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+                    userList.clear();
 
-                    Chatlist chatlist = snapshot.getValue(Chatlist.class);
-                    userList.add(chatlist);
+                    for (DataSnapshot snapshot : datasnapshot.getChildren()) {
+
+                        Chatlist chatlist = snapshot.getValue(Chatlist.class);
+                        userList.add(chatlist);
 
 //                    Chat chat = snapshot.getValue(Chat.class);
 //                    User user = snapshot.getValue(User.class);
@@ -79,18 +79,20 @@ private List<Chatlist> userList;
 //                            userList.add(chat.getSender());
 //                        }
 //                    }
+                    }
+
+                    //readChats();
+
+                    chatList();
                 }
 
-                //readChats();
 
-                chatList();
-            }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+                }
+            });
+        }
 
         return view;
     }
