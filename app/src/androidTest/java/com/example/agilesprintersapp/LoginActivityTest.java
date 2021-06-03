@@ -28,6 +28,7 @@ public class LoginActivityTest {
 
     Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(LandingActivity.class.getName(),null ,false);
     Instrumentation.ActivityMonitor monitor2 = getInstrumentation().addMonitor(HomeActivity.class.getName(),null ,false);
+    Instrumentation.ActivityMonitor monitor3 = getInstrumentation().addMonitor(ForgotPasswordActivity.class.getName(),null ,false);
 
     public static final String STRING_TO_BE_TYPED_EMAIL = "rushilpatel0703@gmail.com";
     public static final String STRING_TO_BE_TYPED_PASSWORD = "cakeface42";
@@ -80,6 +81,13 @@ public class LoginActivityTest {
         loginActivity.finish();
 
 
+    }
+
+    @Test
+    public void testForgotPassword(){
+        onView(withId(R.id.ForgotPasswordView)).perform(click());
+        Activity forgotpasswordActivity = getInstrumentation().waitForMonitorWithTimeout(monitor3,5000);
+        assertNotNull(forgotpasswordActivity);
     }
 
     @After

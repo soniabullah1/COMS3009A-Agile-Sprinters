@@ -1,31 +1,24 @@
 package com.example.agilesprintersapp;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import androidx.appcompat.widget.Toolbar;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-//import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.agilesprintersapp.Fragments.ChatsFragment;
-import com.example.agilesprintersapp.Fragments.ContactsFragment;
 import com.example.agilesprintersapp.Fragments.ProfileFragment;
 import com.example.agilesprintersapp.Fragments.StoryFragment;
-import com.example.agilesprintersapp.Fragments.StoryFragment;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -36,6 +29,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+
+//import androidx.fragment.app.FragmentPagerAdapter;
 
 public class HomeActivity extends AppCompatActivity {
 
