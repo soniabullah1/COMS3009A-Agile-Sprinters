@@ -1,5 +1,6 @@
 package com.example.agilesprintersapp.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,15 +12,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.agilesprintersapp.Adapter.UserAdapter;
+import com.example.agilesprintersapp.ContactsList;
 import com.example.agilesprintersapp.Model.Chatlist;
 import com.example.agilesprintersapp.Model.User;
 import com.example.agilesprintersapp.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
@@ -33,7 +37,7 @@ public class ChatsFragment extends Fragment {
     private RecyclerView recyclerView;
     private UserAdapter userAdapter;
     private List<User> mUsers;
-
+FloatingActionButton floatingActionButton;
     FirebaseUser fuser;
     DatabaseReference reference;
 
@@ -46,7 +50,7 @@ private List<Chatlist> userList;
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_chats, container, false);
-
+        floatingActionButton = view.findViewById(R.id.floatingActionButton);
         recyclerView = view.findViewById(R.id.recycler_view2);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -54,6 +58,8 @@ private List<Chatlist> userList;
         fuser = FirebaseAuth.getInstance().getCurrentUser();
 
         userList = new ArrayList<>();
+
+
         if(fuser != null) {
             reference = FirebaseDatabase.getInstance().getReference("Chatlist").child(fuser.getUid());
 
@@ -93,6 +99,16 @@ private List<Chatlist> userList;
                 }
             });
         }
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ContactsList.class);
+            startActivity(intent);
+
+
+
+            }
+        });
 
         return view;
     }
@@ -100,6 +116,7 @@ private List<Chatlist> userList;
     private void chatList() {
         mUsers = new ArrayList<>();
         reference = FirebaseDatabase.getInstance().getReference("User");
+        //Query query = reference.orderByChild("time");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
