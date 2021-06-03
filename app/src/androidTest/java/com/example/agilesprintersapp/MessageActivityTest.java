@@ -3,6 +3,7 @@ package com.example.agilesprintersapp;
 import android.content.Intent;
 import android.view.View;
 
+import androidx.annotation.UiThread;
 import androidx.test.rule.ActivityTestRule;
 
 import org.junit.After;
@@ -43,6 +44,7 @@ public class MessageActivityTest{
         messageActivity.finish();
     }
 
+    @UiThread
     @Test
     public void testMessageSendButton(){
         onView(withId(R.id.btn_send)).perform(click());
