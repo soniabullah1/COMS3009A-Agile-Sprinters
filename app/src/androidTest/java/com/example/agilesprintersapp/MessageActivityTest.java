@@ -69,13 +69,7 @@ public class MessageActivityTest{
     @UiThread
     @Test
     public void testAttachImage(){
-        try {
-            Thread.sleep(4000);
-            onView(withId(R.id.btn_attach_pic)).perform(click());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
+        onView(withId(R.id.btn_attach_pic)).perform(click());
         messageActivity.finish();
         //messageActivity.pickImagesIntent();
     }
