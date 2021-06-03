@@ -12,8 +12,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import de.hdodenhof.circleimageview.CircleImageView;
-
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
@@ -61,16 +59,8 @@ public class ProfileFragmentTest {
     @Test
     public void testSaveButton() {
         onView(withId(R.id.btn_save)).perform(click());
-        CircleImageView image_profile = profileFragment.image_profile;
 
     }
-
-    @Test
-    public void testUploadImage() {
-        profileFragment.uploadImage();
-
-    }
-
 
     @After
     public void tearDown() throws Exception {
