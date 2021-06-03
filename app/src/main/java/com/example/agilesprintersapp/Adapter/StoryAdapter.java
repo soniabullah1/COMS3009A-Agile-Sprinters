@@ -17,6 +17,7 @@ import com.bumptech.glide.Glide;
 import com.example.agilesprintersapp.Model.Chat;
 import com.example.agilesprintersapp.Model.User;
 import com.example.agilesprintersapp.R;
+import com.example.agilesprintersapp.StoryActivity;
 
 
 import java.util.List;
@@ -71,7 +72,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder>{
         holder.itemView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent intent = new Intent(mContext, MessageActivity.class);
+                Intent intent = new Intent(mContext, StoryActivity.class);
                 intent.putExtra("userid", user.getId());
                 mContext.startActivity(intent);
             }

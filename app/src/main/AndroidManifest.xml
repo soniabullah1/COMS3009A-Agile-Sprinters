@@ -19,7 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AgileSprintersApp">
-        <activity android:name=".ForgotPasswordActivity"></activity>
+        <activity android:name=".StoryActivity"></activity>
+        <activity android:name=".ForgotPasswordActivity" />
         <activity android:name=".ChangePasswordActivity" />
         <activity android:name=".Edit_Profile" />
         <activity android:name=".ContactsList" />
@@ -33,8 +34,9 @@
         <activity
             android:name=".SettingsActivity"
             android:parentActivityName=".HomeActivity" />
-        <activity android:name=".ContactsActivity"
-            android:parentActivityName=".HomeActivity"/>
+        <activity
+            android:name=".ContactsActivity"
+            android:parentActivityName=".HomeActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
