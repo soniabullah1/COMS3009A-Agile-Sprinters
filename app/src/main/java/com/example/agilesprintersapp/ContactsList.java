@@ -77,7 +77,9 @@ public class ContactsList extends AppCompatActivity {
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
-                mUsers.clear();
+                if(mUsers != null) {
+                    mUsers.clear();
+                }
                 for(DataSnapshot snapshot: datasnapshot.getChildren()){
                     User user = snapshot.getValue(User.class);
 
