@@ -85,7 +85,7 @@ public class ContactsList extends AppCompatActivity {
 
                     assert user!= null;
                     assert fuser!= null;
-                    if(!user.getId().equals(fuser.getUid())){
+                    if(!user.getId().equals(fuser.getUid()) && mUsers != null){
                         mUsers.add(user);
                     }
                 }
