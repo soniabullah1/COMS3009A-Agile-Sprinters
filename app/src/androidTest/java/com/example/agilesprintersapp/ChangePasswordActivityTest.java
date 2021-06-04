@@ -5,7 +5,6 @@ import android.app.Instrumentation;
 import android.content.Intent;
 import android.view.View;
 
-import androidx.annotation.UiThread;
 import androidx.test.rule.ActivityTestRule;
 
 import org.junit.After;
@@ -15,8 +14,6 @@ import org.junit.Test;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
-import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 import static org.junit.Assert.assertNotNull;
@@ -60,14 +57,14 @@ public class ChangePasswordActivityTest {
         assertNotNull(homeActivity);
     }
 
-    @UiThread
-    @Test
-    public void testChangePassword(){
-        onView(withId(R.id.NewPasswordText)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD1), closeSoftKeyboard());
-        onView(withId(R.id.ConfirmPasswordText)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD2), closeSoftKeyboard());
-
-        onView(withId(R.id.Btn_Change)).perform(click());
-    }
+//    @UiThread
+//    @Test
+//    public void testChangePassword(){
+//        onView(withId(R.id.NewPasswordText)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD1), closeSoftKeyboard());
+//        onView(withId(R.id.ConfirmPasswordText)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD2), closeSoftKeyboard());
+//
+//        onView(withId(R.id.Btn_Change)).perform(click());
+//    }
 
 
 
