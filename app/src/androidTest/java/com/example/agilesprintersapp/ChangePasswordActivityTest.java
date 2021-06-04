@@ -5,6 +5,7 @@ import android.app.Instrumentation;
 import android.content.Intent;
 import android.view.View;
 
+import androidx.annotation.UiThread;
 import androidx.test.rule.ActivityTestRule;
 
 import org.junit.After;
@@ -59,6 +60,7 @@ public class ChangePasswordActivityTest {
         assertNotNull(homeActivity);
     }
 
+    @UiThread
     @Test
     public void testChangePassword(){
         onView(withId(R.id.NewPasswordText)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD1), closeSoftKeyboard());
