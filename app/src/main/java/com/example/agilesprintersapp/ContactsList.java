@@ -67,7 +67,7 @@ public class ContactsList extends AppCompatActivity {
 
     }
 
-    private void searchUsers(String toString) {
+    public void searchUsers(String toString) {
 
         FirebaseUser fuser = FirebaseAuth.getInstance().getCurrentUser();
         Query query = FirebaseDatabase.getInstance().getReference("User").orderByChild("username")
@@ -99,7 +99,7 @@ public class ContactsList extends AppCompatActivity {
         });
 
     }
-    private void readUsers(){
+    public void readUsers(){
 
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User");

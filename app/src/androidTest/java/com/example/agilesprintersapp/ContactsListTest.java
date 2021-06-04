@@ -30,6 +30,9 @@ public class ContactsListTest {
         View view1 = contactsList.findViewById(R.id.recycler_view12);
         assertNotNull(view1);
         contactsList.finish();
+
+        contactsList.readUsers();
+        contactsList.searchUsers("tris");
     }
 
     @After
