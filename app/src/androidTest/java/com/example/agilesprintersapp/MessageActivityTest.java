@@ -67,13 +67,13 @@ public class MessageActivityTest{
         messageActivity.finish();
     }
 
-    @UiThread
-    @Test
-    public void Z_testAttachImage(){
-        onView(withId(R.id.btn_attach_pic)).perform(click());
-        messageActivity.finish();
-        //messageActivity.pickImagesIntent();
-    }
+//    @UiThread
+//    @Test
+//    public void Z_testAttachImage(){
+//        onView(withId(R.id.btn_attach_pic)).perform(click());
+//        messageActivity.finish();
+//        //messageActivity.pickImagesIntent();
+//    }
 
     @Test
     public void testOnActivityResult() {
