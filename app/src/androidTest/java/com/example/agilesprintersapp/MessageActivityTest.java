@@ -69,7 +69,7 @@ public class MessageActivityTest{
 
     @UiThread
     @Test
-    public void testAttachImage(){
+    public void Z_testAttachImage(){
         onView(withId(R.id.btn_attach_pic)).perform(click());
         messageActivity.finish();
         //messageActivity.pickImagesIntent();
