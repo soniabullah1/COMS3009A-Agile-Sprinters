@@ -44,14 +44,14 @@ public class MessageActivityTest{
         messageActivity.finish();
     }
 
-    @UiThread
-    @Test
-    public void testMessageSendButton(){
-        onView(withId(R.id.btn_send)).perform(click());
-        boolean toastMade = messageActivity.toastMade;
-        assertEquals(true, toastMade);
-        messageActivity.finish();
-    }
+//    @UiThread
+//    @Test
+//    public void testMessageSendButton(){
+//        onView(withId(R.id.btn_send)).perform(click());
+//        boolean toastMade = messageActivity.toastMade;
+//        assertEquals(true, toastMade);
+//        messageActivity.finish();
+//    }
 
     @Test
     public void testSendAMessage(){
