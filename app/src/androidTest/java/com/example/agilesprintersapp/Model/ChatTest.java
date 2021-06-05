@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 public class ChatTest {
 
     Chat chat = new Chat("sender","reciever","message","type","time","caption", false);
-
+    Chat chat2 = new Chat("caption","message", "sender","receiver","type");
     @Before
     public void setUp() throws Exception {
     }
