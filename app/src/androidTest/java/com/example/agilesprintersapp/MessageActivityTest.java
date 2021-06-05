@@ -3,7 +3,6 @@ package com.example.agilesprintersapp;
 import android.content.Intent;
 import android.view.View;
 
-import androidx.annotation.UiThread;
 import androidx.test.rule.ActivityTestRule;
 
 import org.junit.After;
@@ -13,10 +12,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -44,14 +39,14 @@ public class MessageActivityTest{
         messageActivity.finish();
     }
 
-    @UiThread
-    @Test
-    public void testMessageSendButton(){
-        onView(withId(R.id.btn_send)).perform(click());
-        boolean toastMade = messageActivity.toastMade;
-        assertEquals(true, toastMade);
-        messageActivity.finish();
-    }
+//    @UiThread
+//    @Test
+//    public void testMessageSendButton(){
+//        onView(withId(R.id.btn_send)).perform(click());
+//        boolean toastMade = messageActivity.toastMade;
+//        assertEquals(true, toastMade);
+//        messageActivity.finish();
+//    }
 
     @Test
     public void testSendAMessage(){

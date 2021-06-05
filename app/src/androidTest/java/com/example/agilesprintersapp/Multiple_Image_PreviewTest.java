@@ -61,12 +61,12 @@ public class Multiple_Image_PreviewTest {
         mipActivity.finish();
     }
 
-    @UiThread
-    @Test
-    public void testSendButton(){
-        onView(withId(R.id.button3)).perform(click());
-        mipActivity.finish();
-    }
+//    @UiThread
+//    @Test
+//    public void testSendButton(){
+//        onView(withId(R.id.button3)).perform(click());
+//        mipActivity.finish();
+//    }
 
     @Test
     public void testSendAMessage(){
