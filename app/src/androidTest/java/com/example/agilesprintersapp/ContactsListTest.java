@@ -32,7 +32,7 @@ public class ContactsListTest {
         contactsList.finish();
 
         contactsList.readUsers();
-        contactsList.searchUsers("tris");
+        //contactsList.searchUsers("tris");
     }
 
     @After
