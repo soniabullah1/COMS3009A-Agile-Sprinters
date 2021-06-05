@@ -38,30 +38,30 @@ public class LandingActivityTest {
     public void A_testLaunch(){
         View view = landingActivity.findViewById(R.id.tSignIn);
         assertNotNull(view);
-        landingActivity.finish();
+        //landingActivity.finish();
     }
 
     @UiThread
     @Test
     public void testButtonClickRegister(){
-            onView(withId(R.id.tRegister)).perform(click());
-            Activity registerActivity = getInstrumentation().waitForMonitorWithTimeout(monitor1,5000);
-            assertNotNull(registerActivity);
+        onView(withId(R.id.tRegister)).perform(click());
+        Activity registerActivity = getInstrumentation().waitForMonitorWithTimeout(monitor1,5000);
+        assertNotNull(registerActivity);
 
-            //registerActivity.finish();
+        //registerActivity.finish();
 
-            //landingActivity.finish();
+        //landingActivity.finish();
     }
 
     @UiThread
     @Test
     public void testButtonClickSignIn(){
-            onView(withId((R.id.tSignIn))).perform(click());
-            Activity signInActivity = getInstrumentation().waitForMonitorWithTimeout(monitor2,5000);
+        onView(withId((R.id.tSignIn))).perform(click());
+        Activity signInActivity = getInstrumentation().waitForMonitorWithTimeout(monitor2,5000);
 
-            assertNotNull(signInActivity);
-            //signInActivity.finish();
-            //landingActivity.finish();
+        assertNotNull(signInActivity);
+        //signInActivity.finish();
+        //landingActivity.finish();
     }
 
     @After
