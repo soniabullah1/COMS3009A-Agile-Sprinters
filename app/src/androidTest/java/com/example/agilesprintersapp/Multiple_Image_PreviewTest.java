@@ -3,6 +3,7 @@ package com.example.agilesprintersapp;
 import android.content.Intent;
 import android.view.View;
 
+import androidx.annotation.UiThread;
 import androidx.test.rule.ActivityTestRule;
 
 import org.junit.After;
@@ -10,6 +11,9 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.assertNotNull;
 
 public class Multiple_Image_PreviewTest {
@@ -42,50 +46,47 @@ public class Multiple_Image_PreviewTest {
         mipActivity.finish();
     }
 
-//    @Test
-//    public void testPreviousButton(){
-//        try {
-//            Thread.sleep(4000);
-//            onView(withId(R.id.Nextbtn)).perform(click());
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//        //onView(withId(R.id.PreviousBtn)).perform(click());
-//
-//        mipActivity.finish();
-//    }
+    @UiThread
+    @Test
+    public void testPreviousButton(){
+        //onView(withId(R.id.Nextbtn)).perform(click());
+        onView(withId(R.id.PreviousBtn)).perform(click());
+        mipActivity.finish();
+    }
 
-//    @Test
-//    public void testNextButton(){
-//        onView(withId(R.id.Nextbtn)).perform(click());
-//        mipActivity.finish();
-//    }
+    @UiThread
+    @Test
+    public void testNextButton(){
+        onView(withId(R.id.Nextbtn)).perform(click());
+        mipActivity.finish();
+    }
 
-//    @Test
-//    public void testSendButton(){
-//        onView(withId(R.id.button3)).perform(click());
-//        mipActivity.finish();
-//    }
-//
-//    @Test
-//    public void testSendAMessage(){
-//        String time = String.valueOf(System.currentTimeMillis());
-//        mipActivity.sendMessage( "1HYeIejMyvhSemoNl2UbYXC9SvB3", "4WP1IvaihjYaB4fHmaMl413bsN62", "Unit testing is not fun", "text", time, "UGHHHHHHH");
-//        mipActivity.finish();
-//    }
-//
-//    @Test
-//     public void testReadMessage(){
-//         String pic_url = "unittest";
-//         mipActivity.readMessages("1HYeIejMyvhSemoNl2UbYXC9SvB3","4WP1IvaihjYaB4fHmaMl413bsN62",pic_url);
-//         mipActivity.finish();
-//    }
-//
-//    @Test
-//    public void testSeenMessage(){
-//        mipActivity.seenMessage("1HYeIejMyvhSemoNl2UbYXC9SvB3");
-//        mipActivity.finish();
-//    }
+    @UiThread
+    @Test
+    public void testSendButton(){
+        onView(withId(R.id.button3)).perform(click());
+        mipActivity.finish();
+    }
+
+    @Test
+    public void testSendAMessage(){
+        String time = String.valueOf(System.currentTimeMillis());
+        mipActivity.sendMessage( "1HYeIejMyvhSemoNl2UbYXC9SvB3", "4WP1IvaihjYaB4fHmaMl413bsN62", "Unit testing is not fun", "text", time, "UGHHHHHHH");
+        mipActivity.finish();
+    }
+
+    @Test
+     public void testReadMessage(){
+         String pic_url = "unittest";
+         mipActivity.readMessages("1HYeIejMyvhSemoNl2UbYXC9SvB3","4WP1IvaihjYaB4fHmaMl413bsN62",pic_url);
+         mipActivity.finish();
+    }
+
+    @Test
+    public void testSeenMessage(){
+        mipActivity.seenMessage("1HYeIejMyvhSemoNl2UbYXC9SvB3");
+        mipActivity.finish();
+    }
 
 
     @After

@@ -26,20 +26,6 @@ public class HomeActivityTest {
 
     }
 
-//    @UiThreadTest
-//    @Test
-//    public void testAddItemsWithoutMenuInflation() {
-//        BottomNavigationView navigation = new BottomNavigationView(homeActivityTestRule.getActivity());
-//        homeActivityTestRule.getActivity().setContentView(navigation);
-//        navigation.getMenu().add("Item1");
-//        navigation.getMenu().add("Item2");
-//        assertEquals(2, navigation.getMenu().size());
-//        navigation.getMenu().removeItem(0);
-//        navigation.getMenu().removeItem(0);
-//        assertEquals(0, navigation.getMenu().size());
-//        homeActivity.finish();
-//    }
-
 //    @Test
 //    public void testFloatingButton(){
 //        View view = homeActivity.findViewById(R.id.Chat_Icon);
@@ -56,17 +42,5 @@ public class HomeActivityTest {
     public void tearDown() throws Exception {
         homeActivity = null;
     }
-
-//    private void checkAndVerifyExclusiveItem(final Menu menu, final int id) throws Throwable {
-//        menu.findItem(id).setChecked(true);
-//        for (int i = 0; i < menu.size(); i++) {
-//            final MenuItem item = menu.getItem(i);
-//            if (item.getItemId() == id) {
-//                assertTrue(item.isChecked());
-//            } else {
-//                assertFalse(item.isChecked());
-//            }
-//        }
-//    }
 
 }
