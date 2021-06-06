@@ -1,6 +1,5 @@
 package com.example.agilesprintersapp;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,13 +11,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.agilesprintersapp.Adapter.MessageAdapter;
 import com.example.agilesprintersapp.Model.Chat;
 import com.example.agilesprintersapp.Model.User;
@@ -118,25 +115,25 @@ public class MessageActivity extends AppCompatActivity {
         btn_attach_pic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CharSequence[] options = new CharSequence[]
-                        {
-                                "Images",
-                                "PDF Files",
-                                "Ms Word Files",
-                        };
-                AlertDialog.Builder builder = new AlertDialog.Builder(MessageActivity.this);
-                builder.setTitle("Select the File");
-
-                builder.setItems(options, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        if(i == 0){
-                            checker = "image";
-                            pickImagesIntent();
-                        }
-                    }
-                });
-                builder.show();
+//                CharSequence[] options = new CharSequence[]
+//                        {
+//                                "Images",
+//                                "PDF Files",
+//                                "Ms Word Files",
+//                        };
+//                AlertDialog.Builder builder = new AlertDialog.Builder(MessageActivity.this);
+//                builder.setTitle("Select the File");
+//
+//                builder.setItems(options, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//                        if(i == 0){
+//                            checker = "image";
+//                            pickImagesIntent();
+//                        }
+//                    }
+//                });
+//                builder.show();
             }
         });
 
@@ -156,30 +153,30 @@ public class MessageActivity extends AppCompatActivity {
         });
 
         fuser = FirebaseAuth.getInstance().getCurrentUser();
-        if (userid != null) {
-            reference = FirebaseDatabase.getInstance().getReference("User").child(userid);
-
-            reference.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    User user = snapshot.getValue(User.class);
-                    username.setText(user.getUsername());
-                    if(user.getImageURL().equals("default")){
-                        profile_image.setImageResource(R.mipmap.ic_launcher);
-
-                    }else{
-                        Glide.with(getApplicationContext()).load(user.getImageURL()).into(profile_image);
-                    }
-
-                    readMessages(fuser.getUid(), userid, user.getImageURL());
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
-        }
+//        if (userid != null) {
+//            reference = FirebaseDatabase.getInstance().getReference("User").child(userid);
+//
+//            reference.addValueEventListener(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                    User user = snapshot.getValue(User.class);
+//                    username.setText(user.getUsername());
+//                    if(user.getImageURL().equals("default")){
+//                        profile_image.setImageResource(R.mipmap.ic_launcher);
+//
+//                    }else{
+//                        Glide.with(getApplicationContext()).load(user.getImageURL()).into(profile_image);
+//                    }
+//
+//                    readMessages(fuser.getUid(), userid, user.getImageURL());
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError error) {
+//
+//                }
+//            });
+//        }
         seenMessage(userid);
         if(fuser != null) {
             messageSenderID = fuser.getUid();
