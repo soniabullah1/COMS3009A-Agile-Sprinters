@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Instrumentation;
 import android.content.Intent;
 
+import androidx.annotation.UiThread;
 import androidx.test.rule.ActivityTestRule;
 
 import org.junit.After;
@@ -43,6 +44,7 @@ public class ForgotPasswordActivityTest {
         onView(withId(R.id.Btn_Return)).check(matches(isDisplayed()));
     }
 
+    @UiThread
     @Test
     public void testReturnButton(){
         onView(withId(R.id.Btn_Return)).perform(click());
