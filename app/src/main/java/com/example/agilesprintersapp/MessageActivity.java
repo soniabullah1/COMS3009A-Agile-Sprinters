@@ -144,14 +144,6 @@ public class MessageActivity extends AppCompatActivity {
                             checker = "image";
                             pickImagesIntent();
                         }
-
-                        if(i == 1){
-                            checker = "pdf";
-                        }
-
-                        if(i == 2){
-                            checker = "docx";
-                        }
                     }
                 });
                 builder.show();
