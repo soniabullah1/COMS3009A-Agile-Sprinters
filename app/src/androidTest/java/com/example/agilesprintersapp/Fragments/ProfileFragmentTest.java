@@ -19,7 +19,6 @@ import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-//@RunWith(RobolectricTestRunner.class)
 public class ProfileFragmentTest {
 
     @Rule
