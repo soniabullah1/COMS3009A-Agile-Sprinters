@@ -27,7 +27,7 @@ Colin Hugo, Tristen haverly, Rushil Patel, Kayla Levy, Bhavik Govan 💯, Sonia 
 * Option to reset password via email if the password has been forgotten
 * Text message exchange between users
 * Image exchange between users with or without captions
-* Unique chat lists
+* Unique chat lists displayed with last message exchanged between two users
 * View a complete chat history of all messages exchanged with timestamps on each message
 * Read receipts on last message sent
 * Edit profile picture, username, contact number and password
