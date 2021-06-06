@@ -39,7 +39,7 @@ Rushil Patel, Sonia Bullah, Kayla Levy, Bhavik Govan, Abdullah Haffejee, Colin H
 ### Welcome:
 <img src="https://user-images.githubusercontent.com/81515681/120941090-14b22700-c721-11eb-8d4d-19e823ae6d3a.jpg" width="303"> <img src="https://user-images.githubusercontent.com/81515681/120941374-c2720580-c722-11eb-8f7f-2167f81335b6.jpg" width="298"> 
 
-### Registration & Sign-In:
+### Registration, Sign-In & Forgot Password:
 <img src="https://user-images.githubusercontent.com/81515681/120941382-cc940400-c722-11eb-9626-7c13c80d4a88.jpg" width="300"> <img width="303" alt="Login" src="https://user-images.githubusercontent.com/81515681/120941384-cf8ef480-c722-11eb-921f-c1ba9207ee94.png"> <img src="https://user-images.githubusercontent.com/81515681/120941390-d61d6c00-c722-11eb-9ca4-1d99f259c5dd.jpg" width="300"> 
 
 ### Chat With Other Users:
@@ -48,5 +48,5 @@ Rushil Patel, Sonia Bullah, Kayla Levy, Bhavik Govan, Abdullah Haffejee, Colin H
 ### Upload & View Stories:
 <img src="https://user-images.githubusercontent.com/81515681/120941412-f2b9a400-c722-11eb-8aae-fd937e969104.jpg" width="300"> <img src="https://user-images.githubusercontent.com/81515681/120941414-f4836780-c722-11eb-899c-0a3ab23e6e27.jpg" width="300"> 
 
-### Edit Profile Information:
+### Edit Profile Information & Logout:
 <img src="https://user-images.githubusercontent.com/81515681/120941420-fa794880-c722-11eb-89dd-6f83ac71615b.jpg" width="300">
