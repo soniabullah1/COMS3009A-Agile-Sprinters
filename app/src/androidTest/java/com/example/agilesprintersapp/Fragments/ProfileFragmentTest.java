@@ -43,11 +43,11 @@ public class ProfileFragmentTest {
         onView(withId(R.id.btn_save)).check(matches(isDisplayed()));
     }
 
-    @UiThread
-    @Test
-    public void testEditProfileImage() {
-        onView(withId(R.id.edit_profile_image)).perform(click());
-    }
+//    @UiThread
+//    @Test
+//    public void testEditProfileImage() {
+//        onView(withId(R.id.edit_profile_image)).perform(click());
+//    }
 
     @UiThread
     @Test
