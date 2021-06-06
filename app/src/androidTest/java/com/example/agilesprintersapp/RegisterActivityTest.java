@@ -43,7 +43,7 @@ public class RegisterActivityTest {
     public static final String STRING_TO_BE_TYPED_PHONE = "0610230497";
     public static final String STRING_TO_BE_TYPED_PASSWORD1 = "unittest";
     public static final String STRING_TO_BE_TYPED_PASSWORD2 = "unittest";
-
+    public static final String STRING_TO_BE_TYPED_PASSWORD_SHORT = "short";
 
     @Before
     public void setUp() throws Exception {
@@ -201,6 +201,97 @@ public class RegisterActivityTest {
         assertEquals(check,"True");
         registerActivity.finish();
     }
+
+    @Test
+    public void testNegative1RegisterButton(){
+        onView(withId(R.id.button2)).perform(click());
+        String check = registerActivity.unitTest;
+        assertEquals(check,"True");
+        registerActivity.finish();
+    }
+
+    @Test
+    public void testNegative2RegisterButton(){
+        onView(withId(R.id.FName)).perform(typeText(STRING_TO_BE_TYPED_FNAME), closeSoftKeyboard());
+        onView(withId(R.id.button2)).perform(click());
+        String check = registerActivity.unitTest;
+        assertEquals(check,"True");
+        registerActivity.finish();
+    }
+
+    @Test
+    public void testNegative3RegisterButton(){
+        onView(withId(R.id.LName)).perform(typeText(STRING_TO_BE_TYPED_LNAME), closeSoftKeyboard());
+        onView(withId(R.id.button2)).perform(click());
+        String check = registerActivity.unitTest;
+        assertEquals(check,"True");
+        registerActivity.finish();
+    }
+
+    @Test
+    public void testNegative4RegisterButton(){
+        onView(withId(R.id.editTextUsername)).perform(typeText(STRING_TO_BE_TYPED_USERNAME), closeSoftKeyboard());
+        onView(withId(R.id.button2)).perform(click());
+        String check = registerActivity.unitTest;
+        assertEquals(check,"True");
+        registerActivity.finish();
+    }
+
+    @Test
+    public void testNegative5RegisterButton(){
+        onView(withId(R.id.editTextEmailAddress)).perform(typeText(STRING_TO_BE_TYPED_MAIL), closeSoftKeyboard());
+        onView(withId(R.id.button2)).perform(click());
+        String check = registerActivity.unitTest;
+        assertEquals(check,"True");
+        registerActivity.finish();
+    }
+
+    @Test
+    public void testNegative6RegisterButton(){
+        onView(withId(R.id.editTextPhone)).perform(typeText(STRING_TO_BE_TYPED_PHONE), closeSoftKeyboard());
+        onView(withId(R.id.button2)).perform(click());
+        String check = registerActivity.unitTest;
+        assertEquals(check,"True");
+        registerActivity.finish();
+    }
+
+    @Test
+    public void testNegative7RegisterButton(){
+        onView(withId(R.id.editTextTextPassword2)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD1), closeSoftKeyboard());
+        onView(withId(R.id.button2)).perform(click());
+        String check = registerActivity.unitTest;
+        assertEquals(check,"True");
+        registerActivity.finish();
+    }
+
+    @Test
+    public void testNegative8RegisterButton(){
+        onView(withId(R.id.editTextTextPassword3)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD2), closeSoftKeyboard());
+        onView(withId(R.id.button2)).perform(click());
+        String check = registerActivity.unitTest;
+        assertEquals(check,"True");
+        registerActivity.finish();
+    }
+
+    @Test
+    public void testNegative9RegisterButton(){
+        onView(withId(R.id.editTextTextPassword2)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD_SHORT), closeSoftKeyboard());
+        onView(withId(R.id.button2)).perform(click());
+        String check = registerActivity.unitTest;
+        assertEquals(check,"True");
+        registerActivity.finish();
+    }
+
+    @Test
+    public void testNegative10RegisterButton(){
+        onView(withId(R.id.editTextTextPassword2)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD_SHORT), closeSoftKeyboard());
+        onView(withId(R.id.editTextTextPassword3)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD2), closeSoftKeyboard());
+        onView(withId(R.id.button2)).perform(click());
+        String check = registerActivity.unitTest;
+        assertEquals(check,"True");
+        registerActivity.finish();
+    }
+
 
     @Test
     public void testRegister(){
