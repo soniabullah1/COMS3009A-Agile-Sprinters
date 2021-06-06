@@ -1,9 +1,7 @@
 # COMS3009A-Agile-Sprinters
+## Social Media/Market Place Clone Project
 
 <img width="350" alt="Screenshot 2021-06-06 at 16 30 05" src="https://user-images.githubusercontent.com/81515681/120928390-bd8e6100-c6e4-11eb-9327-f0d73ad1c95a.png">
-
-
-## Social Media/Market Place Clone Project
 
 ### Members
 
