@@ -84,13 +84,13 @@ public class MessageActivityTest{
 //        //messageActivity.pickImagesIntent();
 //    }
 
-    @Test
-    public void testOnActivityResult() {
-        Intent data = new Intent();
-        messageActivity.onActivityResult(0,-1,data);
-
-        messageActivity.finish();
-    }
+//    @Test
+//    public void testOnActivityResult() {
+//        Intent data = new Intent();
+//        messageActivity.onActivityResult(0,-1,data);
+//
+//        messageActivity.finish();
+//    }
 
 //    @Test
 //    public void testPickImage(){
