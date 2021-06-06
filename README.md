@@ -36,7 +36,7 @@ Colin Hugo, Tristen haverly, Rushil Patel, Kayla Levy, Bhavik Govan 💯, Sonia 
 * Search option to find specific chats and messages
 
 ### Screenshots:
-<img width="298" alt="Screenshot 2021-06-06 at 22 29 27" src="https://user-images.githubusercontent.com/81515681/120940711-e6cbe300-c71e-11eb-8149-729ecabb8773.png"> <img width="298" alt="Screenshot 2021-06-06 at 23 19 17" src="https://user-images.githubusercontent.com/81515681/120940734-07943880-c71f-11eb-9448-3bd9f6adae1f.png">
+![Screenshot 2021-06-06 at 22 29 27](https://user-images.githubusercontent.com/81515681/120940946-35c64800-c720-11eb-97c4-d623a13076a6.jpg) ![Screenshot 2021-06-06 at 23 19 17](https://user-images.githubusercontent.com/81515681/120940964-51c9e980-c720-11eb-8731-97dd840fc297.jpg)
 
 
 
