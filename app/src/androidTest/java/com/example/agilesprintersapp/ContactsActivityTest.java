@@ -23,14 +23,15 @@ public class ContactsActivityTest {
     @Test
     public void testRequestPermission(){
         contactsActivity.requestPermission();
+        contactsActivity.getAllContacts();
         contactsActivity.finish();
     }
 
-   @Test
-   public void testGetAllContacts(){
-       contactsActivity.getAllContacts();
-       //contactsActivity.finish();
-   }
+//   @Test
+//   public void testGetAllContacts(){
+//
+//       //contactsActivity.finish();
+//   }
 
     @After
     public void tearDown() throws Exception {

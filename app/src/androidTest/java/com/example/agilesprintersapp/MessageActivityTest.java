@@ -93,7 +93,7 @@ public class MessageActivityTest{
     }
 
     @Test
-    public void A_testPickImage(){
+    public void testPickImage(){
         messageActivity.pickImagesIntent();
     }
 
