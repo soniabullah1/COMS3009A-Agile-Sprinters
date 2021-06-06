@@ -1,14 +1,12 @@
 package com.example.agilesprintersapp.Fragments;
 
 import android.app.Activity;
-import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -23,12 +21,9 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
-
-import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -129,13 +124,13 @@ public class ProfileFragment extends Fragment {
                     @Override
                     public void onSuccess(Void aVoid) {
 
-                        reference = FirebaseDatabase.getInstance().getReference("User").child(fuser.getUid());
-                        HashMap<String, Object> map = new HashMap<>();
-                        map.put("email", profileemail);
-                        map.put("contactNumber", contactNumber.getText().toString());
-                        map.put("username", username.getText().toString());
-                        reference.updateChildren(map);
-                        Toast.makeText(getActivity(),"Your profile has been updated!",Toast.LENGTH_SHORT).show();
+//                        reference = FirebaseDatabase.getInstance().getReference("User").child(fuser.getUid());
+//                        HashMap<String, Object> map = new HashMap<>();
+//                        map.put("email", profileemail);
+//                        map.put("contactNumber", contactNumber.getText().toString());
+//                        map.put("username", username.getText().toString());
+//                        reference.updateChildren(map);
+//                        Toast.makeText(getActivity(),"Your profile has been updated!",Toast.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -151,17 +146,17 @@ public class ProfileFragment extends Fragment {
     }
 
     public void openImage() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent, IMAGE_REQUEST);
+//        Intent intent = new Intent();
+//        intent.setType("image/*");
+//        intent.setAction(Intent.ACTION_GET_CONTENT);
+//        startActivityForResult(intent, IMAGE_REQUEST);
     }
-
-    private String getFileExtension(Uri uri){
-        ContentResolver contentResolver = getContext().getContentResolver();
-        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
-        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
-    }
+//
+//    private String getFileExtension(Uri uri){
+//        ContentResolver contentResolver = getContext().getContentResolver();
+//        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+//        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
+//    }
 
     public void uploadImage(){
 //        final ProgressDialog pd = new ProgressDialog(getContext());
