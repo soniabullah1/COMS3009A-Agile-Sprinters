@@ -21,6 +21,19 @@ Colin Hugo, Tristen haverly, Rushil Patel, Kayla Levy, Bhavik Govan 💯, Sonia 
 
 [![codecov](https://codecov.io/gh/soniabullah1/COMS3009A-Agile-Sprinters/branch/main/graph/badge.svg?token=EECSK3MM0Y)](https://codecov.io/gh/soniabullah1/COMS3009A-Agile-Sprinters)
 
+### Features Included:
+
+* Password protected sign-in
+* Option to reset password via email if the password has been forgotten
+* Text message exchange between users
+* Image exchange between users with or without captions
+* Unique chat lists
+* View a complete chat history of all messages exchanged with timestamps on each message
+* Read receipts on last message sent
+* Edit profile picture, username, contact number and password
+* Option to add and delete an image status with or without captions
+* View statuses from other users
+* Search option to find specific chats and messages
 
 
 
