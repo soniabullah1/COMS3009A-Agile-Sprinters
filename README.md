@@ -36,4 +36,17 @@ Colin Hugo, Tristen haverly, Rushil Patel, Kayla Levy, Bhavik Govan 💯, Sonia 
 * Search option to find specific chats and messages
 
 ### Screenshots:
-<img src="https://user-images.githubusercontent.com/81515681/120941090-14b22700-c721-11eb-8d4d-19e823ae6d3a.jpg" width="301"> <img src="https://user-images.githubusercontent.com/81515681/120941374-c2720580-c722-11eb-8f7f-2167f81335b6.jpg" width="298"> <img src="https://user-images.githubusercontent.com/81515681/120941382-cc940400-c722-11eb-9626-7c13c80d4a88.jpg" width="300"> <img width="300" alt="Login" src="https://user-images.githubusercontent.com/81515681/120941384-cf8ef480-c722-11eb-921f-c1ba9207ee94.png"> <img src="https://user-images.githubusercontent.com/81515681/120941390-d61d6c00-c722-11eb-9ca4-1d99f259c5dd.jpg" width="300"> <img src="https://user-images.githubusercontent.com/81515681/120941396-e03f6a80-c722-11eb-9e3c-f6c6067da598.jpg" width="300"> <img src="https://user-images.githubusercontent.com/81515681/120941398-e2a1c480-c722-11eb-91e4-9ff2e93c758c.jpg" width="300"> <img src="https://user-images.githubusercontent.com/81515681/120941408-eaf9ff80-c722-11eb-8561-1e6b74c74386.jpg" width="300"> <img width="300" alt="Image Preview" src="https://user-images.githubusercontent.com/81515681/120941410-ee8d8680-c722-11eb-85dd-0e7829c29a92.png"> <img src="https://user-images.githubusercontent.com/81515681/120941412-f2b9a400-c722-11eb-8aae-fd937e969104.jpg" width="300"> <img src="https://user-images.githubusercontent.com/81515681/120941414-f4836780-c722-11eb-899c-0a3ab23e6e27.jpg" width="300"> <img src="https://user-images.githubusercontent.com/81515681/120941420-fa794880-c722-11eb-89dd-6f83ac71615b.jpg" width="300">
+### Welcome:
+<img src="https://user-images.githubusercontent.com/81515681/120941090-14b22700-c721-11eb-8d4d-19e823ae6d3a.jpg" width="303"> <img src="https://user-images.githubusercontent.com/81515681/120941374-c2720580-c722-11eb-8f7f-2167f81335b6.jpg" width="298"> 
+
+### Registration & Sign-In:
+<img src="https://user-images.githubusercontent.com/81515681/120941382-cc940400-c722-11eb-9626-7c13c80d4a88.jpg" width="300"> <img width="303" alt="Login" src="https://user-images.githubusercontent.com/81515681/120941384-cf8ef480-c722-11eb-921f-c1ba9207ee94.png"> <img src="https://user-images.githubusercontent.com/81515681/120941390-d61d6c00-c722-11eb-9ca4-1d99f259c5dd.jpg" width="300"> 
+
+### Chat With Other Users:
+<img src="https://user-images.githubusercontent.com/81515681/120941398-e2a1c480-c722-11eb-91e4-9ff2e93c758c.jpg" width="300"> <img src="https://user-images.githubusercontent.com/81515681/120941396-e03f6a80-c722-11eb-9e3c-f6c6067da598.jpg" width="300"> <img src="https://user-images.githubusercontent.com/81515681/120941408-eaf9ff80-c722-11eb-8561-1e6b74c74386.jpg" width="300"> <img width="300" alt="Image Preview" src="https://user-images.githubusercontent.com/81515681/120941410-ee8d8680-c722-11eb-85dd-0e7829c29a92.png"> 
+
+### Upload & View Stories:
+<img src="https://user-images.githubusercontent.com/81515681/120941412-f2b9a400-c722-11eb-8aae-fd937e969104.jpg" width="300"> <img src="https://user-images.githubusercontent.com/81515681/120941414-f4836780-c722-11eb-899c-0a3ab23e6e27.jpg" width="300"> 
+
+### Edit Profile Information:
+<img src="https://user-images.githubusercontent.com/81515681/120941420-fa794880-c722-11eb-89dd-6f83ac71615b.jpg" width="300">
