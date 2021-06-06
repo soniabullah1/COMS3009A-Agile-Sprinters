@@ -1,0 +1,595 @@
+[2021/05/24, 08:21:19] Sonia:
+ Monday, 24 May 2021
+
+What I did yesterday: 
+I pulled the project from GitHub and fixed some of the layout. I managed to get the time to display on both images and text received. I also exported the Daily Scrum Meetings and uploaded them to GitHub and Taiga. 
+
+What I will do today: 
+Attend meetings for Sprint 3. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/24, 08:42:18] Tristen Haverly: 
+What i did yesterday:
+Edited soo layout bar with return buttons, edit profile page made a few changes and fixed errors causing some parts of the app to break 
+
+What i will do today:
+Finishing touches and join meetings and reviews 
+
+Impediments:
+None
+
+[2021/05/25, 10:29:32] Sonia: 
+Tuesday, 25 May 2021
+
+What I did yesterday: 
+Presented the project to Rylan, uploaded the Sprint Review Meeting Minutes and attended the Backlog Refinement Meeting. 
+
+What I will do today: 
+Do some research as to how we could possibly get the stories done. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/25, 11:48:08] Tristen Haverly: 
+What i did yesterday:
+Attended sprint meeting with rylan , Changed the layout according to rylans preference and instruction and researched how to tackle user stories for the next sprint
+
+What i will do today:
+Continue fixing the layout , debugging errors and get started in the contacts search in the database 
+
+Impediments:
+None
+
+[2021/05/25, 12:02:33] Kayla Levy: 
+What I did yesterday:
+Joined all the meetings with Rylan and our team
+
+What I will do today:
+Continue researching my part
+
+Any impediments 
+None
+
+[2021/05/25, 16:54:38] Bhavik Govan: 
+What I did yesterday:
+Joined all the meetings with Rylan and our team
+
+What I will do today:
+Continue researching my part, and discuss with Kayla & Jemma 
+
+Any impediments 
+None
+
+[2021/05/25, 17:02:25] Abdullah Haffejee: 
+What I did yesterday:
+Joined the meetings 
+
+What I did today:
+Added a view to see which image is being displayed 
+
+Any impediments:
+Got a few assignments and tests coming up
+
+[2021/05/26, 08:36:11] Sonia: 
+Wednesday, 26 May 2021
+
+What I did yesterday: 
+More research as to how we could implement stories for each user. 
+
+What I will do today: 
+Attend the Sprint Retrospective Meeting and potential start coding the part for individual stories. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/26, 09:25:44] Rushil Patel: 
+What i did yesterday:
+Tried to increase the code coverage as much as possible
+
+What i will do today
+Nothing
+
+Impediments:
+None
+
+[2021/05/26, 10:58:20] Tristen Haverly: 
+What i did yesterday:
+Tried to fix why the project was breaking , edited the layout 
+
+What i will do today
+Continue from yesterday 
+
+Impediments:
+None
+
+[2021/05/26, 12:15:00] Jemma Sundelson: 
+What I did yesterday:
+Got delivered and seen working again after it had been crashing
+
+What I will do today:
+Get an understanding of my part for the next sprint 
+
+Any impediments:
+None as of yet
+
+[2021/05/26, 12:15:28] Kayla Levy:
+ Wednesday, 26 May 2021
+
+What I did yesterday: 
+More research as to how we could implement friend requests for each user and spoke to jem and bhavik about a potentialway forward. 
+
+What I will do today: 
+Try work on immediately part a bit
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/27, 11:18:38] Sonia: 
+Thursday, 27 May 2021
+
+What I did yesterday: 
+1. Attended the Sprint Retrospective Meeting. 
+
+2. Started working on the individual stories for the app. 
+
+3. Uploaded the user stories to Taiga. 
+
+What I will do today: 
+Continue debugging the code for individual stories. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/27, 11:24:19] Kayla Levy: 
+What I did yesterday :
+Nothing
+
+What I will do today:
+Hopefully get started on some coding 
+
+Any impediments:
+I have corona so haven't been able to work much
+
+[2021/05/27, 13:16:46] Rushil Patel: 
+What i did yesterday:
+Attended the sprint Retrospective meeting
+
+What i will do today
+Nothing
+
+Impediments:
+None
+
+[2021/05/27, 13:30:45] Jemma Sundelson: 
+What I did yesterday:
+Attend sprint retrospective meeting and went through my part to get an understanding of it 
+
+What I will do today: 
+Carry on with that
+
+Any impediments:
+None as of yet
+
+[2021/05/29, 08:08:00] Sonia: 
+Saturday, 29 May 2021
+
+What I did yesterday: 
+1. Got the Chat Fragment to display relevant contacts. 
+
+2. Worked on the layout of the Story Fragment. 
+
+3. Got the Story Fragment to allow access to the gallery but images aren’t being selected for some reason. 
+
+What I will do today: 
+Start with some of the diagrams.  
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/29, 11:31:38] Colin Hugo: 
+What I did yesterday:
+Had the meeting and worked on my tests for next week 
+
+What I will do today:
+I’ll start my part today on forgot password and making an activity to allow for changing password. 
+
+Any impediments 
+None
+
+[2021/05/29, 22:23:10] Rushil Patel: 
+What i did yesterday:
+Nothing
+
+What i did today
+Figure out another approach to testing the newer code that will come in the few days
+
+Impediments:
+None
+
+[2021/05/30, 11:52:14] Sonia: Sunday, 
+30 May 2021
+
+What I did yesterday: 
+1. Updated the User Stories on Taiga. 
+
+2. Fixed the placement of the time stamps and drew the first 10 sequence diagrams. 
+
+3. Tried getting rid of all my errors on the Story Fragment. 
+
+4. Pushed the updated code to GitHub. 
+
+What I will do today: 
+Continue working on stories. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/30, 12:13:19] Kayla Levy: 
+What I did yesterday:
+Nothing
+
+What I will do today:
+Work on the diagrams
+
+Any impediments:
+None
+
+[2021/05/30, 12:23:49] Abdullah Haffejee: 
+What I did yesterday:
+Worked on stories 
+
+What I did today : 
+Continue working on it
+
+Any impediments:
+None
+
+[2021/05/30, 12:34:20] Tristen Haverly: 
+What I did yesterday:
+Nothing 
+
+What I will do today: 
+Edit layout and add chats floating button icon and activity for chats and contacts 
+
+Any impediments:
+None as of yet
+
+[2021/05/30, 19:34:54] Colin Hugo: 
+What I did yesterday:
+Began forgot password
+
+What I will do today: 
+Hopefully finish forgot password. Just have to link up to the server and change it 
+
+Any impediments:
+None as of yet
+
+[2021/05/31, 09:12:20] Sonia: 
+Monday, 31 May 2021
+
+What I did yesterday: 
+Changed the files that Abdullah managed to fix and tested the stories to make sure they were sending to the DB. 
+
+What I will do today: 
+Continue working on diagrams. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/05/31, 16:56:19] Jemma Sundelson: 
+What I did yesterday:
+Tried to get update email, username and contact number working.
+
+What I did today:
+Managed to complete that task and get it to work.
+
+Any impediments:
+None as of yet
+
+[2021/05/31, 16:57:13] Tristen Haverly: 
+What I did yesterday:
+Edit layout and add chats floating button icon and activity for chats and contacts  
+
+What I will do today: 
+Nothing 
+
+Any impediments:
+None as of yet
+
+[2021/05/31, 16:57:19] Kayla Levy: 
+What I did yesterday:
+Worked on the diagrams
+
+What I did today:
+Continued working on diagrams
+
+Any impediments:
+Have a test tomorrow
+
+[2021/06/01, 00:09:09] Bhavik Govan: 
+What I did yesterday:
+Worked on the Stories
+
+What I did today:
+Continue trying to display stories
+
+Any impediments:
+None
+
+[2021/06/01, 09:46:34] Sonia: 
+Tuesday, 1 June 2021
+
+What I did yesterday: 
+Continued with diagrams but didn’t get much done. 
+
+What I will do today: 
+Try finish all activity diagrams. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/06/01, 09:48:46] Kayla Levy: 
+Tuesday, 1 June 2021
+
+What I did yesterday 
+Continued with diagrams
+
+What I will do today: 
+Try finish all state diagrams. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/06/01, 09:48:56] Colin Hugo: 
+Tuesday, 1 June 2021
+
+What I did yesterday: 
+Finished password changing and forgetting and pushed to GitHub 
+
+What I will do today: 
+Study for ecos test today
+
+Any Impediments: 
+None at the moment.
+
+[2021/06/01, 09:49:47] Jemma Sundelson: 
+What I did yesterday:
+Completed updating user profile
+
+What I will do today:
+Nothing as I have an Ecos test
+
+Any impediments:
+None as of yet
+
+[2021/06/01, 22:40:46] Tristen Haverly: 
+What I did yesterday:
+Nothing  
+
+What I will do today: 
+Continues to edit profile and layout details and fix contacts chat icon linking  
+
+Any impediments:
+None as of yet
+
+[2021/06/01, 22:51:55] Abdullah Haffejee: 
+What I did yesterday:
+Nothing 
+
+What I will do today:
+Nothing as I'm writing a test
+
+Any impediments:
+None
+
+[2021/06/02, 07:50:58] Sonia: Wednesday, 2 June 2021
+
+What I did yesterday: 
+Finished all the activity diagrams and wrote descriptions for all sequence and activity diagrams. 
+
+What I will do today: 
+Finish the component diagram and work on some final touches. 
+
+Any Impediments: 
+None at the moment.
+
+[2021/06/02, 08:37:25] Tristen Haverly: 
+What I did yesterday:
+edited profile and layout details and fix contacts chat icon linking and resolved some errors 
+
+What I will do today: 
+Continue to fix errors and get profile picture editing to work 
+
+Any impediments:
+None as of yet
+
+[2021/06/02, 19:57:44] Jemma Sundelson: 
+What I did yesterday;
+Nothing as I wrote an economics test.
+
+What I will do today: 
+Help anyone who needs
+
+Any impediments:
+None as of yet
+
+[2021/06/02, 19:59:23] Kayla Levy: 
+What I did yesterday;
+Nothing as I wrote an IS test.
+
+What I will do today: 
+Help anyone who needs and finish off the diagrams 
+
+Any impediments:
+None as of yet
+
+[2021/06/02, 22:19:33] Bhavik Govan: 
+What I did yesterday:
+Worked on layouts and tried displaying users who have stories
+
+What I did today:
+Continue trying to display stories
+
+Any impediments:
+I'm stuck with retrieving the stories data from firebase
+
+[2021/06/02, 22:56:22] Rushil Patel: 
+What i did yesterday:
+Started with testing again
+
+What i did today:
+Continued with testing
+
+Impediments:
+The app crashes from time time and therefore makes it almost impossible to test it
+
+[2021/06/03, 09:35:27] Sonia: 
+Thursday, 3 June 2021
+
+What I did yesterday: 
+Managed to fix the chat fragment and get the last message sent/received to display under the username. 
+
+What I will do today: 
+Help get the stories working and finish the diagrams. 
+
+Any Impediments:
+None at the moment.
+
+[2021/06/03, 12:48:08] Tristen Haverly: 
+What I did yesterday:
+Continued to edit overall project and make changes 
+
+What I will do today: 
+Continue 
+
+Any impediments:
+None as of yet
+
+[2021/06/03, 12:48:38] Bhavik Govan: 
+Thursday, 3 June 2021
+
+What I did yesterday: 
+Tried to display the statuses on the recycleviews 
+
+What I will do today: 
+Help get the stories working.
+
+Any Impediments:
+None at the moment.
+
+[2021/06/03, 12:49:06] Kayla Levy: 
+What I did yesterday:
+Continued with diagrams
+
+What I will do today: 
+Fix up bugs, add profile frag back, fix layout, get chat windows to display in descending order and continue with diagrams
+
+Any impediments:
+None as of yet
+
+[2021/06/03, 19:27:46] Colin Hugo:
+What I did yesterday:
+Studied 
+
+What I will do today:
+Studied for Ecos test
+
+Any impediments:
+None as of yet
+
+[2021/06/04, 09:35:11] Sonia: Friday, 
+4 June 2021
+
+What I did yesterday: 
+Worked on stories the whole day. 
+
+What I will do today: 
+Finish the diagrams and then maybe continue with stories if I have time. 
+
+Any Impediments:
+None at the moment.
+
+[2021/06/04, 09:43:27] Kayla Levy: Friday, 4 June 2021
+
+What I did yesterday: 
+Fixed a the bugs in the app and now crashes
+
+What I will do today: 
+Finish the diagrams and then maybe help with stories if I have time.
+
+Any Impediments:
+None at the moment.
+
+[2021/06/04, 15:56:42] Rushil Patel: What i did yesterday:
+Got the build passing
+
+Updated code coverage
+
+Updated unit tests
+
+What i will do today:
+Continue with unit testing
+
+Impediments:
+None
+
+[2021/06/04, 18:43:45] Jemma Sundelson: 
+What I did yesterday: 
+Helped this who needed and joined the discord meeting
+
+What I did today: 
+Nothing as I wrote an economics tests
+
+Any impediments:
+None as of yet
+
+[2021/06/05, 00:05:52] Bhavik Govan: 
+Friday, 4 June 2021
+
+What I did yesterday: 
+Worked on stories the whole day, got help from Sonia with this. 
+
+What I will do today: 
+Worked on the stories.
+
+Any Impediments:
+None at the moment.
+
+[2021/06/05, 12:15:59] Sonia: Saturday, 5 June 2021
+
+What I did yesterday: 
+1. Scheduled the meeting with Rylan. 
+
+2. Added the timer and unique profile pics to the stories. 
+
+3. Finished all diagrams and descriptions. 
+
+What I will do today: 
+Continue working on stories and email Tristan about what more we need to add to GitHub. 
+
+Any Impediments:
+None at the moment.
+
+[2021/06/05, 18:30:48] Kayla Levy: 
+What I did yesterday: 
+Diagrams and someone thought there was a bug in the code so tested it out 
+
+What I will do today: 
+Help work on stories and finish diagrams and help where done
+
+Any Impediments:
+None at the moment
+
+[2021/06/06, 10:02:16] Sonia: 
+Sunday, 6 June 2021
+
+What I did yesterday: 
+1. Continued working in stories. 
+
+What I will do today: 
+Upload all documents to GitHub, edit our wiki and continue with stories. 
+
+Any Impediments:
+None at the moment.
