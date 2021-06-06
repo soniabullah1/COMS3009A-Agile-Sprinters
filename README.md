@@ -4,9 +4,9 @@
 
 <img width="350" alt="Screenshot 2021-06-06 at 16 30 05" src="https://user-images.githubusercontent.com/81515681/120928390-bd8e6100-c6e4-11eb-9327-f0d73ad1c95a.png">
 
-### Members
+### Contributors
 
-Colin Hugo, Tristen haverly, Rushil Patel, Kayla Levy, Bhavik Govan 💯, Sonia Bullah, Jemma Sundelson, Abdullah Haffejee
+Rushil Patel, Sonia Bullah, Kayla Levy, Bhavik Govan, Abdullah Haffejee, Colin Hugo, Tristen Haverly, Jemma Sundelson
 
 <a href="https://github.com/soniabullah1/COMS3009A-Agile-Sprinters/graphs/contributors">
   <img src="https://contributors-img.web.app/image?repo=soniabullah1/COMS3009A-Agile-Sprinters">
