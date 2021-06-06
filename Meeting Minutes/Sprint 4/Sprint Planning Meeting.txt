@@ -1,0 +1,35 @@
+Agile Sprinters (Group 8)
+
+Minutes of the Fourth Sprint Planning Meeting
+
+Monday, 24 May 2021 (12:15 – 12:45):
+The Fourth Sprint Planning Meeting with the Client, Development Team and Scrum Master was held online on 24 May 2021 at 12:15 p.m.
+
+Attendance:
+o Client: Mr Rylan Perumal
+o Scrum Development Team: Abdullah Haffejee, Bhavik Govan, Colin Hugo, Jemma Sundelson, Kayla Levy, Rushil Patel, Tristen Haverly
+o Scrum Master: Sonia Bullah
+
+Decision Regarding The Project Topic:
+Mr Perumal requested that we remove the bottom navigation bar, move the profile fragment into the 3-dot option menu and create a tracker for the multiple images. 
+
+User Stories:
+1. As a user, I want to be able input another user's phone number into a box, which will send them a friend request, so that I will be able to talk to people I know. 
+2. As a user, I want to be able to view all requests that other users have sent me so that I can choose to either accept or decline them and chat to people I know. 
+3. As a user, I want to be able to press a button that will allow me to compose a new message so that I can start a conversation with my current contacts as well as potentially new contacts effortlessly. 
+4. As a user, I want to be able to upload either an image or an image with a caption to my story for 24 hours with a display time of 5 seconds so that my contacts can view my story and see what I am posting about.
+5. As a user, I want the image from my status to be displayed as my profile picture for 24 hours so that my contacts will know when I have posted something to my story. 
+6. As a user, I want to be able to see the number of the  image I am currently previewing as a fraction of the total images selected when sending multiple image so that I can see exactly how many images I have selected to send to another user. 
+
+
+Other Important Aspects:
+o Replace the profile fragment with a story fragment. 
+o Add a floating button to the chat fragment so that a new conversation and friend request can easily be started. 
+o If a user does not exist upon sending a friend request (if the user is not in the database), display an error message. 
+
+User Stories for The Backlog (to be completed during the next sprint):
+1. As a user, I want to be able to click on someone's story and be taken to a full screen view so that I will be able to easily view their story. 
+
+Adjournment:
+With there being no further questions, the meeting was adjourned at 12:45 p.m.
+
