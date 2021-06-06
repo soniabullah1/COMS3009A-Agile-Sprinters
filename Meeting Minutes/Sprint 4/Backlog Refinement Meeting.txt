@@ -1,0 +1,34 @@
+Agile Sprinters (Group 8)
+
+Minutes of the Fourth Backlog Refinement Meeting
+
+Monday, 24 May 2021 (15:00 – 15:30):
+The Fourth Backlog Refinement Meeting with the Development Team and Scrum Master was held online on 24 May 2021 at 15:00 p.m.
+
+Attendance:
+o Scrum Development Team: Abdullah Haffejee, Bhavik Govan, Colin Hugo, Jemma Sundelson, Kayla Levy, Rushil Patel, Tristen Haverly
+o Scrum Master: Sonia Bullah
+
+Final User Stories:
+1. As a user, I want to be able input another user's phone number into a box, which will send them a friend request, so that I will be able to talk to people I know. 
+2. As a user, I want to be able to view all requests that other users have sent me so that I can choose to either accept or decline them and chat to people I know. 
+3. As a user, I want to be able to press a button that will allow me to compose a new message so that I can start a conversation with my current contacts as well as potentially new contacts effortlessly. 
+4. As a user, I want to be able to upload either an image or an image with a caption to my story for 24 hours with a display time of 5 seconds so that my contacts can view my story and see what I am posting about.
+5. As a user, I want the image from my status to be displayed as my profile picture for 24 hours so that my contacts will know when I have posted something to my story.  
+6. As a user, I want to be able to see the number of the  image I am currently previewing as a fraction of the total images selected when sending multiple image so that I can see exactly how many images I have selected to send to another user. 
+
+Responsibilities:
+It was decided that the group would pair program on the following aspects:
+o User Story 1: Tristen and Colin
+o User Story 2: Kayla, Jemma and Bhavik
+o User Story 3: Tristen and Colin
+o User Story 4: Abdullah and Sonia 
+o User Story 5: Abdullah and Sonia 
+o User Story 6: Abdullah
+o Code Coverage and Unit Testing: Rushil
+
+Other Important Aspects:
+o The group will assign points to each user story on Taiga and the six user stories will be split into various tasks for the group to work on. 
+
+Adjournment:
+With there being no further discussion points regarding the product backlog items, the meeting was adjourned at 15:30 p.m.
