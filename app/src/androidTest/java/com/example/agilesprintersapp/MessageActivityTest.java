@@ -92,10 +92,10 @@ public class MessageActivityTest{
         messageActivity.finish();
     }
 
-    @Test
-    public void testPickImage(){
-        messageActivity.pickImagesIntent();
-    }
+//    @Test
+//    public void testPickImage(){
+//        messageActivity.pickImagesIntent();
+//    }
 
     @After
     public void tearDown() throws Exception {

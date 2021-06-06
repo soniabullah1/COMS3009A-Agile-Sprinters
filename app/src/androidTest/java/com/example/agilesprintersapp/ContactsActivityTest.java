@@ -27,11 +27,11 @@ public class ContactsActivityTest {
         contactsActivity.finish();
     }
 
-//   @Test
-//   public void testGetAllContacts(){
-//
-//       //contactsActivity.finish();
-//   }
+   @Test
+   public void testGetAllContacts(){
+       contactsActivity.getAllContacts();
+       //contactsActivity.finish();
+   }
 
     @After
     public void tearDown() throws Exception {
