@@ -21,20 +21,15 @@
         android:theme="@style/Theme.AgileSprintersApp">
         <activity android:name=".ForgotPasswordActivity"></activity>
         <activity android:name=".ChangePasswordActivity" />
-        <activity android:name=".Edit_Profile" />
         <activity android:name=".ContactsList" />
         <activity android:name=".Multiple_Image_Preview" />
         <activity android:name=".Preview" />
         <activity android:name=".LandingActivity" />
         <activity
             android:name=".MessageActivity"
-            android:parentActivityName=".HomeActivity" />
-        <activity android:name=".CallsActivity" />
-        <activity
-            android:name=".SettingsActivity"
-            android:parentActivityName=".HomeActivity" />
+          />
         <activity android:name=".ContactsActivity"
-            android:parentActivityName=".HomeActivity"/>
+         />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

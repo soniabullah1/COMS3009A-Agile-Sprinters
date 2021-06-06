@@ -20,45 +20,18 @@ public class ContactsActivityTest {
         contactsActivity.sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
     }
 
-//    @Test
-//    public void testNavBarItems(){
-//        View view = contactsActivity.findViewById(R.id.camera);
-//        View view1 = contactsActivity.findViewById(R.id.settings);
-//        View view2 = contactsActivity.findViewById(R.id.contacts);
-//        View view3 = contactsActivity.findViewById(R.id.chats);
-//
-//        assertNotNull(view);
-//        assertNotNull(view1);
-//        assertNotNull(view2);
-//        assertNotNull(view3);
-//
-//        contactsActivity.finish();
-//    }
-//    @Test
-//    public void Z_testNavBarCLicks(){
-//        try {
-//            Thread.sleep(4000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//        onView(withId(R.id.chats)).perform(click());
-//        onView(withId(R.id.contacts)).perform(click());
-//        onView(withId(R.id.camera)).perform(click());
-//        onView(withId(R.id.settings)).perform(click());
-//        contactsActivity.finish();
-//    }
-
     @Test
     public void testRequestPermission(){
         contactsActivity.requestPermission();
-        contactsActivity.finish();
-    }
-
-    @Test
-    public void testGetAllContacts(){
         contactsActivity.getAllContacts();
         contactsActivity.finish();
     }
+
+   @Test
+   public void testGetAllContacts(){
+       contactsActivity.getAllContacts();
+       //contactsActivity.finish();
+   }
 
     @After
     public void tearDown() throws Exception {

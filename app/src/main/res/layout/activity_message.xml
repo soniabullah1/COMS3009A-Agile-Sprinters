@@ -19,7 +19,7 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar2"
-            android:layout_width="match_parent"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
             android:background="@color/Yellow"
             android:theme="@style/MenuStyle">
@@ -44,6 +44,13 @@
                 android:text="username"
                 android:textSize="18sp" />
 
+            <ImageButton
+                android:id="@+id/HomeButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:backgroundTint="@color/Yellow"
+                android:src="@drawable/ic_baseline_home_24" />
 
 
         </androidx.appcompat.widget.Toolbar>

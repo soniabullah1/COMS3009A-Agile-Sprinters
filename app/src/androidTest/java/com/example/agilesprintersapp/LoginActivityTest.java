@@ -19,7 +19,8 @@ import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class LoginActivityTest {
     @Rule
@@ -28,9 +29,10 @@ public class LoginActivityTest {
 
     Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(LandingActivity.class.getName(),null ,false);
     Instrumentation.ActivityMonitor monitor2 = getInstrumentation().addMonitor(HomeActivity.class.getName(),null ,false);
+    Instrumentation.ActivityMonitor monitor3 = getInstrumentation().addMonitor(ForgotPasswordActivity.class.getName(),null ,false);
 
-    public static final String STRING_TO_BE_TYPED_EMAIL = "rushilpatel0703@gmail.com";
-    public static final String STRING_TO_BE_TYPED_PASSWORD = "cakeface42";
+    public static final String STRING_TO_BE_TYPED_EMAIL = "tristenhav@gmail.com";
+    public static final String STRING_TO_BE_TYPED_PASSWORD = "Exciting";
 
     @Before
     public void setUp() throws Exception {
@@ -77,9 +79,18 @@ public class LoginActivityTest {
         Activity loginActivity = getInstrumentation().waitForMonitorWithTimeout(monitor2,5000);
         assertNotNull(loginActivity);
 
-        loginActivity.finish();
+        //onData(anything()).inAdapterView(withId(R.id.recycler_view2)).atPosition(0).perform(click());
+
+        //loginActivity.finish();
 
 
+    }
+
+    @Test
+    public void testForgotPassword(){
+        onView(withId(R.id.ForgotPasswordView)).perform(click());
+        Activity forgotpasswordActivity = getInstrumentation().waitForMonitorWithTimeout(monitor3,5000);
+        assertNotNull(forgotpasswordActivity);
     }
 
     @After

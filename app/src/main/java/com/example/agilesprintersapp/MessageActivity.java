@@ -50,18 +50,14 @@ public class MessageActivity extends AppCompatActivity {
 
     CircleImageView profile_image;
     TextView username;
-
     FirebaseUser fuser;
     DatabaseReference reference;
-
     ImageButton btn_send;
     EditText text_send;
-
     MessageAdapter messageAdapter;
     List<Chat> mChat;
-
+    ImageButton imageButton;
     RecyclerView recyclerView;
-
     Intent intent;
     ImageView Image;
     ValueEventListener seenListener;
@@ -94,11 +90,7 @@ public class MessageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Toolbar toolbar = findViewById(R.id.toolbar2);
-        //setSupportActionBar(toolbar);
-        //getSupportActionBar().setTitle("");
         toolbar.setNavigationOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -111,22 +103,28 @@ public class MessageActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
-
-
+        imageButton = findViewById(R.id.HomeButton1);
         profile_image = findViewById(R.id.profile_image);
         username = findViewById(R.id.username);
         btn_send = findViewById(R.id.btn_send);
         text_send = findViewById(R.id.text_send);
         btn_attach_pic = findViewById(R.id.btn_attach_pic);
-//Image = findViewById(R.id.Attempt);
         intent = getIntent();
         userid = intent.getStringExtra("userid");
 
         imageUris = new ArrayList<>();
         stringUris = new ArrayList<>();
 
-//        ImageView d = findViewById(R.id.imageView);
 
+        imageButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(MessageActivity.this, HomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
         btn_attach_pic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -283,7 +281,9 @@ public class MessageActivity extends AppCompatActivity {
 
                                 }
                                 //sendMessage(fuser.getUid(), userid, myUrl, checker, time);
+
                                 imageUris.clear();
+                                stringUris.clear();
                             }
                         });
                     }
@@ -326,7 +326,6 @@ public class MessageActivity extends AppCompatActivity {
                                     if (task.isSuccessful()) {
                                         Uri downloadUrl = task.getResult();
                                         myUrl = downloadUrl.toString();
-                                        //Uri a = fileUri;
 
                                         Intent i = new Intent(MessageActivity.this, Multiple_Image_Preview.class);
 
@@ -334,15 +333,6 @@ public class MessageActivity extends AppCompatActivity {
 
                                         args.putSerializable("IMAGES", (Serializable) imageUris);
                                         args.putSerializable("STRING_IMAGES", (Serializable) stringUris);
-
-//                                    args.putSerializable("sender", fuser.getUid());
-//                                    args.putSerializable("receiver", userid);
-//                                    args.putSerializable("message", myUrl);
-//                                    args.putSerializable("checker", checker);
-//                                    args.putSerializable("time", time);
-//                                    args.putSerializable("images", imageUris);
-//                                    args.putSerializable("images_strings", stringUris);
-//                                    i.putExtra("BUNDLE", args);
 
                                         i.putExtra("sender", fuser.getUid());
                                         i.putExtra("receiver", userid);
@@ -357,16 +347,14 @@ public class MessageActivity extends AppCompatActivity {
                                         startActivity(i);
 
                                     }
-                                    //sendMessage(fuser.getUid(), userid, myUrl, checker, time);
                                     imageUris.clear();
+                                    stringUris.clear();
                                 }
                             });
                         }
                     }
                 }
-                /*else{
-                    Toast.makeText(this, " Error: Nothing Selected", Toast.LENGTH_SHORT).show();
-                }*/
+
             }
         }
     }
@@ -380,7 +368,7 @@ public class MessageActivity extends AppCompatActivity {
                     Chat chat = snapshot.getValue(Chat.class);
                     User user = snapshot.getValue(User.class);
 
-                    if (user.getId()!=null && user.getId().equals(fuser.getUid()) && chat.getReceiver().equals(fuser.getUid()) && chat.getSender().equals(userid)) {
+                    if (fuser.getUid().equals(chat.getReceiver()) && userid.equals(chat.getSender())){
                         HashMap<String, Object> hashMap = new HashMap<>();
                         hashMap.put("isseen", true);
                         snapshot.getRef().updateChildren(hashMap);
@@ -406,34 +394,6 @@ public class MessageActivity extends AppCompatActivity {
         hashMap.put("isseen", false);
 
         reference.child("Chat").push().setValue(hashMap);
-
-        // add user to chat fragment
-        if (fuser != null && userid != null) {
-            final DatabaseReference chatRef = FirebaseDatabase.getInstance().getReference("Chatlist")
-                    .child(fuser.getUid())
-                    .child(userid);
-
-
-            chatRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    if (!dataSnapshot.exists()) {
-                        chatRef.child("id").setValue(userid);
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
-
-            //This part adds to the receiver's chat list
-            final DatabaseReference chatRefReceiver = FirebaseDatabase.getInstance().getReference("Chatlist")
-                    .child(userid)
-                    .child(fuser.getUid());
-            chatRefReceiver.child("id").setValue(fuser.getUid());
-        }
 
     }
 

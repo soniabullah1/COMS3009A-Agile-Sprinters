@@ -177,7 +177,6 @@ public class RegisterActivityTest {
         Activity landingActivity = getInstrumentation().waitForMonitorWithTimeout(monitor,5000);
         assertNull(landingActivity);
 
-        //landingActivity.finish();
         registerActivity.finish();
     }
 

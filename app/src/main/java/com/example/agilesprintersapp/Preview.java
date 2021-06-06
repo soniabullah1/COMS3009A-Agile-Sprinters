@@ -80,15 +80,11 @@ public class Preview extends AppCompatActivity {
             imageview.setImageURI(fileUri);
         }
 
-        //msg = caption.getText().toString();
-
         userid = intent.getStringExtra("userid");
         sender = intent.getStringExtra("sender");
-        //receiver = intent.getStringExtra("receiver");
         message = intent.getStringExtra("message");
         time = intent.getStringExtra("time");
         checker = intent.getStringExtra("checker");
-        //msg = intent.getStringExtra("caption");
 
         Exit.setOnClickListener(new View.OnClickListener() {
 
@@ -196,12 +192,8 @@ public class Preview extends AppCompatActivity {
         reference .addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
-                //mUsers.clear();
-
                 for(DataSnapshot snapshot : datasnapshot.getChildren()){
                     User user = snapshot.getValue(User.class);
-                    //String id = user.getId();
-
                     if (firebaseUser != null) {
 
                         if (user != null && user.getId() != null && !user.getId().equals(firebaseUser.getUid())){
@@ -209,9 +201,6 @@ public class Preview extends AppCompatActivity {
                         }
                     }
                 }
-
-                //userAdapter = new UserAdapter(getApplicationContext(), mUsers, false);
-                //recyclerView.setAdapter(userAdapter);
             }
 
             @Override

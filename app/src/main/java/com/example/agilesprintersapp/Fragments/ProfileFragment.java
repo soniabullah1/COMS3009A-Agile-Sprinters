@@ -1,5 +1,6 @@
 package com.example.agilesprintersapp.Fragments;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -9,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,11 +20,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.example.agilesprintersapp.ChangePasswordActivity;
 import com.example.agilesprintersapp.Model.User;
 import com.example.agilesprintersapp.R;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -47,8 +52,11 @@ public class ProfileFragment extends Fragment {
     CircleImageView image_profile;
     TextView edit_profile_image;
     TextView edit_username;
-    TextView username;
-
+    TextView edit_password;
+    Button save_btn;
+    EditText email;
+    EditText contactNumber;
+    EditText username;
     DatabaseReference reference;
     FirebaseUser fuser ;
     String j;
@@ -57,48 +65,46 @@ public class ProfileFragment extends Fragment {
     private static final int IMAGE_REQUEST = 1;
     private Uri imageUri;
     private StorageTask uploadTask;
-    //int RESULT_OK;
-
-
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container,false);
 
         image_profile = view.findViewById(R.id.profile_image);
-        username = view.findViewById(R.id.username);
+        username = view.findViewById(R.id.edit_username);
         edit_profile_image = view.findViewById(R.id.edit_profile_image);
         edit_username = view.findViewById(R.id.edit_username);
-
+        edit_password = view.findViewById(R.id.edit_password);
+        email = view.findViewById(R.id.edit_email);
+        contactNumber = view.findViewById(R.id.edit_phone_number);
+        save_btn = view.findViewById(R.id.btn_save);
         storageReference = FirebaseStorage.getInstance().getReference("uploads");
 
 
         fuser = FirebaseAuth.getInstance().getCurrentUser();
-        //reference = FirebaseDatabase.getInstance().getReference("User");
         if (fuser != null) {
             reference = FirebaseDatabase.getInstance().getReference("User").child(fuser.getUid());
-
-
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 User user = snapshot.getValue(User.class);
                 username.setText(user.getUsername());
+                contactNumber.setText(user.getContactNumber());
+                email.setText(user.getEmail());
 
                 if (user != null && user.getId() != null) {
                     if (user.getImageURL().equals("default")) {
                         image_profile.setImageResource(R.mipmap.ic_launcher);
                     } else {
+                        if(getActivity() == null){
+                            return;
+                        }
                         Glide.with(getContext()).load(user.getImageURL()).into(image_profile);
                     }
-
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -111,14 +117,48 @@ public class ProfileFragment extends Fragment {
                 openImage();
             }
         });
-//edit username
-        /*edit_username.setOnClickListener(new View.OnClickListener() {
+
+        edit_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openImage();
+                Intent i = new Intent(getActivity(), ChangePasswordActivity.class);
+                startActivity(i);
+                ((Activity) getActivity()).overridePendingTransition(0, 0);
             }
-        });*/
-        return view;
+        });
+
+        save_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(username.getText().toString().isEmpty() || email.getText().toString().isEmpty() || contactNumber.getText().toString().isEmpty()){
+                    Toast.makeText(getActivity(),"One or many fields required!",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                String profileemail = email.getText().toString();
+                fuser.updateEmail(profileemail).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+
+                        reference = FirebaseDatabase.getInstance().getReference("User").child(fuser.getUid());
+                        HashMap<String, Object> map = new HashMap<>();
+                        map.put("email", profileemail);
+                        map.put("contactNumber", contactNumber.getText().toString());
+                        map.put("username", username.getText().toString());
+                        reference.updateChildren(map);
+                        Toast.makeText(getActivity(),"Your profile has been updated!",Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getActivity(),e.getMessage(),Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+
+        });
+
+           return view;
     }
 
     public void openImage() {

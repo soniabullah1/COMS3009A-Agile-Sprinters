@@ -40,7 +40,6 @@ public class Multiple_Image_Preview extends AppCompatActivity {
     private String sender, receiver;
     TextView image_position;
 
-    //private String checker = "";
     ValueEventListener seenListener;
     FirebaseUser fuser;
     MessageAdapter messageAdapter;
@@ -71,12 +70,12 @@ public class Multiple_Image_Preview extends AppCompatActivity {
         Intent intent = getIntent();
 
         Bundle args = intent.getBundleExtra("BUNDLE");
-        if(imageUris != null){
-        imageUris = (ArrayList<Uri>)args.getSerializable("IMAGES");
-        stringUris = (ArrayList<String>)args.getSerializable("STRING_IMAGES");
-        imageUris.size();
-        stringUris.size();}
-
+        if(imageUris != null && stringUris != null) {
+            imageUris = (ArrayList<Uri>) args.getSerializable("IMAGES");
+            stringUris = (ArrayList<String>) args.getSerializable("STRING_IMAGES");
+            imageUris.size();
+            stringUris.size();
+        }
         userid = intent.getStringExtra("userid");
         sender = intent.getStringExtra("sender");
         receiver = intent.getStringExtra("receiver");
@@ -163,7 +162,6 @@ public class Multiple_Image_Preview extends AppCompatActivity {
 
                 for(int i = 0; i < a; i++){
                     sendMessage(sender, receiver, imageUris.get(i).toString(), checker, time, msg);
-                    //readMessages(sender, userid, );
                 }
 
                 finish();
@@ -194,7 +192,9 @@ public class Multiple_Image_Preview extends AppCompatActivity {
                 for (DataSnapshot snapshot: dataSnapshot.getChildren())
                 {
                     Chat chat = snapshot.getValue(Chat.class);
-                    String myid=fuser.getUid();
+                    if(fuser !=null) {
+                        String myid = fuser.getUid();
+                    }
                     String imageurl = "";
                     if(myid.equals(chat.getReceiver()) && userid.equals(chat.getSender())||
                             userid.equals(chat.getReceiver()) && myid.equals(chat.getSender()))
@@ -203,7 +203,9 @@ public class Multiple_Image_Preview extends AppCompatActivity {
                     }
                     messageAdapter = new MessageAdapter(Multiple_Image_Preview.this, mChat, imageurl);
                     RecyclerView recyclerView = findViewById(R.id.recycler_view12);
-                    recyclerView.setAdapter(messageAdapter);
+                    if(recyclerView != null) {
+                        recyclerView.setAdapter(messageAdapter);
+                    }
                 }
             }
 

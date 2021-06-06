@@ -3,6 +3,7 @@ package com.example.agilesprintersapp;
 import android.content.Intent;
 import android.view.View;
 
+import androidx.annotation.UiThread;
 import androidx.test.rule.ActivityTestRule;
 
 import org.junit.After;
@@ -14,6 +15,8 @@ import org.junit.runners.MethodSorters;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -24,6 +27,8 @@ public class MessageActivityTest{
     @Rule
     public ActivityTestRule<MessageActivity> messageActivityTestRule = new ActivityTestRule<>(MessageActivity.class);
     private MessageActivity messageActivity = null;
+
+    public static final String STRING_TO_BE_TYPED_MESSAGE = "not empty";
 
     @Before
     public void setUp() throws Exception {
@@ -36,15 +41,21 @@ public class MessageActivityTest{
     public void testLaunch(){
         View view = messageActivity.findViewById(R.id.recycler_view12);
         View view2 = messageActivity.findViewById(R.id.text_send);
+        View view3 = messageActivity.findViewById(R.id.btn_attach_pic);
+        View view4 = messageActivity.findViewById(R.id.btn_send);
 
         assertNotNull(view);
         assertNotNull(view2);
+        assertNotNull(view3);
+        assertNotNull(view4);
 
         messageActivity.finish();
     }
 
+    @UiThread
     @Test
     public void testMessageSendButton(){
+        onView(withId(R.id.text_send)).perform(typeText(STRING_TO_BE_TYPED_MESSAGE), closeSoftKeyboard());
         onView(withId(R.id.btn_send)).perform(click());
         boolean toastMade = messageActivity.toastMade;
         assertEquals(true, toastMade);
@@ -67,7 +78,7 @@ public class MessageActivityTest{
 
 //    @UiThread
 //    @Test
-//    public void testAttachImage(){
+//    public void Z_testAttachImage(){
 //        onView(withId(R.id.btn_attach_pic)).perform(click());
 //        messageActivity.finish();
 //        //messageActivity.pickImagesIntent();
@@ -80,6 +91,11 @@ public class MessageActivityTest{
 
         messageActivity.finish();
     }
+
+//    @Test
+//    public void testPickImage(){
+//        messageActivity.pickImagesIntent();
+//    }
 
     @After
     public void tearDown() throws Exception {

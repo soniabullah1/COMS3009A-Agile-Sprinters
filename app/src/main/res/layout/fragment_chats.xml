@@ -26,8 +26,20 @@
         android:layout_height="560dp"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="0dp"
-        android:background="?android:attr/textColorTertiary"
+        android:background="@color/white"
         android:padding="20dp"
         android:theme="@style/TextAppearance.Compat.Notification.Info.Media" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/recycler_view2"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="1dp"
+        android:clickable="true"
+        android:src="@drawable/chat_icon"
+        android:layout_marginBottom="100dp" />
+
 
 </RelativeLayout>

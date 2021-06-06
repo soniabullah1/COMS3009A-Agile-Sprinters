@@ -1,30 +1,24 @@
 package com.example.agilesprintersapp;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import androidx.appcompat.widget.Toolbar;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-//import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.agilesprintersapp.Fragments.ChatsFragment;
-import com.example.agilesprintersapp.Fragments.ContactsFragment;
+import com.example.agilesprintersapp.Fragments.ProfileFragment;
 import com.example.agilesprintersapp.Fragments.StoryFragment;
-import com.example.agilesprintersapp.Fragments.StoryFragment;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -35,6 +29,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+
+//import androidx.fragment.app.FragmentPagerAdapter;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -54,28 +50,8 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        FloatingActionButton Chat_Icon = findViewById(R.id.Chat_Icon);
-
-        Chat_Icon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this, ContactsList.class));
-                finish();
-            }
-        });
-
         profile_image = findViewById(R.id.profile_image);
         username = findViewById(R.id.username);
-        // Test = findViewById(R.id.button) ;
-
-       /* Test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Preview.class));
-                overridePendingTransition(0,0);
-
-            }
-        });*/
 
         profile_image = findViewById(R.id.profile_image);
         username  = findViewById(R.id.username);
@@ -92,8 +68,11 @@ public class HomeActivity extends AppCompatActivity {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         viewPagerAdapter.addFragment(new ChatsFragment(), "Chats");
-        //viewPagerAdapter.addFragment(new ContactsFragment(), "Contacts");
+
         viewPagerAdapter.addFragment(new StoryFragment(), "Story");
+
+        viewPagerAdapter.addFragment(new ProfileFragment(), "Profile");
+
 
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
@@ -113,16 +92,11 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(new Intent(HomeActivity.this, LandingActivity.class));
                 finish();
                 return true;
-            case R.id.edit_profile:
-                startActivity(new Intent(HomeActivity.this, Edit_Profile.class));
-                finish();
-                return true;
+
             case R.id.contact_list:
                 startActivity(new Intent(HomeActivity.this, ContactsList.class));
                 finish();
                 return true;
-
-
         }
         return false;
     }
