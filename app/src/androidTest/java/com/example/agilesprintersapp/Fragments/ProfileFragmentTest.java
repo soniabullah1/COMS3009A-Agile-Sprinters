@@ -19,13 +19,16 @@ import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+//@RunWith(RobolectricTestRunner.class)
 public class ProfileFragmentTest {
+
     @Rule
-    public FragmentTestRule<?,ProfileFragment> profilefragmentTestRule = FragmentTestRule.create(ProfileFragment.class);
+    public FragmentTestRule<?, ProfileFragment> profilefragmentTestRule = FragmentTestRule.create(ProfileFragment.class);
     ProfileFragment profileFragment = profilefragmentTestRule.getFragment();
 
     @Before
     public void setUp() throws Exception {
+
     }
 
     @Test()
@@ -45,7 +48,6 @@ public class ProfileFragmentTest {
     @Test
     public void testEditProfileImage() {
         onView(withId(R.id.edit_profile_image)).perform(click());
-
     }
 
     @UiThread
@@ -62,7 +64,28 @@ public class ProfileFragmentTest {
 
     }
 
+//    @Test
+//    public void testNotNull() {
+//        ProfileFragment fragment = new ProfileFragment();
+//        startFragment(fragment);
+//        assertNotNull(fragment);
+//    }
+
     @After
     public void tearDown() throws Exception {
     }
+
+//    public static void startFragment(ProfileFragment fragment) {
+//        FragmentActivity activity = Robolectric.buildActivity(FragmentActivity.class)
+//                .create()
+//                .start()
+//                .resume()
+//                .get();
+//
+//        FragmentManager fragmentManager = activity.getSupportFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.add(fragment, null);
+//        fragmentTransaction.commit();
+//
+//    }
 }
