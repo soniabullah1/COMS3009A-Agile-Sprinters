@@ -71,10 +71,10 @@ public class Multiple_Image_Preview extends AppCompatActivity {
 
         Bundle args = intent.getBundleExtra("BUNDLE");
         if(imageUris != null && stringUris != null) {
-            imageUris = (ArrayList<Uri>) args.getSerializable("IMAGES");
-            stringUris = (ArrayList<String>) args.getSerializable("STRING_IMAGES");
-            imageUris.size();
-            stringUris.size();
+//            imageUris = (ArrayList<Uri>) args.getSerializable("IMAGES");
+//            stringUris = (ArrayList<String>) args.getSerializable("STRING_IMAGES");
+//            imageUris.size();
+//            stringUris.size();
         }
         userid = intent.getStringExtra("userid");
         sender = intent.getStringExtra("sender");
@@ -89,20 +89,20 @@ public class Multiple_Image_Preview extends AppCompatActivity {
 
                 ImageView imageView = new ImageView(getApplicationContext());
 
-                if(stringUris != null) {
-                    Uri fileUri = Uri.parse(stringUris.get(0));
-                    //imageView.setImageURI(fileUri);
-
-                    if(stringUris.size() == 1){
-                        imageView.setImageURI(fileUri);
-                        NextBtn.setVisibility(View.INVISIBLE);
-                        PreviousBtn.setVisibility(View.INVISIBLE);
-                    }
-                    else{
-                        imageView.setImageURI(fileUri);
-                        image_position.setText("Image 1 of " + imageUris.size());
-                    }
-                }
+//                if(stringUris != null) {
+//                    Uri fileUri = Uri.parse(stringUris.get(0));
+//                    //imageView.setImageURI(fileUri);
+//
+//                    if(stringUris.size() == 1){
+//                        imageView.setImageURI(fileUri);
+//                        NextBtn.setVisibility(View.INVISIBLE);
+//                        PreviousBtn.setVisibility(View.INVISIBLE);
+//                    }
+//                    else{
+//                        imageView.setImageURI(fileUri);
+//                        image_position.setText("Image 1 of " + imageUris.size());
+//                    }
+//                }
                 return imageView;
             }
         });
@@ -127,19 +127,19 @@ public class Multiple_Image_Preview extends AppCompatActivity {
         NextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(imageUris != null) {
-
-                    int positions = position + 2;
-
-                    if (position < imageUris.size() -1) {
-                        position++;
-                        image_position.setText("Image " + positions + " of " + imageUris.size());
-                        imageSwitcher.setImageURI(imageUris.get(position));
-                    }
-                    else{
-                        Toast.makeText(Multiple_Image_Preview.this, "No More Images ...", Toast.LENGTH_SHORT).show();
-                    }
-                }
+//                if(imageUris != null) {
+//
+//                    int positions = position + 2;
+//
+//                    if (position < imageUris.size() -1) {
+//                        position++;
+//                        image_position.setText("Image " + positions + " of " + imageUris.size());
+//                        imageSwitcher.setImageURI(imageUris.get(position));
+//                    }
+//                    else{
+//                        Toast.makeText(Multiple_Image_Preview.this, "No More Images ...", Toast.LENGTH_SHORT).show();
+//                    }
+//                }
             }
         });
 
