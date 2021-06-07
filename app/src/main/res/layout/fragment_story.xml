@@ -5,50 +5,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/LightGrey"
     android:padding="8dp"
     tools:context=".Fragments.StoryFragment">
 
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="10dp"
-    android:id="@+id/my_status_box"
-    android:clickable="true">
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/profile_image"
-        android:src="@mipmap/ic_launcher"/>
-
-    <TextView
-        android:id="@+id/myStory"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/my_status_box"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="-1dp"
-        android:layout_marginBottom="2dp"
-        android:layout_toRightOf="@id/profile_image"
-        android:padding="5dp"
-        android:text="My Status"
-        android:textColor="@color/Blue"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="12sp"
-        android:layout_below="@id/myStory"
-        android:layout_toRightOf="@id/profile_image"
-        android:text="Today, 2.31 PM"
-        android:textColor="@color/Blue"
-        android:id="@+id/storyTimeStamp"/>
+        android:clickable="true"
+        android:padding="10dp">
 
 
-</RelativeLayout>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/myStory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-1dp"
+            android:layout_marginBottom="2dp"
+            android:layout_toRightOf="@id/profile_image"
+            android:padding="5dp"
+            android:text="My Story"
+            android:textColor="@color/Blue"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/deleteButton"
+            android:layout_width="58dp"
+            android:layout_height="51dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/delete" />
+
+
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/stories"
@@ -57,12 +56,10 @@
         android:layout_below="@id/my_status_box"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
-        android:background="@color/white"
-        android:padding="10dp"
-         >
+        android:background="@color/LightGrey"
+        android:padding="10dp">
 
     </androidx.recyclerview.widget.RecyclerView>
-
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -72,9 +69,9 @@
         android:layout_alignRight="@id/stories"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="1dp"
+        android:layout_marginBottom="100dp"
         android:clickable="true"
-        android:src="@drawable/ic_picture"
-        android:layout_marginBottom="100dp"/>
+        android:src="@drawable/ic_picture" />
 
 
 </RelativeLayout>

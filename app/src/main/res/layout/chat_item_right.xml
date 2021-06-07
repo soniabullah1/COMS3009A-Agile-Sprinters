@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:padding="8dp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:padding="8dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"/>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/time_tv"
@@ -17,23 +17,23 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="240dp"
         android:layout_marginLeft="240dp"
+        android:gravity="right"
         android:text=""
         android:textColor="@android:color/darker_gray"
-        android:gravity="right"
         android:textSize="12sp" />
 
     <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:layout_marginTop="20dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:id="@+id/show_message"
-            android:text="Hello"
-            android:textColor="@color/black"
-            android:background="@drawable/background_right"
-            android:padding="8dp"/>
+        android:id="@+id/show_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/background_right"
+        android:padding="8dp"
+        android:text="Hello"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
 
 
     <ImageView
@@ -43,7 +43,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginLeft="248dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:layout_toRightOf="@id/profile_image"
@@ -52,30 +52,29 @@
         android:scaleType="centerCrop" />
 
     <TextView
-            android:id="@+id/caption"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/message_image_view"
-            android:layout_alignBaseline="@id/message_image_view"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="false"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="-18dp"
-            android:layout_marginEnd="5dp"
-            android:background="@drawable/background_right"
-            android:padding="8dp"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:layout_marginRight="5dp" />
+        android:id="@+id/caption"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/message_image_view"
+        android:layout_alignBaseline="@id/message_image_view"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="false"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-18dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/background_right"
+        android:padding="8dp"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txt_seen"
-            android:text="seen"
-            android:layout_below="@id/show_message"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"/>
+    <TextView
+        android:id="@+id/txt_seen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/time_tv"
+        android:layout_alignParentRight="true"
+        android:text="seen" />
 
 
 </RelativeLayout>

@@ -107,7 +107,16 @@ private List<Chatlist> userList;
                         }
                     }
                 }
-                userAdapter = new UserAdapter(getContext(), mUsers, true);
+
+                //Reverse ArrayList
+                ArrayList<User> revArrayList = new ArrayList<User>();
+                for (int i = mUsers.size() - 1; i >= 0; i--) {
+                    // Append the elements in reverse order
+                    revArrayList.add(mUsers.get(i));
+                }
+
+                //userAdapter = new UserAdapter(getContext(), mUsers, true);
+                userAdapter = new UserAdapter(getContext(), revArrayList, true);
                 recyclerView.setAdapter(userAdapter);
             }
 

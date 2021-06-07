@@ -71,7 +71,7 @@ public class HomeActivity extends AppCompatActivity {
 
         viewPagerAdapter.addFragment(new StoryFragment(), "Story");
 
-        viewPagerAdapter.addFragment(new ProfileFragment(), "Profile");
+        viewPagerAdapter.addFragment(new ProfileFragment(), "Settings");
 
 
         viewPager.setAdapter(viewPagerAdapter);

@@ -1,14 +1,19 @@
 package com.example.agilesprintersapp.Fragments;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,10 +23,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.agilesprintersapp.Adapter.StoryAdapter;
+import com.example.agilesprintersapp.Adapter.UserAdapter;
+import com.example.agilesprintersapp.ChangePasswordActivity;
+import com.example.agilesprintersapp.MessageActivity;
 import com.example.agilesprintersapp.Model.Chat;
+import com.example.agilesprintersapp.Model.Story;
 import com.example.agilesprintersapp.Model.User;
+import com.example.agilesprintersapp.Multiple_Image_Preview;
 import com.example.agilesprintersapp.Preview;
 import com.example.agilesprintersapp.R;
+import com.example.agilesprintersapp.StoryActivity;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -32,28 +43,43 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 
+
+
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import xute.storyview.StoryModel;
+import xute.storyview.StoryView;
+
+import static android.content.ContentValues.TAG;
 
 
 public class StoryFragment extends Fragment {
 
     private RecyclerView recyclerView;
+    private RecyclerView storyBox;
     private StoryAdapter storyAdapter;
-    private List<User> mUsers;
-    private List<Chat> mChat;
+    private List<Story> mUsers;
+    private List<Story> mStory;
+    
 
     private TextView myStory;
     private TextView username;
     private FloatingActionButton floatingButton;
     private CircleImageView profile;
+    private ImageButton deleteBtn;
 
     private String myUrl = "";
     private StorageTask uploadTask;
@@ -62,6 +88,8 @@ public class StoryFragment extends Fragment {
     private String messageSenderID;
     private String messageReceiverID;
     private String time;
+    private String username2;
+    private String username3;
 
     //store image uris in array list
     public ArrayList<Uri> imageUris;
@@ -76,6 +104,7 @@ public class StoryFragment extends Fragment {
 
 
     Intent intent;
+    Timer timer;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle SavedInstanceState) {
@@ -88,18 +117,24 @@ public class StoryFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         mUsers = new ArrayList<>();
-        mChat = new ArrayList<>();
+        mStory = new ArrayList<>();
 
         displayContactsStatus();
+
+        fuser = FirebaseAuth.getInstance().getCurrentUser();
 
         floatingButton = view.findViewById(R.id.floatingActionButton);
         profile = view.findViewById(R.id.profile_image);
         username = view.findViewById(R.id.username);
         myStatus = view.findViewById(R.id.my_status_box);
+        deleteBtn = view.findViewById(R.id.deleteButton);
 
 
         intent = getActivity().getIntent();
         userid = intent.getStringExtra("userid");
+
+        username2 = getCurrentUserName(fuser.getUid());
+        username3 = getCurrentUserName(userid);
 
         imageUris = new ArrayList<>();
         stringUris = new ArrayList<>();
@@ -107,7 +142,7 @@ public class StoryFragment extends Fragment {
         storageReference = FirebaseStorage.getInstance().getReference("uploads");
 
 
-        fuser = FirebaseAuth.getInstance().getCurrentUser();
+
         if (fuser != null) {
             reference = FirebaseDatabase.getInstance().getReference("User").child(fuser.getUid());
 
@@ -142,6 +177,14 @@ public class StoryFragment extends Fragment {
             });
         }
 
+//        myStatus.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                    displayMyStatus();
+//            }
+//        });
+
+
 
         floatingButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,9 +195,79 @@ public class StoryFragment extends Fragment {
                 //pickImagesIntent();
                 Intent intent = new Intent();
                 intent.setType("image/*");
-                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+                //intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(intent, "Select image"), PICK_IMAGES_CODE);
+            }
+        });
+
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+                Query deleteQuery = ref.child("stories").orderByChild("username").equalTo(username2);
+                Query deleteQuery2 = ref.child("stories").orderByChild("username").equalTo(username3);
+
+                deleteQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        deleteQuery2.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                for (DataSnapshot deleteSnapshot : dataSnapshot.getChildren()) {
+                                    deleteSnapshot.getRef().removeValue();
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+                                Toast.makeText(getActivity(), "Canceled", Toast.LENGTH_SHORT).show();
+                                Log.e(TAG, "onCancelled", databaseError.toException());
+                            }
+                        });
+
+                        if(dataSnapshot.exists()) {
+                            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                    switch (which) {
+                                        case DialogInterface.BUTTON_POSITIVE:
+
+                                            for (DataSnapshot deleteSnapshot : dataSnapshot.getChildren()) {
+                                                deleteSnapshot.getRef().removeValue();
+                                            }
+
+                                            Toast.makeText(getActivity(), "Status deleted", Toast.LENGTH_SHORT).show();
+                                            break;
+
+                                        case DialogInterface.BUTTON_NEGATIVE:
+                                            break;
+                                    }
+
+                                }
+                            };
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                            builder.setMessage("Are you sure you want to delete your status ?")
+                                    .setNegativeButton("No", dialogClickListener)
+                                    .setPositiveButton("Yes", dialogClickListener)
+                                    .show();
+                        }
+                        else{
+                            Toast.makeText(getActivity(), "No Status to be deleted", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        Toast.makeText(getActivity(), "Canceled", Toast.LENGTH_SHORT).show();
+                        Log.e(TAG, "onCancelled", databaseError.toException());
+                    }
+                });
+
             }
         });
 
@@ -248,24 +361,39 @@ public class StoryFragment extends Fragment {
     }
 
 
+
     public void displayContactsStatus() {
+
+//        final long timestamp = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis());
+//        final long expireTime = timestamp + TimeUnit.MILLISECONDS.convert(1, TimeUnit.MINUTES);
+
+//        timer = new Timer();
+//        timer.schedule(new TimerTask() {
+//            @Override
+//            public void run() {
+//                story.setVisibility(View.GONE);
+//            }
+//        }, 20000);
+
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("stories");
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
-                mUsers.clear();
+                mStory.clear();
 
                 for(DataSnapshot snapshot : datasnapshot.getChildren()){
                     User user = snapshot.getValue(User.class);
+                    Story story = snapshot.getValue(Story.class);
                     //String id = user.getId();
 
                     if (firebaseUser != null) {
 
-                        if (user != null && user.getId() != null && !user.getId().equals(firebaseUser.getUid())){
-                            mUsers.add(user);
-                        }
+                            if (story != null && story.getSender() != null) {
+                                mStory.add(story);
+
+                            }
 
                         //                    assert user != null;
                         //                    assert firebaseUser != null;
@@ -274,8 +402,10 @@ public class StoryFragment extends Fragment {
                         //                    }
                     }
                 }
-                storyAdapter = new StoryAdapter(getContext(), mUsers, false);
+                storyAdapter = new StoryAdapter(getContext(), mStory, false);
                 recyclerView.setAdapter(storyAdapter);
+                Collections.reverse(mStory);
+
             }
 
             @Override
@@ -285,4 +415,38 @@ public class StoryFragment extends Fragment {
         });
 
     }
+
+    public String getCurrentUserName(String id){
+
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User");
+
+        reference .addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+
+                for(DataSnapshot snapshot : datasnapshot.getChildren()){
+
+                    User user = snapshot.getValue(User.class);
+
+                    if (firebaseUser != null) {
+
+                        if (user != null && user.getId() != null && user.getId().equals(id)){
+                            username2 = user.getUsername();
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        return username2;
+    }
+
 }
+
+
