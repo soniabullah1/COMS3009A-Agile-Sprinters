@@ -66,6 +66,8 @@ dependencies {
 
     implementation 'com.github.bxute:StoryView:v1.0'  // add this line for the story
 
+    implementation 'com.github.3llomi:CircularStatusView:V1.0.2' // for circle status
+
     implementation 'com.android.support:appcompat-v7:29.0.0'
     implementation 'com.android.support.constraint:constraint-layout:2.0.4'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'

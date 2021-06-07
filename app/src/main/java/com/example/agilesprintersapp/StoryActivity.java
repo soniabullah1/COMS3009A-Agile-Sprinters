@@ -6,12 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.agilesprintersapp.Fragments.StoryFragment;
 import com.example.agilesprintersapp.Model.Story;
 import com.example.agilesprintersapp.Model.User;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,6 +32,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class StoryActivity extends AppCompatActivity {
 
@@ -43,10 +48,24 @@ public class StoryActivity extends AppCompatActivity {
     private String ImageURL;
 
 
+    Timer timer;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_story);
+
+
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+
+            @Override
+            public void run() {
+
+                finish();
+            }
+        }, 5000);
 
         story = findViewById(R.id.story);
         exit = findViewById(R.id.close);
@@ -96,29 +115,22 @@ public class StoryActivity extends AppCompatActivity {
 
 
         fuser = FirebaseAuth.getInstance().getCurrentUser();
-        if (fuser != null) {
-            reference = FirebaseDatabase.getInstance().getReference("stories").child(fuser.getUid());
+        if (sender != null) {
+            reference = FirebaseDatabase.getInstance().getReference("User").child(sender);
 
             reference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    User user = snapshot.getValue(User.class);
+                    username.setText(user.getUsername());
+                    if(user.getImageURL().equals("default")){
+                        profile_image.setImageResource(R.mipmap.ic_launcher);
 
-                    Story myStory = snapshot.getValue(Story.class);
-
-//                    if(myStory.getCaption() != null) {
-//                        caption.setText(myStory.getCaption());
-//                    }
-
-                    if (myStory != null && myStory.getSender() != null) {
-//                        if (myStory.getStory().equals("default")) {
-//                            story.setImageResource(R.mipmap.ic_launcher);
-//                        }
-
-                        //else {
-                            //Glide.with(getApplicationContext()).load(myStory.getStory()).into(story);
-                        //}
-
+                    }else{
+                        Glide.with(getApplicationContext()).load(user.getImageURL()).into(profile_image);
                     }
+
+                    //readMessages(fuser.getUid(), userid, user.getImageURL());
                 }
 
                 @Override

@@ -3,15 +3,32 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="2dp"
-    android:layout_marginTop="0dp">
+    android:padding="0dp"
+    android:layout_margin="2dp"
+    >
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_margin="10dp"
+        android:layout_margin="17dp"
         android:id="@+id/profile_image"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@mipmap/ic_launcher"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+
+        />
+
+    <com.devlomi.circularstatusview.CircularStatusView
+        android:id="@+id/circular_status_view"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:layout_margin="9dp"
+        app:portion_color="@color/Yellow"
+        app:portion_spacing="4dp"
+        app:portion_width="4dp"
+        app:portions_count="1" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -54,12 +71,11 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="3dp"
-        android:layout_marginBottom="2dp"
         android:layout_weight="1"
         android:background="?android:attr/listDivider"
-        android:backgroundTint="#A39D9D"
+        android:backgroundTint="@color/black"
         android:visibility="visible" />
 
 
