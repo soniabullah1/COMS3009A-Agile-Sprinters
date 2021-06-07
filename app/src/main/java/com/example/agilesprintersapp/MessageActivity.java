@@ -1,5 +1,8 @@
 package com.example.agilesprintersapp;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,14 +14,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.agilesprintersapp.Adapter.MessageAdapter;
 import com.example.agilesprintersapp.Model.Chat;
 import com.example.agilesprintersapp.Model.User;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,7 +35,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -52,20 +65,20 @@ public class MessageActivity extends AppCompatActivity {
     private ImageButton btn_attach_pic;
     private String checker = "image";
     private String myUrl = "";
-//    private StorageTask uploadTask;
+    private StorageTask uploadTask;
     private Uri fileUri;
     public String userid;
     private String messageSenderID;
     private String messageReceiverID;
     private String time;
-//    private ProgressDialog progressDialog;
+    private ProgressDialog progressDialog;
 
     //store image uris in array list
     public ArrayList<Uri> imageUris;
     public ArrayList<String> stringUris;
     private ArrayList<String> captions;
 
-//    StorageReference filePath;
+    StorageReference filePath;
 
 
     boolean toastMade = true;
@@ -115,25 +128,33 @@ public class MessageActivity extends AppCompatActivity {
         btn_attach_pic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                CharSequence[] options = new CharSequence[]
-//                        {
-//                                "Images",
-//                                "PDF Files",
-//                                "Ms Word Files",
-//                        };
-//                AlertDialog.Builder builder = new AlertDialog.Builder(MessageActivity.this);
-//                builder.setTitle("Select the File");
-//
-//                builder.setItems(options, new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//                        if(i == 0){
-//                            checker = "image";
-//                            pickImagesIntent();
-//                        }
-//                    }
-//                });
-//                builder.show();
+                CharSequence[] options = new CharSequence[]
+                        {
+                                "Images",
+                                "PDF Files",
+                                "Ms Word Files",
+                        };
+                AlertDialog.Builder builder = new AlertDialog.Builder(MessageActivity.this);
+                builder.setTitle("Select the File");
+
+                builder.setItems(options, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        if(i == 0){
+                            checker = "image";
+                            pickImagesIntent();
+                        }
+
+                        if(i == 1){
+                            checker = "pdf";
+                        }
+
+                        if(i == 2){
+                            checker = "docx";
+                        }
+                    }
+                });
+                builder.show();
             }
         });
 
@@ -153,30 +174,30 @@ public class MessageActivity extends AppCompatActivity {
         });
 
         fuser = FirebaseAuth.getInstance().getCurrentUser();
-//        if (userid != null) {
-//            reference = FirebaseDatabase.getInstance().getReference("User").child(userid);
-//
-//            reference.addValueEventListener(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                    User user = snapshot.getValue(User.class);
-//                    username.setText(user.getUsername());
-//                    if(user.getImageURL().equals("default")){
-//                        profile_image.setImageResource(R.mipmap.ic_launcher);
-//
-//                    }else{
-//                        Glide.with(getApplicationContext()).load(user.getImageURL()).into(profile_image);
-//                    }
-//
-//                    readMessages(fuser.getUid(), userid, user.getImageURL());
-//                }
-//
-//                @Override
-//                public void onCancelled(@NonNull DatabaseError error) {
-//
-//                }
-//            });
-//        }
+        if (userid != null) {
+            reference = FirebaseDatabase.getInstance().getReference("User").child(userid);
+
+            reference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    User user = snapshot.getValue(User.class);
+                    username.setText(user.getUsername());
+                    if(user.getImageURL().equals("default")){
+                        profile_image.setImageResource(R.mipmap.ic_launcher);
+
+                    }else{
+                        Glide.with(getApplicationContext()).load(user.getImageURL()).into(profile_image);
+                    }
+
+                    readMessages(fuser.getUid(), userid, user.getImageURL());
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
         seenMessage(userid);
         if(fuser != null) {
             messageSenderID = fuser.getUid();
@@ -185,158 +206,158 @@ public class MessageActivity extends AppCompatActivity {
     }
 
     public void pickImagesIntent(){
-//        Intent intent = new Intent();
-//        intent.setType("image/*");
-//        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-//        intent.setAction(Intent.ACTION_GET_CONTENT);
-//        startActivityForResult(Intent.createChooser(intent, "Select image(s)"), PICK_IMAGES_CODE);
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select image(s)"), PICK_IMAGES_CODE);
     }
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if(requestCode == PICK_IMAGES_CODE){
-//
-//            if (resultCode == Activity.RESULT_OK){
-//
-//                //if Multiple Images Selected...
-//                if (data.getClipData() != null){
-//
-//                    if (!checker.equals("image")){
-//
-//                    }
-//
-//                    else if (checker.equals("image")){
-//
-//                        int count = data.getClipData().getItemCount();
-//
-//                        for (int i = 0; i < count; i++){
-//                            fileUri = data.getClipData().getItemAt(i).getUri();
-//                            imageUris.add(fileUri);
-//                            if(stringUris != null) {
-//                                stringUris.add(fileUri.toString());
-//                            }
-//                        }
-//
-//                        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Image Files");
-//                        DatabaseReference userMessageKeyRef = reference.child("messages")
-//                                .child(messageSenderID).child(messageReceiverID).push();
-//                        String messagePushID  = userMessageKeyRef.getKey();
-//                        StorageReference filePath = storageReference.child(messagePushID + "." + "jpg");
-//                        uploadTask = filePath.putFile(fileUri);
-//
-//                        uploadTask.continueWithTask(new Continuation() {
-//                            @Override
-//                            public Object then(@NonNull Task task) throws Exception {
-//                                if (!task.isSuccessful()){
-//                                    throw task.getException();
-//                                }
-//                                return filePath.getDownloadUrl();
-//                            }
-//                        }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-//                            @Override
-//                            public void onComplete(@NonNull Task<Uri> task) {
-//                                if(task.isSuccessful()){
-//                                    Uri downloadUrl = task.getResult();
-//                                    myUrl =  downloadUrl.toString();
-//
-//                                    //Uri a = fileUri;
-//                                    Intent i = new Intent(MessageActivity.this, Multiple_Image_Preview.class);
-//
-//                                    Bundle args = new Bundle();
-//                                    args.putSerializable("IMAGES",(Serializable)imageUris);
-//                                    args.putSerializable("STRING_IMAGES",(Serializable)stringUris);
-//
-//                                    i.putExtra("sender", fuser.getUid());
-//                                    i.putExtra("receiver", userid);
-//                                    i.putExtra("message", myUrl);
-//                                    i.putExtra("checker", checker);
-//                                    i.putExtra("time", time);
-//                                    i.putExtra("images", imageUris);
-//                                    i.putExtra("images_strings", stringUris);
-//                                    i.putExtra("BUNDLE", args);
-//                                    //i.putExtra("imagePath", StringUris);
-//                                    startActivity(i);
-//
-//                                }
-//                                //sendMessage(fuser.getUid(), userid, myUrl, checker, time);
-//
-//                                imageUris.clear();
-//                                stringUris.clear();
-//                            }
-//                        });
-//                    }
-//                }
-//                // Only 1 image selected
-//                else {
-//
-//                    if (!checker.equals("image")){
-//
-//                    }
-//                    else if (checker.equals("image")){
-//
-//                        fileUri = data.getData();
-//                        imageUris.add(fileUri);
-//                        if(stringUris != null && fileUri != null) {
-//                            stringUris.add(fileUri.toString());
-//                        }
-//
-//                        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Image Files");
-//                        if(messageSenderID != null && messageReceiverID != null) {
-//                            DatabaseReference userMessageKeyRef = reference.child("messages")
-//                                    .child(messageSenderID).child(messageReceiverID).push();
-//
-//                            String messagePushID = userMessageKeyRef.getKey();
-//                            filePath = storageReference.child(messagePushID + "." + "jpg");
-//                            uploadTask = filePath.putFile(fileUri);
-//                        }
-//                        if (uploadTask != null) {
-//                            uploadTask.continueWithTask(new Continuation() {
-//                                @Override
-//                                public Object then(@NonNull Task task) throws Exception {
-//                                    if (!task.isSuccessful()) {
-//                                        throw task.getException();
-//                                    }
-//                                    return filePath.getDownloadUrl();
-//                                }
-//                            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-//                                @Override
-//                                public void onComplete(@NonNull Task<Uri> task) {
-//                                    if (task.isSuccessful()) {
-//                                        Uri downloadUrl = task.getResult();
-//                                        myUrl = downloadUrl.toString();
-//
-//                                        Intent i = new Intent(MessageActivity.this, Multiple_Image_Preview.class);
-//
-//                                        Bundle args = new Bundle();
-//
-//                                        args.putSerializable("IMAGES", (Serializable) imageUris);
-//                                        args.putSerializable("STRING_IMAGES", (Serializable) stringUris);
-//
-//                                        i.putExtra("sender", fuser.getUid());
-//                                        i.putExtra("receiver", userid);
-//                                        i.putExtra("message", myUrl);
-//                                        i.putExtra("checker", checker);
-//                                        i.putExtra("time", time);
-//                                        i.putExtra("images", imageUris);
-//                                        i.putExtra("images_strings", stringUris);
-//                                        //i.putExtra("imagePath", a);
-//                                        i.putExtra("BUNDLE", args);
-//
-//                                        startActivity(i);
-//
-//                                    }
-//                                    imageUris.clear();
-//                                    stringUris.clear();
-//                                }
-//                            });
-//                        }
-//                    }
-//                }
-//
-//            }
-//        }
-//    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == PICK_IMAGES_CODE){
+
+            if (resultCode == Activity.RESULT_OK){
+
+                //if Multiple Images Selected...
+                if (data.getClipData() != null){
+
+                    if (!checker.equals("image")){
+
+                    }
+
+                    else if (checker.equals("image")){
+
+                        int count = data.getClipData().getItemCount();
+
+                        for (int i = 0; i < count; i++){
+                            fileUri = data.getClipData().getItemAt(i).getUri();
+                            imageUris.add(fileUri);
+                            if(stringUris != null) {
+                                stringUris.add(fileUri.toString());
+                            }
+                        }
+
+                        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Image Files");
+                        DatabaseReference userMessageKeyRef = reference.child("messages")
+                                .child(messageSenderID).child(messageReceiverID).push();
+                        String messagePushID  = userMessageKeyRef.getKey();
+                        StorageReference filePath = storageReference.child(messagePushID + "." + "jpg");
+                        uploadTask = filePath.putFile(fileUri);
+
+                        uploadTask.continueWithTask(new Continuation() {
+                            @Override
+                            public Object then(@NonNull Task task) throws Exception {
+                                if (!task.isSuccessful()){
+                                    throw task.getException();
+                                }
+                                return filePath.getDownloadUrl();
+                            }
+                        }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Uri> task) {
+                                if(task.isSuccessful()){
+                                    Uri downloadUrl = task.getResult();
+                                    myUrl =  downloadUrl.toString();
+
+                                    //Uri a = fileUri;
+                                    Intent i = new Intent(MessageActivity.this, Multiple_Image_Preview.class);
+
+                                    Bundle args = new Bundle();
+                                    args.putSerializable("IMAGES",(Serializable)imageUris);
+                                    args.putSerializable("STRING_IMAGES",(Serializable)stringUris);
+
+                                    i.putExtra("sender", fuser.getUid());
+                                    i.putExtra("receiver", userid);
+                                    i.putExtra("message", myUrl);
+                                    i.putExtra("checker", checker);
+                                    i.putExtra("time", time);
+                                    i.putExtra("images", imageUris);
+                                    i.putExtra("images_strings", stringUris);
+                                    i.putExtra("BUNDLE", args);
+                                    //i.putExtra("imagePath", StringUris);
+                                    startActivity(i);
+
+                                }
+                                //sendMessage(fuser.getUid(), userid, myUrl, checker, time);
+
+                                imageUris.clear();
+                                stringUris.clear();
+                            }
+                        });
+                    }
+                }
+                // Only 1 image selected
+                else {
+
+                    if (!checker.equals("image")){
+
+                    }
+                    else if (checker.equals("image")){
+
+                        fileUri = data.getData();
+                        imageUris.add(fileUri);
+                        if(stringUris != null && fileUri != null) {
+                            stringUris.add(fileUri.toString());
+                        }
+
+                        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Image Files");
+                        if(messageSenderID != null && messageReceiverID != null) {
+                            DatabaseReference userMessageKeyRef = reference.child("messages")
+                                    .child(messageSenderID).child(messageReceiverID).push();
+
+                            String messagePushID = userMessageKeyRef.getKey();
+                            filePath = storageReference.child(messagePushID + "." + "jpg");
+                            uploadTask = filePath.putFile(fileUri);
+                        }
+                        if (uploadTask != null) {
+                            uploadTask.continueWithTask(new Continuation() {
+                                @Override
+                                public Object then(@NonNull Task task) throws Exception {
+                                    if (!task.isSuccessful()) {
+                                        throw task.getException();
+                                    }
+                                    return filePath.getDownloadUrl();
+                                }
+                            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Uri> task) {
+                                    if (task.isSuccessful()) {
+                                        Uri downloadUrl = task.getResult();
+                                        myUrl = downloadUrl.toString();
+
+                                        Intent i = new Intent(MessageActivity.this, Multiple_Image_Preview.class);
+
+                                        Bundle args = new Bundle();
+
+                                        args.putSerializable("IMAGES", (Serializable) imageUris);
+                                        args.putSerializable("STRING_IMAGES", (Serializable) stringUris);
+
+                                        i.putExtra("sender", fuser.getUid());
+                                        i.putExtra("receiver", userid);
+                                        i.putExtra("message", myUrl);
+                                        i.putExtra("checker", checker);
+                                        i.putExtra("time", time);
+                                        i.putExtra("images", imageUris);
+                                        i.putExtra("images_strings", stringUris);
+                                        //i.putExtra("imagePath", a);
+                                        i.putExtra("BUNDLE", args);
+
+                                        startActivity(i);
+
+                                    }
+                                    imageUris.clear();
+                                    stringUris.clear();
+                                }
+                            });
+                        }
+                    }
+                }
+
+            }
+        }
+    }
 
     private void seenMessage(String userid) {
         reference = FirebaseDatabase.getInstance().getReference("Chat");
@@ -431,10 +452,10 @@ public class MessageActivity extends AppCompatActivity {
     }
 
 
-//    public void Image () {
-//        super.onPause();
-//        reference.removeEventListener(seenListener);
-//        status("offline");
-//    }
+    public void Image () {
+        super.onPause();
+        reference.removeEventListener(seenListener);
+        status("offline");
+    }
 
 }

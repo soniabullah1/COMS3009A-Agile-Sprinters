@@ -18,6 +18,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -67,37 +68,37 @@ public class ContactsList extends AppCompatActivity {
     }
 
     public void searchUsers(String toString) {
-//
-//        FirebaseUser fuser = FirebaseAuth.getInstance().getCurrentUser();
-//        Query query = FirebaseDatabase.getInstance().getReference("User").orderByChild("username")
-//                .startAt(toString)
-//                .endAt(toString+"\uf8ff");
-//
-//        query.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
-//                if(mUsers != null) {
-//                    mUsers.clear();
-//                }
-//                for(DataSnapshot snapshot: datasnapshot.getChildren()){
-//                    User user = snapshot.getValue(User.class);
-//
-//                    assert user!= null;
-//                    assert fuser!= null;
-//                    if(!user.getId().equals(fuser.getUid()) && mUsers != null){
-//                        mUsers.add(user);
-//                    }
-//                }
-//
-//                userAdapter = new UserAdapter(getApplicationContext(), mUsers, false);
-//                recyclerView.setAdapter(userAdapter);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
+
+        FirebaseUser fuser = FirebaseAuth.getInstance().getCurrentUser();
+        Query query = FirebaseDatabase.getInstance().getReference("User").orderByChild("username")
+                .startAt(toString)
+                .endAt(toString+"\uf8ff");
+
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+                if(mUsers != null) {
+                    mUsers.clear();
+                }
+                for(DataSnapshot snapshot: datasnapshot.getChildren()){
+                    User user = snapshot.getValue(User.class);
+
+                    assert user!= null;
+                    assert fuser!= null;
+                    if(!user.getId().equals(fuser.getUid()) && mUsers != null){
+                        mUsers.add(user);
+                    }
+                }
+
+                userAdapter = new UserAdapter(getApplicationContext(), mUsers, false);
+                recyclerView.setAdapter(userAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
     public void readUsers(){
