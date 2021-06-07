@@ -141,8 +141,6 @@ public class StoryFragment extends Fragment {
 
         storageReference = FirebaseStorage.getInstance().getReference("uploads");
 
-
-
         if (fuser != null) {
             reference = FirebaseDatabase.getInstance().getReference("User").child(fuser.getUid());
 

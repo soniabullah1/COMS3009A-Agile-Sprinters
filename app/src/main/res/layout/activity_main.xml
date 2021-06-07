@@ -29,7 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.255"
-        app:srcCompat="@drawable/talk_time_logo" />
+        app:srcCompat="@drawable/talktime" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

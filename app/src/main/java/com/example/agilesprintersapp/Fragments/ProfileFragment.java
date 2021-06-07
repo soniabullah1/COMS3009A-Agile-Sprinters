@@ -1,6 +1,7 @@
 package com.example.agilesprintersapp.Fragments;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -9,9 +10,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -156,6 +160,50 @@ public class ProfileFragment extends Fragment {
                 });
             }
 
+        });
+
+        image_profile.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+
+                reference = FirebaseDatabase.getInstance().getReference("User").child(fuser.getUid());
+
+                reference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        User user = snapshot.getValue(User.class);
+                        if (user != null && user.getId() != null) {
+                            if (user.getImageURL().equals("default")) {
+                                image_profile.setImageResource(R.mipmap.ic_launcher);
+                            } else {
+                                final Dialog nagDialog = new Dialog(getActivity(),android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
+                                nagDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                                nagDialog.setCancelable(false);
+                                nagDialog.setContentView(R.layout.preview_image);
+                                ImageButton btnClose = (ImageButton) nagDialog.findViewById(R.id.btnIvClose);
+                                ImageView ivPreview = (ImageView)nagDialog.findViewById(R.id.iv_preview_image);
+                                Glide.with(getContext()).load(user.getImageURL()).into(ivPreview);
+
+                                btnClose.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View arg0) {
+
+                                        nagDialog.dismiss();
+                                    }
+                                });
+                                nagDialog.show();
+                                //Glide.with(getContext()).load(user.getImageURL()).into(image_profile);
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                return true;
+            }
         });
 
         return view;

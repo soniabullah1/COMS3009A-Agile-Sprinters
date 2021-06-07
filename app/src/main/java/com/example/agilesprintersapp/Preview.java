@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -104,15 +105,11 @@ public class Preview extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
-
                 String msg = caption.getText().toString().trim();
 
+                sendStory(sender, message, time, msg, username);
 
-                //sendMessage(sender, mUsers, message, "image", time, msg);
-
-                    //System.out.println(fuser.getDisplayName());
-                    sendStory(sender, message, time, msg, username);
+                Toast.makeText(getApplicationContext(),"Status Uploaded Successfully",Toast.LENGTH_SHORT).show();
 
                 finish();
             }

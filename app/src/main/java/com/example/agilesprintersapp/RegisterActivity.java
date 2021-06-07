@@ -160,6 +160,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 else{
                     Register(fName, lName, username, email, phone, password);
+                    Toast.makeText(getApplicationContext(),"Registration Successful :D",Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.VISIBLE);
                 }
             }
