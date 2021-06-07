@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.devlomi.circularstatusview.CircularStatusView;
 import com.example.agilesprintersapp.MessageActivity;
 
 import androidx.annotation.NonNull;
@@ -51,6 +52,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder>{
         public TextView username;
         public TextView timeStamp;
         public ImageView profile_image;
+        public CircularStatusView circularStatusView;
 
 
         public ViewHolder(View itemView){
@@ -58,6 +60,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder>{
             username = itemView.findViewById(R.id.username);
             timeStamp = itemView.findViewById(R.id.storyTimeStamp);
             profile_image = itemView.findViewById(R.id.profile_image);
+            circularStatusView = itemView.findViewById(R.id.circular_status_view);
 
         }
     }
@@ -77,6 +80,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder>{
         holder.username.setText(user.getUsername());
         holder.timeStamp.setText(convertTime(user.getTime()));
         Glide.with(mContext).load(user.getStory()).into(holder.profile_image);
+        holder.circularStatusView.setPortionsCount(1);
 
         //Story story = mStory.get(position);
 

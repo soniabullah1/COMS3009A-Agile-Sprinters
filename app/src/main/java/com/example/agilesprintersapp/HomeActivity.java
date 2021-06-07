@@ -95,7 +95,6 @@ public class HomeActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Logout Successful",Toast.LENGTH_SHORT).show();
                         finish();
 
-                        Toast.makeText(getApplicationContext(), "Status deleted", Toast.LENGTH_SHORT).show();
                         break;
 
                     case DialogInterface.BUTTON_NEGATIVE:

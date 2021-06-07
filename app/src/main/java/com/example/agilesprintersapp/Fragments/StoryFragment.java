@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.devlomi.circularstatusview.CircularStatusView;
 import com.example.agilesprintersapp.Adapter.StoryAdapter;
 import com.example.agilesprintersapp.Adapter.UserAdapter;
 import com.example.agilesprintersapp.ChangePasswordActivity;
@@ -79,6 +80,7 @@ public class StoryFragment extends Fragment {
     private TextView username;
     private FloatingActionButton floatingButton;
     private CircleImageView profile;
+    public CircularStatusView circularStatusView;
     private ImageButton deleteBtn;
 
     private String myUrl = "";
@@ -120,6 +122,7 @@ public class StoryFragment extends Fragment {
         mStory = new ArrayList<>();
 
         displayContactsStatus();
+        circularStatusView = view.findViewById(R.id.circular_status_view);
 
         fuser = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -140,6 +143,8 @@ public class StoryFragment extends Fragment {
         stringUris = new ArrayList<>();
 
         storageReference = FirebaseStorage.getInstance().getReference("uploads");
+
+        circularStatusView.setPortionsCount(1);
 
         if (fuser != null) {
             reference = FirebaseDatabase.getInstance().getReference("User").child(fuser.getUid());

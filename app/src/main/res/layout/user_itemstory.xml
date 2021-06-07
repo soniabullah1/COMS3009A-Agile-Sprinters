@@ -11,9 +11,25 @@
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_margin="10dp"
+        android:layout_margin="17dp"
         android:id="@+id/profile_image"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@mipmap/ic_launcher"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+
+        />
+
+    <com.devlomi.circularstatusview.CircularStatusView
+        android:id="@+id/circular_status_view"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:layout_margin="9dp"
+        app:portion_color="@color/Yellow"
+        app:portion_spacing="4dp"
+        app:portion_width="4dp"
+        app:portions_count="1" />
 
     <TextView
         android:layout_width="wrap_content"

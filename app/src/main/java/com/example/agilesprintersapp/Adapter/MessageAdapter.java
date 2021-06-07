@@ -1,11 +1,14 @@
 package com.example.agilesprintersapp.Adapter;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -136,6 +139,35 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 
         }
 
+        holder.messagePicture.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                final Dialog nagDialog = new Dialog(mContext,android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
+                nagDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                nagDialog.setCancelable(false);
+                nagDialog.setContentView(R.layout.preview_image);
+                ImageButton btnClose = (ImageButton) nagDialog.findViewById(R.id.btnIvClose);
+                ImageView ivPreview = (ImageView)nagDialog.findViewById(R.id.iv_preview_image);
+                Glide.with(mContext).load(chat.getMessage()).into(ivPreview);
+
+                if(chat.getMessage().equals("default")){
+                    holder.profile_image.setImageResource(R.mipmap.ic_launcher);
+                }else{
+                    Glide.with(mContext).load(chat.getMessage()).into(holder.profile_image);
+                }
+
+                btnClose.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View arg0) {
+
+                        nagDialog.dismiss();
+                    }
+                });
+                nagDialog.show();
+
+                return true;
+            }
+        });
 
     }
 

@@ -22,8 +22,22 @@
             android:id="@+id/profile_image"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_margin="8.51dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentLeft="true"
+            android:src="@mipmap/ic_launcher"
+            />
+
+        <com.devlomi.circularstatusview.CircularStatusView
+            android:id="@+id/circular_status_view"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            app:portion_color="@color/Yellow"
+            app:portion_spacing="4dp"
+            app:portion_width="4dp"
+            />
 
         <TextView
             android:id="@+id/myStory"
