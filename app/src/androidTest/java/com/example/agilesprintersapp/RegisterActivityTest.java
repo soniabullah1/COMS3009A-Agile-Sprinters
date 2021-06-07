@@ -273,14 +273,6 @@ public class RegisterActivityTest {
         registerActivity.finish();
     }
 
-    @Test
-    public void testNegative9RegisterButton(){
-        onView(withId(R.id.editTextTextPassword2)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD_SHORT), closeSoftKeyboard());
-        onView(withId(R.id.button2)).perform(click());
-        String check = registerActivity.unitTest;
-        assertEquals(check,"True");
-        registerActivity.finish();
-    }
 
     @Test
     public void testNegative10RegisterButton(){
