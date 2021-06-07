@@ -1,0 +1,18 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <ImageView android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/iv_preview_image" />
+
+    <ImageButton
+        android:id="@+id/btnIvClose"
+        android:layout_width="56dp"
+        android:layout_height="54dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_exit" />
+
+</RelativeLayout>
