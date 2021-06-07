@@ -27,6 +27,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.agilesprintersapp.Adapter.UserAdapter;
 import com.example.agilesprintersapp.Model.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -46,7 +47,7 @@ public class ContactsList extends AppCompatActivity {
     private RecyclerView recyclerView;
     private UserAdapter userAdapter;
     private List<User> mUsers;
-
+    FloatingActionButton Home;
     EditText search_users;
 
     @Override
@@ -57,12 +58,19 @@ public class ContactsList extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_view12);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-
+        Home = findViewById(R.id.floatingActionButton);
         mUsers = new ArrayList<>();
 
         readUsers();
 
-        search_users = findViewById(R.id.search_users);
+        Home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ContactsList.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
+        /*search_users = findViewById(R.id.search_users);
         search_users.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -113,7 +121,7 @@ public class ContactsList extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });
+        });*/
 
     }
     public void readUsers(){

@@ -115,10 +115,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
             }else{
                 holder.txt_seen.setText("Delivered");
             }
-        }else{
-            holder.txt_seen.setVisibility(View.GONE);
         }
-
         holder.show_message.setVisibility(View.GONE);
         holder.messagePicture.setVisibility(View.GONE);
         holder.caption.setVisibility(View.GONE);

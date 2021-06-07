@@ -1,111 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MessageActivity"
-    android:background="@color/white"
-    android:orientation="vertical"
-    >
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <RelativeLayout android:orientation="vertical" android:background="@color/white" tools:context=".MessageActivity" android:layout_height="match_parent" android:layout_width="match_parent" xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:id="@+id/bar_layout"
-        android:layout_height="wrap_content">
+    -<com.google.android.material.appbar.AppBarLayout android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/bar_layout">
 
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar2"
-            android:layout_width="400dp"
-            android:layout_height="wrap_content"
-            android:background="@color/Yellow"
-            android:theme="@style/MenuStyle">
+    -<androidx.appcompat.widget.Toolbar android:background="@color/Yellow" android:layout_height="wrap_content" android:layout_width="400dp" android:id="@+id/toolbar2" android:theme="@style/MenuStyle">
+
+    <de.hdodenhof.circleimageview.CircleImageView android:background="@color/Yellow" android:layout_height="50dp" android:layout_width="50dp" android:id="@+id/profile_image" android:src="@mipmap/ic_launcher"/>
+
+    <TextView android:background="@color/Yellow" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/username" android:textSize="18sp" android:text="username" android:layout_toRightOf="@+id/profile_image" android:layout_toEndOf="@+id/profile_image" android:layout_marginLeft="10dp" android:layout_centerVertical="true"/>
+
+    <ImageButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/HomeButton1" android:src="@drawable/ic_baseline_home_24" android:backgroundTint="@color/Yellow" android:layout_gravity="right"/>
+
+    <ImageButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/calls" android:backgroundTint="@color/Yellow" android:layout_gravity="right" app:srcCompat="@drawable/calls"/>
+
+</androidx.appcompat.widget.Toolbar>
+
+</com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView android:layout_height="626dp" android:layout_width="match_parent" android:id="@+id/recycler_view12" android:focusable="true" android:layout_marginBottom="-5dp" android:layout_below="@id/bar_layout" android:layout_above="@id/Bottom"/>
 
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@color/Yellow"
-                android:src="@mipmap/ic_launcher" />
+    -<RelativeLayout android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/Bottom" android:layout_alignParentBottom="true" android:padding="5dp">
 
-            <TextView
-                android:id="@+id/username"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:layout_toEndOf="@+id/profile_image"
-                android:layout_toRightOf="@+id/profile_image"
-                android:background="@color/Yellow"
-                android:text="username"
-                android:textSize="18sp" />
+    <EditText android:layout_height="wrap_content" android:layout_width="375dp" android:id="@+id/text_send" android:text="" android:textColorLink="#121111" android:textColorHint="#7E7A7A" android:textColor="#070707" android:paddingHorizontal="10dp" android:inputType="textMultiLine" android:hint="Type a message..."/>
 
-            <ImageButton
-                android:id="@+id/HomeButton1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:backgroundTint="@color/Yellow"
-                android:src="@drawable/ic_baseline_home_24" />
+    <ImageButton android:background="@drawable/send" android:layout_height="40dp" android:layout_width="40dp" android:id="@+id/btn_send" android:padding="20dp" android:layout_alignParentRight="true" android:layout_alignParentEnd="true"/>
 
+    <ImageButton android:background="@drawable/ic_picture" android:layout_height="40dp" android:layout_width="40dp" android:id="@+id/btn_attach_pic" android:padding="30dp" android:clickable="true" android:layout_toLeftOf="@id/btn_send"/>
 
-        </androidx.appcompat.widget.Toolbar>
-
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view12"
-        android:layout_width="match_parent"
-        android:layout_height="626dp"
-        android:layout_above="@id/Bottom"
-        android:layout_below="@id/bar_layout"
-        android:layout_marginBottom="-5dp"
-        android:focusable="true"/>
-
-
-    <RelativeLayout
-        android:id="@+id/Bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:layout_alignParentBottom="true">
-
-        <EditText
-            android:id="@+id/text_send"
-            android:layout_width="375dp"
-            android:layout_height="wrap_content"
-            android:hint="Type a message..."
-            android:inputType="textMultiLine"
-            android:paddingHorizontal="10dp"
-            android:text=""
-            android:textColor="#070707"
-            android:textColorHint="#7E7A7A"
-            android:textColorLink="#121111" />
-
-        <ImageButton
-            android:id="@+id/btn_send"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/send"
-            android:padding="20dp" />
-
-        <ImageButton
-            android:id="@+id/btn_attach_pic"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_toLeftOf="@id/btn_send"
-            android:background="@drawable/ic_picture"
-            android:padding="30dp"
-            android:clickable="true"/>
-
-    </RelativeLayout>
-
+</RelativeLayout>
 
 </RelativeLayout>

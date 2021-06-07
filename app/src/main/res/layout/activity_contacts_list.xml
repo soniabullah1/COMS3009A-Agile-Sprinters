@@ -9,29 +9,29 @@
     tools:context=".ContactsList">
 
 
-    <EditText
-        android:id="@+id/search_users"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Search..."
-        android:padding="15dp"
-        android:layout_above="@id/recycler_view12"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view12"
         android:layout_width="match_parent"
-        android:layout_height="560dp"
+        android:layout_height="730dp"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="-0dp"
         android:layout_marginBottom="1dp"
         android:background="@color/white"
+        android:backgroundTint="@color/LightGrey"
         android:theme="@style/Theme.AgileSprintersApp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/search_users"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/recycler_view12"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="102dp"
+        android:clickable="true"
+        android:src="@drawable/ic_baseline_home_24" />
 
 </RelativeLayout>

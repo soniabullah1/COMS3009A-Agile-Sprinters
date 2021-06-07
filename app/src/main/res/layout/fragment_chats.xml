@@ -8,24 +8,10 @@
     android:theme="@style/AppTheme"
     tools:context=".Fragments.ChatsFragment">
 
-    <EditText
-        android:id="@+id/search_users"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/recycler_view2"
-        android:background="@drawable/image_rounded_corner"
-        android:drawableLeft="@android:drawable/ic_menu_search"
-        android:hint="Search..."
-        android:padding="15dp"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view2"
-        android:layout_width="match_parent"
-        android:layout_height="560dp"
+        android:layout_width="400dp"
+        android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="0dp"
         android:background="@color/LightGrey"

@@ -28,12 +28,14 @@ import com.example.agilesprintersapp.Model.User;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseError;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -61,7 +63,7 @@ public class MessageActivity extends AppCompatActivity {
     List<Chat> mChat;
     ImageButton imageButton;
     RecyclerView recyclerView;
-
+    ImageButton calls;
     Intent intent;
     ImageView Image;
     ValueEventListener seenListener;
@@ -83,22 +85,23 @@ public class MessageActivity extends AppCompatActivity {
     private ArrayList<String> captions;
 
     StorageReference filePath;
-
+    String number;
 
     boolean toastMade = true;
 
     //request code to pick images
     private static final int PICK_IMAGES_CODE = 0;
 
+    public MessageActivity() {
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
 
-        // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Toolbar toolbar = findViewById(R.id.toolbar2);
-        //setSupportActionBar(toolbar);
-        //getSupportActionBar().setTitle("");
         toolbar.setNavigationOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -113,6 +116,8 @@ public class MessageActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
 
 //ADD
+        calls = findViewById(R.id.calls);
+
         imageButton = findViewById(R.id.HomeButton1);
         profile_image = findViewById(R.id.profile_image);
         username = findViewById(R.id.username);
@@ -127,6 +132,15 @@ public class MessageActivity extends AppCompatActivity {
         stringUris = new ArrayList<>();
 
 //        ImageView d = findViewById(R.id.imageView);
+        calls.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(Intent.  ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" + number));
+                startActivity(intent);
+            }
+        });
+
         imageButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -193,6 +207,10 @@ public class MessageActivity extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     User user = snapshot.getValue(User.class);
                     username.setText(user.getUsername());
+                    //
+                    number = user.getContactNumber();
+                    //
+
                     if(user.getImageURL().equals("default")){
                         profile_image.setImageResource(R.mipmap.ic_launcher);
 
