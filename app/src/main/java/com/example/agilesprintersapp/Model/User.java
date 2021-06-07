@@ -7,11 +7,13 @@ public class User {
     private String imageURL;
     private  String email;
     private  String contactNumber;
+    private String status;
 
-    public User(String id, String username, String imageURL){
+    public User(String id, String username, String imageURL, String status){
         this.id = id;
         this.username = username;
         this.imageURL = imageURL;
+        this.status = status;
         this.email = email;
         this.contactNumber = contactNumber;
 
@@ -59,5 +61,10 @@ public class User {
     public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
     }
-}
 
+    public String getStatus() { return status; }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+}

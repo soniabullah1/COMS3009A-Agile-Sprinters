@@ -50,11 +50,17 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
         public ImageView profile_image;
         public TextView last_msg;
 
+        private ImageView imgOn;
+        private ImageView imgOff;
+
         public ViewHolder(View itemView){
             super(itemView);
             username = itemView.findViewById(R.id.username);
             profile_image = itemView.findViewById(R.id.profile_image);
             last_msg = itemView.findViewById(R.id.last_msg);
+
+            imgOn = itemView.findViewById(R.id.img_on);
+            imgOff = itemView.findViewById(R.id.img_off);
 
 
         }
@@ -83,6 +89,20 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
         } else {
             holder.last_msg.setVisibility(View.GONE);
         }
+
+        if (ischat){
+            if (user.getStatus().equals("online")){
+                holder.imgOn.setVisibility(View.VISIBLE);
+                holder.imgOff.setVisibility(View.GONE);
+            } else {
+                holder.imgOn.setVisibility(View.GONE);
+                holder.imgOff.setVisibility(View.VISIBLE);
+            }
+        } else {
+            holder.imgOn.setVisibility(View.GONE);
+            holder.imgOff.setVisibility(View.GONE);
+        }
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener(){
             @Override
