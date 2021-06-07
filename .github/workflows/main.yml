@@ -25,7 +25,7 @@ jobs:
         run: ./gradlew testDebugUnitTest --continue
         
       - name: Run espresso tests
-        uses: reactivecircus/android-emulator-runner@v2 --continue
+        uses: reactivecircus/android-emulator-runner@v2 
         with:
           api-level: 24
           script: ./gradlew connectedCheck
