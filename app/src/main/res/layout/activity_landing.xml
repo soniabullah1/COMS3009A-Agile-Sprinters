@@ -9,15 +9,16 @@
     tools:context=".MainActivity">
 
 
-
     <TextView
         android:id="@+id/tSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:text="Sign in here"
-        android:textSize="20dp"
+        android:textAlignment="center"
         android:textColor="@color/LightBlue"
+        android:textSize="20dp"
+        android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -30,9 +31,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
-        android:text="Not yet with us? Register here"
+        android:text="Not yet with us ? Register here !"
+        android:textAlignment="center"
         android:textColor="@color/LightBlue"
         android:textSize="20dp"
+        android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintLeft_toLeftOf="parent"

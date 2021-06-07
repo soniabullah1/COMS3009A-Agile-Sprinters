@@ -8,8 +8,12 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,12 +35,12 @@ public class LoginActivity extends AppCompatActivity {
     Button btn_Return;
     TextView btn_Forgot;
     FirebaseAuth auth;
+    CheckBox showPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
 
         auth = FirebaseAuth.getInstance();
 
@@ -45,6 +49,21 @@ public class LoginActivity extends AppCompatActivity {
         btn_Login = findViewById(R.id.btn_Login);
         btn_Return = findViewById(R.id.btn_Return);
         btn_Forgot = findViewById(R.id.ForgotPasswordView);
+        showPassword = findViewById(R.id.checkBox2);
+
+        showPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    // Show Password
+                    password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                }
+                else {
+                    // Hide Password
+                    password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+            }
+        });
 
         btn_Login.setOnClickListener(new View.OnClickListener() {
             @Override

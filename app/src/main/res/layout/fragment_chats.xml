@@ -13,6 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/recycler_view2"
+        android:background="@drawable/image_rounded_corner"
+        android:drawableLeft="@android:drawable/ic_menu_search"
         android:hint="Search..."
         android:padding="15dp"
         android:textColor="@color/black"
@@ -37,7 +39,8 @@
         android:layout_alignRight="@id/recycler_view2"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="1dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="102dp"
         android:clickable="true"
         android:src="@drawable/chat_icon" />
 
