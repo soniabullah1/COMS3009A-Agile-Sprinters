@@ -6,6 +6,15 @@ import androidx.appcompat.widget.Toolbar;
 
 
 import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Toast;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
@@ -71,8 +80,16 @@ public class LoginActivity extends AppCompatActivity {
                 String txt_email = email.getText().toString();
                 String txt_password = password.getText().toString();
 
-                if (TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)){
+                if (TextUtils.isEmpty(txt_email)){
 
+                    email.setError("Please enter your username");
+                    email.requestFocus();
+                    Toast.makeText(LoginActivity.this, "All fields must be filled out", Toast.LENGTH_SHORT).show();
+                }
+                if(TextUtils.isEmpty(txt_password)){
+
+                    password.setError("Please enter your password");
+                    password.requestFocus();
                     Toast.makeText(LoginActivity.this, "All fields must be filled out", Toast.LENGTH_SHORT).show();
 
                 }else{

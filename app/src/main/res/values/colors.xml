@@ -17,5 +17,18 @@
     <color name="text_color_secondary">#222222</color>
     <color name="text_color_tertiary">#333333</color>
 
+    <color name="color1">#7CFC00</color>
+    <color name="color2">#FFFF00</color>
+    <color name="color3">#FF9E22</color>
+    <color name="color4">#B22222</color>
+    <color name="color5">#FF0000</color>
+    <color name="color6">#71DB00</color>
+    <color name="color7">#616161</color>
+    <color name="color8">#CDC9C9</color>
+
+    <color name="colorError">#B00020</color>
+    <color name="colorwhite">#FFFFFF</color>
+    <color name="colorblack">#000000</color>
+
 
 </resources>

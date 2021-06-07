@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/LightGrey"
+    android:background="@color/white"
     tools:context=".Preview">
 
     <ImageSwitcher
@@ -24,6 +24,7 @@
         android:layout_width="316dp"
         android:layout_height="56dp"
         android:ems="10"
+        android:textColorHint="@color/Blue"
         android:hint="Add a caption here..."
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,19 +41,21 @@
         android:text="Preview"
         android:textSize="20dp"
         android:textStyle="bold"
+        android:textColor="@color/Blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.219"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.032" />
+
     <Button
         android:id="@+id/close"
         android:layout_width="54dp"
         android:layout_height="37dp"
-        android:background="@color/LightGrey"
+        android:background="@color/white"
         android:drawableLeft="@drawable/ic_exit"
-        app:backgroundTint="@color/LightGrey"
+        app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.008"
@@ -62,23 +65,24 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="34dp"
-        android:layout_height="28dp"
+        android:layout_width="51dp"
+        android:layout_height="53dp"
         android:background="@drawable/send"
         app:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.957"
+        app:layout_constraintHorizontal_bias="0.955"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.972" />
+        app:layout_constraintVertical_bias="0.973" />
 
     <Button
         android:id="@+id/PreviousBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Previous"
-        app:backgroundTint="#009688"
+        android:textColor="@color/Blue"
+        app:backgroundTint="@color/Yellow"
         app:layout_constraintBottom_toTopOf="@+id/Caption"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.051"
@@ -91,7 +95,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Next"
-        app:backgroundTint="#009688"
+        app:backgroundTint="@color/Yellow"
+        android:textColor="@color/Blue"
         app:layout_constraintBottom_toTopOf="@+id/Caption"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.923"
@@ -105,7 +110,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="17dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#009688"
+        android:textColor="@color/Blue"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/Caption"
         app:layout_constraintEnd_toEndOf="parent"

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/LightGrey"
+    android:background="@color/white"
     android:padding="8dp"
     tools:context=".Fragments.StoryFragment">
 
@@ -31,21 +31,24 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginBottom="2dp"
+            android:layout_gravity="center_vertical"
             android:layout_toRightOf="@id/profile_image"
             android:padding="5dp"
             android:text="My Story"
             android:textColor="@color/Blue"
-            android:textSize="15dp"
+            android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/deleteButton"
-            android:layout_width="58dp"
-            android:layout_height="51dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:background="@drawable/delete" />
+            android:layout_marginRight="13dp"
+            android:background="@drawable/ic_baseline_delete_24" />
 
 
     </RelativeLayout>
@@ -57,7 +60,7 @@
         android:layout_below="@id/my_status_box"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
-        android:background="@color/LightGrey"
+        android:background="@color/white"
         android:padding="10dp">
 
     </androidx.recyclerview.widget.RecyclerView>
@@ -69,9 +72,10 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@id/stories"
         android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/Yellow"
         android:layout_marginTop="1dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="102dp"
+        android:layout_marginRight="31dp"
+        android:layout_marginBottom="40dp"
         android:clickable="true"
         android:src="@drawable/ic_picture" />
 

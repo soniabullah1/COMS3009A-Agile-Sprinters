@@ -17,7 +17,7 @@
         android:layout_marginTop="-0dp"
         android:layout_marginBottom="1dp"
         android:background="@color/white"
-        android:backgroundTint="@color/LightGrey"
+        android:backgroundTint="@color/white"
         android:theme="@style/Theme.AgileSprintersApp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,11 +26,12 @@
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/Yellow"
         android:layout_alignRight="@id/recycler_view12"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="1dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="102dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="60dp"
         android:clickable="true"
         android:src="@drawable/ic_baseline_home_24" />
 

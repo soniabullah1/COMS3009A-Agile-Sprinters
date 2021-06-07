@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     android:padding="10dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -17,6 +18,7 @@
         android:layout_height="wrap_content"
         android:text="username"
         android:id="@+id/username"
+        android:textColor="@color/Blue"
         android:layout_toRightOf="@+id/profile_image"
         android:layout_toEndOf="@+id/profile_image"
         android:layout_marginLeft="10dp"
@@ -55,6 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/username"
+        android:textColorHint="@color/Blue"
         android:layout_alignLeft="@id/username"
         android:layout_marginLeft="1dp"
         android:layout_marginTop="10dp"

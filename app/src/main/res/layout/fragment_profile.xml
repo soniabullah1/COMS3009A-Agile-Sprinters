@@ -1,64 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/LightGrey"
+    android:background="@color/white"
     android:padding="8dp"
+    android:orientation="vertical"
     tools:context=".Fragments.ProfileFragment">
 
-
-    <RelativeLayout
-        android:layout_width="728dp"
-        android:layout_height="586dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="0dp"
-        android:padding="0dp">
 
         <TextView
             android:id="@+id/yourprofile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:padding="20dp"
+            android:layout_gravity="center_horizontal"
             android:text="Your Profile"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
 
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_below="@id/yourprofile"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="11dp"
-            android:layout_marginEnd="139dp"
-            android:src="@mipmap/ic_launcher" />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/yourprofile"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/ic_launcher" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/edit_profile"/>
 
         <TextView
             android:id="@+id/edit_profile_image"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/yourprofile"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="128dp"
-            android:layout_marginEnd="100dp"
             android:padding="10dp"
-            android:text="Edit Profile Image "
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profile_image"
+            android:text="Edit Profile Image"
             android:textColor="@color/LightBlue"
             android:textSize="18dp"
             android:textStyle="bold" />
 
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/edit_profile"/>
+
+        <TextView
+            android:id="@+id/edit_password"
+            android:layout_width="wrap_content"
+            android:padding="10dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profile_image"
+            android:text="Edit Password"
+            android:textColor="@color/LightBlue"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
         <EditText
             android:id="@+id/edit_email"
-            android:layout_width="306dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/editdetails"
-            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="35dp"
-            android:background="@color/Yellow"
+            android:background="@color/LightBlue"
             android:ems="10"
             android:gravity="center_horizontal"
             android:hint="Edit Email Address"
@@ -67,12 +100,12 @@
 
         <EditText
             android:id="@+id/edit_phone_number"
-            android:layout_width="306dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/edit_email"
-            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="35dp"
-            android:background="@color/Yellow"
+            android:background="@color/LightBlue"
             android:ems="10"
             android:gravity="center_horizontal"
             android:hint="Edit phone number"
@@ -81,27 +114,28 @@
 
         <EditText
             android:id="@+id/edit_username"
-            android:layout_width="306dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/edit_phone_number"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="35dp"
-            android:background="@color/Yellow"
+            android:background="@color/LightBlue"
             android:ems="10"
             android:gravity="center_horizontal"
             android:hint="Edit username"
             android:textAlignment="center"
+            android:layout_gravity="center_horizontal"
             android:textColorHint="@color/Blue" />
 
-        <Button
-            android:id="@+id/btn_save"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/edit_username"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="25dp"
-            android:text="Save"
-            android:textColor="@color/Blue" />
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="220dp"
+        android:layout_height="63dp"
+        android:layout_below="@+id/edit_username"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="78dp"
+        android:text="Save Changes"
+        android:textSize="20dp"
+        android:textColor="@color/Blue" />
 
         <TextView
             android:id="@+id/editdetails"
@@ -109,38 +143,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/profile_image"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="99dp"
-            android:layout_marginTop="128dp"
+            android:layout_marginStart="106dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="120dp"
             android:text="Edit your details below:"
             android:textColor="@color/LightBlue"
             android:textSize="18dp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/edit_password"
-            android:layout_width="wrap_content"
-            android:layout_height="57dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="105dp"
-            android:layout_marginLeft="105dp"
-            android:layout_marginTop="193dp"
-            android:layout_marginEnd="101dp"
-            android:layout_marginRight="101dp"
-            android:layout_marginBottom="336dp"
-            android:gravity="center_horizontal"
-            android:padding="10dp"
-            android:text="Edit Password"
-            android:textColor="@color/LightBlue"
-            android:textSize="18dp"
-            android:textStyle="bold" />
 
-
-    </RelativeLayout>
-
-
-</RelativeLayout>
+</LinearLayout>
