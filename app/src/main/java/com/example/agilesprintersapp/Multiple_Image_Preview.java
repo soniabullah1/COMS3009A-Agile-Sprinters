@@ -115,8 +115,8 @@ public class Multiple_Image_Preview extends AppCompatActivity {
 
                 if(position > 0){
                     position--;
-                    image_position.setText("Image " + positions + " of " + imageUris.size());
-                    imageSwitcher.setImageURI(imageUris.get(position));
+//                    image_position.setText("Image " + positions + " of " + imageUris.size());
+//                    imageSwitcher.setImageURI(imageUris.get(position));
                 }
                 else{
                     Toast.makeText(Multiple_Image_Preview.this, "No Previous Images ...", Toast.LENGTH_SHORT).show();
@@ -156,15 +156,15 @@ public class Multiple_Image_Preview extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                int a = imageUris.size();
-
-                String msg = caption.getText().toString().trim();
-
-                for(int i = 0; i < a; i++){
-                    sendMessage(sender, receiver, imageUris.get(i).toString(), checker, time, msg);
-                }
-
-                finish();
+//                int a = imageUris.size();
+//
+//                String msg = caption.getText().toString().trim();
+//
+//                for(int i = 0; i < a; i++){
+//                    sendMessage(sender, receiver, imageUris.get(i).toString(), checker, time, msg);
+//                }
+//
+//                finish();
             }
 
         });
@@ -227,11 +227,11 @@ public class Multiple_Image_Preview extends AppCompatActivity {
                     Chat chat = snapshot.getValue(Chat.class);
                     User user = snapshot.getValue(User.class);
 
-                    if (user.getId()!=null && user.getId().equals(fuser.getUid()) && chat.getReceiver().equals(fuser.getUid()) && chat.getSender().equals(userid)) {
-                        HashMap<String, Object> hashMap = new HashMap<>();
-                        hashMap.put("isseen", true);
-                        snapshot.getRef().updateChildren(hashMap);
-                    }
+//                    if (user.getId()!=null && user.getId().equals(fuser.getUid()) && chat.getReceiver().equals(fuser.getUid()) && chat.getSender().equals(userid)) {
+//                        HashMap<String, Object> hashMap = new HashMap<>();
+//                        hashMap.put("isseen", true);
+//                        snapshot.getRef().updateChildren(hashMap);
+//                    }
                 }
             }
 
