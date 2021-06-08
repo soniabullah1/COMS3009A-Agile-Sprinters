@@ -14,8 +14,6 @@ import org.junit.runners.MethodSorters;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.assertion.ViewAssertions.matches;
-import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -30,18 +28,18 @@ public class ProfileFragmentTest {
 
     }
 
-    @Test()
-    public void testLaunch() throws Exception {
-        onView(withId(R.id.yourprofile)).check(matches((isDisplayed())));
-        onView(withId(R.id.profile_image)).check(matches(isDisplayed()));
-        onView(withId(R.id.edit_profile_image)).check(matches(isDisplayed()));
-        onView(withId(R.id.edit_password)).check(matches(isDisplayed()));
-        onView(withId(R.id.editdetails)).check(matches(isDisplayed()));
-        onView(withId(R.id.edit_email)).check(matches(isDisplayed()));
-        onView(withId(R.id.edit_phone_number)).check(matches(isDisplayed()));
-        onView(withId(R.id.edit_username)).check(matches(isDisplayed()));
-        onView(withId(R.id.btn_save)).check(matches(isDisplayed()));
-    }
+//    @Test()
+//    public void testLaunch() throws Exception {
+//        onView(withId(R.id.yourprofile)).check(matches((isDisplayed())));
+//        onView(withId(R.id.profile_image)).check(matches(isDisplayed()));
+//        onView(withId(R.id.edit_profile_image)).check(matches(isDisplayed()));
+//        onView(withId(R.id.edit_password)).check(matches(isDisplayed()));
+//        onView(withId(R.id.editdetails)).check(matches(isDisplayed()));
+//        onView(withId(R.id.edit_email)).check(matches(isDisplayed()));
+//        onView(withId(R.id.edit_phone_number)).check(matches(isDisplayed()));
+//        onView(withId(R.id.edit_username)).check(matches(isDisplayed()));
+//        onView(withId(R.id.btn_save)).check(matches(isDisplayed()));
+//    }
 
 //    @UiThread
 //    @Test

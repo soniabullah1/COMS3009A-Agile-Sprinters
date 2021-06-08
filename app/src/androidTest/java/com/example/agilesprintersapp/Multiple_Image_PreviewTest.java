@@ -46,13 +46,13 @@ public class Multiple_Image_PreviewTest {
         mipActivity.finish();
     }
 
-    @UiThread
-    @Test
-    public void testPreviousButton(){
-        //onView(withId(R.id.Nextbtn)).perform(click());
-        onView(withId(R.id.PreviousBtn)).perform(click());
-        mipActivity.finish();
-    }
+//    @UiThread
+//    @Test
+//    public void testPreviousButton(){
+//        //onView(withId(R.id.Nextbtn)).perform(click());
+//        onView(withId(R.id.PreviousBtn)).perform(click());
+//        mipActivity.finish();
+//    }
 
     @UiThread
     @Test
