@@ -24,9 +24,9 @@ public class StoryFragmentTest {
 
     @Test
     public void testLaunch(){
-        onView(withId(R.id.profile_image)).check(matches((isDisplayed())));
+        onView(withId(R.id.circular_status_view)).check(matches((isDisplayed())));
         onView(withId(R.id.myStory)).check(matches(isDisplayed()));
-        onView(withId(R.id.storyTimeStamp)).check(matches(isDisplayed()));
+        onView(withId(R.id.deleteButton)).check(matches(isDisplayed()));
         onView(withId(R.id.stories)).check(matches(isDisplayed()));
         onView(withId(R.id.floatingActionButton)).check(matches(isDisplayed()));
     }

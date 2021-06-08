@@ -24,16 +24,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.devlomi.circularstatusview.CircularStatusView;
 import com.example.agilesprintersapp.Adapter.StoryAdapter;
-import com.example.agilesprintersapp.Adapter.UserAdapter;
-import com.example.agilesprintersapp.ChangePasswordActivity;
-import com.example.agilesprintersapp.MessageActivity;
-import com.example.agilesprintersapp.Model.Chat;
 import com.example.agilesprintersapp.Model.Story;
 import com.example.agilesprintersapp.Model.User;
-import com.example.agilesprintersapp.Multiple_Image_Preview;
 import com.example.agilesprintersapp.Preview;
 import com.example.agilesprintersapp.R;
-import com.example.agilesprintersapp.StoryActivity;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -50,19 +44,12 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 
-
-
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import xute.storyview.StoryModel;
-import xute.storyview.StoryView;
 
 import static android.content.ContentValues.TAG;
 
@@ -136,7 +123,9 @@ public class StoryFragment extends Fragment {
         intent = getActivity().getIntent();
         userid = intent.getStringExtra("userid");
 
-        username2 = getCurrentUserName(fuser.getUid());
+        if(fuser!=null) {
+            username2 = getCurrentUserName(fuser.getUid());
+        }
         username3 = getCurrentUserName(userid);
 
         imageUris = new ArrayList<>();
