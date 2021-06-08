@@ -2,7 +2,7 @@
 ## Social Media/Market Place Clone Project
 ### WhatsApp Clone Project
 
-<img width="350" alt="Screenshot 2021-06-06 at 16 30 05" src="https://user-images.githubusercontent.com/81515681/120928390-bd8e6100-c6e4-11eb-9327-f0d73ad1c95a.png">
+<img width="400" alt="Logo" src="https://user-images.githubusercontent.com/81515681/121183937-e2a9dd80-c864-11eb-97cf-7d6c70cc7bb8.png">
 
 ### Contributors
 
