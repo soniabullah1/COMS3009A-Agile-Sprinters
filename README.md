@@ -55,3 +55,20 @@ Rushil Patel, Sonia Bullah, Kayla Levy, Bhavik Govan, Abdullah Haffejee, Colin H
 
 ### Edit Profile Information & Logout:
 <img width="250" alt="Profile" src="https://user-images.githubusercontent.com/81515681/121185511-6e703980-c866-11eb-869a-98abf632f1b8.png"> <img width="250" alt="Logout" src="https://user-images.githubusercontent.com/81515681/121186557-83999800-c867-11eb-881c-ceb59c885866.png">
+
+# Firebase Database
+1. Create a Firebase account
+2. Create a new Firebase project
+3. Connect the Firebase console to Android Studio.
+4. Under the Firebase Realtime Database rules, change "read, write:" to "true;" (See screenshot below).
+<img width="287" alt="Screenshot 2021-06-07 at 09 52 30" src="https://user-images.githubusercontent.com/81515681/120979774-38538c80-c776-11eb-802c-bb61238d7710.png">
+
+
+**NOTE:**
+Database tables will be created automatically once the Android Studio Project runs successfully.
+
+
+# Android Studio Project
+1. Open this project in Android Studio.
+2. Remember to change the name of the package.
+3. Run the project once the gradle sync has terminated. You can find information regarding the emulator version [here](https://github.com/soniabullah1/COMS3009A-Agile-Sprinters/wiki/Local-Machine-Information).  
