@@ -74,10 +74,12 @@ public class Multiple_Image_Preview extends AppCompatActivity {
         Intent intent = getIntent();
 
         Bundle args = intent.getBundleExtra("BUNDLE");
-        imageUris = (ArrayList<Uri>)args.getSerializable("IMAGES");
-        stringUris = (ArrayList<String>)args.getSerializable("STRING_IMAGES");
-        imageUris.size();
-        stringUris.size();
+        if(imageUris != null) {
+            imageUris = (ArrayList<Uri>) args.getSerializable("IMAGES");
+            stringUris = (ArrayList<String>) args.getSerializable("STRING_IMAGES");
+            imageUris.size();
+            stringUris.size();
+        }
 
         userid = intent.getStringExtra("userid");
         sender = intent.getStringExtra("sender");
