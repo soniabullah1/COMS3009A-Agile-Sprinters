@@ -1,6 +1,5 @@
 package com.example.agilesprintersapp;
 
-import android.app.Activity;
 import android.app.Instrumentation;
 import android.content.Intent;
 import android.view.View;
@@ -12,9 +11,6 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
-import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 import static org.junit.Assert.assertNotNull;
 
@@ -50,12 +46,12 @@ public class ChangePasswordActivityTest {
 
     }
 
-    @Test
-    public void testReturnToHomePageButton(){
-        onView(withId(R.id.Btn_ReturnHome)).perform(click());
-        Activity homeActivity = getInstrumentation().waitForMonitorWithTimeout(monitor,5000);
-        assertNotNull(homeActivity);
-    }
+//    @Test
+//    public void testReturnToHomePageButton(){
+//        onView(withId(R.id.Btn_ReturnHome)).perform(click());
+//        Activity homeActivity = getInstrumentation().waitForMonitorWithTimeout(monitor,5000);
+//        assertNotNull(homeActivity);
+//    }
 
 //    @UiThread
 //    @Test
