@@ -37,10 +37,10 @@ Rushil Patel, Sonia Bullah, Kayla Levy, Bhavik Govan, Abdullah Haffejee, Colin H
 
 ### Screenshots:
 ### Welcome:
-<img src="https://user-images.githubusercontent.com/81515681/120941090-14b22700-c721-11eb-8d4d-19e823ae6d3a.jpg" width="303"> <img src="https://user-images.githubusercontent.com/81515681/120941374-c2720580-c722-11eb-8f7f-2167f81335b6.jpg" width="298"> 
+<img width="250" alt="Loading" src="https://user-images.githubusercontent.com/81515681/121184214-26044c00-c865-11eb-904d-0220e1c16f45.png"> <img width="250" alt="Welcome Screen" src="https://user-images.githubusercontent.com/81515681/121184266-35839500-c865-11eb-8d96-b1a520e34742.png"> 
 
 ### Registration, Sign-In & Forgot Password:
-<img src="https://user-images.githubusercontent.com/81515681/120941382-cc940400-c722-11eb-9626-7c13c80d4a88.jpg" width="300"> <img width="303" alt="Login" src="https://user-images.githubusercontent.com/81515681/120941384-cf8ef480-c722-11eb-921f-c1ba9207ee94.png"> <img src="https://user-images.githubusercontent.com/81515681/120941390-d61d6c00-c722-11eb-9ca4-1d99f259c5dd.jpg" width="300"> 
+<img width="250" alt="Register" src="https://user-images.githubusercontent.com/81515681/121184287-39afb280-c865-11eb-9125-b6f41c8e831a.png"> <img width="250" alt="Login" src="https://user-images.githubusercontent.com/81515681/121184299-3ddbd000-c865-11eb-9bfb-fe165c584014.png"> <img width="250" alt="Forgot Password" src="https://user-images.githubusercontent.com/81515681/121184319-4502de00-c865-11eb-9403-c68cd3392dac.png"> 
 
 ### Chat With Other Users:
 <img src="https://user-images.githubusercontent.com/81515681/120941398-e2a1c480-c722-11eb-91e4-9ff2e93c758c.jpg" width="300"> <img src="https://user-images.githubusercontent.com/81515681/120941396-e03f6a80-c722-11eb-9e3c-f6c6067da598.jpg" width="300"> <img src="https://user-images.githubusercontent.com/81515681/120941408-eaf9ff80-c722-11eb-8561-1e6b74c74386.jpg" width="300"> <img width="300" alt="Image Preview" src="https://user-images.githubusercontent.com/81515681/120941410-ee8d8680-c722-11eb-85dd-0e7829c29a92.png"> 
