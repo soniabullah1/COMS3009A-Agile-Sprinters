@@ -46,7 +46,7 @@ Rushil Patel, Sonia Bullah, Kayla Levy, Bhavik Govan, Abdullah Haffejee, Colin H
 <img width="250" alt="Unique Chat List" src="https://user-images.githubusercontent.com/81515681/121184850-c8243400-c865-11eb-94f0-244f7fc0e427.png"> <img width="250" alt="Chat" src="https://user-images.githubusercontent.com/81515681/121184891-d07c6f00-c865-11eb-8f3c-0f2f4ad5ff84.png"> <img width="250" alt="Image Dialog Box" src="https://user-images.githubusercontent.com/81515681/121184899-d1ad9c00-c865-11eb-8e83-77b1d0b27314.png"> <img width="250" alt="Image Preview" src="https://user-images.githubusercontent.com/81515681/121184941-de31f480-c865-11eb-8b53-deb826e8a0da.png"> <img width="250" alt="Phone Calls" src="https://user-images.githubusercontent.com/81515681/121184982-e68a2f80-c865-11eb-96e7-6405daa03717.png"> 
 
 ### Upload & View Stories:
-<img src="https://user-images.githubusercontent.com/81515681/120941412-f2b9a400-c722-11eb-8aae-fd937e969104.jpg" width="300"> <img src="https://user-images.githubusercontent.com/81515681/120941414-f4836780-c722-11eb-899c-0a3ab23e6e27.jpg" width="300"> 
+<img width="250" alt="Upload:View Stories" src="https://user-images.githubusercontent.com/81515681/121185341-408af500-c866-11eb-9c3e-7fccd9be40ab.png"> <img width="250" alt="View Story" src="https://user-images.githubusercontent.com/81515681/121185349-4254b880-c866-11eb-9044-cfb629558640.png"> <img width="250" alt="Delete Story" src="https://user-images.githubusercontent.com/81515681/121185362-454fa900-c866-11eb-9e56-c3b1dc4d3cb4.png">
 
 ### Edit Profile Information & Logout:
 <img src="https://user-images.githubusercontent.com/81515681/120941420-fa794880-c722-11eb-89dd-6f83ac71615b.jpg" width="300">
