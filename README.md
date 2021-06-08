@@ -56,6 +56,9 @@ Rushil Patel, Sonia Bullah, Kayla Levy, Bhavik Govan, Abdullah Haffejee, Colin H
 ### Edit Profile Information & Logout:
 <img width="250" alt="Profile" src="https://user-images.githubusercontent.com/81515681/121185511-6e703980-c866-11eb-869a-98abf632f1b8.png"> <img width="250" alt="Logout" src="https://user-images.githubusercontent.com/81515681/121186557-83999800-c867-11eb-881c-ceb59c885866.png">
 
+### Personalised Application Icon:
+<img width="320" alt="Screenshot 2021-06-08 at 19 54 58" src="https://user-images.githubusercontent.com/81515681/121234041-94f89980-c893-11eb-84cf-f2123b6ab1fc.png">
+
 # Installation Guide:
 ## Firebase Database
 1. Create a Firebase account
