@@ -25,14 +25,14 @@ public class ContactsListTest {
 
     @Test
     public void testLaunch(){
-        View view = contactsList.findViewById(R.id.search_users);
+        View view = contactsList.findViewById(R.id.floatingActionButton);
         assertNotNull(view);
         View view1 = contactsList.findViewById(R.id.recycler_view12);
         assertNotNull(view1);
         contactsList.finish();
 
         contactsList.readUsers();
-        //contactsList.searchUsers("tris");
+
     }
 
     @After

@@ -7,7 +7,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class UserTest {
-    User user = new User("01","unittest","imageurl");
+    User user = new User("01","unittest","imageurl", "status");
 
 
     @Before
@@ -29,6 +29,9 @@ public class UserTest {
 
         String expected4 = "unittest";
         assertEquals(expected4, user.getUsername());
+
+        String expected6 = "status";
+        assertEquals(expected6, user.getStatus());
 
         String expected5 = null;
         assertEquals(expected5, user.getEmail());
