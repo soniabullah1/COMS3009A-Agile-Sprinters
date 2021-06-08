@@ -35,7 +35,7 @@ public class ForgotPasswordActivityTest {
 
     @Test
     public void testLaunch(){
-        onView(withId(R.id.textView4)).check(matches((isDisplayed())));
+        //onView(withId(R.id.textView4)).check(matches((isDisplayed())));
         onView(withId(R.id.EmailText)).check(matches(isDisplayed()));
         onView(withId(R.id.Btn_Reset)).check(matches(isDisplayed()));
         onView(withId(R.id.Btn_Return)).check(matches(isDisplayed()));
