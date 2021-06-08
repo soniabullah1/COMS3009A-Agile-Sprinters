@@ -52,5 +52,4 @@ Rushil Patel, Sonia Bullah, Kayla Levy, Bhavik Govan, Abdullah Haffejee, Colin H
 <img width="250" alt="Enlarge Profile Pictures" src="https://user-images.githubusercontent.com/81515681/121185559-77f9a180-c866-11eb-8e87-0d38495821e7.png"> <img width="250" alt="Enlarge Images" src="https://user-images.githubusercontent.com/81515681/121185564-792ace80-c866-11eb-894f-90d20605ed85.png">
 
 ### Edit Profile Information & Logout:
-<img width="250" alt="Profile" src="https://user-images.githubusercontent.com/81515681/121185511-6e703980-c866-11eb-869a-98abf632f1b8.png"> 
-
+<img width="250" alt="Profile" src="https://user-images.githubusercontent.com/81515681/121185511-6e703980-c866-11eb-869a-98abf632f1b8.png"> <img width="250" alt="Logout" src="https://user-images.githubusercontent.com/81515681/121186557-83999800-c867-11eb-881c-ceb59c885866.png">
