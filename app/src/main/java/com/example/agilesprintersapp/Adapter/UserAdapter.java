@@ -94,12 +94,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
         }
 
         if (ischat){
-            if (user.getStatus().equals("online")){
-                holder.imgOn.setVisibility(View.VISIBLE);
-                holder.imgOff.setVisibility(View.GONE);
-            } else {
-                holder.imgOn.setVisibility(View.GONE);
-                holder.imgOff.setVisibility(View.VISIBLE);
+            if(user.getStatus() !=null){
+                 if (user.getStatus().equals("online")){
+                     holder.imgOn.setVisibility(View.VISIBLE);
+                     holder.imgOff.setVisibility(View.GONE);
+                 } else {
+                     holder.imgOn.setVisibility(View.GONE);
+                     holder.imgOff.setVisibility(View.VISIBLE);
+            }
             }
         } else {
             holder.imgOn.setVisibility(View.GONE);

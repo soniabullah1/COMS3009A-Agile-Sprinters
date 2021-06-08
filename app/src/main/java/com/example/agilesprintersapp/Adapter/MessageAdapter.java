@@ -150,11 +150,11 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
                 ImageView ivPreview = (ImageView)nagDialog.findViewById(R.id.iv_preview_image);
                 Glide.with(mContext).load(chat.getMessage()).into(ivPreview);
 
-                if(chat.getMessage().equals("default")){
+              /*  if(chat.getMessage().equals("default")){
                     holder.profile_image.setImageResource(R.mipmap.ic_launcher);
                 }else{
                     Glide.with(mContext).load(chat.getMessage()).into(holder.profile_image);
-                }
+                }*/
 
                 btnClose.setOnClickListener(new View.OnClickListener() {
                     @Override
