@@ -204,9 +204,8 @@ public class Multiple_Image_Preview extends AppCompatActivity {
                         mChat.add(chat);
                     }
                     messageAdapter = new MessageAdapter(Multiple_Image_Preview.this, mChat, imageurl);
-                    RecyclerView recyclerView = findViewById(R.id.recycler_view12);
-
-                    if (messageAdapter != null){
+                    if (findViewById(R.id.recycler_view12) != null){
+                        RecyclerView recyclerView = findViewById(R.id.recycler_view12);
                         recyclerView.setAdapter(messageAdapter);
                     }
                 }
