@@ -26,14 +26,16 @@ Rushil Patel, Sonia Bullah, Kayla Levy, Bhavik Govan, Abdullah Haffejee, Colin H
 * Password protected sign-in
 * Option to reset password via email if the password has been forgotten
 * Text message exchange between users
+* Voice calls between users
 * Image exchange between users with or without captions
 * Unique chat lists displayed with last message exchanged between two users
 * View a complete chat history of all messages exchanged with timestamps on each message
 * Read receipts on last message sent
+* Online/offline status
 * Edit profile picture, username, contact number and password
 * Option to add and delete an image status with or without captions
 * View statuses from other users
-* Search option to find specific chats and messages
+* Enlarging profile pictures and other images exchanged for an easier viewing experience
 
 ### Screenshots:
 ### Welcome:
