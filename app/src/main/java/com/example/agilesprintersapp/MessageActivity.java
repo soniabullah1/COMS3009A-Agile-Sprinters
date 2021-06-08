@@ -155,9 +155,8 @@ public class MessageActivity extends AppCompatActivity {
             public void onClick(View view) {
                 CharSequence[] options = new CharSequence[]
                         {
-                                "Images",
-                                "PDF Files",
-                                "Ms Word Files",
+                                "Choose an image from the gallery",
+
                         };
                 AlertDialog.Builder builder = new AlertDialog.Builder(MessageActivity.this);
                 builder.setTitle("Select the File");
