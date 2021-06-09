@@ -61,8 +61,8 @@ Rushil Patel, Sonia Bullah, Kayla Levy, Bhavik Govan, Abdullah Haffejee, Colin H
 
 # Installation Guide:
 ## Firebase Database
-1. Create a Firebase account
-2. Create a new Firebase project
+1. Create a Firebase account.
+2. Create a new Firebase project.
 3. Connect the Firebase console to Android Studio.
 4. Under the Firebase Realtime Database rules, change "read, write:" to "true;" (See screenshot below).
 <img width="287" alt="Screenshot 2021-06-07 at 09 52 30" src="https://user-images.githubusercontent.com/81515681/120979774-38538c80-c776-11eb-802c-bb61238d7710.png">
