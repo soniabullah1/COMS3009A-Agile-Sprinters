@@ -40,7 +40,7 @@ public class StoryActivityTest {
 
     @Test
     public void testTimeFunction(){
-        String expected = "12 Jun, 10:20 AM";
+        String expected = "12 Jun, 08:20 AM";
         String time = storyActivity.convertTime("1623486043728");
         assertEquals(expected, time);
     }
