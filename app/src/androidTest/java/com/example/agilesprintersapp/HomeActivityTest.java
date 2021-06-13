@@ -36,6 +36,12 @@ public class HomeActivityTest {
 //        assertNotNull(contactListActivity);
 //    }
 
+//    @UiThread
+//    @Test
+//    public void testFunction(){
+//        homeActivity.onLogoutClick();
+//    }
+
 
 
     @After

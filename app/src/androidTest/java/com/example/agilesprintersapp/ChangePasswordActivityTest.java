@@ -66,7 +66,7 @@ public class ChangePasswordActivityTest {
         onView(withId(R.id.NewPasswordText)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD1), closeSoftKeyboard());
         onView(withId(R.id.ConfirmPasswordText)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD2), closeSoftKeyboard());
 
-        onView(withId(R.id.Btn_Change)).perform(click());
+        //onView(withId(R.id.Btn_Change)).perform(click());
         changePasswordActivity.ChangePassword(STRING_TO_BE_TYPED_PASSWORD1, STRING_TO_BE_TYPED_PASSWORD2);
     }
 
