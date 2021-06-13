@@ -1,8 +1,5 @@
 package com.example.agilesprintersapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -82,17 +82,18 @@ public class ChangePasswordActivity extends AppCompatActivity {
         FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
         String newPassword= ConfrimPassword;
 
-        user.updatePassword(newPassword)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(ChangePasswordActivity.this, "Password successfully changed", Toast.LENGTH_SHORT).show();
+        if(user != null) {
+            user.updatePassword(newPassword)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(ChangePasswordActivity.this, "Password successfully changed", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(ChangePasswordActivity.this, "Password failed to update", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                        else{
-                            Toast.makeText(ChangePasswordActivity.this, "Password failed to update", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+                    });
+        }
     }
 }
