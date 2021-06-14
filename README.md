@@ -83,3 +83,6 @@ Database tables will be created automatically once the Android Studio Project ru
 
 # Table of Contents:
 1. [App Functionality](https://github.com/soniabullah1/COMS3009A-Agile-Sprinters/wiki/App-Functionality)
+2. [High Level Architecture & Design](https://github.com/soniabullah1/COMS3009A-Agile-Sprinters/wiki/High-Level-Architecture-&-Design) 
+3. [Local Machine Information](https://github.com/soniabullah1/COMS3009A-Agile-Sprinters/wiki/Local-Machine-Information)
+4. [More About Us](https://github.com/soniabullah1/COMS3009A-Agile-Sprinters/wiki/More-About-Us)
