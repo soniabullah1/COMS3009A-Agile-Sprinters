@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.test.espresso.contrib.RecyclerViewActions;
 import androidx.test.rule.ActivityTestRule;
 
 import org.junit.After;
@@ -77,10 +78,16 @@ public class LoginActivityTest {
         onView(withId(R.id.btn_Login)).perform(click());
 
         Activity loginActivity = getInstrumentation().waitForMonitorWithTimeout(monitor2,5000);
+
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        onView(withId(R.id.recycler_view2)).perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
+        onView(withId(R.id.text_send)).perform(typeText("unit-testing sucks"), closeSoftKeyboard());
+        onView(withId(R.id.btn_send)).perform(click());
         assertNotNull(loginActivity);
-
-        //onData(anything()).inAdapterView(withId(R.id.recycler_view2)).atPosition(0).perform(click());
-
         //loginActivity.finish();
 
 

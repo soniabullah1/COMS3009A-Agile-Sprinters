@@ -47,11 +47,11 @@ public class ForgotPasswordActivityTest {
     @UiThread
     @Test
     public void testReturnButton(){
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(3000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         onView(withId(R.id.Btn_Return)).perform(click());
         Activity loginActivity = getInstrumentation().waitForMonitorWithTimeout(monitor,5000);
         assertNotNull(loginActivity);
