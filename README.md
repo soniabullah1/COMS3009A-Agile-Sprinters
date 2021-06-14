@@ -80,3 +80,6 @@ Database tables will be created automatically once the Android Studio Project ru
 1. Open this project in Android Studio.
 2. Remember to change the name of the package.
 3. Run the project once the gradle sync has terminated. You can find information regarding the emulator version [here](https://github.com/soniabullah1/COMS3009A-Agile-Sprinters/wiki/Local-Machine-Information).  
+
+# Table of Contents:
+1. [App Functionality](https://github.com/soniabullah1/COMS3009A-Agile-Sprinters/wiki/App-Functionality)
