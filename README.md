@@ -15,6 +15,7 @@ Rushil Patel, Sonia Bullah, Kayla Levy, Bhavik Govan, Abdullah Haffejee, Colin H
 
 ### Build Status
 ![example workflow](https://github.com/soniabullah1/COMS3009A-Agile-Sprinters/actions/workflows/main.yml/badge.svg)
+![GitHub issues](https://img.shields.io/github/issues/soniabullah1/COMS3009A-Agile-Sprinters)
 
 <em> See [Actions](https://github.com/soniabullah1/COMS3009A-Agile-Sprinters/actions) page for more build details. </em>
 
