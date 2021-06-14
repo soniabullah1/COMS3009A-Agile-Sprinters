@@ -87,8 +87,10 @@ public class LoginActivityTest {
         onView(withId(R.id.recycler_view2)).perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
         onView(withId(R.id.text_send)).perform(typeText("unit-testing sucks"), closeSoftKeyboard());
         onView(withId(R.id.btn_send)).perform(click());
+        onView(withId(R.id.calls)).perform(click());
         assertNotNull(loginActivity);
         //loginActivity.finish();
+
 
 
     }
