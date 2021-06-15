@@ -145,6 +145,26 @@ public class LoginActivityTest {
     }
 
     @Test
+    public void testFloatingButton(){
+        onView(withId(R.id.email)).perform(typeText(STRING_TO_BE_TYPED_EMAIL), closeSoftKeyboard());
+        onView(withId(R.id.password)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD), closeSoftKeyboard());
+        onView(withId(R.id.btn_Login)).perform(click());
+
+        Activity loginActivity = getInstrumentation().waitForMonitorWithTimeout(monitor2,5000);
+
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        onView(withId(R.id.floatingActionButton1)).perform(click());
+        assertNotNull(loginActivity);
+        //loginActivity.finish();
+
+    }
+
+    @Test
     public void testForgotPassword(){
         onView(withId(R.id.ForgotPasswordView)).perform(click());
         Activity forgotpasswordActivity = getInstrumentation().waitForMonitorWithTimeout(monitor3,5000);

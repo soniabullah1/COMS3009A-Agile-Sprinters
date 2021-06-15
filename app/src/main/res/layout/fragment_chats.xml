@@ -19,7 +19,7 @@
         android:theme="@style/TextAppearance.Compat.Notification.Info.Media" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/floatingActionButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@id/recycler_view2"

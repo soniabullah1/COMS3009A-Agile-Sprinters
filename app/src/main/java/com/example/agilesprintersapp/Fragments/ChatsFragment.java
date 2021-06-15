@@ -23,7 +23,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
@@ -49,7 +48,7 @@ private List<Chatlist> userList;
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_chats, container, false);
-        floatingActionButton = view.findViewById(R.id.floatingActionButton);
+        floatingActionButton = view.findViewById(R.id.floatingActionButton1);
         recyclerView = view.findViewById(R.id.recycler_view2);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
