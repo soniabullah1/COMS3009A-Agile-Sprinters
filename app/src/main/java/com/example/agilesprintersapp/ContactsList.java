@@ -70,58 +70,6 @@ public class ContactsList extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        /*search_users = findViewById(R.id.search_users);
-        search_users.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                searchUsers(s.toString());
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
-
-    }
-
-    public void searchUsers(String toString) {
-
-        FirebaseUser fuser = FirebaseAuth.getInstance().getCurrentUser();
-        Query query = FirebaseDatabase.getInstance().getReference("User").orderByChild("username")
-                .startAt(toString)
-                .endAt(toString+"\uf8ff");
-
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
-                mUsers.clear();
-                for(DataSnapshot snapshot: datasnapshot.getChildren()){
-                    User user = snapshot.getValue(User.class);
-
-                    assert user!= null;
-                    assert fuser!= null;
-                    if(!user.getId().equals(fuser.getUid())){
-                        mUsers.add(user);
-                    }
-                }
-
-                userAdapter = new UserAdapter(getApplicationContext(), mUsers, false);
-                recyclerView.setAdapter(userAdapter);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });*/
 
     }
     public void readUsers(){
