@@ -17,6 +17,7 @@ import org.junit.Test;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static androidx.test.espresso.action.ViewActions.swipeLeft;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
@@ -91,7 +92,26 @@ public class LoginActivityTest {
         assertNotNull(loginActivity);
         //loginActivity.finish();
 
+    }
 
+    @Test
+    public void test(){
+        onView(withId(R.id.email)).perform(typeText(STRING_TO_BE_TYPED_EMAIL), closeSoftKeyboard());
+        onView(withId(R.id.password)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD), closeSoftKeyboard());
+        onView(withId(R.id.btn_Login)).perform(click());
+
+        Activity loginActivity = getInstrumentation().waitForMonitorWithTimeout(monitor2,5000);
+
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        onView(withId(R.id.view_pager)).perform(swipeLeft());
+        onView(withId(R.id.stories)).perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
+
+        assertNotNull(loginActivity);
+        //loginActivity.finish();
 
     }
 
