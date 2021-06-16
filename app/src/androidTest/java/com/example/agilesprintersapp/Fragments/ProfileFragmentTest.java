@@ -14,6 +14,8 @@ import org.junit.runners.MethodSorters;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -28,18 +30,18 @@ public class ProfileFragmentTest {
 
     }
 
-//    @Test()
-//    public void testLaunch() throws Exception {
-//        onView(withId(R.id.yourprofile)).check(matches((isDisplayed())));
-//        onView(withId(R.id.profile_image)).check(matches(isDisplayed()));
-//        onView(withId(R.id.edit_profile_image)).check(matches(isDisplayed()));
-//        onView(withId(R.id.edit_password)).check(matches(isDisplayed()));
-//        onView(withId(R.id.editdetails)).check(matches(isDisplayed()));
-//        onView(withId(R.id.edit_email)).check(matches(isDisplayed()));
-//        onView(withId(R.id.edit_phone_number)).check(matches(isDisplayed()));
-//        onView(withId(R.id.edit_username)).check(matches(isDisplayed()));
-//        onView(withId(R.id.btn_save)).check(matches(isDisplayed()));
-//    }
+    @Test()
+    public void testLaunch() throws Exception {
+        onView(withId(R.id.yourprofile)).check(matches((isDisplayed())));
+        onView(withId(R.id.profile_image)).check(matches(isDisplayed()));
+        onView(withId(R.id.edit_profile_image)).check(matches(isDisplayed()));
+        onView(withId(R.id.edit_password)).check(matches(isDisplayed()));
+        onView(withId(R.id.editdetails)).check(matches(isDisplayed()));
+        onView(withId(R.id.edit_email)).check(matches(isDisplayed()));
+        onView(withId(R.id.edit_phone_number)).check(matches(isDisplayed()));
+        onView(withId(R.id.edit_username)).check(matches(isDisplayed()));
+        onView(withId(R.id.btn_saver)).check(matches(isDisplayed()));
+    }
 
 //    @UiThread
 //    @Test
@@ -47,19 +49,19 @@ public class ProfileFragmentTest {
 //        onView(withId(R.id.edit_profile_image)).perform(click());
 //    }
 
-//    @UiThread
-//    @Test
-//    public void testEditPassword() {
-//        onView(withId(R.id.edit_password)).perform(click());
-//
-//    }
-
     @UiThread
     @Test
-    public void testSaveButton() {
-        onView(withId(R.id.btn_saver)).perform(click());
+    public void testEditPassword() {
+        onView(withId(R.id.edit_password)).perform(click());
 
     }
+
+//    @UiThread
+//    @Test
+//    public void testSaveButton() {
+//        onView(withId(R.id.btn_saver)).perform(click());
+//
+//    }
 
 //    @Test
 //    public void testNotNull() {
