@@ -144,18 +144,45 @@ public class LoginActivityTest {
             e.printStackTrace();
         }
 
-//        onView(withId(R.id.edit_email)).perform(typeText(STRING_TO_BE_TYPED_EMAIL1), closeSoftKeyboard());
-//        onView(withId(R.id.edit_phone_number)).perform(typeText(STRING_TO_BE_TYPED_PHONE), closeSoftKeyboard());
-//        onView(withId(R.id.edit_username)).perform(typeText(STRING_TO_BE_TYPED_USERNAME), closeSoftKeyboard());
-        //onView(withId(R.id.btn_save)).perform(click());
-
         onView(withId(R.id.edit_password)).perform(click());
         onView(withId(R.id.NewPasswordText)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD), closeSoftKeyboard());
         onView(withId(R.id.ConfirmPasswordText)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD), closeSoftKeyboard());
         onView(withId(R.id.Btn_Change)).perform(click());
+    }
 
+    @Test
+    public void testProfile2(){
+        onView(withId(R.id.email)).perform(typeText(STRING_TO_BE_TYPED_EMAIL), closeSoftKeyboard());
+        onView(withId(R.id.password)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD), closeSoftKeyboard());
+        onView(withId(R.id.btn_Login)).perform(click());
 
+        //Activity loginActivity = getInstrumentation().waitForMonitorWithTimeout(monitor2,5000);
 
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        onView(withId(R.id.view_pager)).perform(swipeLeft());
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        onView(withId(R.id.stories)).perform(swipeLeft());
+
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        onView(withId(R.id.edit_email)).perform(typeText(STRING_TO_BE_TYPED_EMAIL1), closeSoftKeyboard());
+        onView(withId(R.id.edit_phone_number)).perform(typeText(STRING_TO_BE_TYPED_PHONE), closeSoftKeyboard());
+        onView(withId(R.id.edit_username)).perform(typeText(STRING_TO_BE_TYPED_USERNAME), closeSoftKeyboard());
+        onView(withId(R.id.btn_save)).perform(click());
 
     }
 
@@ -174,6 +201,14 @@ public class LoginActivityTest {
         }
 
         onView(withId(R.id.floatingActionButton1)).perform(click());
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        onView(withId(R.id.floatingActionButton)).perform(click());
+
         assertNotNull(loginActivity);
         //loginActivity.finish();
 
