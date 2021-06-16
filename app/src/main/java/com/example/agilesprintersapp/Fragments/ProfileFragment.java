@@ -82,7 +82,7 @@ public class ProfileFragment extends Fragment {
         edit_password = view.findViewById(R.id.edit_password);
         email = view.findViewById(R.id.edit_email);
         contactNumber = view.findViewById(R.id.edit_phone_number);
-        save_btn = view.findViewById(R.id.btn_save);
+        save_btn = view.findViewById(R.id.btn_saver);
         storageReference = FirebaseStorage.getInstance().getReference("uploads");
 
 

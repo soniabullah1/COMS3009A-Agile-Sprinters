@@ -127,7 +127,7 @@
             android:textColorHint="@color/Blue" />
 
     <Button
-        android:id="@+id/btn_save"
+        android:id="@+id/btn_saver"
         android:layout_width="220dp"
         android:layout_height="63dp"
         android:layout_below="@+id/edit_username"

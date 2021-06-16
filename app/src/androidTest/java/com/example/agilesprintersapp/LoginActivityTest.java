@@ -79,6 +79,8 @@ public class LoginActivityTest {
     public void testLoginButton(){
         onView(withId(R.id.email)).perform(typeText(STRING_TO_BE_TYPED_EMAIL), closeSoftKeyboard());
         onView(withId(R.id.password)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD), closeSoftKeyboard());
+        onView(withId(R.id.checkBox2)).perform(click());
+        onView(withId(R.id.checkBox2)).perform(click());
         onView(withId(R.id.btn_Login)).perform(click());
 
         Activity loginActivity = getInstrumentation().waitForMonitorWithTimeout(monitor2,5000);
@@ -182,7 +184,7 @@ public class LoginActivityTest {
         onView(withId(R.id.edit_email)).perform(typeText(STRING_TO_BE_TYPED_EMAIL1), closeSoftKeyboard());
         onView(withId(R.id.edit_phone_number)).perform(typeText(STRING_TO_BE_TYPED_PHONE), closeSoftKeyboard());
         onView(withId(R.id.edit_username)).perform(typeText(STRING_TO_BE_TYPED_USERNAME), closeSoftKeyboard());
-        onView(withId(R.id.btn_save)).perform(click());
+        onView(withId(R.id.btn_saver)).perform(click());
 
     }
 

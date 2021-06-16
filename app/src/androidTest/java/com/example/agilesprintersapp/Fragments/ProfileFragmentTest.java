@@ -57,7 +57,7 @@ public class ProfileFragmentTest {
     @UiThread
     @Test
     public void testSaveButton() {
-        onView(withId(R.id.btn_save)).perform(click());
+        onView(withId(R.id.btn_saver)).perform(click());
 
     }
 
