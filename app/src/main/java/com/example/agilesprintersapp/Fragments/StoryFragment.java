@@ -1,6 +1,5 @@
 package com.example.agilesprintersapp.Fragments;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -25,11 +24,7 @@ import com.devlomi.circularstatusview.CircularStatusView;
 import com.example.agilesprintersapp.Adapter.StoryAdapter;
 import com.example.agilesprintersapp.Model.Story;
 import com.example.agilesprintersapp.Model.User;
-import com.example.agilesprintersapp.Preview;
 import com.example.agilesprintersapp.R;
-import com.google.android.gms.tasks.Continuation;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -270,101 +265,90 @@ public class StoryFragment extends Fragment {
         return view;
     }
 
-    private void pickImagesIntent() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        // intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        getActivity().startActivityForResult(Intent.createChooser(intent, "Select image"), PICK_IMAGES_CODE);
-    }
+//    private void pickImagesIntent() {
+//        Intent intent = new Intent();
+//        intent.setType("image/*");
+//        // intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+//        intent.setAction(Intent.ACTION_GET_CONTENT);
+//        getActivity().startActivityForResult(Intent.createChooser(intent, "Select image"), PICK_IMAGES_CODE);
+//    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         //super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == PICK_IMAGES_CODE) {
-
-            if (resultCode == Activity.RESULT_OK) {
-
-                if (data.getClipData() != null) {
-
-                }
-
-                // This is only for 1 image selected
-                else {
-
-                    fileUri = data.getData();
-                    imageUris.add(fileUri);
-                    stringUris.add(fileUri.toString());
-
-                    StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Image Files");
-                    DatabaseReference userMessageKeyRef = reference.child("stories")
-                            .child(messageSenderID).push();
-                    String messagePushID = userMessageKeyRef.getKey();
-                    StorageReference filePath = storageReference.child(messagePushID + "." + "jpg");
-                    uploadTask = filePath.putFile(fileUri);
-
-                    uploadTask.continueWithTask(new Continuation() {
-                        @Override
-                        public Object then(@NonNull Task task) throws Exception {
-                            if (!task.isSuccessful()) {
-                                throw task.getException();
-                            }
-                            return filePath.getDownloadUrl();
-                        }
-                    }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Uri> task) {
-                            if (task.isSuccessful()) {
-                                time = String.valueOf(System.currentTimeMillis());
-                                Uri downloadUrl = task.getResult();
-                                myUrl = downloadUrl.toString();
-                                Uri a = fileUri;
-
-                                Intent i = new Intent(getActivity(), Preview.class);
-
-                                //Bundle args = new Bundle();
-
-                                //args.putSerializable("IMAGES",(Serializable)imageUris);
-                                //args.putSerializable("STRING_IMAGES",(Serializable)stringUris);
-
-
-                                i.putExtra("sender", fuser.getUid());
-                                //i.putExtra("receiver", userid);
-                                i.putExtra("message", myUrl);
-                                i.putExtra("checker", "image");
-                                i.putExtra("time", time);
-
-                                i.putExtra("images", imageUris);
-                                i.putExtra("images_strings", stringUris);
-                                i.putExtra("imagePath", a.toString());
-                                //i.putExtra("BUNDLE", args);
-
-                                startActivity(i);
-
-                            }
-                            imageUris.clear();
-                        }
-                    });
-                }
-            }
-        }
+//
+//        if (requestCode == PICK_IMAGES_CODE) {
+//
+//            if (resultCode == Activity.RESULT_OK) {
+//
+//                if (data.getClipData() != null) {
+//
+//                }
+//
+//                // This is only for 1 image selected
+//                else {
+//
+//                    fileUri = data.getData();
+//                    imageUris.add(fileUri);
+//                    stringUris.add(fileUri.toString());
+//
+//                    StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Image Files");
+//                    DatabaseReference userMessageKeyRef = reference.child("stories")
+//                            .child(messageSenderID).push();
+//                    String messagePushID = userMessageKeyRef.getKey();
+//                    StorageReference filePath = storageReference.child(messagePushID + "." + "jpg");
+//                    uploadTask = filePath.putFile(fileUri);
+//
+//                    uploadTask.continueWithTask(new Continuation() {
+//                        @Override
+//                        public Object then(@NonNull Task task) throws Exception {
+//                            if (!task.isSuccessful()) {
+//                                throw task.getException();
+//                            }
+//                            return filePath.getDownloadUrl();
+//                        }
+//                    }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<Uri> task) {
+//                            if (task.isSuccessful()) {
+//                                time = String.valueOf(System.currentTimeMillis());
+//                                Uri downloadUrl = task.getResult();
+//                                myUrl = downloadUrl.toString();
+//                                Uri a = fileUri;
+//
+//                                Intent i = new Intent(getActivity(), Preview.class);
+//
+//                                //Bundle args = new Bundle();
+//
+//                                //args.putSerializable("IMAGES",(Serializable)imageUris);
+//                                //args.putSerializable("STRING_IMAGES",(Serializable)stringUris);
+//
+//
+//                                i.putExtra("sender", fuser.getUid());
+//                                //i.putExtra("receiver", userid);
+//                                i.putExtra("message", myUrl);
+//                                i.putExtra("checker", "image");
+//                                i.putExtra("time", time);
+//
+//                                i.putExtra("images", imageUris);
+//                                i.putExtra("images_strings", stringUris);
+//                                i.putExtra("imagePath", a.toString());
+//                                //i.putExtra("BUNDLE", args);
+//
+//                                startActivity(i);
+//
+//                            }
+//                            imageUris.clear();
+//                        }
+//                    });
+//                }
+//            }
+//        }
     }
 
 
 
     public void displayContactsStatus() {
-
-//        final long timestamp = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis());
-//        final long expireTime = timestamp + TimeUnit.MILLISECONDS.convert(1, TimeUnit.MINUTES);
-
-//        timer = new Timer();
-//        timer.schedule(new TimerTask() {
-//            @Override
-//            public void run() {
-//                story.setVisibility(View.GONE);
-//            }
-//        }, 20000);
 
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("stories");
