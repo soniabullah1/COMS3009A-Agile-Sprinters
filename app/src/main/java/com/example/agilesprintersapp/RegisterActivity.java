@@ -21,7 +21,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -117,47 +121,47 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "All fields must be filled out", Toast.LENGTH_SHORT).show();
 
                 } else if (TextUtils.isEmpty(fName)) {
-//                    Name1.setError("Input First Name");
-//                    Name1.requestFocus();
+                    Name1.setError("Input First Name");
+                    Name1.requestFocus();
 
                 } else if (TextUtils.isEmpty(lName)) {
-//                    Name2.setError("Input Surname");
-//                    Name2.requestFocus();
+                    Name2.setError("Input Surname");
+                    Name2.requestFocus();
 
                 } else if (TextUtils.isEmpty(username)) {
-//                    Username.setError("Input Username");
-//                    Username.requestFocus();
+                    Username.setError("Input Username");
+                    Username.requestFocus();
 
                 } else if (TextUtils.isEmpty(email)) {
-//                    Email.setError("Input Email Address");
-//                    Email.requestFocus();
+                    Email.setError("Input Email Address");
+                    Email.requestFocus();
 
                 } else if (TextUtils.isEmpty(phone)) {
-//                    Phone.setError("Input Phone Number");
-//                    Phone.requestFocus();
+                    Phone.setError("Input Phone Number");
+                    Phone.requestFocus();
 
                 } else if (TextUtils.isEmpty(password)) {
-//                    Pwd.setError("Input Password");
-//                    Pwd.requestFocus();
+                    Pwd.setError("Input Password");
+                    Pwd.requestFocus();
 
                 } else if (password.length() < 6) {
-//                    Pwd.setError("Password must be at least 6 characters");
-//                    Pwd.requestFocus();
-//                    Toast.makeText(RegisterActivity.this, "Password must be at least 6 characters ", Toast.LENGTH_SHORT).show();
+                    Pwd.setError("Password must be at least 6 characters");
+                    Pwd.requestFocus();
+                    Toast.makeText(RegisterActivity.this, "Password must be at least 6 characters ", Toast.LENGTH_SHORT).show();
 
                 } else if (TextUtils.isEmpty(confirmation)) {
-//                    ConfirmPwd.setError("Input Password");
-//                    ConfirmPwd.requestFocus();
+                    ConfirmPwd.setError("Input Password");
+                    ConfirmPwd.requestFocus();
 
                 } else if (!password.equals(confirmation)) {
-//                    ConfirmPwd.setError("Passwords do not match");
-//                    ConfirmPwd.requestFocus();
+                    ConfirmPwd.setError("Passwords do not match");
+                    ConfirmPwd.requestFocus();
                 }
 
                 else{
-//                    Register(fName, lName, username, email, phone, password);
-//                    Toast.makeText(getApplicationContext(),"Registration Successful :D",Toast.LENGTH_SHORT).show();
-//                    progressBar.setVisibility(View.VISIBLE);
+                    Register(fName, lName, username, email, phone, password);
+                    Toast.makeText(getApplicationContext(),"Registration Successful :D",Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -173,37 +177,37 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()) {
-//
-//                            FirebaseUser firebaseUser = mAuth.getCurrentUser();
-//                            String userid = firebaseUser.getUid();
-//                            reference = FirebaseDatabase.getInstance().getReference("User").child(userid);
-//
-//                            HashMap<String,String> hashMap = new HashMap<>();
-//                            hashMap.put("id", userid);
-//                            hashMap.put("imageURL", "default");
-//                            hashMap.put("firstName", fName);
-//                            hashMap.put("lastName", lName);
-//                            hashMap.put("username", username);
-//                            hashMap.put("email", email);
-//                            hashMap.put("contactNumber", phone);
-//
-//
-//                            reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>(){
-//                                @Override
-//                                public void onComplete(@NonNull Task<Void> task) {
-//                                    progressBar.setVisibility(View.GONE);
-//                                    if (task.isSuccessful()) {
-//                                        Toast.makeText(RegisterActivity.this, "Registration Successful!", Toast.LENGTH_LONG).show();
-//                                        Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
-//                                        startActivity(intent);
-//                                    }
-//                                    else {
-//                                        //display a failure message
-//                                        Toast.makeText(RegisterActivity.this, "Registration Unsuccessful - Please try again.", Toast.LENGTH_LONG).show();
-//                                        unitTest ="False";
-//                                    }
-//                                }
-//                            });
+
+                            FirebaseUser firebaseUser = mAuth.getCurrentUser();
+                            String userid = firebaseUser.getUid();
+                            reference = FirebaseDatabase.getInstance().getReference("User").child(userid);
+
+                            HashMap<String,String> hashMap = new HashMap<>();
+                            hashMap.put("id", userid);
+                            hashMap.put("imageURL", "default");
+                            hashMap.put("firstName", fName);
+                            hashMap.put("lastName", lName);
+                            hashMap.put("username", username);
+                            hashMap.put("email", email);
+                            hashMap.put("contactNumber", phone);
+
+
+                            reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>(){
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    progressBar.setVisibility(View.GONE);
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(RegisterActivity.this, "Registration Successful!", Toast.LENGTH_LONG).show();
+                                        Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
+                                        startActivity(intent);
+                                    }
+                                    else {
+                                        //display a failure message
+                                        Toast.makeText(RegisterActivity.this, "Registration Unsuccessful - Please try again.", Toast.LENGTH_LONG).show();
+                                        unitTest ="False";
+                                    }
+                                }
+                            });
 
                         } else {
                             Toast.makeText(RegisterActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
