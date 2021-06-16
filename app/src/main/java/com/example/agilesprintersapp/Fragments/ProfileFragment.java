@@ -1,8 +1,6 @@
 package com.example.agilesprintersapp.Fragments;
 
 import android.app.Activity;
-import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
@@ -10,12 +8,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,11 +22,8 @@ import com.bumptech.glide.Glide;
 import com.example.agilesprintersapp.ChangePasswordActivity;
 import com.example.agilesprintersapp.Model.User;
 import com.example.agilesprintersapp.R;
-import com.google.android.gms.tasks.Continuation;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -42,7 +34,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
-import com.google.firebase.storage.UploadTask;
 
 import java.util.HashMap;
 
@@ -165,43 +156,43 @@ public class ProfileFragment extends Fragment {
         image_profile.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-
-                reference = FirebaseDatabase.getInstance().getReference("User").child(fuser.getUid());
-
-                reference.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        User user = snapshot.getValue(User.class);
-                        if (user != null && user.getId() != null) {
-                            if (user.getImageURL().equals("default")) {
-                                image_profile.setImageResource(R.mipmap.ic_launcher);
-                            } else {
-                                final Dialog nagDialog = new Dialog(getActivity(),android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
-                                nagDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                                nagDialog.setCancelable(false);
-                                nagDialog.setContentView(R.layout.preview_image);
-                                ImageButton btnClose = (ImageButton) nagDialog.findViewById(R.id.btnIvClose);
-                                ImageView ivPreview = (ImageView)nagDialog.findViewById(R.id.iv_preview_image);
-                                Glide.with(getContext()).load(user.getImageURL()).into(ivPreview);
-
-                                btnClose.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View arg0) {
-
-                                        nagDialog.dismiss();
-                                    }
-                                });
-                                nagDialog.show();
-                                //Glide.with(getContext()).load(user.getImageURL()).into(image_profile);
-                            }
-                        }
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
+//
+//                reference = FirebaseDatabase.getInstance().getReference("User").child(fuser.getUid());
+//
+//                reference.addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        User user = snapshot.getValue(User.class);
+//                        if (user != null && user.getId() != null) {
+//                            if (user.getImageURL().equals("default")) {
+//                                image_profile.setImageResource(R.mipmap.ic_launcher);
+//                            } else {
+//                                final Dialog nagDialog = new Dialog(getActivity(),android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
+//                                nagDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//                                nagDialog.setCancelable(false);
+//                                nagDialog.setContentView(R.layout.preview_image);
+//                                ImageButton btnClose = (ImageButton) nagDialog.findViewById(R.id.btnIvClose);
+//                                ImageView ivPreview = (ImageView)nagDialog.findViewById(R.id.iv_preview_image);
+//                                Glide.with(getContext()).load(user.getImageURL()).into(ivPreview);
+//
+//                                btnClose.setOnClickListener(new View.OnClickListener() {
+//                                    @Override
+//                                    public void onClick(View arg0) {
+//
+//                                        nagDialog.dismiss();
+//                                    }
+//                                });
+//                                nagDialog.show();
+//                                //Glide.with(getContext()).load(user.getImageURL()).into(image_profile);
+//                            }
+//                        }
+//                    }
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+//
                 return true;
             }
         });
@@ -223,65 +214,65 @@ public class ProfileFragment extends Fragment {
     }
 
     public void uploadImage(){
-        final ProgressDialog pd = new ProgressDialog(getContext());
-        pd.setMessage("Uploading");
-        pd.show();
-
-        if(imageUri != null){
-            final StorageReference fileReference = storageReference.child(System.currentTimeMillis()
-                    +"."+getFileExtension(imageUri));
-
-            uploadTask = fileReference.putFile(imageUri);
-            uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-                @Override
-                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                    if(!task.isSuccessful()){
-                        throw task.getException();
-                    }
-                    return fileReference.getDownloadUrl();
-                }
-            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                @Override
-                public void onComplete(@NonNull Task<Uri> task) {
-                    if (task.isSuccessful()){
-                        Uri downloadUri = task.getResult();
-                        String mUri = downloadUri.toString();
-
-                        reference = FirebaseDatabase.getInstance().getReference("User").child(fuser.getUid());
-                        HashMap<String, Object> map = new HashMap<>();
-                        map.put("imageURL", mUri);
-                        reference.updateChildren(map);
-
-                        pd.dismiss();
-                    }else{
-                        Toast.makeText(getContext(), "Failed!", Toast.LENGTH_SHORT).show();
-                        pd.dismiss();
-                    }
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-                    pd.dismiss();
-                }
-            });
-        }else{
-            Toast.makeText(getContext(),"No image selected",Toast.LENGTH_SHORT).show();
-        }
+//        final ProgressDialog pd = new ProgressDialog(getContext());
+//        pd.setMessage("Uploading");
+//        pd.show();
+//
+//        if(imageUri != null){
+//            final StorageReference fileReference = storageReference.child(System.currentTimeMillis()
+//                    +"."+getFileExtension(imageUri));
+//
+//            uploadTask = fileReference.putFile(imageUri);
+//            uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+//                @Override
+//                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+//                    if(!task.isSuccessful()){
+//                        throw task.getException();
+//                    }
+//                    return fileReference.getDownloadUrl();
+//                }
+//            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+//                @Override
+//                public void onComplete(@NonNull Task<Uri> task) {
+//                    if (task.isSuccessful()){
+//                        Uri downloadUri = task.getResult();
+//                        String mUri = downloadUri.toString();
+//
+//                        reference = FirebaseDatabase.getInstance().getReference("User").child(fuser.getUid());
+//                        HashMap<String, Object> map = new HashMap<>();
+//                        map.put("imageURL", mUri);
+//                        reference.updateChildren(map);
+//
+//                        pd.dismiss();
+//                    }else{
+//                        Toast.makeText(getContext(), "Failed!", Toast.LENGTH_SHORT).show();
+//                        pd.dismiss();
+//                    }
+//                }
+//            }).addOnFailureListener(new OnFailureListener() {
+//                @Override
+//                public void onFailure(@NonNull Exception e) {
+//                    Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+//                    pd.dismiss();
+//                }
+//            });
+//        }else{
+//            Toast.makeText(getContext(),"No image selected",Toast.LENGTH_SHORT).show();
+//        }
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        if(requestCode == IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null){
-            imageUri = data.getData();
-
-            if(uploadTask != null && uploadTask.isInProgress()){
-                Toast.makeText(getContext(),"Upload in progress", Toast.LENGTH_SHORT).show();
-            }else{
-                uploadImage();
-            }
-        }
+//
+//        if(requestCode == IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null){
+//            imageUri = data.getData();
+//
+//            if(uploadTask != null && uploadTask.isInProgress()){
+//                Toast.makeText(getContext(),"Upload in progress", Toast.LENGTH_SHORT).show();
+//            }else{
+//                uploadImage();
+//            }
+//        }
     }
 }
