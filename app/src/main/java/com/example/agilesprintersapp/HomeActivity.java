@@ -1,15 +1,12 @@
 package com.example.agilesprintersapp;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -82,32 +79,32 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void onLogoutClick(){
-        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-                switch (which) {
-                    case DialogInterface.BUTTON_POSITIVE:
-
-                        FirebaseAuth.getInstance().signOut();
-                        startActivity(new Intent(HomeActivity.this, LandingActivity.class));
-                        Toast.makeText(getApplicationContext(),"Logout Successful",Toast.LENGTH_SHORT).show();
-                        finish();
-
-                        break;
-
-                    case DialogInterface.BUTTON_NEGATIVE:
-                        break;
-                }
-
-            }
-        };
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
-        builder.setMessage("Are you sure you want to Logout ?")
-                .setNegativeButton("No", dialogClickListener)
-                .setPositiveButton("Yes", dialogClickListener)
-                .show();
+//        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//
+//                switch (which) {
+//                    case DialogInterface.BUTTON_POSITIVE:
+//
+//                        FirebaseAuth.getInstance().signOut();
+//                        startActivity(new Intent(HomeActivity.this, LandingActivity.class));
+//                        Toast.makeText(getApplicationContext(),"Logout Successful",Toast.LENGTH_SHORT).show();
+//                        finish();
+//
+//                        break;
+//
+//                    case DialogInterface.BUTTON_NEGATIVE:
+//                        break;
+//                }
+//
+//            }
+//        };
+//
+//        AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+//        builder.setMessage("Are you sure you want to Logout ?")
+//                .setNegativeButton("No", dialogClickListener)
+//                .setPositiveButton("Yes", dialogClickListener)
+//                .show();
 
     }
 
