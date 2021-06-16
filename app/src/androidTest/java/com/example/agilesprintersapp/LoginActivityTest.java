@@ -138,10 +138,25 @@ public class LoginActivityTest {
 
         onView(withId(R.id.stories)).perform(swipeLeft());
 
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
 //        onView(withId(R.id.edit_email)).perform(typeText(STRING_TO_BE_TYPED_EMAIL1), closeSoftKeyboard());
 //        onView(withId(R.id.edit_phone_number)).perform(typeText(STRING_TO_BE_TYPED_PHONE), closeSoftKeyboard());
 //        onView(withId(R.id.edit_username)).perform(typeText(STRING_TO_BE_TYPED_USERNAME), closeSoftKeyboard());
         onView(withId(R.id.btn_save)).perform(click());
+
+        onView(withId(R.id.edit_password)).perform(click());
+        onView(withId(R.id.NewPasswordText)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD), closeSoftKeyboard());
+        onView(withId(R.id.ConfirmPasswordText)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD), closeSoftKeyboard());
+        onView(withId(R.id.Btn_Change)).perform(click());
+
+
+
+
     }
 
     @Test
