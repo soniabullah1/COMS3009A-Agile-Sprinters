@@ -16,7 +16,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.bumptech.glide.Glide;
 import com.example.agilesprintersapp.ChangePasswordActivity;
 import com.example.agilesprintersapp.Model.User;
 import com.example.agilesprintersapp.R;
@@ -85,14 +84,14 @@ public class ProfileFragment extends Fragment {
                     email.setText(user.getEmail());
 
                     if (user != null && user.getId() != null) {
-                        if (user.getImageURL().equals("default")) {
-                            image_profile.setImageResource(R.mipmap.ic_launcher);
-                        } else {
-                            if(getActivity() == null){
-                                return;
-                            }
-                            Glide.with(getContext()).load(user.getImageURL()).into(image_profile);
-                        }
+//                        if (user.getImageURL().equals("default")) {
+//                            image_profile.setImageResource(R.mipmap.ic_launcher);
+//                        } else {
+//                            if(getActivity() == null){
+//                                return;
+//                            }
+//                            Glide.with(getContext()).load(user.getImageURL()).into(image_profile);
+//                        }
                     }
                 }
                 @Override

@@ -1,27 +1,19 @@
 package com.example.agilesprintersapp.Adapter;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.devlomi.circularstatusview.CircularStatusView;
-import com.example.agilesprintersapp.MessageActivity;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.agilesprintersapp.Model.Chat;
+import com.devlomi.circularstatusview.CircularStatusView;
 import com.example.agilesprintersapp.Model.Story;
-import com.example.agilesprintersapp.Model.User;
 import com.example.agilesprintersapp.R;
-import com.example.agilesprintersapp.StoryActivity;
-
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -30,9 +22,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Timer;
-import java.util.TimerTask;
-
-import xute.storyview.StoryView;
 
 public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder>{
 
@@ -95,14 +84,14 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder>{
             @Override
             public void onClick(View view){
 
-                        Intent intent = new Intent();
-                        intent.setClass(mContext, StoryActivity.class);
-                        intent.putExtra("sender", user.getSender());
-                        intent.putExtra("username", user.getUsername());
-                        intent.putExtra("story", user.getStory());
-                        intent.putExtra("time", user.getTime());
-                        intent.putExtra("caption", user.getCaption());
-                        mContext.startActivity(intent);
+//                        Intent intent = new Intent();
+//                        intent.setClass(mContext, StoryActivity.class);
+//                        intent.putExtra("sender", user.getSender());
+//                        intent.putExtra("username", user.getUsername());
+//                        intent.putExtra("story", user.getStory());
+//                        intent.putExtra("time", user.getTime());
+//                        intent.putExtra("caption", user.getCaption());
+//                        mContext.startActivity(intent);
 
             }
         });
