@@ -37,12 +37,20 @@ public class RegisterActivityTest {
     Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(MainActivity.class.getName(),null ,false);
 
     public static final String STRING_TO_BE_TYPED_FNAME = "unit";
-    public static final String STRING_TO_BE_TYPED_LNAME = "tester";
-    public static final String STRING_TO_BE_TYPED_USERNAME = "unittester";
-    public static final String STRING_TO_BE_TYPED_MAIL = "seedr106@gmail.com";
+    public static final String STRING_TO_BE_TYPED_LNAME = "test";
+    public static final String STRING_TO_BE_TYPED_USERNAME = "unittest";
+    public static final String STRING_TO_BE_TYPED_MAIL = "unittest@gmail.com";
     public static final String STRING_TO_BE_TYPED_PHONE = "0610230497";
-    public static final String STRING_TO_BE_TYPED_PASSWORD1 = "unittester";
-    public static final String STRING_TO_BE_TYPED_PASSWORD2 = "unittester";
+    public static final String STRING_TO_BE_TYPED_PASSWORD1 = "unittest";
+    public static final String STRING_TO_BE_TYPED_PASSWORD2 = "unittest";
+
+    public static final String STRING_TO_BE_TYPED_FNAME_NEW = "unit";
+    public static final String STRING_TO_BE_TYPED_LNAME_NEW = "tester";
+    public static final String STRING_TO_BE_TYPED_USERNAME_NEW = "unittester";
+    public static final String STRING_TO_BE_TYPED_MAIL_NEW = "seedr106@gmail.com";
+    public static final String STRING_TO_BE_TYPED_PHONE_NEW = "0610230497";
+    public static final String STRING_TO_BE_TYPED_PASSWORD1_NEW = "unittester";
+    public static final String STRING_TO_BE_TYPED_PASSWORD2_NEW = "unittester";
     public static final String STRING_TO_BE_TYPED_PASSWORD_SHORT = "short";
 
     @Before
@@ -195,6 +203,22 @@ public class RegisterActivityTest {
         onView(withId(R.id.editTextPhone)).perform(typeText(STRING_TO_BE_TYPED_PHONE), closeSoftKeyboard());
         onView(withId(R.id.editTextTextPassword2)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD1), closeSoftKeyboard());
         onView(withId(R.id.editTextTextPassword3)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD2), closeSoftKeyboard());
+
+        onView(withId(R.id.button2)).perform(click());
+        String check = registerActivity.unitTest;
+        assertEquals(check,"True");
+        registerActivity.finish();
+    }
+
+    @Test
+    public void testNewRegisterButton(){
+        onView(withId(R.id.FName)).perform(typeText(STRING_TO_BE_TYPED_FNAME_NEW), closeSoftKeyboard());
+        onView(withId(R.id.LName)).perform(typeText(STRING_TO_BE_TYPED_LNAME_NEW), closeSoftKeyboard());
+        onView(withId(R.id.editTextUsername)).perform(typeText(STRING_TO_BE_TYPED_USERNAME_NEW), closeSoftKeyboard());
+        onView(withId(R.id.editTextEmailAddress)).perform(typeText(STRING_TO_BE_TYPED_MAIL_NEW), closeSoftKeyboard());
+        onView(withId(R.id.editTextPhone)).perform(typeText(STRING_TO_BE_TYPED_PHONE_NEW), closeSoftKeyboard());
+        onView(withId(R.id.editTextTextPassword2)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD1_NEW), closeSoftKeyboard());
+        onView(withId(R.id.editTextTextPassword3)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD2_NEW), closeSoftKeyboard());
 
         onView(withId(R.id.button2)).perform(click());
         String check = registerActivity.unitTest;
