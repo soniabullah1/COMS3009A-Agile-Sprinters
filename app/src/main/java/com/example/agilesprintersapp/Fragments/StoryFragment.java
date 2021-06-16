@@ -19,7 +19,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.devlomi.circularstatusview.CircularStatusView;
 import com.example.agilesprintersapp.Adapter.StoryAdapter;
 import com.example.agilesprintersapp.Model.Story;
@@ -140,18 +139,18 @@ public class StoryFragment extends Fragment {
                     //username.setText(user.getUsername());
 
                     if (user != null && user.getId() != null) {
-                        if (user.getImageURL().equals("default")) {
-                            profile.setImageResource(R.mipmap.ic_launcher);
-                        } else {
-
-                            //ADD IN
-                            if (getActivity() == null) {
-                                return;
-                            }
-
-                            //END
-                            Glide.with(getContext()).load(user.getImageURL()).into(profile);
-                        }
+//                        if (user.getImageURL().equals("default")) {
+//                            profile.setImageResource(R.mipmap.ic_launcher);
+//                        } else {
+//
+//                            //ADD IN
+//                            if (getActivity() == null) {
+//                                return;
+//                            }
+//
+//                            //END
+//                            Glide.with(getContext()).load(user.getImageURL()).into(profile);
+//                        }
 
                     }
                 }
@@ -175,15 +174,10 @@ public class StoryFragment extends Fragment {
         floatingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(getActivity(), MyStoryActivity.class);
-//                startActivity(intent);
-
-                //pickImagesIntent();
-                Intent intent = new Intent();
-                intent.setType("image/*");
-                //intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent, "Select image"), PICK_IMAGES_CODE);
+//                Intent intent = new Intent();
+//                intent.setType("image/*");
+//                intent.setAction(Intent.ACTION_GET_CONTENT);
+//                startActivityForResult(Intent.createChooser(intent, "Select image"), PICK_IMAGES_CODE);
             }
         });
 
@@ -219,19 +213,19 @@ public class StoryFragment extends Fragment {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
 
-                                    switch (which) {
-                                        case DialogInterface.BUTTON_POSITIVE:
-
-                                            for (DataSnapshot deleteSnapshot : dataSnapshot.getChildren()) {
-                                                deleteSnapshot.getRef().removeValue();
-                                            }
-
-                                            Toast.makeText(getActivity(), "Status deleted", Toast.LENGTH_SHORT).show();
-                                            break;
-
-                                        case DialogInterface.BUTTON_NEGATIVE:
-                                            break;
-                                    }
+//                                    switch (which) {
+//                                        case DialogInterface.BUTTON_POSITIVE:
+//
+//                                            for (DataSnapshot deleteSnapshot : dataSnapshot.getChildren()) {
+//                                                deleteSnapshot.getRef().removeValue();
+//                                            }
+//
+//                                            Toast.makeText(getActivity(), "Status deleted", Toast.LENGTH_SHORT).show();
+//                                            break;
+//
+//                                        case DialogInterface.BUTTON_NEGATIVE:
+//                                            break;
+//                                    }
 
                                 }
                             };

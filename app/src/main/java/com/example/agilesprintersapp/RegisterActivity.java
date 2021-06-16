@@ -121,47 +121,47 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "All fields must be filled out", Toast.LENGTH_SHORT).show();
 
                 } else if (TextUtils.isEmpty(fName)) {
-                    Name1.setError("Input First Name");
-                    Name1.requestFocus();
+//                    Name1.setError("Input First Name");
+//                    Name1.requestFocus();
 
                 } else if (TextUtils.isEmpty(lName)) {
-                    Name2.setError("Input Surname");
-                    Name2.requestFocus();
+//                    Name2.setError("Input Surname");
+//                    Name2.requestFocus();
 
                 } else if (TextUtils.isEmpty(username)) {
-                    Username.setError("Input Username");
-                    Username.requestFocus();
+//                    Username.setError("Input Username");
+//                    Username.requestFocus();
 
                 } else if (TextUtils.isEmpty(email)) {
-                    Email.setError("Input Email Address");
-                    Email.requestFocus();
+//                    Email.setError("Input Email Address");
+//                    Email.requestFocus();
 
                 } else if (TextUtils.isEmpty(phone)) {
-                    Phone.setError("Input Phone Number");
-                    Phone.requestFocus();
+//                    Phone.setError("Input Phone Number");
+//                    Phone.requestFocus();
 
                 } else if (TextUtils.isEmpty(password)) {
-                    Pwd.setError("Input Password");
-                    Pwd.requestFocus();
+//                    Pwd.setError("Input Password");
+//                    Pwd.requestFocus();
 
                 } else if (password.length() < 6) {
-                    Pwd.setError("Password must be at least 6 characters");
-                    Pwd.requestFocus();
-                    Toast.makeText(RegisterActivity.this, "Password must be at least 6 characters ", Toast.LENGTH_SHORT).show();
+//                    Pwd.setError("Password must be at least 6 characters");
+//                    Pwd.requestFocus();
+//                    Toast.makeText(RegisterActivity.this, "Password must be at least 6 characters ", Toast.LENGTH_SHORT).show();
 
                 } else if (TextUtils.isEmpty(confirmation)) {
-                    ConfirmPwd.setError("Input Password");
-                    ConfirmPwd.requestFocus();
+//                    ConfirmPwd.setError("Input Password");
+//                    ConfirmPwd.requestFocus();
 
                 } else if (!password.equals(confirmation)) {
-                    ConfirmPwd.setError("Passwords do not match");
-                    ConfirmPwd.requestFocus();
+//                    ConfirmPwd.setError("Passwords do not match");
+//                    ConfirmPwd.requestFocus();
                 }
 
                 else{
-                    Register(fName, lName, username, email, phone, password);
-                    Toast.makeText(getApplicationContext(),"Registration Successful :D",Toast.LENGTH_SHORT).show();
-                    progressBar.setVisibility(View.VISIBLE);
+//                    Register(fName, lName, username, email, phone, password);
+//                    Toast.makeText(getApplicationContext(),"Registration Successful :D",Toast.LENGTH_SHORT).show();
+//                    progressBar.setVisibility(View.VISIBLE);
                 }
             }
 

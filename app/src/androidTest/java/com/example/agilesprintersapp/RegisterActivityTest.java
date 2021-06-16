@@ -37,12 +37,12 @@ public class RegisterActivityTest {
     Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(MainActivity.class.getName(),null ,false);
 
     public static final String STRING_TO_BE_TYPED_FNAME = "unit";
-    public static final String STRING_TO_BE_TYPED_LNAME = "test";
-    public static final String STRING_TO_BE_TYPED_USERNAME = "unittest";
-    public static final String STRING_TO_BE_TYPED_MAIL = "unittest@gmail.com";
+    public static final String STRING_TO_BE_TYPED_LNAME = "tester";
+    public static final String STRING_TO_BE_TYPED_USERNAME = "unittester";
+    public static final String STRING_TO_BE_TYPED_MAIL = "seedr106@gmail.com";
     public static final String STRING_TO_BE_TYPED_PHONE = "0610230497";
-    public static final String STRING_TO_BE_TYPED_PASSWORD1 = "unittest";
-    public static final String STRING_TO_BE_TYPED_PASSWORD2 = "unittest";
+    public static final String STRING_TO_BE_TYPED_PASSWORD1 = "unittester";
+    public static final String STRING_TO_BE_TYPED_PASSWORD2 = "unittester";
     public static final String STRING_TO_BE_TYPED_PASSWORD_SHORT = "short";
 
     @Before
