@@ -184,7 +184,7 @@ public class LoginActivityTest {
         onView(withId(R.id.edit_email)).perform(typeText(STRING_TO_BE_TYPED_EMAIL1), closeSoftKeyboard());
         onView(withId(R.id.edit_phone_number)).perform(typeText(STRING_TO_BE_TYPED_PHONE), closeSoftKeyboard());
         onView(withId(R.id.edit_username)).perform(typeText(STRING_TO_BE_TYPED_USERNAME), closeSoftKeyboard());
-        onView(withId(R.id.btn_saver)).perform(click());
+        onView(withId(R.id.btn_saver)).perform(click(), closeSoftKeyboard());
 
     }
 
