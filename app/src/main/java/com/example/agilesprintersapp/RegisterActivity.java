@@ -21,11 +21,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.HashMap;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -177,37 +173,37 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()) {
-
-                            FirebaseUser firebaseUser = mAuth.getCurrentUser();
-                            String userid = firebaseUser.getUid();
-                            reference = FirebaseDatabase.getInstance().getReference("User").child(userid);
-
-                            HashMap<String,String> hashMap = new HashMap<>();
-                            hashMap.put("id", userid);
-                            hashMap.put("imageURL", "default");
-                            hashMap.put("firstName", fName);
-                            hashMap.put("lastName", lName);
-                            hashMap.put("username", username);
-                            hashMap.put("email", email);
-                            hashMap.put("contactNumber", phone);
-
-
-                            reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>(){
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    progressBar.setVisibility(View.GONE);
-                                    if (task.isSuccessful()) {
-                                        Toast.makeText(RegisterActivity.this, "Registration Successful!", Toast.LENGTH_LONG).show();
-                                        Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
-                                        startActivity(intent);
-                                    }
-                                    else {
-                                        //display a failure message
-                                        Toast.makeText(RegisterActivity.this, "Registration Unsuccessful - Please try again.", Toast.LENGTH_LONG).show();
-                                        unitTest ="False";
-                                    }
-                                }
-                            });
+//
+//                            FirebaseUser firebaseUser = mAuth.getCurrentUser();
+//                            String userid = firebaseUser.getUid();
+//                            reference = FirebaseDatabase.getInstance().getReference("User").child(userid);
+//
+//                            HashMap<String,String> hashMap = new HashMap<>();
+//                            hashMap.put("id", userid);
+//                            hashMap.put("imageURL", "default");
+//                            hashMap.put("firstName", fName);
+//                            hashMap.put("lastName", lName);
+//                            hashMap.put("username", username);
+//                            hashMap.put("email", email);
+//                            hashMap.put("contactNumber", phone);
+//
+//
+//                            reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>(){
+//                                @Override
+//                                public void onComplete(@NonNull Task<Void> task) {
+//                                    progressBar.setVisibility(View.GONE);
+//                                    if (task.isSuccessful()) {
+//                                        Toast.makeText(RegisterActivity.this, "Registration Successful!", Toast.LENGTH_LONG).show();
+//                                        Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
+//                                        startActivity(intent);
+//                                    }
+//                                    else {
+//                                        //display a failure message
+//                                        Toast.makeText(RegisterActivity.this, "Registration Unsuccessful - Please try again.", Toast.LENGTH_LONG).show();
+//                                        unitTest ="False";
+//                                    }
+//                                }
+//                            });
 
                         } else {
                             Toast.makeText(RegisterActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
