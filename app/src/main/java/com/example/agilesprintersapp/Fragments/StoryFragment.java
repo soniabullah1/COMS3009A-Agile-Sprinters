@@ -1,7 +1,6 @@
 package com.example.agilesprintersapp.Fragments;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -242,11 +241,11 @@ public class StoryFragment extends Fragment {
                                 }
                             };
 
-                            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                            builder.setMessage("Are you sure you want to delete your status ?")
-                                    .setNegativeButton("No", dialogClickListener)
-                                    .setPositiveButton("Yes", dialogClickListener)
-                                    .show();
+//                            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+//                            builder.setMessage("Are you sure you want to delete your status ?")
+//                                    .setNegativeButton("No", dialogClickListener)
+//                                    .setPositiveButton("Yes", dialogClickListener)
+//                                    .show();
                         }
                         else{
                             Toast.makeText(getActivity(), "No Status to be deleted", Toast.LENGTH_SHORT).show();
