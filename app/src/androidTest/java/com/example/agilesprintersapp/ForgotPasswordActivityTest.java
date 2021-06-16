@@ -1,8 +1,10 @@
 package com.example.agilesprintersapp;
 
+import android.app.Activity;
 import android.app.Instrumentation;
 import android.content.Intent;
 
+import androidx.annotation.UiThread;
 import androidx.test.rule.ActivityTestRule;
 
 import org.junit.After;
@@ -18,6 +20,7 @@ import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
+import static org.junit.Assert.assertNotNull;
 
 public class ForgotPasswordActivityTest {
 
@@ -41,21 +44,21 @@ public class ForgotPasswordActivityTest {
         onView(withId(R.id.Btn_Return)).check(matches(isDisplayed()));
     }
 
-//    @UiThread
-//    @Test
-//    public void testReturnButton(){
-//        try {
-//            Thread.sleep(3000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//        onView(withId(R.id.Btn_Return)).perform(click());
-//        Activity loginActivity = getInstrumentation().waitForMonitorWithTimeout(monitor,5000);
-//        assertNotNull(loginActivity);
-//
-//        fPActivity.finish();
-//
-//    }
+    @UiThread
+    @Test
+    public void testReturnButton(){
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        onView(withId(R.id.Btn_Return)).perform(click());
+        Activity loginActivity = getInstrumentation().waitForMonitorWithTimeout(monitor,5000);
+        assertNotNull(loginActivity);
+
+        fPActivity.finish();
+
+    }
 
     @Test
     public void testResetButton(){
