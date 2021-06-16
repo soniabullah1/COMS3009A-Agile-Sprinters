@@ -1,6 +1,7 @@
 package com.example.agilesprintersapp.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.devlomi.circularstatusview.CircularStatusView;
 import com.example.agilesprintersapp.Model.Story;
 import com.example.agilesprintersapp.R;
+import com.example.agilesprintersapp.StoryActivity;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -84,14 +86,14 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder>{
             @Override
             public void onClick(View view){
 
-//                        Intent intent = new Intent();
-//                        intent.setClass(mContext, StoryActivity.class);
-//                        intent.putExtra("sender", user.getSender());
-//                        intent.putExtra("username", user.getUsername());
-//                        intent.putExtra("story", user.getStory());
-//                        intent.putExtra("time", user.getTime());
-//                        intent.putExtra("caption", user.getCaption());
-//                        mContext.startActivity(intent);
+                        Intent intent = new Intent();
+                        intent.setClass(mContext, StoryActivity.class);
+                        intent.putExtra("sender", user.getSender());
+                        intent.putExtra("username", user.getUsername());
+                        intent.putExtra("story", user.getStory());
+                        intent.putExtra("time", user.getTime());
+                        intent.putExtra("caption", user.getCaption());
+                        mContext.startActivity(intent);
 
             }
         });

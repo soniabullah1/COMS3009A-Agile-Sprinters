@@ -1,5 +1,7 @@
 package com.example.agilesprintersapp.Fragments;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -19,11 +21,16 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.devlomi.circularstatusview.CircularStatusView;
 import com.example.agilesprintersapp.Adapter.StoryAdapter;
 import com.example.agilesprintersapp.Model.Story;
 import com.example.agilesprintersapp.Model.User;
+import com.example.agilesprintersapp.Preview;
 import com.example.agilesprintersapp.R;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -139,18 +146,18 @@ public class StoryFragment extends Fragment {
                     //username.setText(user.getUsername());
 
                     if (user != null && user.getId() != null) {
-//                        if (user.getImageURL().equals("default")) {
-//                            profile.setImageResource(R.mipmap.ic_launcher);
-//                        } else {
-//
-//                            //ADD IN
-//                            if (getActivity() == null) {
-//                                return;
-//                            }
-//
-//                            //END
-//                            Glide.with(getContext()).load(user.getImageURL()).into(profile);
-//                        }
+                        if (user.getImageURL().equals("default")) {
+                            profile.setImageResource(R.mipmap.ic_launcher);
+                        } else {
+
+                            //ADD IN
+                            if (getActivity() == null) {
+                                return;
+                            }
+
+                            //END
+                            Glide.with(getContext()).load(user.getImageURL()).into(profile);
+                        }
 
                     }
                 }
@@ -174,10 +181,15 @@ public class StoryFragment extends Fragment {
         floatingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent();
-//                intent.setType("image/*");
-//                intent.setAction(Intent.ACTION_GET_CONTENT);
-//                startActivityForResult(Intent.createChooser(intent, "Select image"), PICK_IMAGES_CODE);
+//                Intent intent = new Intent(getActivity(), MyStoryActivity.class);
+//                startActivity(intent);
+
+                //pickImagesIntent();
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                //intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select image"), PICK_IMAGES_CODE);
             }
         });
 
@@ -213,28 +225,28 @@ public class StoryFragment extends Fragment {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
 
-//                                    switch (which) {
-//                                        case DialogInterface.BUTTON_POSITIVE:
-//
-//                                            for (DataSnapshot deleteSnapshot : dataSnapshot.getChildren()) {
-//                                                deleteSnapshot.getRef().removeValue();
-//                                            }
-//
-//                                            Toast.makeText(getActivity(), "Status deleted", Toast.LENGTH_SHORT).show();
-//                                            break;
-//
-//                                        case DialogInterface.BUTTON_NEGATIVE:
-//                                            break;
-//                                    }
+                                    switch (which) {
+                                        case DialogInterface.BUTTON_POSITIVE:
+
+                                            for (DataSnapshot deleteSnapshot : dataSnapshot.getChildren()) {
+                                                deleteSnapshot.getRef().removeValue();
+                                            }
+
+                                            Toast.makeText(getActivity(), "Status deleted", Toast.LENGTH_SHORT).show();
+                                            break;
+
+                                        case DialogInterface.BUTTON_NEGATIVE:
+                                            break;
+                                    }
 
                                 }
                             };
 
-//                            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-//                            builder.setMessage("Are you sure you want to delete your status ?")
-//                                    .setNegativeButton("No", dialogClickListener)
-//                                    .setPositiveButton("Yes", dialogClickListener)
-//                                    .show();
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                            builder.setMessage("Are you sure you want to delete your status ?")
+                                    .setNegativeButton("No", dialogClickListener)
+                                    .setPositiveButton("Yes", dialogClickListener)
+                                    .show();
                         }
                         else{
                             Toast.makeText(getActivity(), "No Status to be deleted", Toast.LENGTH_SHORT).show();
@@ -259,90 +271,101 @@ public class StoryFragment extends Fragment {
         return view;
     }
 
-//    private void pickImagesIntent() {
-//        Intent intent = new Intent();
-//        intent.setType("image/*");
-//        // intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-//        intent.setAction(Intent.ACTION_GET_CONTENT);
-//        getActivity().startActivityForResult(Intent.createChooser(intent, "Select image"), PICK_IMAGES_CODE);
-//    }
+    private void pickImagesIntent() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        // intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        getActivity().startActivityForResult(Intent.createChooser(intent, "Select image"), PICK_IMAGES_CODE);
+    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         //super.onActivityResult(requestCode, resultCode, data);
-//
-//        if (requestCode == PICK_IMAGES_CODE) {
-//
-//            if (resultCode == Activity.RESULT_OK) {
-//
-//                if (data.getClipData() != null) {
-//
-//                }
-//
-//                // This is only for 1 image selected
-//                else {
-//
-//                    fileUri = data.getData();
-//                    imageUris.add(fileUri);
-//                    stringUris.add(fileUri.toString());
-//
-//                    StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Image Files");
-//                    DatabaseReference userMessageKeyRef = reference.child("stories")
-//                            .child(messageSenderID).push();
-//                    String messagePushID = userMessageKeyRef.getKey();
-//                    StorageReference filePath = storageReference.child(messagePushID + "." + "jpg");
-//                    uploadTask = filePath.putFile(fileUri);
-//
-//                    uploadTask.continueWithTask(new Continuation() {
-//                        @Override
-//                        public Object then(@NonNull Task task) throws Exception {
-//                            if (!task.isSuccessful()) {
-//                                throw task.getException();
-//                            }
-//                            return filePath.getDownloadUrl();
-//                        }
-//                    }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-//                        @Override
-//                        public void onComplete(@NonNull Task<Uri> task) {
-//                            if (task.isSuccessful()) {
-//                                time = String.valueOf(System.currentTimeMillis());
-//                                Uri downloadUrl = task.getResult();
-//                                myUrl = downloadUrl.toString();
-//                                Uri a = fileUri;
-//
-//                                Intent i = new Intent(getActivity(), Preview.class);
-//
-//                                //Bundle args = new Bundle();
-//
-//                                //args.putSerializable("IMAGES",(Serializable)imageUris);
-//                                //args.putSerializable("STRING_IMAGES",(Serializable)stringUris);
-//
-//
-//                                i.putExtra("sender", fuser.getUid());
-//                                //i.putExtra("receiver", userid);
-//                                i.putExtra("message", myUrl);
-//                                i.putExtra("checker", "image");
-//                                i.putExtra("time", time);
-//
-//                                i.putExtra("images", imageUris);
-//                                i.putExtra("images_strings", stringUris);
-//                                i.putExtra("imagePath", a.toString());
-//                                //i.putExtra("BUNDLE", args);
-//
-//                                startActivity(i);
-//
-//                            }
-//                            imageUris.clear();
-//                        }
-//                    });
-//                }
-//            }
-//        }
+
+        if (requestCode == PICK_IMAGES_CODE) {
+
+            if (resultCode == Activity.RESULT_OK) {
+
+                if (data.getClipData() != null) {
+
+                }
+
+                // This is only for 1 image selected
+                else {
+
+                    fileUri = data.getData();
+                    imageUris.add(fileUri);
+                    stringUris.add(fileUri.toString());
+
+                    StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Image Files");
+                    DatabaseReference userMessageKeyRef = reference.child("stories")
+                            .child(messageSenderID).push();
+                    String messagePushID = userMessageKeyRef.getKey();
+                    StorageReference filePath = storageReference.child(messagePushID + "." + "jpg");
+                    uploadTask = filePath.putFile(fileUri);
+
+                    uploadTask.continueWithTask(new Continuation() {
+                        @Override
+                        public Object then(@NonNull Task task) throws Exception {
+                            if (!task.isSuccessful()) {
+                                throw task.getException();
+                            }
+                            return filePath.getDownloadUrl();
+                        }
+                    }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Uri> task) {
+                            if (task.isSuccessful()) {
+                                time = String.valueOf(System.currentTimeMillis());
+                                Uri downloadUrl = task.getResult();
+                                myUrl = downloadUrl.toString();
+                                Uri a = fileUri;
+
+                                Intent i = new Intent(getActivity(), Preview.class);
+
+                                //Bundle args = new Bundle();
+
+                                //args.putSerializable("IMAGES",(Serializable)imageUris);
+                                //args.putSerializable("STRING_IMAGES",(Serializable)stringUris);
+
+
+                                i.putExtra("sender", fuser.getUid());
+                                //i.putExtra("receiver", userid);
+                                i.putExtra("message", myUrl);
+                                i.putExtra("checker", "image");
+                                i.putExtra("time", time);
+
+                                i.putExtra("images", imageUris);
+                                i.putExtra("images_strings", stringUris);
+                                i.putExtra("imagePath", a.toString());
+                                //i.putExtra("BUNDLE", args);
+
+                                startActivity(i);
+
+                            }
+                            imageUris.clear();
+                        }
+                    });
+                }
+            }
+        }
     }
 
 
 
     public void displayContactsStatus() {
+
+//        final long timestamp = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis());
+//        final long expireTime = timestamp + TimeUnit.MILLISECONDS.convert(1, TimeUnit.MINUTES);
+
+//        timer = new Timer();
+//        timer.schedule(new TimerTask() {
+//            @Override
+//            public void run() {
+//                story.setVisibility(View.GONE);
+//            }
+//        }, 20000);
 
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("stories");
