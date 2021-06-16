@@ -1,7 +1,6 @@
 package com.example.agilesprintersapp;
 
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,7 +13,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -145,24 +143,24 @@ public class MessageActivity extends AppCompatActivity {
         btn_attach_pic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CharSequence[] options = new CharSequence[]
-                        {
-                                "Choose an image from the gallery",
-
-                        };
-                AlertDialog.Builder builder = new AlertDialog.Builder(MessageActivity.this);
-                builder.setTitle("Select the File");
-
-                builder.setItems(options, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        if(i == 0){
-                            checker = "image";
-                            pickImagesIntent();
-                        }
-                    }
-                });
-                builder.show();
+//                CharSequence[] options = new CharSequence[]
+//                        {
+//                                "Choose an image from the gallery",
+//
+//                        };
+//                AlertDialog.Builder builder = new AlertDialog.Builder(MessageActivity.this);
+//                builder.setTitle("Select the File");
+//
+//                builder.setItems(options, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//                        if(i == 0){
+//                            checker = "image";
+//                            pickImagesIntent();
+//                        }
+//                    }
+//                });
+//                builder.show();
             }
         });
 
@@ -218,11 +216,11 @@ public class MessageActivity extends AppCompatActivity {
     }
 
     public void pickImagesIntent(){
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select image(s)"), PICK_IMAGES_CODE);
+//        Intent intent = new Intent();
+//        intent.setType("image/*");
+//        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+//        intent.setAction(Intent.ACTION_GET_CONTENT);
+//        startActivityForResult(Intent.createChooser(intent, "Select image(s)"), PICK_IMAGES_CODE);
     }
 
     @Override
@@ -505,9 +503,9 @@ public class MessageActivity extends AppCompatActivity {
 
 
     public void Image () {
-        super.onPause();
-        reference.removeEventListener(seenListener);
-        status("offline");
+//        super.onPause();
+//        reference.removeEventListener(seenListener);
+//        status("offline");
     }
 
 }
